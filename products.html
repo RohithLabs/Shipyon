@@ -11,24 +11,35 @@
 <body>
 
   <!-- Navigation Bar -->
-  <header class="site-header" id="site-header">
+    <header class="site-header" id="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo" id="brand-logo" aria-label="Shipyon Exim Home">
-        <img src="assets/shipyon-logo.png" alt="Shipyon Logo" class="brand-logo-img" width="132" height="42">
+        <img src="assets/shipyon-logo.png" alt="Shipyon Logo" class="brand-logo-img" width="136" height="42">
         <span class="brand-badge">EXIM</span>
       </a>
 
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
-        <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
-        <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
-        <li><a href="products.html" class="nav-link active" id="nav-products">Products</a></li>
-        <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
-      </ul>
+      <!-- Desktop Nav -->
+      <nav class="nav-links-wrapper" aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+          <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+          <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
+          <li><a href="products.html" class="nav-link active" id="nav-products">Products</a></li>
+          <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+        </ul>
+      </nav>
 
+      <!-- Nav Action Button (Trade Desk Removed) -->
       <div class="nav-actions">
-        <button class="btn btn-primary open-quote-modal-btn" id="btn-header-quote">Request Quote</button>
-        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation">☰</button>
+        <button class="btn btn-fashion-quote open-quote-modal-btn" id="btn-header-quote">
+          <span>Request Quote</span>
+          <svg class="btn-arrow-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation">
+          <span class="mobile-toggle-bar"></span>
+          <span class="mobile-toggle-bar"></span>
+          <span class="mobile-toggle-bar"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -45,11 +56,11 @@
       <!-- Category Filter Tabs -->
       <div class="filter-tabs-bar">
         <button class="filter-tab-btn active" data-category="all">All Commodities (12)</button>
-        <button class="filter-tab-btn" data-category="fresh-produce">🌱 Fresh Produce</button>
-        <button class="filter-tab-btn" data-category="spices">🌶️ Spices & Plantation Crops</button>
-        <button class="filter-tab-btn" data-category="fruits">🍎 Fruits</button>
-        <button class="filter-tab-btn" data-category="processed">🍯 Processed & Value-Added</button>
-        <button class="filter-tab-btn" data-category="industrial">📦 Industrial & Commercial</button>
+        <button class="filter-tab-btn" data-category="fresh-produce">Fresh Produce</button>
+        <button class="filter-tab-btn" data-category="spices">Spices & Plantation Crops</button>
+        <button class="filter-tab-btn" data-category="fruits">Fruits</button>
+        <button class="filter-tab-btn" data-category="processed">Processed & Value-Added</button>
+        <button class="filter-tab-btn" data-category="industrial">Industrial & Commercial</button>
       </div>
     </div>
   </section>
@@ -260,18 +271,18 @@
         <div>
           <h3 class="footer-col-headline">Headquarters</h3>
           <div class="footer-contact-item">
-            <span class="icon">📍</span>
+            <span class="icon"><svg class="svg-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
             <span>Hall No 2, 1st Floor, Vishnu Lakshmi School Campus, Ellis Nagar(PO), Pollachi Road, Dharapuram - 638 656.</span>
           </div>
           <div class="footer-contact-item">
-            <span class="icon">📞</span>
+            <span class="icon"><svg class="svg-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <div>
               <div>+91 95006 90740</div>
               <div>+49 1515 6840689</div>
             </div>
           </div>
           <div class="footer-contact-item">
-            <span class="icon">✉️</span>
+            <span class="icon"><svg class="svg-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
             <span>trade@shipyon.com</span>
           </div>
         </div>
@@ -311,8 +322,8 @@
             <div class="social-title">Connect With Us</div>
             <div class="social-icons-row">
               <a href="#" class="social-btn" aria-label="Facebook">f</a>
-              <a href="#" class="social-btn" aria-label="Instagram">📸</a>
-              <a href="https://wa.me/919500690740" target="_blank" class="social-btn" aria-label="Whatsapp">💬</a>
+              <a href="#" class="social-btn" aria-label="Instagram"><svg class="svg-ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="https://wa.me/919500690740" target="_blank" class="social-btn" aria-label="Whatsapp"><svg class="svg-ico" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg></a>
             </div>
           </div>
         </div>
