@@ -1,0 +1,19 @@
+{
+  "name": "shipyon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "OrbitControls.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "bugs": {
+    "url": "https://github.com/RohithLabs/Shipyon/issues"
+  },
+  "homepage": "https://github.com/RohithLabs/Shipyon#readme",
+  "devDependencies": {
+    "vite": "^8.3.0"
+  }
+}
