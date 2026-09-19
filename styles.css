@@ -774,6 +774,72 @@ button, input, textarea, select {
   overflow: hidden;
 }
 
+/* Live 4-Second Auto-Tour Status Badge */
+.globe-live-tour-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: rgba(11, 30, 54, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: var(--radius-pill);
+  color: #FFFFFF;
+  font-family: var(--font-accent), 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  z-index: 25;
+  box-shadow: 0 10px 25px -5px rgba(11, 30, 54, 0.25);
+  pointer-events: none;
+  max-width: calc(100% - 40px);
+}
+
+.globe-live-tour-badge .tour-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 10px #10B981;
+  flex-shrink: 0;
+  animation: pulseLiveTourDot 1.6s infinite ease-in-out;
+}
+
+@keyframes pulseLiveTourDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.4); }
+}
+
+.globe-live-tour-badge .tour-badge-tag {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #38BDF8;
+  font-size: 0.74rem;
+  flex-shrink: 0;
+}
+
+.globe-live-tour-badge .tour-badge-divider {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.globe-live-tour-badge .tour-badge-corridor {
+  font-weight: 600;
+  color: #F8FAFC;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.globe-live-tour-badge .badge-sub {
+  color: #94A3B8;
+  font-weight: 400;
+  font-size: 0.76rem;
+}
+
 /* Three.js Canvas Container */
 .shipyon-3d-globe-container {
   width: 100%;

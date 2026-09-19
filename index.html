@@ -190,6 +190,14 @@
       <!-- 3D Interactive World Globe Stage -->
       <div class="globe-3d-stage-wrapper" id="globe-3d-stage-wrapper">
         <div class="globe-canvas-card" id="globe-canvas-card">
+          <!-- Live 4-Second Auto-Tour Status Badge -->
+          <div class="globe-live-tour-badge" id="globe-live-tour-badge">
+            <span class="tour-live-dot"></span>
+            <span class="tour-badge-tag">AUTO-TOUR [4s]</span>
+            <span class="tour-badge-divider">&bull;</span>
+            <span class="tour-badge-corridor" id="tour-badge-corridor"><strong>DUBAI (UAE)</strong> &mdash; Middle East Transshipment Hub</span>
+          </div>
+
           <!-- 3D WebGL Canvas Container -->
           <div id="shipyon-3d-globe-container" class="shipyon-3d-globe-container"></div>
 
@@ -213,9 +221,9 @@
             </div>
 
             <div class="globe-action-controls">
-              <button class="globe-ctrl-btn active" id="btn-toggle-rotate" type="button" title="Toggle Auto-Rotation">
-                <svg class="ctrl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                <span>Auto-Rotate</span>
+              <button class="globe-ctrl-btn active" id="btn-toggle-tour" type="button" title="Toggle 4-Second Country Auto-Tour">
+                <svg class="ctrl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+                <span>Auto-Tour (4s)</span>
               </button>
               <button class="globe-ctrl-btn" id="btn-reset-view" type="button" title="Reset View to India Origin">
                 <svg class="ctrl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
