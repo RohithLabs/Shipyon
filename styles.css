@@ -2022,75 +2022,108 @@ button, input, textarea, select {
   position: relative;
 }
 
-.promise-dark-sea-box {
-  background: linear-gradient(145deg, #051329 0%, #0A223E 50%, #06172D 100%);
-  border: 1.5px solid rgba(56, 189, 248, 0.3);
-  border-radius: 32px;
-  padding: 68px 52px;
+/* ==========================================================================
+   OUR VALUES & PROMISE - BESPOKE LUXURY CHARTER COVENANT
+   Opulent Midnight-Navy & Champagne Gold Heritage Aesthetic (Zero Tech / Cyber)
+   ========================================================================== */
+.values-section.promise-dark-sea-section,
+.values-section.promise-luxury-section {
+  padding: 95px 0 105px;
+  background: var(--bg-base);
+  position: relative;
+}
+
+.promise-dark-sea-box,
+.promise-luxury-box {
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.16) 0%, transparent 65%),
+    radial-gradient(circle at 10% 90%, rgba(184, 134, 11, 0.08) 0%, transparent 50%),
+    linear-gradient(155deg, #070F1E 0%, #0B1728 50%, #040810 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.42);
+  border-radius: 36px;
+  padding: 76px 56px;
   box-shadow: 
-    0 35px 85px -15px rgba(5, 19, 41, 0.65),
-    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    0 45px 120px -20px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(243, 229, 171, 0.14) inset,
+    0 1px 0 rgba(255, 255, 255, 0.15) inset;
   position: relative;
   overflow: hidden;
 }
 
-/* Ambient Radial Marine Water Caustics Glow */
-.promise-dark-sea-box::before {
+/* Ambient Warm Gold Filigree Glow Top Edge */
+.promise-dark-sea-box::before,
+.promise-luxury-box::before {
   content: '';
   position: absolute;
-  top: -30%;
-  right: -15%;
-  width: 650px;
-  height: 650px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, rgba(14, 165, 233, 0.03) 50%, transparent 70%);
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(243, 229, 171, 0.85) 50%, transparent 100%);
   pointer-events: none;
 }
 
-.promise-dark-sea-box::after {
+.promise-dark-sea-box::after,
+.promise-luxury-box::after {
   content: '';
   position: absolute;
-  bottom: -30%;
-  left: -15%;
+  bottom: -25%;
+  right: -10%;
   width: 550px;
   height: 550px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
-.promise-header-dark {
+.promise-header-dark,
+.promise-header-luxury {
   text-align: center;
-  max-width: 740px;
-  margin: 0 auto 52px auto;
+  max-width: 780px;
+  margin: 0 auto 58px auto;
   position: relative;
   z-index: 2;
 }
 
-.promise-header-dark .promise-title-dark {
-  color: #FFFFFF !important;
-  font-family: var(--font-editorial);
-  font-size: clamp(2rem, 3.4vw, 2.9rem);
+.promise-header-dark .promise-title-dark,
+.promise-header-luxury .promise-title-luxury {
+  color: #FAF7F2 !important;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-top: 14px;
-  margin-bottom: 14px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.01em;
+  margin-top: 18px;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
 }
 
-.promise-header-dark .promise-subtitle-dark {
-  color: #94A3B8 !important;
+.promise-header-dark .promise-subtitle-dark,
+.promise-header-luxury .promise-subtitle-luxury {
+  color: #C8D1DC !important;
+  font-family: 'Inter', var(--font-body), sans-serif;
   font-size: 1.05rem;
-  line-height: 1.65;
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 660px;
+  margin: 0 auto;
 }
 
-.promise-pill-tag {
-  background: rgba(56, 189, 248, 0.15) !important;
-  color: #38BDF8 !important;
-  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+.promise-pill-tag,
+.promise-pill-luxury {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.1) !important;
+  color: #E6CA65 !important;
+  border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  font-family: var(--font-accent), 'Outfit', sans-serif;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .promise-cards-grid {
@@ -2101,15 +2134,18 @@ button, input, textarea, select {
   z-index: 2;
 }
 
-.promise-card-dark {
-  background: rgba(11, 32, 59, 0.65) !important;
-  border: 1px solid rgba(56, 189, 248, 0.2) !important;
-  border-radius: var(--radius-lg);
-  padding: 36px 28px;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+.promise-card-dark,
+.promise-card-luxury {
+  background: linear-gradient(175deg, rgba(16, 28, 48, 0.75) 0%, rgba(8, 16, 28, 0.88) 100%) !important;
+  border: 1px solid rgba(212, 175, 55, 0.24) !important;
+  border-radius: 22px;
+  padding: 38px 28px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(255, 235, 175, 0.1) inset;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.4s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -2117,53 +2153,86 @@ button, input, textarea, select {
   overflow: hidden;
 }
 
-.promise-card-dark::before {
+.promise-card-dark::before,
+.promise-card-luxury::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 24px;
-  right: 24px;
-  height: 3px;
-  background: linear-gradient(90deg, #38BDF8, #0EA5E9);
-  border-radius: 0 0 4px 4px;
-  opacity: 0.75;
-  transition: opacity 0.3s ease, height 0.3s ease;
+  left: 28px;
+  right: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.75) 50%, transparent 100%);
+  transition: opacity 0.35s ease, height 0.35s ease;
 }
 
-.promise-card-dark:hover {
+.promise-card-dark:hover,
+.promise-card-luxury:hover {
   transform: translateY(-8px) !important;
-  border-color: #38BDF8 !important;
+  border-color: rgba(212, 175, 55, 0.6) !important;
   box-shadow: 
-    0 24px 50px rgba(0, 0, 0, 0.55),
-    0 0 25px rgba(56, 189, 248, 0.3) !important;
+    0 30px 65px rgba(0, 0, 0, 0.75),
+    0 0 35px rgba(212, 175, 55, 0.18),
+    0 1px 0 rgba(255, 235, 175, 0.25) inset !important;
 }
 
-.promise-card-dark:hover::before {
-  opacity: 1;
-  height: 4px;
+.promise-card-dark:hover::before,
+.promise-card-luxury:hover::before {
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #F3E5AB 50%, transparent 100%);
 }
 
-.promise-glyph {
-  font-family: var(--font-accent), monospace;
-  font-size: 1.7rem;
-  font-weight: 800;
-  color: #38BDF8 !important;
-  margin-bottom: 14px;
-  text-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+.promise-ornament-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
 }
 
-.promise-name {
-  font-family: var(--font-editorial);
-  font-size: 1.35rem;
+.promise-glyph,
+.promise-numeral {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #FBF9F5 0%, #E6CA65 50%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 16px rgba(212, 175, 55, 0.25);
+}
+
+.promise-seal-icon {
+  width: 18px;
+  height: 18px;
+  color: rgba(212, 175, 55, 0.65);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.promise-card-dark:hover .promise-seal-icon,
+.promise-card-luxury:hover .promise-seal-icon {
+  color: #F3E5AB;
+  transform: rotate(45deg);
+}
+
+.promise-name,
+.promise-name-luxury {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: #FFFFFF !important;
-  margin-bottom: 10px;
+  color: #FAF6EE !important;
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
 }
 
-.promise-desc {
-  font-size: 0.92rem;
-  color: #CBD5E1 !important;
-  line-height: 1.6;
+.promise-desc,
+.promise-desc-luxury {
+  font-family: 'Inter', var(--font-body), sans-serif;
+  font-size: 0.94rem;
+  color: #C8D1DC !important;
+  line-height: 1.7;
+  font-weight: 300;
 }
 
 @media (max-width: 1024px) {

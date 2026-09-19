@@ -321,35 +321,44 @@ function initWhyChooseShowcase() {
 
   function startAutoCycle() {
     stopAutoCycle();
-    setActivePillar(currentIndex);
     autoTimer = setInterval(() => {
       const nextIndex = (currentIndex + 1) % cards.length;
       setActivePillar(nextIndex);
-    }, 5000);
+    }, 4800);
   }
 
   function stopAutoCycle() {
-    if (autoTimer) clearInterval(autoTimer);
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
   }
 
+  // Interacting with cards switches view immediately and continues continuous cycle
   cards.forEach((card, idx) => {
     card.addEventListener('mouseenter', () => {
-      stopAutoCycle();
       setActivePillar(idx);
+      startAutoCycle();
     });
 
     card.addEventListener('click', () => {
-      stopAutoCycle();
       setActivePillar(idx);
+      startAutoCycle();
     });
   });
 
+  // Cursor on image or outside does NOT stop cycle - continues working uninterrupted
   const display = document.getElementById('why-console-display');
   if (display) {
-    display.addEventListener('mouseenter', stopAutoCycle);
-    display.addEventListener('mouseleave', startAutoCycle);
+    display.addEventListener('click', () => {
+      const nextIndex = (currentIndex + 1) % cards.length;
+      setActivePillar(nextIndex);
+      startAutoCycle();
+    });
   }
 
+  // Start initial pillar and continuous cycle
+  setActivePillar(0);
   startAutoCycle();
 }
 
