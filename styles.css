@@ -754,293 +754,37 @@ button, input, textarea, select {
   overflow: hidden;
 }
 
-.globe-3d-stage-wrapper {
+.world-map-2d-stage-wrapper {
   position: relative;
   width: 100%;
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
-.globe-canvas-card {
+.world-map-2d-card {
   position: relative;
   width: 100%;
-  height: 680px;
-  background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #F0FAF5 55%, #E2F5EC 100%);
-  border: 2px solid rgba(130, 215, 175, 0.65);
-  border-radius: var(--radius-2xl, 32px);
+  background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #F0F9FF 55%, #E0F2FE 100%);
+  border: 2px solid rgba(140, 210, 245, 0.7);
+  border-radius: var(--radius-2xl, 28px);
   box-shadow: 
-    0 32px 90px -15px rgba(11, 30, 54, 0.16),
-    0 12px 32px -6px rgba(22, 101, 52, 0.08),
+    0 24px 70px -15px rgba(11, 30, 54, 0.12),
+    0 8px 24px -6px rgba(14, 116, 144, 0.08),
     0 0 0 1px rgba(255, 255, 255, 0.95) inset;
   overflow: hidden;
+  padding: 10px;
 }
 
-/* Live 4-Second Auto-Tour Status Badge */
-.globe-live-tour-badge {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 18px;
-  background: rgba(11, 30, 54, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  border-radius: var(--radius-pill);
-  color: #FFFFFF;
-  font-family: var(--font-accent), 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.82rem;
-  z-index: 25;
-  box-shadow: 0 10px 25px -5px rgba(11, 30, 54, 0.25);
-  pointer-events: none;
-  max-width: calc(100% - 40px);
-}
-
-.globe-live-tour-badge .tour-live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10B981;
-  box-shadow: 0 0 10px #10B981;
-  flex-shrink: 0;
-  animation: pulseLiveTourDot 1.6s infinite ease-in-out;
-}
-
-@keyframes pulseLiveTourDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(1.4); }
-}
-
-.globe-live-tour-badge .tour-badge-tag {
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #38BDF8;
-  font-size: 0.74rem;
-  flex-shrink: 0;
-}
-
-.globe-live-tour-badge .tour-badge-divider {
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 0.8rem;
-  flex-shrink: 0;
-}
-
-.globe-live-tour-badge .tour-badge-corridor {
-  font-weight: 600;
-  color: #F8FAFC;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.globe-live-tour-badge .badge-sub {
-  color: #94A3B8;
-  font-weight: 400;
-  font-size: 0.76rem;
-}
-
-/* Three.js Canvas Container */
-.shipyon-3d-globe-container {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
-  cursor: grab;
-}
-
-.shipyon-3d-globe-container:active {
-  cursor: grabbing;
-}
-
-.shipyon-3d-globe-container canvas {
-  width: 100% !important;
-  height: 100% !important;
+.world-map-2d-card svg {
   display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
 }
 
-/* Clean Unboxed 3D Projected Labels (Zero boxes, Bold typography) */
-.globe-labels-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 10;
-}
-
-.globe-projected-label {
-  position: absolute;
-  transform: translate(-50%, -100%);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 3px 8px;
-  pointer-events: auto;
-  user-select: none;
-  cursor: pointer;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  white-space: nowrap;
-}
-
-.globe-projected-label .label-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #0284C7;
-  box-shadow: 0 0 8px #0284C7;
-}
-
-.globe-projected-label.label-origin .label-dot {
-  background: #F59E0B;
-  box-shadow: 0 0 10px #F59E0B;
-  width: 9px;
-  height: 9px;
-}
-
-.globe-projected-label .label-text {
-  font-family: var(--font-accent), 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.84rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #0B1E36;
-  text-shadow: 
-    0 1px 2px #FFFFFF,
-    0 0 8px rgba(255, 255, 255, 0.95),
-    0 0 14px rgba(255, 255, 255, 0.95);
-  border-bottom: 2px solid rgba(11, 30, 54, 0.85);
-  padding-bottom: 2px;
-}
-
-.globe-projected-label.label-origin .label-text {
-  color: #B45309;
-  border-bottom-color: #B45309;
-  font-size: 0.9rem;
-}
-
-/* Floating Interactive HUD Strip */
-.globe-controls-hud {
-  position: absolute;
-  bottom: 18px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
-  z-index: 20;
-  pointer-events: none;
-}
-
-.globe-corridors-nav {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 8px 14px;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(130, 215, 175, 0.6);
-  box-shadow: 0 10px 25px -5px rgba(11, 30, 54, 0.1);
-  pointer-events: auto;
-}
-
-.globe-nav-btn {
-  background: transparent;
-  border: none;
-  font-family: var(--font-accent), sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #0B1E36;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.globe-nav-btn .btn-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #10B981;
-}
-
-.globe-nav-btn:hover {
-  background: rgba(16, 185, 129, 0.12);
-  color: #065F46;
-}
-
-.globe-nav-btn.active {
-  background: #0B1E36;
-  color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(11, 30, 54, 0.3);
-}
-
-.globe-nav-btn.active .btn-dot {
-  background: #F59E0B;
-}
-
-.globe-action-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  pointer-events: auto;
-}
-
-.globe-ctrl-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(130, 215, 175, 0.6);
-  color: #0B1E36;
-  font-family: var(--font-accent), sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-  box-shadow: 0 10px 25px -5px rgba(11, 30, 54, 0.1);
-  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
-}
-
-.globe-ctrl-btn:hover {
-  background: #0B1E36;
-  color: #FFFFFF;
-  transform: translateY(-2px);
-}
-
-.globe-ctrl-btn.active {
-  background: #ECFDF5;
-  color: #065F46;
-  border-color: #10B981;
-}
-
-.globe-ctrl-btn .ctrl-icon {
-  width: 14px;
-  height: 14px;
-}
-
-@media (max-width: 900px) {
-  .globe-canvas-card {
-    height: 520px;
-  }
-  .globe-controls-hud {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .globe-corridors-nav {
-    justify-content: center;
-  }
-  .globe-action-controls {
-    justify-content: center;
+@media (max-width: 768px) {
+  .world-map-2d-card {
+    padding: 6px;
+    border-radius: 18px;
   }
 }
 
