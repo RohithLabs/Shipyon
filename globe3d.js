@@ -302,6 +302,18 @@
         <span class="label-dot"></span>
         <span class="label-text">${loc.name}</span>
       `;
+
+      labelEl.addEventListener('click', () => {
+        focusOnCorridor(loc.id);
+        const modal = document.getElementById('quote-modal-overlay');
+        const destInput = document.getElementById('quote-destination');
+        if (loc.id !== 'INDIA' && modal && destInput) {
+          destInput.value = loc.name;
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+
       labelsOverlay.appendChild(labelEl);
 
       labelElements.push({

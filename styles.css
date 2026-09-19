@@ -741,11 +741,11 @@ button, input, textarea, select {
 }
 
 /* ==========================================================================
-   WORLD TRADE MAP: HIGH-FIDELITY MARITIME COMMAND CENTER
-   Mild Metallic Mixed-Color Palette & Precision Global Naval Animations
+   INTERACTIVE 3D WORLD GLOBE & MARITIME CORRIDORS (THREE.JS WEBGL)
+   True 3D Earth Model, Parabolic Great-Circle Flight/Shipping Arcs, Clean Typography
    ========================================================================== */
 .global-map-section {
-  padding: 85px 0 95px;
+  padding: 85px 0 100px;
   background: 
     radial-gradient(ellipse at 50% 20%, #FFFFFF 0%, #EDFCF4 50%, #D8F6E6 100%);
   border-top: 1px solid rgba(140, 220, 180, 0.45);
@@ -754,345 +754,230 @@ button, input, textarea, select {
   overflow: hidden;
 }
 
-.map-3d-perspective-stage {
-  perspective: 1600px;
-  perspective-origin: 50% 25%;
-  padding: 10px 0 35px;
-  transform-style: preserve-3d;
+.globe-3d-stage-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 25px;
 }
 
-/* 3D Tilted Brushed Titanium Console with Metallic Frame & Sheen Sweep */
-.world-map-canvas-card {
+.globe-canvas-card {
   position: relative;
-  background: #FFFFFF;
+  width: 100%;
+  height: 680px;
+  background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #F0FAF5 55%, #E2F5EC 100%);
   border: 2px solid rgba(130, 215, 175, 0.65);
-  border-radius: var(--radius-xl);
-  transform: rotateX(6deg) scale(0.985);
-  transform-style: preserve-3d;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  border-radius: var(--radius-2xl, 32px);
   box-shadow: 
-    0 30px 80px -12px rgba(11, 30, 54, 0.14),
-    0 12px 30px -6px rgba(22, 101, 52, 0.08),
+    0 32px 90px -15px rgba(11, 30, 54, 0.16),
+    0 12px 32px -6px rgba(22, 101, 52, 0.08),
     0 0 0 1px rgba(255, 255, 255, 0.95) inset;
   overflow: hidden;
-  margin-top: 15px;
 }
 
-.world-map-canvas-card:hover {
-  transform: rotateX(2deg) scale(1.002);
-  box-shadow: 
-    0 40px 100px -10px rgba(11, 30, 54, 0.2),
-    0 18px 40px -5px rgba(22, 101, 52, 0.12);
-}
-
-/* Metallic Surface Specular Light Sweep */
-.world-map-canvas-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 60%;
+/* Three.js Canvas Container */
+.shipyon-3d-globe-container {
+  width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.38) 50%, transparent 100%);
-  transform: skewX(-25deg);
-  animation: metallicSheenGlide 10s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 15;
+  position: absolute;
+  inset: 0;
+  cursor: grab;
 }
 
-@keyframes metallicSheenGlide {
-  0%, 65% {
-    left: -120%;
-  }
-  80% {
-    left: 140%;
-  }
-  100% {
-    left: 140%;
-  }
+.shipyon-3d-globe-container:active {
+  cursor: grabbing;
 }
 
-/* Floating Metallic Telemetry HUD Strip */
-.map-telemetry-hud-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 13px 26px;
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(160, 185, 210, 0.5);
-  position: relative;
-  z-index: 20;
-}
-
-.hud-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-accent), 'Outfit', sans-serif;
-  font-size: 0.76rem;
-  letter-spacing: 0.06em;
-}
-
-.hud-dot-radar {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10B981;
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8);
-  animation: hudRadarBlink 1.8s infinite;
-}
-
-@keyframes hudRadarBlink {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8); }
-  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-
-.hud-label {
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-}
-
-.hud-value {
-  font-weight: 800;
-  color: #0B1E36;
-  background: rgba(11, 30, 54, 0.05);
-  padding: 3px 8px;
-  border-radius: 6px;
-  border: 1px solid rgba(11, 30, 54, 0.08);
-}
-
-.hud-status-optimal .hud-value {
-  color: #065F46;
-  background: #ECFDF5;
-  border-color: #A7F3D0;
-}
-
-.map-svg-viewport {
-  width: 100%;
-  position: relative;
-}
-
-.shipyon-world-map-svg {
-  width: 100%;
-  height: auto;
+.shipyon-3d-globe-container canvas {
+  width: 100% !important;
+  height: 100% !important;
   display: block;
 }
 
-/* Geographic Landmass Styles */
-.realistic-landmass-layer {
-  transition: opacity 0.4s ease;
-}
-
-/* 360° Radar Sweep Removed */
-
-/* Animated Flowing Maritime Trade Routes */
-.route-stream {
-  stroke-dashoffset: 200;
-  animation: streamFlowOutwards 2.5s linear infinite;
-  filter: drop-shadow(0 2px 6px rgba(11, 30, 54, 0.28));
-}
-
-.route-gold-core {
-  stroke-dashoffset: 200;
-  animation: streamFlowOutwards 1.6s linear infinite;
-  filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.7));
-}
-
-@keyframes streamFlowOutwards {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Cruising Cargo Freighter Vessels */
-.cruising-vessel {
-  filter: drop-shadow(0 3px 8px rgba(11, 30, 54, 0.35));
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.cruising-vessel:hover {
-  filter: drop-shadow(0 0 12px #F59E0B);
-}
-
-/* Destination Port Radar Ping Echoes */
-.dest-ping-echo {
-  animation: destPortEcho 2.8s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
-  transform-box: fill-box;
-  transform-origin: center;
+/* Clean Unboxed 3D Projected Labels (Zero boxes, Bold typography) */
+.globe-labels-overlay {
+  position: absolute;
+  inset: 0;
   pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
 }
 
-.echo-1 { animation-delay: 0.1s; }
-.echo-2 { animation-delay: 0.4s; }
-.echo-3 { animation-delay: 0.7s; }
-.echo-4 { animation-delay: 1.0s; }
-.echo-5 { animation-delay: 1.3s; }
-.echo-6 { animation-delay: 1.6s; }
-.echo-7 { animation-delay: 1.9s; }
-.echo-8 { animation-delay: 2.2s; }
-
-@keyframes destPortEcho {
-  0% {
-    r: 8px;
-    opacity: 0.9;
-    stroke-width: 3px;
-  }
-  70% {
-    opacity: 0.35;
-  }
-  100% {
-    r: 48px;
-    opacity: 0;
-    stroke-width: 0.5px;
-  }
-}
-
-/* Origin Beacon Small Subtle Ripple (India Export Hub Only) */
-.origin-pulse {
-  transform-origin: 1916px 530px;
-  animation: smallIndiaRipple 2.6s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
-  pointer-events: none;
-}
-
-.pulse-1 { animation-delay: 0s; }
-.pulse-2 { animation-delay: 1.3s; }
-
-@keyframes smallIndiaRipple {
-  0% {
-    r: 8px;
-    opacity: 0.85;
-    stroke-width: 2.4px;
-  }
-  65% {
-    opacity: 0.3;
-  }
-  100% {
-    r: 30px;
-    opacity: 0;
-    stroke-width: 0.6px;
-  }
-}
-
-/* Cartographic Country Callouts (Direct Text Above Horizontal Line - No Enclosing Boxes) */
-.country-callout {
-  cursor: default;
-  outline: none;
-}
-
-.country-callout .callout-line {
-  stroke: #0B1E36;
-  stroke-width: 2.8px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.8));
-}
-
-.country-callout text {
-  fill: #0B1E36;
-  font-family: var(--font-accent), 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+.globe-projected-label {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  pointer-events: auto;
   user-select: none;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+
+.globe-projected-label .label-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0284C7;
+  box-shadow: 0 0 8px #0284C7;
+}
+
+.globe-projected-label.label-origin .label-dot {
+  background: #F59E0B;
+  box-shadow: 0 0 10px #F59E0B;
+  width: 9px;
+  height: 9px;
+}
+
+.globe-projected-label .label-text {
+  font-family: var(--font-accent), 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0B1E36;
+  text-shadow: 
+    0 1px 2px #FFFFFF,
+    0 0 8px rgba(255, 255, 255, 0.95),
+    0 0 14px rgba(255, 255, 255, 0.95);
+  border-bottom: 2px solid rgba(11, 30, 54, 0.85);
+  padding-bottom: 2px;
+}
+
+.globe-projected-label.label-origin .label-text {
+  color: #B45309;
+  border-bottom-color: #B45309;
+  font-size: 0.9rem;
+}
+
+/* Floating Interactive HUD Strip */
+.globe-controls-hud {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  z-index: 20;
   pointer-events: none;
-  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.9));
 }
 
-.country-callout .pin-group {
-  pointer-events: none;
+.globe-corridors-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(130, 215, 175, 0.6);
+  box-shadow: 0 10px 25px -5px rgba(11, 30, 54, 0.1);
+  pointer-events: auto;
 }
 
-/* Smooth Entrance Animation */
-.map-animated .pin-group {
-  animation: dropPinEntrance 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+.globe-nav-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-accent), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0B1E36;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.map-animated .callout-line {
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  animation: drawLeaderLine 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.globe-nav-btn .btn-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
 }
 
-.map-animated .badge-group {
-  animation: popBadgeEntrance 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+.globe-nav-btn:hover {
+  background: rgba(16, 185, 129, 0.12);
+  color: #065F46;
 }
 
-/* Stagger delays across the 9 destinations */
-.map-animated #callout-us .pin-group { animation-delay: 0.1s; }
-.map-animated #callout-us .callout-line { animation-delay: 0.25s; }
-.map-animated #callout-us .badge-group { animation-delay: 0.45s; }
+.globe-nav-btn.active {
+  background: #0B1E36;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(11, 30, 54, 0.3);
+}
 
-.map-animated #callout-de .pin-group { animation-delay: 0.2s; }
-.map-animated #callout-de .callout-line { animation-delay: 0.35s; }
-.map-animated #callout-de .badge-group { animation-delay: 0.55s; }
+.globe-nav-btn.active .btn-dot {
+  background: #F59E0B;
+}
 
-.map-animated #callout-ae .pin-group { animation-delay: 0.3s; }
-.map-animated #callout-ae .callout-line { animation-delay: 0.45s; }
-.map-animated #callout-ae .badge-group { animation-delay: 0.65s; }
+.globe-action-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
 
-.map-animated #callout-in .pin-group { animation-delay: 0.05s; }
-.map-animated #callout-in .badge-group { animation-delay: 0.3s; }
+.globe-ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(130, 215, 175, 0.6);
+  color: #0B1E36;
+  font-family: var(--font-accent), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: 0 10px 25px -5px rgba(11, 30, 54, 0.1);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
 
-.map-animated #callout-lk .pin-group { animation-delay: 0.4s; }
-.map-animated #callout-lk .callout-line { animation-delay: 0.55s; }
-.map-animated #callout-lk .badge-group { animation-delay: 0.75s; }
+.globe-ctrl-btn:hover {
+  background: #0B1E36;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
 
-.map-animated #callout-my .pin-group { animation-delay: 0.5s; }
-.map-animated #callout-my .callout-line { animation-delay: 0.65s; }
-.map-animated #callout-my .badge-group { animation-delay: 0.85s; }
+.globe-ctrl-btn.active {
+  background: #ECFDF5;
+  color: #065F46;
+  border-color: #10B981;
+}
 
-.map-animated #callout-sg .pin-group { animation-delay: 0.6s; }
-.map-animated #callout-sg .callout-line { animation-delay: 0.75s; }
-.map-animated #callout-sg .badge-group { animation-delay: 0.95s; }
+.globe-ctrl-btn .ctrl-icon {
+  width: 14px;
+  height: 14px;
+}
 
-.map-animated #callout-vn .pin-group { animation-delay: 0.7s; }
-.map-animated #callout-vn .callout-line { animation-delay: 0.85s; }
-.map-animated #callout-vn .badge-group { animation-delay: 1.05s; }
-
-.map-animated #callout-au .pin-group { animation-delay: 0.8s; }
-.map-animated #callout-au .callout-line { animation-delay: 0.95s; }
-.map-animated #callout-au .badge-group { animation-delay: 1.15s; }
-
-@keyframes dropPinEntrance {
-  0% {
-    opacity: 0;
-    transform: translateY(-24px) scale(0.3);
+@media (max-width: 900px) {
+  .globe-canvas-card {
+    height: 520px;
   }
-  70% {
-    opacity: 1;
-    transform: translateY(3px) scale(1.1);
+  .globe-controls-hud {
+    flex-direction: column;
+    align-items: stretch;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  .globe-corridors-nav {
+    justify-content: center;
   }
-}
-
-@keyframes drawLeaderLine {
-  to {
-    stroke-dashoffset: 0;
+  .globe-action-controls {
+    justify-content: center;
   }
 }
 
-@keyframes popBadgeEntrance {
-  0% {
-    opacity: 0;
-    transform: scale(0.7) translateY(10px);
-  }
-  70% {
-    opacity: 1;
-    transform: scale(1.04) translateY(-2px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
 
 /* ==========================================================================
    SNAPSHOTS HORIZON RIBBON (4 METRICS)
