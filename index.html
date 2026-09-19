@@ -14,26 +14,35 @@
        NAVIGATION BAR
        SHIPYON - top left bold | Nav bar - [home, services, about, products, contact]
        ========================================================================== -->
-  <header class="site-header" id="site-header">
+    <header class="site-header" id="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo" id="brand-logo" aria-label="Shipyon Exim Home">
-        <img src="assets/shipyon-logo.png" alt="Shipyon Logo" class="brand-logo-img" width="132" height="42">
+        <img src="assets/shipyon-logo.png" alt="Shipyon Logo" class="brand-logo-img" width="136" height="42">
         <span class="brand-badge">EXIM</span>
       </a>
 
       <!-- Desktop Nav -->
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html" class="nav-link active" id="nav-home">Home</a></li>
-        <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
-        <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
-        <li><a href="products.html" class="nav-link" id="nav-products">Products</a></li>
-        <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
-      </ul>
+      <nav class="nav-links-wrapper" aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link active" id="nav-home">Home</a></li>
+          <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+          <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
+          <li><a href="products.html" class="nav-link" id="nav-products">Products</a></li>
+          <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+        </ul>
+      </nav>
 
-      <!-- Nav Action Button -->
+      <!-- Nav Action Button (Trade Desk Removed) -->
       <div class="nav-actions">
-        <button class="btn btn-primary open-quote-modal-btn" id="btn-header-quote">Request Quote</button>
-        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation">☰</button>
+        <button class="btn btn-fashion-quote open-quote-modal-btn" id="btn-header-quote">
+          <span>Request Quote</span>
+          <svg class="btn-arrow-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation">
+          <span class="mobile-toggle-bar"></span>
+          <span class="mobile-toggle-bar"></span>
+          <span class="mobile-toggle-bar"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -49,7 +58,7 @@
         <div class="hero-content">
           <div class="eyebrow-pill" id="hero-eyebrow">
             <span class="pulsing-dot"></span>
-            <span>⚓ Global Maritime Shipping & Seaport Operations • Trusted by 1000+ Partners Worldwide</span>
+            <span>Trusted by 1000+ Partners Worldwide</span>
           </div>
 
           <h1 class="hero-title" id="hero-headline">
@@ -69,121 +78,57 @@
           <div class="hero-origin-tags">
             <span class="origin-label">Gateway Seaports & Sourcing:</span>
             <div class="origin-chips-group">
-              <span class="origin-chip">⚓ Cochin Port (ICTT Vallarpadam)</span>
-              <span class="origin-chip">⚓ V.O. Chidambaranar Port (Tuticorin)</span>
-              <span class="origin-chip">⚓ Chennai International Seaport</span>
-              <span class="origin-chip">📍 Dharapuram Trade HQ</span>
-              <span class="origin-chip">🚢 Rotterdam, Jebel Ali & Singapore Corridors</span>
+              <span class="origin-chip">Cochin Port (ICTT Vallarpadam)</span>
+              <span class="origin-chip">V.O. Chidambaranar Port (Tuticorin)</span>
+              <span class="origin-chip">Chennai International Seaport</span>
+              <span class="origin-chip">Dharapuram Trade HQ</span>
+              <span class="origin-chip">Rotterdam, Jebel Ali & Singapore Corridors</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Interactive Maritime Port & Vessel Console -->
-        <div class="hero-maritime-console">
+                <!-- Right Column: Ocean Freight & Global Sourcing Showcase -->
+        <div class="hero-maritime-console" id="hero-showcase-card">
           <div class="console-main-frame">
-            <!-- Viewport Header Pills -->
+            <!-- Viewport Header Badges -->
             <div class="console-viewport-header">
               <div class="console-port-badge">
-                <span class="icon">⚓</span>
-                <span>Port of Cochin (ICTT) • Berth 04A</span>
+                <span class="icon-dot"></span>
+                <span>South India Gateways: Cochin • Tuticorin • Chennai</span>
               </div>
               <div class="console-live-pill">
                 <span class="live-beacon-dot"></span>
-                <span>Active Terminal</span>
+                <span>Export Operations Active</span>
               </div>
             </div>
 
-            <!-- Viewport Image -->
+            <!-- Viewport Image Showcase -->
             <div class="console-viewport">
-              <img src="assets/shipyon-harbor-docks.jpg" alt="Ocean Container Ship Berthed at Deep-Water Port Docks" id="hero-showcase-img">
-            </div>
-
-            <!-- Interactive Mode Tabs Bar (3 Modes) -->
-            <div class="console-tabs-strip">
-              <button class="console-tab-item active" data-mode="vessel" type="button">
-                <span>🚢 Active Vessel</span>
-              </button>
-              <button class="console-tab-item" data-mode="berth" type="button">
-                <span>⚓ Deep-Water Berth</span>
-              </button>
-              <button class="console-tab-item" data-mode="corridor" type="button">
-                <span>🌐 Trade Corridors</span>
-              </button>
-            </div>
-
-            <!-- Interactive Telemetry Panels -->
-            <div class="console-panels-container">
-              <!-- Panel 1: Active Vessel -->
-              <div class="console-panel active" id="panel-vessel">
-                <div class="console-telemetry-grid">
-                  <div class="telemetry-cell">
-                    <span class="telemetry-label">Vessel / Fleet</span>
-                    <span class="telemetry-val">SHIPYON VOYAGER</span>
-                    <span class="telemetry-note">IMO 9845120 • 14,500 TEU</span>
-                  </div>
-                  <div class="telemetry-cell">
-                    <span class="telemetry-label">Transit Speed</span>
-                    <span class="telemetry-val gold">19.4 KTS</span>
-                    <span class="telemetry-note">Direct High-Seas Route</span>
-                  </div>
-                  <div class="telemetry-cell">
-                    <span class="telemetry-label">Schedule ETA</span>
-                    <span class="telemetry-val">99.8%</span>
-                    <span class="telemetry-note">On-Time Port Arrival</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Panel 2: Deep-Water Berth -->
-              <div class="console-panel" id="panel-berth">
-                <div class="console-telemetry-grid">
-                  <div class="telemetry-cell">
-                    <span class="telemetry-label">Quayside Gantry</span>
-                    <span class="telemetry-val">4x STS CRANES</span>
-                    <span class="telemetry-note">Direct Berth Loading</span>
-                  </div>
-                  <div class="telemetry-cell">
-                    <span class="telemetry-label">Reefer Temp</span>
-                    <span class="telemetry-val gold">-18.0°C</span>
-                    <span class="telemetry-note">Active Cold-Chain Telemetry</span>
-                  </div>
-                  <div class="telemetry-cell">
-                    <span class="telemetry-label">Port Turnaround</span>
-                    <span class="telemetry-val">18.4 HRS</span>
-                    <span class="telemetry-note">Expedited Customs Clearance</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Panel 3: Trade Corridors -->
-              <div class="console-panel" id="panel-corridor">
-                <div class="console-telemetry-grid">
-                  <div class="telemetry-cell">
-                    <span class="telemetry-label">Europe Gateway</span>
-                    <span class="telemetry-val">ROTTERDAM</span>
-                    <span class="telemetry-note">Weekly Express Sailing</span>
-                  </div>
-                  <div class="telemetry-cell">
-                    <span class="telemetry-label">Gulf Corridor</span>
-                    <span class="telemetry-val gold">JEBEL ALI</span>
-                    <span class="telemetry-note">Direct 3.5-Day Transit</span>
-                  </div>
-                  <div class="telemetry-cell">
-                    <span class="telemetry-label">Asia-Pacific Hub</span>
-                    <span class="telemetry-val">SINGAPORE</span>
-                    <span class="telemetry-note">Bi-Weekly FCL Connector</span>
-                  </div>
+              <img src="assets/shipyon-harbor-docks.jpg" alt="Ocean Container Vessel Berthed at Deep-Water Seaport Docks" id="hero-showcase-img">
+              <div class="hero-dock-gradient-overlay">
+                <div class="dock-caption-wrap">
+                  <div class="dock-caption-title">Multimodal Cold-Chain & Global Ocean Freight</div>
+                  <div class="dock-caption-sub">Direct farm aggregation in Tamil Nadu & Kerala connecting to 50+ international export destinations.</div>
                 </div>
               </div>
             </div>
 
-            <!-- Priority Guarantee Footer Bar -->
-            <div class="console-footer-bar">
-              <div class="console-footer-left">
-                <span class="anchor">⚓</span>
-                <span>Priority Berth Access & Guaranteed Container Stuffing</span>
+            <!-- Clean Export Metrics Horizon Strip -->
+            <div class="hero-corridor-quick-strip">
+              <div class="quick-corridor-item">
+                <span class="qc-label">Europe Gateway</span>
+                <span class="qc-dest">Rotterdam & Hamburg</span>
               </div>
-              <a href="products.html" class="console-footer-link">View Port Schedules →</a>
+              <div class="quick-corridor-divider"></div>
+              <div class="quick-corridor-item">
+                <span class="qc-label">Gulf Corridor</span>
+                <span class="qc-dest">Jebel Ali (3.5 Days)</span>
+              </div>
+              <div class="quick-corridor-divider"></div>
+              <div class="quick-corridor-item">
+                <span class="qc-label">Asia-Pacific Hub</span>
+                <span class="qc-dest">Singapore & Port Klang</span>
+              </div>
             </div>
           </div>
         </div>
@@ -227,109 +172,314 @@
   </section>
 
   <!-- ==========================================================================
-       OUR CORE TRADE CATEGORIES (OUR GLOBAL TRADE PORTFOLIO)
-       5 sections | one line | button each [ View products ]
+       WORLD TRADE MAP: CONNECTING SOUTH INDIA TO GLOBAL HORIZONS
+       Interactive animated world map visualizing direct trade corridors:
+       USA, Germany, Dubai (UAE), India (HQ), Sri Lanka, Malaysia, Singapore, Vietnam, Australia
        ========================================================================== -->
-  <section class="portfolio-section" id="trade-portfolio-section">
+  <section class="global-map-section" id="global-trade-map">
     <div class="container">
       <div class="section-header-editorial">
-        <span class="section-pill-tag">Export Excellence</span>
-        <h2 class="section-title-editorial">Our Global Trade Portfolio</h2>
+        <span class="section-pill-tag">Worldwide Multimodal Reach</span>
+        <h2 class="section-title-editorial">Connecting South India to Global Horizons</h2>
         <p class="section-subtitle-editorial">
-          Discover quality products sourced and supplied through our trusted global trade network.
+          Direct agricultural and industrial export corridors linking our sourcing centers in Dharapuram, Cochin, and Tuticorin to premier trade gateways across 50+ countries.
         </p>
       </div>
 
-      <div class="categories-showcase-grid">
-        <!-- Category 1: Fresh Produce -->
-        <div class="category-card" id="cat-fresh-produce">
-          <div class="category-image-wrap">
-            <span class="category-badge-chip">Fresh Produce</span>
-            <img src="assets/shipyon-onion.png" alt="Fresh Red Onions and Vegetables">
+      <!-- 3D Perspective Stage & Interactive Command Deck -->
+      <!-- 3D Interactive World Globe Stage -->
+      <div class="globe-3d-stage-wrapper" id="globe-3d-stage-wrapper">
+        <div class="globe-canvas-card" id="globe-canvas-card">
+          <!-- 3D WebGL Canvas Container -->
+          <div id="shipyon-3d-globe-container" class="shipyon-3d-globe-container"></div>
+
+          <!-- Clean Projected 3D Labels Overlay -->
+          <div id="globe-labels-overlay" class="globe-labels-overlay"></div>
+
+          <!-- Bottom Corridor Selection Ribbon -->
+          <div class="globe-controls-hud">
+            <div class="globe-corridors-nav" id="globe-corridors-nav">
+              <button class="globe-nav-btn active" data-dest="ALL" type="button">
+                <span class="btn-dot"></span> All 8 Corridors
+              </button>
+              <button class="globe-nav-btn" data-dest="USA" type="button">USA</button>
+              <button class="globe-nav-btn" data-dest="GERMANY" type="button">Germany</button>
+              <button class="globe-nav-btn" data-dest="DUBAI" type="button">Dubai (UAE)</button>
+              <button class="globe-nav-btn" data-dest="SRILANKA" type="button">Sri Lanka</button>
+              <button class="globe-nav-btn" data-dest="MALAYSIA" type="button">Malaysia</button>
+              <button class="globe-nav-btn" data-dest="SINGAPORE" type="button">Singapore</button>
+              <button class="globe-nav-btn" data-dest="VIETNAM" type="button">Vietnam</button>
+              <button class="globe-nav-btn" data-dest="AUSTRALIA" type="button">Australia</button>
+            </div>
+
+            <div class="globe-action-controls">
+              <button class="globe-ctrl-btn active" id="btn-toggle-rotate" type="button" title="Toggle Auto-Rotation">
+                <svg class="ctrl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                <span>Auto-Rotate</span>
+              </button>
+              <button class="globe-ctrl-btn" id="btn-reset-view" type="button" title="Reset View to India Origin">
+                <svg class="ctrl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                <span>Focus India (HQ)</span>
+              </button>
+            </div>
           </div>
-          <div class="category-content">
-            <h3 class="category-name">Fresh Produce</h3>
-            <div class="category-tagline">🌱 Explore Our Fresh Selection</div>
-            <p class="category-desc">
-              Quality vegetables sourced from trusted growers and prepared for global markets.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       OUR CORE TRADE CATEGORIES (OUR GLOBAL TRADE PORTFOLIO)
+       5 sections | one line | button each [ View products ]
+       ========================================================================== -->
+  <section class="portfolio-section curious-folio-section" id="trade-portfolio-section">
+    <div class="container">
+      <div class="section-header-editorial text-center">
+        <span class="section-pill-tag curious-pill-tag">
+          <svg class="pill-mini-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          Interactive Agro-Terroir Folio
+        </span>
+        <h2 class="section-title-editorial">South Indian Terroirs & Maritime Portals</h2>
+        <p class="section-subtitle-editorial">
+          Hover or tap each specimen to expand its microclimate origin, harvest secrets, and direct ocean export telemetry.
+        </p>
+      </div>
+
+      <!-- Interactive Curious Folio Deck -->
+      <div class="curious-folio-deck" id="curious-folio-deck">
+
+        <!-- Folio 01: Spices -->
+        <div class="curious-folio-panel active" data-specimen="spices" tabindex="0" role="button" aria-expanded="true">
+          <div class="folio-bg-media">
+            <img src="assets/product-spices.jpg" alt="Western Ghats Spices Terroir" loading="lazy">
+            <div class="folio-media-overlay"></div>
+          </div>
+          
+          <!-- Collapsed Spine View -->
+          <div class="folio-spine-view">
+            <span class="folio-spine-number">01</span>
+            <span class="folio-spine-title">Spices & Plantation Terroir</span>
+            <span class="folio-spine-coord">10.15° N, 77.06° E</span>
+          </div>
+
+          <!-- Expanded Content View -->
+          <div class="folio-expanded-content">
+            <div class="folio-meta-badge-row">
+              <span class="folio-serial-badge">SPECIMEN 01 • HIGH ELEVATION</span>
+              <span class="folio-telemetry-badge">ASTA Grade A • 3.5% Volatile Oil</span>
+            </div>
+            <h3 class="folio-specimen-heading">Western Ghats Wild Cardamom & Spices</h3>
+            <p class="folio-specimen-summary">
+              Alleppey green cardamom, Guntur S4 chillies, and Malabar tellicherry black pepper gathered from highland cooperatives.
             </p>
-            <a href="products.html?category=fresh-produce" class="category-action-link">
-              View Products <span class="arrow">→</span>
-            </a>
+            
+            <div class="folio-curiosity-drawer">
+              <div class="folio-drawer-label-row">
+                <svg class="folio-drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <span class="folio-drawer-title">Curious Terroir Secret</span>
+              </div>
+              <p class="folio-drawer-text">
+                Harvested at 1,200m elevation before morning dew evaporates. The low solar angle locks volatile piperine and cineole crystals into the pericarp, retaining maximum aroma across ocean transits to Hamburg and Dubai.
+              </p>
+              <div class="folio-transit-spec">
+                <span class="transit-label">OCEAN LOGISTICS:</span>
+                <span class="transit-val">Hermetic GrainPro Liners • 55% Controlled Humidity</span>
+              </div>
+            </div>
+
+            <div class="folio-action-row">
+              <a href="products.html?category=spices" class="folio-btn-action">
+                <span>View Products & Specs</span>
+                <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Category 2: Spices & Plantation Crops -->
-        <div class="category-card" id="cat-spices">
-          <div class="category-image-wrap">
-            <span class="category-badge-chip">Spices & Crops</span>
-            <img src="assets/shipyon-red-chilly.png" alt="Guntur Red Chillies & South Indian Spices">
+        <!-- Folio 02: Fruits -->
+        <div class="curious-folio-panel" data-specimen="fruits" tabindex="0" role="button" aria-expanded="false">
+          <div class="folio-bg-media">
+            <img src="assets/product-fruits.jpg" alt="Tropical Fresh Fruits Platter" loading="lazy">
+            <div class="folio-media-overlay"></div>
           </div>
-          <div class="category-content">
-            <h3 class="category-name">Spices & Plantation Crops</h3>
-            <div class="category-tagline">🌶️ Explore Our Spice Collection</div>
-            <p class="category-desc">
-              Bringing the richness of India to the world with high pungency and export certification.
+          
+          <div class="folio-spine-view">
+            <span class="folio-spine-number">02</span>
+            <span class="folio-spine-title">Fresh Tropical Fruits</span>
+            <span class="folio-spine-coord">10.65° N, 77.00° E</span>
+          </div>
+
+          <div class="folio-expanded-content">
+            <div class="folio-meta-badge-row">
+              <span class="folio-serial-badge">SPECIMEN 02 • COLD-CHAIN</span>
+              <span class="folio-telemetry-badge">Brix 16°+ Natural Sugar</span>
+            </div>
+            <h3 class="folio-specimen-heading">Tree-Ripened Tropical Fruits & Nectar</h3>
+            <p class="folio-specimen-summary">
+              Alphonso mangoes, table grapes, and pomegranates cultivated under tropical canopy irrigation in Pollachi & Theni.
             </p>
-            <a href="products.html?category=spices" class="category-action-link">
-              View Products <span class="arrow">→</span>
-            </a>
+            
+            <div class="folio-curiosity-drawer">
+              <div class="folio-drawer-label-row">
+                <svg class="folio-drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <span class="folio-drawer-title">Curious Terroir Secret</span>
+              </div>
+              <p class="folio-drawer-text">
+                Controlled Atmosphere (CA) reefers maintain Nitrogen-enriched air at +13°C, placing cellular respiration into suspended sleep so natural sweetness blooms the exact morning of vessel arrival in Dubai and Singapore.
+              </p>
+              <div class="folio-transit-spec">
+                <span class="transit-label">OCEAN LOGISTICS:</span>
+                <span class="transit-val">+13°C Reefer Telemetry • APEDA Certified Packhouses</span>
+              </div>
+            </div>
+
+            <div class="folio-action-row">
+              <a href="products.html?category=fruits" class="folio-btn-action">
+                <span>View Products & Specs</span>
+                <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Category 3: Fruits -->
-        <div class="category-card" id="cat-fruits">
-          <div class="category-image-wrap">
-            <span class="category-badge-chip">Fresh Fruits</span>
-            <img src="assets/shipyon-mango.png" alt="Alphonso & Banganapalli Mangoes">
+        <!-- Folio 03: Vegetables -->
+        <div class="curious-folio-panel" data-specimen="vegetables" tabindex="0" role="button" aria-expanded="false">
+          <div class="folio-bg-media">
+            <img src="assets/product-vegetables.jpg" alt="Farm Fresh Vegetables Harvest" loading="lazy">
+            <div class="folio-media-overlay"></div>
           </div>
-          <div class="category-content">
-            <h3 class="category-name">Fruits</h3>
-            <div class="category-tagline">🍎 Explore Our Fresh Fruit Selection</div>
-            <p class="category-desc">
-              Naturally fresh. Globally trusted. Hand-harvested with strict brix and maturity testing.
+          
+          <div class="folio-spine-view">
+            <span class="folio-spine-number">03</span>
+            <span class="folio-spine-title">Farm-Gate Produce</span>
+            <span class="folio-spine-coord">10.72° N, 77.52° E</span>
+          </div>
+
+          <div class="folio-expanded-content">
+            <div class="folio-meta-badge-row">
+              <span class="folio-serial-badge">SPECIMEN 03 • 24H EXPRESS</span>
+              <span class="folio-telemetry-badge">Direct Farm Aggregation</span>
+            </div>
+            <h3 class="folio-specimen-heading">Kongu Basin Fresh Produce & Shallots</h3>
+            <p class="folio-specimen-summary">
+              Direct aggregation of red shallots, bell peppers, tomatoes, and vegetables graded and packed within hours of harvest.
             </p>
-            <a href="products.html?category=fruits" class="category-action-link">
-              View Products <span class="arrow">→</span>
-            </a>
+            
+            <div class="folio-curiosity-drawer">
+              <div class="folio-drawer-label-row">
+                <svg class="folio-drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <span class="folio-drawer-title">Curious Terroir Secret</span>
+              </div>
+              <p class="folio-drawer-text">
+                Rapid hydro-cooling at regional collection centers arrests moisture loss within 120 minutes of cutting. Produce is consolidated at Tuticorin port terminal inside 24 hours of harvest.
+              </p>
+              <div class="folio-transit-spec">
+                <span class="transit-label">OCEAN LOGISTICS:</span>
+                <span class="transit-val">Tuticorin Cold Port Direct • Rapid Pre-Cooling</span>
+              </div>
+            </div>
+
+            <div class="folio-action-row">
+              <a href="products.html?category=fresh-produce" class="folio-btn-action">
+                <span>View Products & Specs</span>
+                <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Category 4: Processed & Value-Added Products -->
-        <div class="category-card" id="cat-processed">
-          <div class="category-image-wrap">
-            <span class="category-badge-chip">Value-Added</span>
-            <img src="assets/shipyon-moringa-powder.png" alt="Organic Moringa Leaf Powder">
+        <!-- Folio 04: Grains -->
+        <div class="curious-folio-panel" data-specimen="grains" tabindex="0" role="button" aria-expanded="false">
+          <div class="folio-bg-media">
+            <img src="assets/product-grains.jpg" alt="Sortex Cleaned Rice and Grains" loading="lazy">
+            <div class="folio-media-overlay"></div>
           </div>
-          <div class="category-content">
-            <h3 class="category-name">Processed & Value-Added Products</h3>
-            <div class="category-tagline">🍯 Explore Our Natural Selection</div>
-            <p class="category-desc">
-              Quality processing. Exceptional products. Global reach. Pure extracts, oils, and botanical powders.
+          
+          <div class="folio-spine-view">
+            <span class="folio-spine-number">04</span>
+            <span class="folio-spine-title">Laser-Sorted Grains</span>
+            <span class="folio-spine-coord">10.78° N, 79.13° E</span>
+          </div>
+
+          <div class="folio-expanded-content">
+            <div class="folio-meta-badge-row">
+              <span class="folio-serial-badge">SPECIMEN 04 • OPTICAL PURITY</span>
+              <span class="folio-telemetry-badge">Sortex 99.8% Precision</span>
+            </div>
+            <h3 class="folio-specimen-heading">Cauvery Delta Aged Basmati & Grains</h3>
+            <p class="folio-specimen-summary">
+              Premium aged long-grain basmati, non-basmati rice, and organic pulses moisture-controlled for global export.
             </p>
-            <a href="products.html?category=processed" class="category-action-link">
-              View Products <span class="arrow">→</span>
-            </a>
+            
+            <div class="folio-curiosity-drawer">
+              <div class="folio-drawer-label-row">
+                <svg class="folio-drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <span class="folio-drawer-title">Curious Terroir Secret</span>
+              </div>
+              <p class="folio-drawer-text">
+                64-channel monochromatic CCD sensors inspect 12,000 kernels every second. High-speed micro-valves eject imperfect grains with pinpoint air pulses, producing a 99.8% sortex purity grade.
+              </p>
+              <div class="folio-transit-spec">
+                <span class="transit-label">OCEAN LOGISTICS:</span>
+                <span class="transit-val">Nitrogen-Purged Bulk Liners • Moisture Capped ≤ 12%</span>
+              </div>
+            </div>
+
+            <div class="folio-action-row">
+              <a href="products.html?category=processed" class="folio-btn-action">
+                <span>View Products & Specs</span>
+                <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Category 5: Industrial & Commercial -->
-        <div class="category-card" id="cat-industrial">
-          <div class="category-image-wrap">
-            <span class="category-badge-chip">Commercial & Bulk</span>
-            <img src="assets/shipyon-cotton-tshirts.png" alt="Commercial Cotton Textiles & Industrial Goods">
+        <!-- Folio 05: Plantation -->
+        <div class="curious-folio-panel" data-specimen="plantation" tabindex="0" role="button" aria-expanded="false">
+          <div class="folio-bg-media">
+            <img src="assets/product-plantation-cinnamon.jpg" alt="Ceylon Cinnamon Quills and Botanicals" loading="lazy">
+            <div class="folio-media-overlay"></div>
           </div>
-          <div class="category-content">
-            <h3 class="category-name">Industrial & Commercial</h3>
-            <div class="category-tagline">📦 Explore Bulk Solutions</div>
-            <p class="category-desc">
-              Bulk supply. Reliable solutions. Global reach. Premium granite, tiles, and textile commodities.
+          
+          <div class="folio-spine-view">
+            <span class="folio-spine-number">05</span>
+            <span class="folio-spine-title">Plantation Botanicals</span>
+            <span class="folio-spine-coord">8.52° N, 76.93° E</span>
+          </div>
+
+          <div class="folio-expanded-content">
+            <div class="folio-meta-badge-row">
+              <span class="folio-serial-badge">SPECIMEN 05 • TRUE CEYLON</span>
+              <span class="folio-telemetry-badge">100% Pure Quills</span>
+            </div>
+            <h3 class="folio-specimen-heading">Botanical Extracts & Cinnamon Quills</h3>
+            <p class="folio-specimen-summary">
+              Double-rolled cinnamon quills, cold-pressed virgin coconut extracts, and natural botanicals from coastal plantations.
             </p>
-            <a href="products.html?category=industrial" class="category-action-link">
-              View Products <span class="arrow">→</span>
-            </a>
+            
+            <div class="folio-curiosity-drawer">
+              <div class="folio-drawer-label-row">
+                <svg class="folio-drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                <span class="folio-drawer-title">Curious Terroir Secret</span>
+              </div>
+              <p class="folio-drawer-text">
+                Peeled inner bark is hand-rolled into layered cigars and cured slowly under shaded sea-breeze sheds. This low-temperature evaporation locks warm aromatic sweetness without harsh coumarin bitterness.
+              </p>
+              <div class="folio-transit-spec">
+                <span class="transit-label">OCEAN LOGISTICS:</span>
+                <span class="transit-val">Fumigated Sea-Worthy Crates • ISO 22000 Cleanroom Packed</span>
+              </div>
+            </div>
+
+            <div class="folio-action-row">
+              <a href="products.html?category=industrial" class="folio-btn-action">
+                <span>View Products & Specs</span>
+                <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -418,176 +568,100 @@
   <section class="why-choose-section" id="why-choose-us-section">
     <div class="container">
       <div class="section-header-editorial">
-        <span class="section-pill-tag">Maritime Authority</span>
+        <span class="section-pill-tag">Why Shipyon</span>
         <h2 class="section-title-editorial">WHY CHOOSE US</h2>
         <p class="section-subtitle-editorial">
-          From farm-level sourcing to global delivery, we provide comprehensive trade solutions built around quality, reliability, and transparency.
+          From farm-level sourcing to multimodal vessel delivery, explore how our vertically integrated operations eliminate risk and deliver predictable trade outcomes.
         </p>
       </div>
 
-      <!-- Deep-Water Harbor Docks & Container Ships Animation Viewport -->
-      <div class="soft-journey-card">
-        <div class="journey-viewport">
-          <!-- Gentle Morning Sun -->
-          <div class="journey-sun"></div>
-
-          <!-- Soaring Sea Gulls -->
-          <div class="soaring-seagull gull-1">
-            <svg viewBox="0 0 24 10" fill="#6B7F74">
-              <path d="M0,8 Q6,0 12,5 Q18,0 24,8 Q18,3 12,6 Q6,3 0,8 Z"/>
-            </svg>
-          </div>
-          <div class="soaring-seagull gull-2">
-            <svg viewBox="0 0 24 10" fill="#6B7F74">
-              <path d="M0,8 Q6,0 12,5 Q18,0 24,8 Q18,3 12,6 Q6,3 0,8 Z"/>
-            </svg>
-          </div>
-
-          <!-- Drifting Cumulus Clouds -->
-          <div class="journey-cloud cloud-1"></div>
-          <div class="journey-cloud cloud-2"></div>
-
-          <!-- Distant Cruising Ocean Container Ship on the Horizon -->
-          <div class="horizon-cruising-vessel" title="Ocean Liner Navigating International Shipping Corridors">
-            <svg viewBox="0 0 160 40">
-              <!-- Ship Hull -->
-              <path d="M10,24 L24,36 L135,36 L150,24 Z" fill="#1C382A"/>
-              <path d="M24,36 L28,39 L130,39 L135,36 Z" fill="#992626"/>
-              <!-- Cargo Container Stacks on Horizon Ship -->
-              <rect x="30" y="14" width="16" height="10" fill="#C98218" rx="1"/>
-              <rect x="48" y="14" width="16" height="10" fill="#144B30" rx="1"/>
-              <rect x="66" y="12" width="16" height="12" fill="#3D779C" rx="1"/>
-              <rect x="84" y="14" width="16" height="10" fill="#FFFFFF" rx="1"/>
-              <rect x="102" y="12" width="16" height="12" fill="#C98218" rx="1"/>
-              <!-- Bridge Superstructure & Mast -->
-              <rect x="120" y="8" width="14" height="16" fill="#E8F1EC" rx="1"/>
-              <rect x="122" y="12" width="10" height="4" fill="#3D5A72"/>
-              <line x1="127" y1="2" x2="127" y2="8" stroke="#3D5A72" stroke-width="1.5"/>
-              <!-- Subtle Bow Wave -->
-              <path d="M8,26 Q12,28 18,27" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" fill="none"/>
-            </svg>
-          </div>
-
-          <!-- Deep Seaport Harbor Water Basin with Wave Motion -->
-          <div class="harbor-water-basin">
-            <div class="water-ripple-layer"></div>
-          </div>
-
-          <!-- Massive Berthed Ocean Container Ship at Wharf -->
-          <div class="docked-mega-ship" title="SHIPYON LINE Deep-Water Container Vessel Berthed at Port Docks">
-            <svg viewBox="0 0 460 180">
-              <!-- Lower Red Keel -->
-              <path d="M25,142 L55,166 L425,166 L440,142 Z" fill="#A82828"/>
-              <!-- Massive Main Dark Emerald Steel Hull -->
-              <path d="M10,88 L35,142 L440,142 L455,88 Z" fill="#0A2417"/>
-              <text x="50" y="120" font-family="'Outfit', sans-serif" font-size="15" font-weight="800" fill="#FAF8F4" letter-spacing="3">SHIPYON LINE</text>
-              <text x="50" y="134" font-family="sans-serif" font-size="8" font-weight="600" fill="#C98218" letter-spacing="1.5">PORT OF COCHIN • IMO 9845120</text>
-              
-              <!-- Container Stacks Tier 1 (Lower Bay) -->
-              <rect x="40" y="62" width="42" height="24" fill="#144B30" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="84" y="62" width="42" height="24" fill="#C98218" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="128" y="62" width="42" height="24" fill="#3D779C" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="172" y="62" width="42" height="24" fill="#E8F1EC" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="216" y="62" width="42" height="24" fill="#BA4E0B" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="260" y="62" width="42" height="24" fill="#144B30" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="304" y="62" width="42" height="24" fill="#C98218" stroke="#081E14" stroke-width="1" rx="1"/>
-
-              <!-- Container Stacks Tier 2 (Upper Bay) -->
-              <rect x="42" y="38" width="42" height="23" fill="#E8F1EC" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="86" y="38" width="42" height="23" fill="#144B30" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="130" y="38" width="42" height="23" fill="#BA4E0B" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="174" y="38" width="42" height="23" fill="#C98218" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="218" y="38" width="42" height="23" fill="#3D779C" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="262" y="38" width="42" height="23" fill="#E8F1EC" stroke="#081E14" stroke-width="1" rx="1"/>
-
-              <!-- Container Stacks Tier 3 (High Deck) -->
-              <rect x="88" y="14" width="42" height="23" fill="#3D779C" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="132" y="14" width="42" height="23" fill="#144B30" stroke="#081E14" stroke-width="1" rx="1"/>
-              <rect x="176" y="14" width="42" height="23" fill="#E8F1EC" stroke="#081E14" stroke-width="1" rx="1"/>
-
-              <!-- Stern Superstructure / Bridge -->
-              <rect x="355" y="24" width="48" height="64" fill="#FFFFFF" stroke="#CAD5D0" stroke-width="1.5" rx="2"/>
-              <rect x="360" y="32" width="38" height="8" fill="#5D859E" rx="1"/>
-              <rect x="360" y="44" width="38" height="8" fill="#5D859E" rx="1"/>
-              <!-- Navigation Radar & Mast -->
-              <line x1="379" y1="6" x2="379" y2="24" stroke="#4A5E52" stroke-width="2"/>
-              <line x1="371" y1="12" x2="387" y2="12" stroke="#4A5E52" stroke-width="1.5"/>
-              <!-- Funnel with Saffron & Forest Green Stripe -->
-              <rect x="410" y="34" width="16" height="34" fill="#0A2417" rx="1"/>
-              <rect x="410" y="42" width="16" height="8" fill="#C98218"/>
-            </svg>
-          </div>
-
-          <!-- Quayside Ship-to-Shore Gantry Cranes (STS Cranes) -->
-          <div class="gantry-cranes-cluster">
-            <svg viewBox="0 0 260 220">
-              <!-- Crane 1 (Left STS Crane) -->
-              <path d="M20,220 L45,45 L150,25 L160,220" stroke="#255475" stroke-width="3.5" fill="none"/>
-              <line x1="45" y1="45" x2="240" y2="30" stroke="#C98218" stroke-width="5"/>
-              <line x1="20" y1="120" x2="160" y2="120" stroke="#255475" stroke-width="2.5"/>
-              <line x1="35" y1="80" x2="150" y2="80" stroke="#255475" stroke-width="2"/>
-              <!-- Hoist Cable & Spreader Loading Container -->
-              <g class="sts-spreader-wire">
-                <line x1="125" y1="36" x2="125" y2="90" stroke="#1A2620" stroke-width="1.5"/>
-                <line x1="145" y1="35" x2="145" y2="89" stroke="#1A2620" stroke-width="1.5"/>
-                <rect x="115" y="90" width="40" height="6" fill="#FFDE59" rx="1"/>
-                <rect x="117" y="96" width="36" height="20" fill="#144B30" stroke="#081E14" stroke-width="1" rx="1"/>
-                <text x="122" y="110" font-family="sans-serif" font-size="6" font-weight="700" fill="#FFFFFF">SHIPYON</text>
-              </g>
-            </svg>
-          </div>
-
-          <!-- Concrete Container Terminal Dock Wharf & Roadway -->
-          <div class="dock-quayside-wharf">
-            <!-- Safety Hazard Striping -->
-            <div class="wharf-curb-hazard"></div>
-
-            <!-- Mooring Bollards Row -->
-            <div class="wharf-bollards-row">
-              <div class="wharf-bollard"></div>
-              <div class="wharf-bollard"></div>
-              <div class="wharf-bollard"></div>
-              <div class="wharf-bollard"></div>
-              <div class="wharf-bollard"></div>
-              <div class="wharf-bollard"></div>
-              <div class="wharf-bollard"></div>
-              <div class="wharf-bollard"></div>
+      <!-- Interactive Pillars & Live Console Grid -->
+      <div class="why-interactive-grid">
+        <!-- Left: Interactive Pillar Cards -->
+        <div class="why-pillars-list" id="why-pillars-list">
+          <!-- Pillar 1 -->
+          <div class="why-pillar-card active" data-pillar="0">
+            <div class="pillar-header">
+              <span class="pillar-index">01</span>
+              <span class="pillar-category-tag">Direct Farm Aggregation</span>
             </div>
-
-            <!-- Dock Berth Container Yard Roadway -->
-            <div class="dock-berth-roadway">
-              <div class="dock-roadway-lane"></div>
+            <h3 class="pillar-title">Origin Control & Certified Grading</h3>
+            <p class="pillar-desc">
+              Direct contracts with 500+ verified growers in Dharapuram, Theni, and Western Ghats. Eliminating intermediaries ensures farm-fresh pricing, Sortex cleaning, and strict APEDA quality certification.
+            </p>
+            <div class="pillar-metrics-strip">
+              <span class="p-stat">50+ Sourcing Centers</span>
+              <span class="p-stat">0 Intermediaries</span>
             </div>
           </div>
 
-          <!-- Moving White Aerodynamic Shipyon Container Transport Unit -->
-          <div class="moving-lorry-track">
-            <div class="shipyon-lorry" id="animated-shipyon-lorry" title="Quayside Container Drayage: Tuticorin / Cochin Docks ➔ Global Ports">
-              <div class="lorry-live-tooltip">
-                <span>⚓ Port Berth 04</span> ➔ <span>Cochin / Tuticorin ➔ Rotterdam & Jebel Ali</span>
+          <!-- Pillar 2 -->
+          <div class="why-pillar-card" data-pillar="1">
+            <div class="pillar-header">
+              <span class="pillar-index">02</span>
+              <span class="pillar-category-tag">Cold Chain Logistics</span>
+            </div>
+            <h3 class="pillar-title">Precision Reefer & Cold Chain Fleet</h3>
+            <p class="pillar-desc">
+              Continuous temperature-controlled reefer fleet with real-time GPS telemetry from farm packhouses to container vessel berths within 24 hours of harvest.
+            </p>
+            <div class="pillar-metrics-strip">
+              <span class="p-stat">&lt;24h Farm to Reefer</span>
+              <span class="p-stat">0°C to 14°C Precision</span>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="why-pillar-card" data-pillar="2">
+            <div class="pillar-header">
+              <span class="pillar-index">03</span>
+              <span class="pillar-category-tag">Port Terminals</span>
+            </div>
+            <h3 class="pillar-title">Deep-Water Seaport Access</h3>
+            <p class="pillar-desc">
+              Dedicated container berthing slots and automated customs clearances at Cochin (Vallarpadam ICTT), Tuticorin, and Chennai ports with weekly direct liner sailings.
+            </p>
+            <div class="pillar-metrics-strip">
+              <span class="p-stat">3 Direct Seaports</span>
+              <span class="p-stat">99.8% On-Time Vessel Loading</span>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="why-pillar-card" data-pillar="3">
+            <div class="pillar-header">
+              <span class="pillar-index">04</span>
+              <span class="pillar-category-tag">Global Compliance</span>
+            </div>
+            <h3 class="pillar-title">Phytosanitary & Institutional Trust</h3>
+            <p class="pillar-desc">
+              Full international certification compliance (Global GAP, FSSAI, US FDA, Halal, ISO 22000) with comprehensive laboratory pesticide residue testing for each container.
+            </p>
+            <div class="pillar-metrics-strip">
+              <span class="p-stat">50+ Global Gateways</span>
+              <span class="p-stat">100% Traceability</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Animated Command Console Display -->
+        <div class="why-console-display" id="why-console-display">
+          <div class="why-console-frame">
+            <img src="assets/shipyon-reefer-terminal.jpg" alt="Shipyon Reefer Terminal and Container Logistics" class="console-img active" id="why-console-img-0">
+            <img src="assets/shipyon-harbor-docks.jpg" alt="Shipyon Harbor Docks and Reefer Logistics" class="console-img" id="why-console-img-1">
+            <img src="assets/shipyon-dock-cranes.jpg" alt="Deep-water Seaport Container Loading Cranes" class="console-img" id="why-console-img-2">
+            <img src="assets/shipyon-ocean-vessel.jpg" alt="Ocean Container Cargo Ship Sailing Global Routes" class="console-img" id="why-console-img-3">
+            
+            <div class="console-hud-overlay">
+              <div class="hud-chip live-chip">
+                <span class="hud-radar-beacon"></span>
+                <span id="why-hud-status">OPERATIONAL TELEMETRY: ACTIVE</span>
               </div>
-              <div class="lorry-body-assembly">
-                <!-- White Clean Container with SHIPYON -->
-                <div class="lorry-container">
-                  <div class="lorry-brandmark">
-                    <span>SHIPYON</span>
-                    <span style="font-size:0.8rem;">⚓ 🌿</span>
-                  </div>
-                </div>
-                <!-- Clean Modern Cab -->
-                <div class="lorry-cab">
-                  <div class="cab-windshield"></div>
-                  <div class="cab-headlight"></div>
-                </div>
-                <!-- Dual Smooth Rotating Wheels -->
-                <div class="lorry-wheels">
-                  <div class="wheel-pair">
-                    <div class="wheel"></div>
-                    <div class="wheel"></div>
-                  </div>
-                  <div class="wheel-pair">
-                    <div class="wheel"></div>
-                  </div>
+              <div class="hud-caption-glass">
+                <div class="hud-caption-tag" id="why-hud-tag">Pillar 01 • Sourcing</div>
+                <h4 class="hud-caption-title" id="why-hud-title">Origin Control & Certified Grading</h4>
+                <div class="hud-progress-track">
+                  <div class="hud-progress-fill" id="why-hud-progress"></div>
                 </div>
               </div>
             </div>
@@ -595,31 +669,27 @@
         </div>
       </div>
 
-      <!-- 4 Sections / Metrics From Google Doc -->
-      <div class="why-metrics-grid">
-        <!-- 1 -->
-        <div class="why-metric-box">
-          <div class="why-metric-stat">50+</div>
-          <div class="why-metric-title">Sourcing Locations</div>
-          <p class="why-metric-desc">Direct sourcing across key agricultural regions.</p>
+      <!-- Animated Metric Counters Ribbon -->
+      <div class="why-metrics-ribbon">
+        <div class="why-metric-col">
+          <div class="why-metric-number" data-target="50">50+</div>
+          <div class="why-metric-name">Sourcing Centers</div>
+          <div class="why-metric-sub">Direct farm-gate clusters</div>
         </div>
-        <!-- 2 -->
-        <div class="why-metric-box">
-          <div class="why-metric-stat">100+</div>
-          <div class="why-metric-title">Supplier Network</div>
-          <p class="why-metric-desc">Trusted suppliers across India.</p>
+        <div class="why-metric-col">
+          <div class="why-metric-number" data-target="100">100+</div>
+          <div class="why-metric-name">Supplier Network</div>
+          <div class="why-metric-sub">Verified institutional growers</div>
         </div>
-        <!-- 3 -->
-        <div class="why-metric-box">
-          <div class="why-metric-stat">6</div>
-          <div class="why-metric-title">Trade Categories</div>
-          <p class="why-metric-desc">From fresh produce to industrial commodities.</p>
+        <div class="why-metric-col">
+          <div class="why-metric-number" data-target="99">99.8%</div>
+          <div class="why-metric-name">On-Time Dispatch</div>
+          <div class="why-metric-sub">Multimodal vessel scheduling</div>
         </div>
-        <!-- 4 -->
-        <div class="why-metric-box">
-          <div class="why-metric-stat">50+</div>
-          <div class="why-metric-title">Global Markets</div>
-          <p class="why-metric-desc">Reliable distribution across international destinations.</p>
+        <div class="why-metric-col">
+          <div class="why-metric-number" data-target="50">50+</div>
+          <div class="why-metric-name">Global Markets</div>
+          <div class="why-metric-sub">Direct international trade ports</div>
         </div>
       </div>
     </div>
@@ -644,7 +714,7 @@
       <div class="expertise-grid">
         <!-- 1: Product Sourcing -->
         <div class="expertise-card">
-          <div class="expertise-icon-box">🌾</div>
+          <div class="expertise-icon-box">01</div>
           <div class="expertise-details">
             <h3 class="expertise-name">Product Sourcing</h3>
             <p class="expertise-desc">
@@ -655,7 +725,7 @@
 
         <!-- 2: Quality & Inspection -->
         <div class="expertise-card">
-          <div class="expertise-icon-box">🔬</div>
+          <div class="expertise-icon-box">02</div>
           <div class="expertise-details">
             <h3 class="expertise-name">Quality & Inspection</h3>
             <p class="expertise-desc">
@@ -666,7 +736,7 @@
 
         <!-- 3: Packaging & Documentation -->
         <div class="expertise-card">
-          <div class="expertise-icon-box">📋</div>
+          <div class="expertise-icon-box">03</div>
           <div class="expertise-details">
             <h3 class="expertise-name">Packaging & Documentation</h3>
             <p class="expertise-desc">
@@ -677,7 +747,7 @@
 
         <!-- 4: Global Shipping -->
         <div class="expertise-card">
-          <div class="expertise-icon-box">🌐</div>
+          <div class="expertise-icon-box">04</div>
           <div class="expertise-details">
             <h3 class="expertise-name">Global Shipping</h3>
             <p class="expertise-desc">
@@ -690,48 +760,48 @@
   </section>
 
   <!-- ==========================================================================
-       OUR VALUES
-       Headline: Four Pillars. One Promise.
-       Tagline: The principles that define our approach to quality, reliability, transparency, and trust.
-       4 sections - each one line
+       OUR VALUES (FOUR PILLARS. ONE PROMISE.)
+       Dark Sea Blue Box (#051329 to #0B2546) with Luminous High-Contrast White/Cyan Typography
        ========================================================================== -->
-  <section class="values-section" id="values-section">
+  <section class="values-section promise-dark-sea-section" id="values-section">
     <div class="container">
-      <div class="section-header-editorial">
-        <span class="section-pill-tag">Ethos & Trust</span>
-        <h2 class="section-title-editorial">Four Pillars. One Promise.</h2>
-        <p class="section-subtitle-editorial">
-          The principles that define our approach to quality, reliability, transparency, and trust.
-        </p>
-      </div>
-
-      <div class="values-grid">
-        <!-- Value 1 -->
-        <div class="value-card">
-          <div class="value-glyph">🎖️</div>
-          <h3 class="value-name">Quality Assured</h3>
-          <p class="value-tagline">Quality checked. Confidence delivered.</p>
+      <div class="promise-dark-sea-box">
+        <div class="section-header-editorial promise-header-dark">
+          <span class="section-pill-tag promise-pill-tag">Four Pillars. One Promise.</span>
+          <h2 class="section-title-editorial promise-title-dark">Our Uncompromising Quality Covenant</h2>
+          <p class="section-subtitle-editorial promise-subtitle-dark">
+            The foundational principles that govern our agrarian sourcing, cold-chain science, and maritime execution across every container departing Indian shores.
+          </p>
         </div>
 
-        <!-- Value 2 -->
-        <div class="value-card">
-          <div class="value-glyph">🌱</div>
-          <h3 class="value-name">Farm Direct</h3>
-          <p class="value-tagline">Closer to the source. Fresher by nature.</p>
-        </div>
+        <div class="values-grid promise-cards-grid">
+          <!-- Value 1 -->
+          <div class="value-card promise-card-dark">
+            <div class="value-glyph promise-glyph">01</div>
+            <h3 class="value-name promise-name">Quality Assured</h3>
+            <p class="value-tagline promise-desc">Quality inspected at farm-gate, packhouse, and seaport. Confidence delivered to every continent.</p>
+          </div>
 
-        <!-- Value 3 -->
-        <div class="value-card">
-          <div class="value-glyph">❄️</div>
-          <h3 class="value-name">Reliable Logistics</h3>
-          <p class="value-tagline">Freshness protected at every mile.</p>
-        </div>
+          <!-- Value 2 -->
+          <div class="value-card promise-card-dark">
+            <div class="value-glyph promise-glyph">02</div>
+            <h3 class="value-name promise-name">Farm Direct</h3>
+            <p class="value-tagline promise-desc">Direct partnerships with 500+ agrarian cooperatives. Closer to the soil, fresher by nature.</p>
+          </div>
 
-        <!-- Value 4 -->
-        <div class="value-card">
-          <div class="value-glyph">🌍</div>
-          <h3 class="value-name">Global Delivery</h3>
-          <p class="value-tagline">From trusted origins to global markets.</p>
+          <!-- Value 3 -->
+          <div class="value-card promise-card-dark">
+            <div class="value-glyph promise-glyph">03</div>
+            <h3 class="value-name promise-name">Reliable Logistics</h3>
+            <p class="value-tagline promise-desc">Real-time reefer telemetry and multimodal precision protecting freshness across every nautical mile.</p>
+          </div>
+
+          <!-- Value 4 -->
+          <div class="value-card promise-card-dark">
+            <div class="value-glyph promise-glyph">04</div>
+            <h3 class="value-name promise-name">Global Delivery</h3>
+            <p class="value-tagline promise-desc">Seamless port clearance and customs documentation connecting Dharapuram to 50+ sovereign markets.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -778,7 +848,7 @@
 
           <!-- 500+ Verified Suppliers badge at corner -->
           <div class="verified-suppliers-badge">
-            <div class="badge-seal-circle">✓</div>
+            <div class="badge-seal-circle"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
             <div>
               <div class="badge-text-count">500+</div>
               <div class="badge-text-sub">Verified Suppliers</div>
@@ -812,18 +882,18 @@
         <div>
           <h3 class="footer-col-headline">Headquarters</h3>
           <div class="footer-contact-item">
-            <span class="icon">📍</span>
+            <span class="icon"><svg class="svg-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
             <span>Hall No 2, 1st Floor, Vishnu Lakshmi School Campus, Ellis Nagar(PO), Pollachi Road, Dharapuram - 638 656.</span>
           </div>
           <div class="footer-contact-item">
-            <span class="icon">📞</span>
+            <span class="icon"><svg class="svg-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <div>
               <div>+91 95006 90740</div>
               <div>+49 1515 6840689</div>
             </div>
           </div>
           <div class="footer-contact-item">
-            <span class="icon">✉️</span>
+            <span class="icon"><svg class="svg-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
             <span>trade@shipyon.com</span>
           </div>
         </div>
@@ -866,8 +936,8 @@
             <div class="social-title">Connect With Us</div>
             <div class="social-icons-row">
               <a href="#" class="social-btn" aria-label="Facebook">f</a>
-              <a href="#" class="social-btn" aria-label="Instagram">📸</a>
-              <a href="https://wa.me/919500690740" target="_blank" class="social-btn" aria-label="Whatsapp">💬</a>
+              <a href="#" class="social-btn" aria-label="Instagram"><svg class="svg-ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="https://wa.me/919500690740" target="_blank" class="social-btn" aria-label="Whatsapp"><svg class="svg-ico" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg></a>
             </div>
           </div>
         </div>
@@ -918,6 +988,9 @@
     </div>
   </div>
 
+  <script src="three.min.js"></script>
+  <script src="OrbitControls.js"></script>
+  <script src="globe3d.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

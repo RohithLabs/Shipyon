@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuoteModal();
   initCounters();
   initProductFilters();
-  initHeroConsole();
+  initWorldTradeMap();
+  initWhyChooseShowcase();
+  initCuriousFolio();
 });
 
 // 1. Header scroll effect
@@ -33,15 +35,15 @@ function initMobileNav() {
 
   if (toggleBtn && navLinks) {
     toggleBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      toggleBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+      const isOpen = navLinks.classList.toggle('active');
+      toggleBtn.classList.toggle('is-open', isOpen);
     });
 
     // Close when clicking link
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
-        toggleBtn.textContent = '☰';
+        toggleBtn.classList.remove('is-open');
       });
     });
   }
@@ -161,26 +163,226 @@ function initProductFilters() {
   }
 }
 
-// 6. Hero Maritime Console Interactive Tabs
-function initHeroConsole() {
-  const tabs = document.querySelectorAll('.console-tab-item');
-  const panels = document.querySelectorAll('.console-panel');
+// 6. Interactive Animated World Trade Map
+function initWorldTradeMap() {
+  const mapCard = document.querySelector('.world-map-canvas-card');
+  if (!mapCard) return;
 
-  if (!tabs.length || !panels.length) return;
+  // IntersectionObserver to trigger smooth coordinated entrance animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        mapCard.classList.add('map-animated');
+        observer.unobserve(mapCard);
+      }
+    });
+  }, { threshold: 0.2 });
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const targetMode = tab.dataset.mode;
+  observer.observe(mapCard);
 
-      tabs.forEach(t => t.classList.remove('active'));
-      panels.forEach(p => p.classList.remove('active'));
+  // Country callout interaction: click opens quote modal with destination pre-filled
+  const callouts = mapCard.querySelectorAll('.country-callout, .map-country-callout');
+  const modal = document.getElementById('quote-modal-overlay');
+  const destInput = document.getElementById('quote-destination');
 
-      tab.classList.add('active');
-      const activePanel = document.getElementById(`panel-${targetMode}`);
-      if (activePanel) {
-        activePanel.classList.add('active');
+  callouts.forEach(callout => {
+    const country = callout.dataset.country;
+    if (!country) return;
+
+    callout.addEventListener('click', () => {
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      if (destInput) {
+        destInput.value = country;
+      }
+    });
+
+    callout.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        callout.click();
+      }
+    });
+  });
+
+  // Cruising vessel click opens quote modal with route pre-filled
+  const vessels = mapCard.querySelectorAll('.cruising-vessel');
+  vessels.forEach(vessel => {
+    const route = vessel.dataset.route;
+    if (!route) return;
+    vessel.addEventListener('click', () => {
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      if (destInput) {
+        destInput.value = route;
+      }
+    });
+  });
+
+  // Interactive route highlighting on callout hover
+  const routeSelectorMap = {
+    'USA': '#stream-us, #track-us',
+    'GERMANY': '#stream-de, #track-de',
+    'DUBAI (UAE)': '#stream-ae, #track-ae',
+    'SRI LANKA': '#stream-lk, #track-lk',
+    'MALAYSIA': '#stream-my, #track-my',
+    'SINGAPORE': '#stream-sg, #track-sg',
+    'VIETNAM': '#stream-vn, #track-vn',
+    'AUSTRALIA': '#stream-au, #track-au'
+  };
+
+  callouts.forEach(callout => {
+    const country = callout.dataset.country;
+    if (!country || !routeSelectorMap[country]) return;
+    const targetPaths = mapCard.querySelectorAll(routeSelectorMap[country]);
+
+    callout.addEventListener('mouseenter', () => {
+      targetPaths.forEach(p => {
+        p.style.stroke = '#F59E0B';
+        p.style.strokeWidth = '6.5px';
+        p.style.filter = 'drop-shadow(0 0 12px #F59E0B)';
+      });
+    });
+
+    callout.addEventListener('mouseleave', () => {
+      targetPaths.forEach(p => {
+        p.style.stroke = '';
+        p.style.strokeWidth = '';
+        p.style.filter = '';
+      });
+    });
+  });
+
+  // 3D Interactive Mouse Parallax Tilt
+  const stage = document.querySelector('.map-3d-perspective-stage');
+  if (stage && mapCard) {
+    stage.addEventListener('mousemove', (e) => {
+      const rect = stage.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      const rotX = 8 - y * 12;
+      const rotY = x * 10;
+      mapCard.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) scale(0.99)`;
+    });
+
+    stage.addEventListener('mouseleave', () => {
+      mapCard.style.transform = 'rotateX(8deg) rotateY(0deg) scale(0.985)';
+    });
+  }
+}
+
+// 7. Interactive Why Choose Us Showcase
+function initWhyChooseShowcase() {
+  const cards = document.querySelectorAll('.why-pillar-card');
+  const images = document.querySelectorAll('.why-console-frame .console-img');
+  const tagEl = document.getElementById('why-hud-tag');
+  const titleEl = document.getElementById('why-hud-title');
+  const progressFill = document.getElementById('why-hud-progress');
+
+  if (!cards.length || !images.length) return;
+
+  const data = [
+    { tag: 'Pillar 01 • Sourcing', title: 'Origin Control & Certified Grading' },
+    { tag: 'Pillar 02 • Cold Chain', title: 'Precision Reefer & Cold Chain Fleet' },
+    { tag: 'Pillar 03 • Seaports', title: 'Deep-Water Seaport Direct Berths' },
+    { tag: 'Pillar 04 • Compliance', title: 'Phytosanitary & Institutional Trust' }
+  ];
+
+  let currentIndex = 0;
+  let autoTimer = null;
+
+  function setActivePillar(index) {
+    currentIndex = index;
+    cards.forEach((card, idx) => {
+      card.classList.toggle('active', idx === index);
+    });
+
+    images.forEach((img, idx) => {
+      img.classList.toggle('active', idx === index);
+    });
+
+    if (tagEl && data[index]) tagEl.textContent = data[index].tag;
+    if (titleEl && data[index]) titleEl.textContent = data[index].title;
+
+    // Animate progress bar
+    if (progressFill) {
+      progressFill.style.transition = 'none';
+      progressFill.style.width = '0%';
+      setTimeout(() => {
+        progressFill.style.transition = 'width 4.8s linear';
+        progressFill.style.width = '100%';
+      }, 50);
+    }
+  }
+
+  function startAutoCycle() {
+    stopAutoCycle();
+    setActivePillar(currentIndex);
+    autoTimer = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % cards.length;
+      setActivePillar(nextIndex);
+    }, 5000);
+  }
+
+  function stopAutoCycle() {
+    if (autoTimer) clearInterval(autoTimer);
+  }
+
+  cards.forEach((card, idx) => {
+    card.addEventListener('mouseenter', () => {
+      stopAutoCycle();
+      setActivePillar(idx);
+    });
+
+    card.addEventListener('click', () => {
+      stopAutoCycle();
+      setActivePillar(idx);
+    });
+  });
+
+  const display = document.getElementById('why-console-display');
+  if (display) {
+    display.addEventListener('mouseenter', stopAutoCycle);
+    display.addEventListener('mouseleave', startAutoCycle);
+  }
+
+  startAutoCycle();
+}
+
+// 8. Curious Agro-Terroir Folio Interactions
+function initCuriousFolio() {
+  const deck = document.getElementById('curious-folio-deck');
+  if (!deck) return;
+
+  const panels = deck.querySelectorAll('.curious-folio-panel');
+  if (!panels.length) return;
+
+  function setActivePanel(activePanel) {
+    panels.forEach(panel => {
+      const isTarget = panel === activePanel;
+      panel.classList.toggle('active', isTarget);
+      panel.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
+    });
+  }
+
+  panels.forEach(panel => {
+    panel.addEventListener('mouseenter', () => {
+      setActivePanel(panel);
+    });
+
+    panel.addEventListener('click', () => {
+      setActivePanel(panel);
+    });
+
+    panel.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        setActivePanel(panel);
       }
     });
   });
 }
-
