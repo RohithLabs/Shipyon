@@ -86,11 +86,15 @@
     renderer.outputEncoding = THREE.sRGBEncoding;
     container.appendChild(renderer.domElement);
 
-    // 4. Orbit Controls with Strict Zoom Limits
+    // 4. Orbit Controls with Strict Zoom Limits & Continuous Auto-Rotation
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.07;
     controls.enablePan = false;
+
+    // ALWAYS-ON AUTO-ROTATION
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.85; // Continuous smooth celestial rotation
 
     // STRICT ZOOM LIMITS: Prevents clipping inside the globe or zooming out into a tiny dot
     controls.enableZoom = true;
@@ -98,7 +102,7 @@
     controls.minDistance = 142; // Close-up view (globe fills ~80% of view, zero mesh clipping)
     controls.maxDistance = 275; // Far view (entire globe & high parabolic arcs comfortably framed)
 
-    // Handle user interaction to pause/resume auto-tour
+    // Handle user interaction: rotation resumes immediately on release
     controls.addEventListener('start', () => {
       isUserInteracting = true;
       stopAutoTour();
@@ -107,13 +111,13 @@
 
     controls.addEventListener('end', () => {
       isUserInteracting = false;
+      controls.autoRotate = true; // Auto-rotation always active
       if (userInteractionTimeout) clearTimeout(userInteractionTimeout);
-      // Resume 4-second tour after 6 seconds of inactivity
       userInteractionTimeout = setTimeout(() => {
         if (isAutoTourActive) {
           startAutoTour(true);
         }
-      }, 6000);
+      }, 5000);
     });
 
     // 5. Balanced Lighting
@@ -501,13 +505,20 @@
       });
     }
 
+    const rotateBtn = document.getElementById('btn-toggle-rotate');
+    if (rotateBtn) {
+      rotateBtn.classList.add('active');
+      rotateBtn.addEventListener('click', () => {
+        controls.autoRotate = true;
+        rotateBtn.classList.add('active');
+      });
+    }
+
     const resetBtn = document.getElementById('btn-reset-view');
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
         focusOnCorridor('INDIA');
-        stopAutoTour();
-        isAutoTourActive = false;
-        updateTourButtonState();
+        controls.autoRotate = true; // Always keep auto-rotate on!
         const navBtns = document.querySelectorAll('.globe-nav-btn');
         navBtns.forEach(b => b.classList.remove('active'));
       });
@@ -581,8 +592,11 @@
   function animate() {
     animFrameId = requestAnimationFrame(animate);
 
-    // 1. Controls update
-    if (controls) controls.update();
+    // 1. Controls update (Always keep auto-rotation actively running)
+    if (controls) {
+      controls.autoRotate = true;
+      controls.update();
+    }
 
     // 2. Small India Ripple Animation (Delicate 3D Pulse)
     if (rippleMesh) {
