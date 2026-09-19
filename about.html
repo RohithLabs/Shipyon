@@ -1,437 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>About Us | Shipyon Exim — Sourcing Heritage, Provenance &amp; Trade Architecture</title>
-  <meta name="description" content="Discover the origins, values, and operational capabilities of Shipyon Exim. Headquartered in Dharapuram, Tamil Nadu, bridging South Indian farm clusters with global import markets." />
-  <meta name="keywords" content="Shipyon Exim about, Dharapuram agricultural export, Tamil Nadu exporters, direct farm sourcing, B2B export house India" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph Meta -->
-  <meta property="og:title" content="About Us | Shipyon Exim — Sourcing Heritage &amp; Provenance" />
-  <meta property="og:description" content="South India's disciplined trade and export partner, built on direct agricultural relationships and international quality standards." />
-  <meta property="og:image" content="assets/shipyon-logo.png" />
-  <meta property="og:type" content="website" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="assets/shipyon-logo.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Connecting Origin to Opportunity | Shipyon</title>
+  <meta name="description" content="Learn about Shipyon: Rooted in Dharapuram, Tamil Nadu. Connecting South Indian farm origins to international trade opportunities across 50+ countries.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="assets/shipyon-logo.png">
 </head>
 <body>
-  <!-- Accessibility Skip Link -->
-  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
-  <!-- Top Announcement Bar -->
-  <div class="top-hotline-bar" role="complementary" aria-label="Quick Contacts">
-    <div class="container hotline-inner">
-      <div class="hotline-left">
-        <span class="radar-beacon">
-          <span class="radar-dot"></span>
-          <span class="hotline-pill">DUTY DESK</span>
-        </span>
-        <span class="hotline-text">International Commercial Inquiries Active</span>
-      </div>
-      <div class="hotline-right">
-        <a href="tel:+919500690740" class="hotline-link" title="India Desk">🇮🇳 +91 9500690740</a>
-        <span class="hotline-divider">|</span>
-        <a href="tel:+4915156840689" class="hotline-link" title="Europe Liaison">🇩🇪 +49 1515 6840689</a>
-        <span class="hotline-divider">|</span>
-        <a href="mailto:info@shipyon.in" class="hotline-link">✉ info@shipyon.in</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sticky Header -->
-  <header class="site-header" id="site-header" role="banner">
-    <div class="container header-container">
-      <a href="index.html" class="brand-logo" aria-label="Shipyon Exim Home">
-        <img src="assets/shipyon-logo.png" alt="Shipyon Logo" class="brand-logo-img" width="132" height="42" />
-        <span class="brand-badge">EXIM</span>
+  <!-- Navigation Bar -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo" aria-label="Shipyon Home">
+        <img src="assets/shipyon-logo.png" alt="Shipyon Logo" class="brand-logo-img">
       </a>
 
-      <!-- Desktop Navigation (Streamlined to 5 core items) -->
-      <nav class="desktop-nav" aria-label="Primary Navigation">
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="products.html" class="nav-link">Product</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="about.html" class="nav-link active">About Us</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+        <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+        <li><a href="about.html" class="nav-link active" id="nav-about">About</a></li>
+        <li><a href="products.html" class="nav-link" id="nav-products">Products</a></li>
+        <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+      </ul>
 
-      <!-- Header Action Buttons -->
-      <div class="header-actions">
-        <a href="contact.html#rfq-form" class="btn btn-primary btn-sm">Request Quote</a>
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer">
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-        </button>
+      <div class="nav-actions">
+        <button class="btn btn-primary open-quote-modal-btn" id="btn-header-quote">Request Quote</button>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation">☰</button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Drawer Navigation -->
-  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-    <div class="drawer-header">
-      <img src="assets/shipyon-logo.png" alt="Shipyon Logo" class="drawer-logo" height="36" />
-      <button class="drawer-close" id="drawer-close" aria-label="Close Navigation Menu">&times;</button>
+  <!-- Subpage Hero -->
+  <section class="subpage-hero">
+    <div class="container">
+      <span class="section-pill-tag">Heritage & Enterprise</span>
+      <h1 class="subpage-title">Connecting Origin to Opportunity</h1>
+      <p class="subpage-subtitle">
+        Shipyon sources, supplies, and delivers premium agricultural and industrial products across domestic and global markets.
+      </p>
     </div>
-    <nav class="drawer-nav">
-      <ul class="drawer-menu">
-        <li><a href="index.html" class="drawer-link">Home</a></li>
-        <li><a href="products.html" class="drawer-link">Product</a></li>
-        <li><a href="services.html" class="drawer-link">Services</a></li>
-        <li><a href="about.html" class="drawer-link active">About Us</a></li>
-        <li><a href="contact.html" class="drawer-link">Contact</a></li>
-      </ul>
-      <div class="drawer-contact-box">
-        <p class="drawer-hotline-label">Direct Trade Inquiries:</p>
-        <a href="tel:+919500690740" class="drawer-phone">🇮🇳 +91 9500690740</a>
-        <a href="tel:+4915156840689" class="drawer-phone">🇩🇪 +49 1515 6840689</a>
-        <a href="contact.html#rfq-form" class="btn btn-primary btn-block mt-3">Request a Quotation</a>
-      </div>
-    </nav>
-  </div>
-  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  </section>
 
-  <!-- Main Content Area -->
-  <main id="main-content">
-
-    <!-- Subpage Hero Header -->
-    <section class="page-hero" id="page-hero">
-      <div class="hero-background" aria-hidden="true">
-        <div class="hero-grid-pattern"></div>
-        <div class="hero-radial-gradient"></div>
-      </div>
-      <div class="container hero-container">
-        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <span class="breadcrumb-sep">/</span>
-          <span class="breadcrumb-current">About Us</span>
-        </nav>
-        <div class="trust-strip mb-2" style="justify-content: flex-start; margin-bottom: 16px;">
-          <span class="radar-beacon">
-            <span class="radar-dot"></span>
-            <span class="trust-item">PROVENANCE VERIFIED</span>
-          </span>
-          <span class="trust-sep">&bull;</span>
-          <span class="coord-stamp">10°43'N 77°31'E [AMARAVATHI BASIN]</span>
-          <span class="trust-sep">&bull;</span>
-          <span class="trust-item">DIRECT ORIGIN PROCUREMENT</span>
+  <!-- Our Story Narrative & Mosaic Section -->
+  <section class="about-section" style="border: none;">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="section-pill-tag">Our Story</span>
+          <h2 class="about-headline">Rooted in South India. Trusted Globally.</h2>
+          <p class="about-tagline" style="font-size: 1.05rem;">
+            Established in Dharapuram, Tamil Nadu — at the geographical crossroads of India's richest agricultural heartland — Shipyon was founded to transform fragmented farm gate produce into predictable, world-class export commodity flows.
+          </p>
+          <p style="color: var(--text-secondary); line-height: 1.65; font-size: 0.98rem;">
+            We operate through direct long-term partnerships with over 500 verified agricultural growers, spice plantations, and industrial manufacturers. By eliminating intermediaries and instituting precision grading, refrigerated cold chains, and end-to-end documentation, we ensure every shipment from Cochin or Tuticorin reaches international buyers in peak condition.
+          </p>
+          <div>
+            <a href="contact.html" class="btn btn-forest">Connect With Our Origin Team →</a>
+          </div>
         </div>
-        <h1 class="page-hero-title">Built Around Better Trade.</h1>
-        <p class="page-hero-subtitle">
-          Rooted in South India's fertile agrarian heartland, Shipyon bridges direct origin procurement with disciplined international logistics and laboratory-grade compliance.
+
+        <div class="about-mosaic-wrap">
+          <div class="mosaic-grid">
+            <div class="mosaic-img-box">
+              <img src="assets/shipyon-harbor-docks.jpg" alt="Deep-Water Seaport Berth & Container Ship">
+            </div>
+            <div class="mosaic-img-box">
+              <img src="assets/shipyon-ocean-vessel.jpg" alt="Commercial Container Ship on High Seas">
+            </div>
+            <div class="mosaic-img-box">
+              <img src="assets/shipyon-dock-cranes.jpg" alt="Port Quayside Gantry Cranes Loading Freight">
+            </div>
+            <div class="mosaic-img-box">
+              <img src="assets/shipyon-reefer-terminal.jpg" alt="Cold Chain Reefer Container Port Yard">
+            </div>
+          </div>
+
+          <div class="verified-suppliers-badge">
+            <div class="badge-seal-circle">✓</div>
+            <div>
+              <div class="badge-text-count">500+</div>
+              <div class="badge-text-sub">Verified Suppliers</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values (Four Pillars. One Promise.) -->
+  <section class="values-section" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header-editorial">
+        <span class="section-pill-tag">Foundational Principles</span>
+        <h2 class="section-title-editorial">Four Pillars. One Promise.</h2>
+        <p class="section-subtitle-editorial">
+          The principles that define our approach to quality, reliability, transparency, and trust.
         </p>
       </div>
-    </section>
 
-    <!-- 1. PROVENANCE & DHARAPURAM ORIGIN -->
-    <section class="about-section" id="provenance">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-text-col">
-            <span class="section-tag">// 01_HERITAGE_&amp;_PROVENANCE</span>
-            <h2 class="section-title">Rooted in Dharapuram. Connected to Global Ports.</h2>
-            <p class="about-lead">
-              Shipyon was established in Dharapuram, Tamil Nadu &mdash; situated in the fertile Amaravathi river basin, renowned as one of South India's oldest and most respected agricultural trading corridors.
-            </p>
-            <p class="about-paragraph">
-              Surrounded by premier commodity clusters &mdash; the world-famous turmeric markets of Erode, the cardamom auctions of Theni, the coconut groves of Pollachi, and the textile spinning mills of Tiruppur &mdash; Shipyon was founded to solve a fundamental deficiency in international merchant trade: the opacity and volatility created by multiple speculative intermediaries.
-            </p>
-            <p class="about-paragraph">
-              By placing our operational center directly at the source, we establish contractual relationships with verified farmers, growers' cooperatives, and processing units. We provide global buyers with unadulterated provenance, certified lab analysis, and guaranteed container allocations.
-            </p>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-glyph">🎖️</div>
+          <h3 class="value-name">Quality Assured</h3>
+          <p class="value-tagline">Quality checked. Confidence delivered.</p>
+        </div>
 
-            <div class="about-stats-row">
-              <div class="about-stat-box tech-card has-reticles">
-                <span class="as-num">50+</span>
-                <span class="as-label">Direct Farm Clusters</span>
-              </div>
-              <div class="about-stat-box tech-card has-reticles">
-                <span class="as-num">100%</span>
-                <span class="as-label">Batch Traceability</span>
-              </div>
-              <div class="about-stat-box tech-card has-reticles">
-                <span class="as-num">0</span>
-                <span class="as-label">Speculative Middlemen</span>
-              </div>
-            </div>
-          </div>
+        <div class="value-card">
+          <div class="value-glyph">🌱</div>
+          <h3 class="value-name">Farm Direct</h3>
+          <p class="value-tagline">Closer to the source. Fresher by nature.</p>
+        </div>
 
-          <div class="about-visual-col">
-            <div class="about-image-card tech-card has-reticles">
-              <img src="assets/shipyon-coconut.png" alt="South Indian Coconut &amp; Agricultural Heritage" class="about-img" loading="lazy" />
-              <div class="about-location-badge">
-                <span class="alb-pin">
-                  <span class="radar-beacon"><span class="radar-dot"></span></span>
-                </span>
-                <div class="alb-text">
-                  <strong>Dharapuram, Tamil Nadu</strong>
-                  <span>Amaravathi River Agricultural Corridor [10°43'N 77°31'E]</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="value-card">
+          <div class="value-glyph">❄️</div>
+          <h3 class="value-name">Reliable Logistics</h3>
+          <p class="value-tagline">Freshness protected at every mile.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-glyph">🌍</div>
+          <h3 class="value-name">Global Delivery</h3>
+          <p class="value-tagline">From trusted origins to global markets.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 2. MISSION, VISION & GUIDING VALUES -->
-    <section class="services-section" style="background-color: var(--ivory-100); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
-      <div class="container">
-        <div class="section-tag-center">
-          <span class="section-tag">STRATEGIC PURPOSE</span>
-          <h2 class="section-title text-center">Our Mission &amp; Guiding Principles</h2>
-          <p class="section-subtitle text-center">A clear, uncompromising mandate governing every commodity batch, contract, and shipment.</p>
-        </div>
-
-        <div class="why-grid">
-          <div class="why-card tech-card has-reticles">
-            <div class="why-icon-box">🎯</div>
-            <h3 class="why-card-title">Our Mission</h3>
-            <p class="why-card-desc">
-              To deliver premium South Indian agricultural commodities and manufactured goods to international buyers through disciplined farm-gate procurement, strict multi-point laboratory analysis, and synchronized logistics execution.
-            </p>
-          </div>
-
-          <div class="why-card tech-card has-reticles">
-            <div class="why-card-title-wrap">
-              <div class="why-icon-box">🔭</div>
-              <h3 class="why-card-title">Our Vision</h3>
-            </div>
-            <p class="why-card-desc">
-              To become South India's premier high-trust export house, recognized worldwide by commercial buyers, food conglomerates, and industrial distributors for uncompromising quality integrity, fair farm pricing, and shipment reliability.
-            </p>
-          </div>
-
-          <div class="why-card tech-card has-reticles">
-            <div class="why-icon-box">⚖️</div>
-            <h3 class="why-card-title">Radical Transparency</h3>
-            <p class="why-card-desc">
-              Every shipment is backed by verified laboratory certificates, moisture profiles, pesticide MRL analysis, and origin geo-tagging. We never conceal product provenance or grade substitutions.
-            </p>
-          </div>
-
-          <div class="why-card tech-card has-reticles">
-            <div class="why-icon-box">🤝</div>
-            <h3 class="why-card-title">Grower Stewardship</h3>
-            <p class="why-card-desc">
-              Sustainable global trade begins at the soil. We maintain direct, long-term procurement agreements with South Indian farmer collectives, ensuring prompt payments and fair-value pricing.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. WHY SHIPYON (4 Core Capability Pillars) -->
-    <section class="why-section" id="why">
-      <div class="container">
-        <div class="section-tag-center">
-          <span class="section-tag">// THE_SHIPYON_ADVANTAGE</span>
-          <h2 class="section-title text-center">Why International Importers Partner with Us</h2>
-          <p class="section-subtitle text-center">Four foundational pillars that differentiate Shipyon from traditional trading brokers.</p>
-        </div>
-
-        <div class="why-grid">
-          <div class="why-card tech-card has-reticles">
-            <span class="telemetry-chip accent" style="margin-bottom: 12px;">// PILLAR_01</span>
-            <div class="why-icon-box">🌱</div>
-            <h3 class="why-card-title">Direct Origin Sourcing</h3>
-            <p class="why-card-desc">
-              Direct aggregation at farm-gates and primary processing mills across Tamil Nadu, Kerala, Andhra Pradesh, and Karnataka. Eliminating speculative middlemen delivers superior freshness and competitive FOB pricing.
-            </p>
-          </div>
-
-          <div class="why-card tech-card has-reticles">
-            <span class="telemetry-chip accent" style="margin-bottom: 12px;">// PILLAR_02</span>
-            <div class="why-icon-box">🔬</div>
-            <h3 class="why-card-title">Multi-Point Quality Assurance</h3>
-            <p class="why-card-desc">
-              Quality is verified at farm intake, secondary processing, and pre-loading. Every consignment undergoes independent NABL-accredited laboratory testing for chemical, microbiological, and physical parameters.
-            </p>
-          </div>
-
-          <div class="why-card tech-card has-reticles">
-            <span class="telemetry-chip accent" style="margin-bottom: 12px;">// PILLAR_03</span>
-            <div class="why-icon-box">📋</div>
-            <h3 class="why-card-title">Seamless Trade Execution</h3>
-            <p class="why-card-desc">
-              End-to-end management of export documentation &mdash; Phytosanitary Certificates, Certificates of Origin, Bill of Lading, SGS/Eurofins inspection reports, and streamlined customs clearance at major Indian ports.
-            </p>
-          </div>
-
-          <div class="why-card tech-card has-reticles">
-            <span class="telemetry-chip accent" style="margin-bottom: 12px;">// PILLAR_04</span>
-            <div class="why-icon-box">🤝</div>
-            <h3 class="why-card-title">Long-Term Buyer Alliances</h3>
-            <p class="why-card-desc">
-              We treat international buyers as enduring partners. Fixed-price forward delivery contracts, dedicated commercial account managers, and priority vessel booking guarantee peace of mind.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. LEADERSHIP & DESK COORDINATION -->
-    <section class="about-section" style="background-color: var(--ivory-100); border-top: 1px solid var(--border-light);">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-visual-col">
-            <div class="about-image-card tech-card has-reticles">
-              <img src="assets/shipyon-cardamom.png" alt="Shipyon Export Quality Grading" class="about-img" loading="lazy" />
-              <div class="about-location-badge">
-                <span class="alb-pin">🌐</span>
-                <div class="alb-text">
-                  <strong>Global Trade Coordination Desk</strong>
-                  <span>Serving GCC, Europe, Americas &amp; Asia</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-text-col">
-            <span class="section-tag">// 02_DESK_COORDINATION</span>
-            <h2 class="section-title">Professional Desk Coordination</h2>
-            <p class="about-lead">
-              Our trade operations team operates with corporate rigor, offering multi-timezone commercial support from our Indian headquarters and European liaison desk.
-            </p>
-            <p class="about-paragraph">
-              Whether you are an FMCG food conglomerate in Hamburg, a spice blending manufacturer in Dubai, or an industrial distributor in Singapore, our duty managers provide real-time shipment updates, laboratory test tracking, and flexible Incoterms (FOB, CFR, CIF).
-            </p>
-            <div class="hero-actions mt-3">
-              <a href="products.html" class="btn btn-primary btn-md">Explore Our Catalog &rarr;</a>
-              <a href="contact.html" class="btn btn-secondary btn-md">Contact Our Trade Desk</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. CUSTOM SOURCING CTA (Blueprint Pattern) -->
-    <section class="custom-sourcing-section pattern-blueprint-dark">
-      <div class="container">
-        <div class="custom-sourcing-box has-reticles" style="border: 1px solid rgba(29, 78, 216, 0.3);">
-          <span class="cs-tag">BESPOKE EXPORT MANDATES</span>
-          <h2 class="cs-heading">Looking for a Specific Commodity Grade or Private Label Tech Pack?</h2>
-          <p class="cs-body">
-            Our procurement team regularly handles customized agricultural grades, bulk packaging specifications, and specialized industrial commodities outside our core catalog.
-          </p>
-          <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-            <a href="contact.html#rfq-form" class="btn btn-accent btn-lg">Submit Your Technical Specification &rarr;</a>
-            <a href="https://wa.me/919500690740?text=Hello%20Shipyon%20Exim,%20I%20would%20like%20to%20inquire%20about%20a%20custom%20grade." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg" style="width: auto;">
-              Direct WhatsApp Trade Desk
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Multi-Column Corporate Footer -->
-  <footer class="site-footer" role="contentinfo">
+  <!-- Institutional Metrics Bar -->
+  <section class="snapshots-ribbon-section" style="padding-top: 60px;">
     <div class="container">
-      <div class="footer-top-grid">
-        <!-- Col 1: Corporate Profile -->
-        <div class="footer-col footer-col-brand">
-          <img src="assets/shipyon-logo.png" alt="Shipyon Logo" class="footer-logo" width="130" height="42" />
-          <p class="footer-desc">
-            Shipyon Exim is an international trade house headquartered in Dharapuram, Tamil Nadu. Connecting trusted South Indian producers with global commercial importers.
-          </p>
-          <address class="footer-address">
-            <strong>Headquarters:</strong><br />
-            Shipyon Exim, Dharapuram,<br />
-            Tamil Nadu &mdash; 638 656, India.<br />
-            CIN / IEC Registered Merchant Exporter
-          </address>
+      <div class="snapshots-ribbon-bar">
+        <div class="snapshot-item">
+          <span class="snapshot-category">GLOBAL PRESENCE</span>
+          <span class="snapshot-value">50+</span>
+          <span class="snapshot-label">Countries Served</span>
+        </div>
+        <div class="snapshot-item">
+          <span class="snapshot-category">TRUSTED CONNECTIONS</span>
+          <span class="snapshot-value">1000+</span>
+          <span class="snapshot-label">Global Partners</span>
+        </div>
+        <div class="snapshot-item">
+          <span class="snapshot-category">DELIVERY YOU CAN COUNT ON</span>
+          <span class="snapshot-value">99.8%</span>
+          <span class="snapshot-label">On-Time Delivery</span>
+        </div>
+        <div class="snapshot-item">
+          <span class="snapshot-category">ALWAYS WITH YOU</span>
+          <span class="snapshot-value">24/7</span>
+          <span class="snapshot-label">Customer Support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Universal Institutional Footer -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container">
+      <div class="footer-top-banner">
+        <p class="footer-banner-text">
+          SHIPYON - IMPORT AND EXPORTS | LOGISTICS SUPPORT | INTERNATIONAL AND DOMESTIC SUPPLY
+        </p>
+      </div>
+
+      <div class="footer-columns-grid">
+        <div>
+          <h3 class="footer-col-headline">Headquarters</h3>
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>Hall No 2, 1st Floor, Vishnu Lakshmi School Campus, Ellis Nagar(PO), Pollachi Road, Dharapuram - 638 656.</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <div>
+              <div>+91 95006 90740</div>
+              <div>+49 1515 6840689</div>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">✉️</span>
+            <span>trade@shipyon.com</span>
+          </div>
         </div>
 
-        <!-- Col 2: Company Links -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Company</h4>
-          <ul class="footer-links">
-            <li><a href="about.html">About Shipyon</a></li>
-            <li><a href="about.html#provenance">Dharapuram Origin</a></li>
-            <li><a href="about.html#why">Why Shipyon</a></li>
-            <li><a href="services.html#quality">Quality &amp; Compliance</a></li>
-            <li><a href="services.html#logistics">Global Sourcing Hubs</a></li>
-            <li><a href="contact.html">Contact / RFQ</a></li>
+        <div>
+          <h3 class="footer-col-headline">Quick Links</h3>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="about.html">About us</a></li>
+            <li class="footer-link-item"><a href="services.html">Our Services</a></li>
+            <li class="footer-link-item"><a href="products.html">Products</a></li>
+            <li class="footer-link-item"><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Services & Solutions -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Services</h4>
-          <ul class="footer-links">
-            <li><a href="services.html">Agricultural Sourcing</a></li>
-            <li><a href="services.html">Domestic &amp; Global Trade</a></li>
-            <li><a href="services.html">Custom Procurement</a></li>
-            <li><a href="services.html">Market &amp; Sales Support</a></li>
-            <li><a href="services.html">Export Documentation</a></li>
-            <li><a href="services.html#logistics">Multimodal Freight</a></li>
+        <div>
+          <h3 class="footer-col-headline">Services</h3>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="services.html">Fresh Fruits Sourcing</a></li>
+            <li class="footer-link-item"><a href="services.html">Organic Vegetables Import</a></li>
+            <li class="footer-link-item"><a href="services.html">Premium Spices Trade</a></li>
+            <li class="footer-link-item"><a href="services.html">Grains & pulses distribution</a></li>
+            <li class="footer-link-item"><a href="services.html">Bulk Procurement & Logistics</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Products Categories -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Product Verticals</h4>
-          <ul class="footer-links">
-            <li><a href="products.html?cat=spices">Spices &amp; Plantation</a></li>
-            <li><a href="products.html?cat=grains">Grains, Rice &amp; Staples</a></li>
-            <li><a href="products.html?cat=produce">Fresh Produce &amp; Coconut</a></li>
-            <li><a href="products.html?cat=fruits">Fresh &amp; Dry Fruits</a></li>
-            <li><a href="products.html?cat=processed">Processed &amp; Eco-Crafts</a></li>
-            <li><a href="products.html?cat=industrial">Apparel &amp; Heavy Industrial</a></li>
+        <div>
+          <h3 class="footer-col-headline">Solutions</h3>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="services.html">Sourcing & Supply chain</a></li>
+            <li class="footer-link-item"><a href="services.html">Custom Packaging & Canning</a></li>
+            <li class="footer-link-item"><a href="services.html">Global Freight & Customs</a></li>
+            <li class="footer-link-item"><a href="services.html">Warehousing & Cold chain</a></li>
           </ul>
-        </div>
 
-        <!-- Col 5: Direct Communication -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Trade Desk</h4>
-          <ul class="footer-contact-list">
-            <li><strong>India:</strong> <a href="tel:+919500690740">+91 9500690740</a></li>
-            <li><strong>Europe:</strong> <a href="tel:+4915156840689">+49 1515 6840689</a></li>
-            <li><strong>Portal:</strong> <a href="https://shipyon.in">shipyon.in</a></li>
-          </ul>
-          <div class="footer-social-strip">
-            <a href="https://wa.me/919500690740" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="WhatsApp">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/></svg>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.54a1.6 1.6 0 0 0-1.6 1.6c0 .88.72 1.6 1.6 1.6.89 0 1.61-.72 1.61-1.6a1.61 1.61 0 0 0-1.61-1.6z"/></svg>
-            </a>
-            <a href="https://shipyon.in" class="social-icon-link" aria-label="Website">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            </a>
+          <div class="footer-social-wrap">
+            <div class="social-title">Connect With Us</div>
+            <div class="social-icons-row">
+              <a href="#" class="social-btn" aria-label="Facebook">f</a>
+              <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+              <a href="https://wa.me/919500690740" target="_blank" class="social-btn" aria-label="Whatsapp">💬</a>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <p class="copyright-text">&copy; 2026 Shipyon Exim. All rights reserved. Sourcing Excellence. Connecting Horizons.</p>
-        <div class="footer-legal-links">
-          <a href="#">Privacy Policy</a>
-          <span class="legal-sep">&bull;</span>
-          <a href="#">Terms of Trade</a>
-          <span class="legal-sep">&bull;</span>
-          <a href="#">Cookie Compliance</a>
-          <span class="legal-sep">&bull;</span>
-          <a href="https://shipyon.in/sitemap.xml">XML Sitemap</a>
-        </div>
+        <div>© 2026 SHIPYON. All Rights Reserved. South India’s Premier Trade & Sourcing Company.</div>
+        <div>Dharapuram • Chennai • Cochin • International Corridors</div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Quote Modal -->
+  <div class="modal-overlay" id="quote-modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+      <h2 class="modal-title">Request a Trade Quote</h2>
+      <p class="modal-subtitle">Direct institutional pricing from South India’s premier sourcing network.</p>
+      <form id="quote-modal-form" onsubmit="handleQuoteSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="quote-name">Full Name / Company</label>
+          <input type="text" id="quote-name" class="form-input" placeholder="e.g. Al-Mansoor Trading LLC" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="quote-email">Business Email</label>
+          <input type="email" id="quote-email" class="form-input" placeholder="procurement@company.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="quote-category">Trade Category</label>
+          <select id="quote-category" class="form-select">
+            <option>Fresh Produce (Onions, Vegetables)</option>
+            <option>Spices & Plantation Crops (Cardamom, Chilly, Turmeric)</option>
+            <option>Fruits (Mangoes, Grapes, Pomegranates)</option>
+            <option>Processed & Value-Added Products (Moringa, Extracts)</option>
+            <option>Industrial & Commercial (Granite, Tiles, Textiles)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="quote-destination">Destination Country / Port</label>
+          <input type="text" id="quote-destination" class="form-input" placeholder="e.g. Rotterdam, Jebel Ali, Hamburg" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Submit RFQ Specification</button>
+      </form>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
