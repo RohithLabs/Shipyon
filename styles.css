@@ -4,46 +4,57 @@
    Clean, Soft, Dignified, High-Fidelity Non-Tech Aesthetic
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=gambarino@400&f[]=general-sans@400,500,600,700&display=swap');
 
 :root {
   /* ==========================================================================
-     ICONIC 3-COLOR MIXED MARITIME PALETTE
-     1. Deep Admiralty Navy (#0B1E36)
-     2. Beacon Saffron Gold (#C88219)
-     3. Crisp Sail White & Pearl Canvas (#FFFFFF & #F5F7FA)
+     COLOR PALETTE - CLEAN / MODERN / PROFESSIONAL
+     1. Primary Blue:  #0E6BA8 (Navigation, buttons, links, headings accent)
+     2. Primary Green: #16A085 (Highlights, icons, accents, hover states)
+     3. Light Blue:    #E6F2FF (Background sections, cards, subtle elements)
+     4. Soft Green:    #E8F5EE (Section backgrounds, accents, tags)
+     5. Dark Navy:     #1E2A44 (Headings, important text, footer background)
+     6. Slate Gray:    #546E7A (Body text, secondary text, icons)
+     7. Light Gray:    #F5F8FA (Borders, dividers, subtle lines)
      ========================================================================== */
-  --navy-950: #050E1A;
-  --navy-900: #0B1E36; /* Core Admiralty Navy */
-  --navy-850: #0E2542;
-  --navy-800: #122F54;
-  --navy-700: #1A4275;
-  --navy-600: #25599C;
-  --navy-200: #C8D8EC;
-  --navy-100: #E6EFF8;
-  --navy-50:  #F2F6FB;
+  --primary-blue: #0E6BA8;
+  --primary-green: #16A085;
+  --light-blue: #E6F2FF;
+  --soft-green: #E8F5EE;
+  --dark-navy: #1E2A44;
+  --slate-gray: #546E7A;
+  --light-gray: #F5F8FA;
 
-  /* Backward Compatibility Aliases (Seamlessly Maps Heritage Classes to Navy) */
-  --forest-950: var(--navy-950);
-  --forest-900: var(--navy-900);
-  --forest-850: var(--navy-850);
-  --forest-800: var(--navy-800);
-  --forest-700: var(--navy-700);
-  --forest-600: var(--navy-600);
-  --forest-200: var(--navy-200);
-  --forest-100: var(--navy-100);
-  --forest-50:  var(--navy-50);
+  /* Mapped Navy System */
+  --navy-950: #121B2D;
+  --navy-900: #1E2A44; /* Dark Navy Core */
+  --navy-850: #182238;
+  --navy-800: #1E2A44;
+  --navy-700: #0E6BA8; /* Primary Blue */
+  --navy-600: #16A085; /* Primary Green */
+  --navy-200: #C2DCF2;
+  --navy-100: #E6F2FF; /* Light Blue */
+  --navy-50:  #F5F8FA; /* Light Gray */
 
-  /* Color 2: Beacon Saffron Gold */
-  --gold-700: #8E5407;
-  --gold-600: #A8690D;
-  --gold-500: #C88219; /* Core Beacon Gold */
-  --gold-400: #E1992E;
-  --gold-300: #F4BA5E;
-  --gold-100: #FDF2DF;
-  --gold-50:  #FFF9EE;
+  --forest-950: #121B2D;
+  --forest-900: #1E2A44;
+  --forest-850: #182238;
+  --forest-800: #1E2A44;
+  --forest-700: #0E6BA8;
+  --forest-600: #16A085;
+  --forest-200: #C2DCF2;
+  --forest-100: #E6F2FF;
+  --forest-50:  #F5F8FA;
 
-  /* Backward Compatibility Aliases */
+  /* Mapped Gold / Accent System to Primary Green & Blue */
+  --gold-700: #0B5585;
+  --gold-600: #0E6BA8;
+  --gold-500: #16A085; /* Primary Green Accent */
+  --gold-400: #1EBE9F;
+  --gold-300: #4DD2BA;
+  --gold-100: #E8F5EE; /* Soft Green */
+  --gold-50:  #F5F8FA;
+
   --saffron-700: var(--gold-700);
   --saffron-600: var(--gold-600);
   --saffron-500: var(--gold-500);
@@ -55,45 +66,46 @@
   --clay-500: var(--gold-600);
   --clay-100: var(--gold-100);
 
-  /* Color 3: Sail White & Pearl Maritime Canvas */
+  /* Canvas & Surfaces */
   --sail-white: #FFFFFF;
-  --pearl-canvas: #F5F7FA;
+  --pearl-canvas: #F5F8FA; /* Light Gray */
   --pearl-surface: #FFFFFF;
-  --pearl-subtle: #EDF1F6;
-  --pearl-muted: #E2E8F0;
+  --pearl-subtle: #E6F2FF; /* Light Blue */
+  --pearl-muted: #E8F5EE; /* Soft Green */
 
-  --bg-canvas: var(--pearl-canvas);
-  --bg-surface: var(--sail-white);
-  --bg-surface-elevated: var(--sail-white);
-  --bg-subtle: var(--pearl-subtle);
-  --bg-muted: var(--pearl-muted);
-  --bg-sand: #EAEFF5;
+  --bg-canvas: #F5F8FA;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FFFFFF;
+  --bg-subtle: #E6F2FF;
+  --bg-muted: #E8F5EE;
+  --bg-sand: #E6F2FF;
 
-  /* Ink Typography (Derived from Admiralty Navy) */
-  --text-primary: #0B1E36;
-  --text-secondary: #3B4F68;
-  --text-muted: #6C819C;
-  --text-subtle: #96A7BC;
+  /* Ink Typography */
+  --text-primary: #1E2A44; /* Dark Navy */
+  --text-secondary: #546E7A; /* Slate Gray */
+  --text-muted: #546E7A;
+  --text-subtle: #8097A2;
   --text-on-dark: #FFFFFF;
 
   /* Clean Borders & Dividers */
-  --border-subtle: rgba(11, 30, 54, 0.08);
-  --border-light: rgba(11, 30, 54, 0.14);
-  --border-medium: rgba(11, 30, 54, 0.22);
-  --border-gold: rgba(200, 130, 25, 0.35);
+  --border-subtle: rgba(30, 42, 68, 0.08);
+  --border-light: rgba(30, 42, 68, 0.14);
+  --border-medium: rgba(30, 42, 68, 0.22);
+  --border-gold: rgba(22, 160, 133, 0.35);
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(11, 30, 54, 0.04);
-  --shadow-md: 0 10px 28px rgba(11, 30, 54, 0.07);
-  --shadow-lg: 0 18px 44px rgba(11, 30, 54, 0.10);
-  --shadow-hover: 0 24px 56px rgba(11, 30, 54, 0.14);
+  --shadow-sm: 0 2px 8px rgba(30, 42, 68, 0.05);
+  --shadow-md: 0 10px 28px rgba(30, 42, 68, 0.08);
+  --shadow-lg: 0 18px 44px rgba(30, 42, 68, 0.12);
+  --shadow-hover: 0 24px 56px rgba(30, 42, 68, 0.16);
 
-  /* Typography Stacks */
-  --font-editorial: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-accent: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography Stacks - EXCLUSIVELY General Sans */
+  --font-editorial: 'General Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-accent: 'General Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-neo-grotesque: 'General Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Layout & Radii - Full Screen 100% Width Coverage */
+  /* Layout & Radii */
   --container-max: 100%;
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -132,8 +144,35 @@ body {
   overflow-x: hidden;
   position: relative;
   background-image: 
-    radial-gradient(circle at 12% 12%, rgba(11, 30, 54, 0.03) 0%, transparent 45%),
-    radial-gradient(circle at 88% 58%, rgba(200, 130, 25, 0.03) 0%, transparent 45%);
+    radial-gradient(circle at 12% 12%, rgba(14, 107, 168, 0.03) 0%, transparent 45%),
+    radial-gradient(circle at 88% 58%, rgba(22, 160, 133, 0.03) 0%, transparent 45%);
+}
+
+/* EXCLUSIVE FONT STACK ENFORCEMENT: Gambarino for Headings, General Sans for Body */
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.section-title-editorial,
+.about-headline,
+.folio-specimen-heading,
+.promise-title-dark,
+.promise-title-luxury,
+.promise-name,
+.promise-name-luxury,
+.catalog-title,
+.product-card-title,
+.modal-title,
+.why-hud-title,
+.snapshot-value,
+.promise-glyph,
+.promise-numeral {
+  font-family: var(--font-editorial) !important;
+}
+
+body, p, span, a, button, input, textarea, select, label,
+.nav-link, .btn, .section-pill-tag, .snapshot-label, .folio-specimen-summary,
+.folio-drawer-text, .folio-spine-title, .badge-text-count,
+.badge-text-sub, .why-pillar-title, .why-pillar-desc, .footer-col-title, .footer-link {
+  font-family: var(--font-sans);
 }
 
 img {
@@ -221,19 +260,19 @@ button, input, textarea, select {
 }
 
 .brand-badge {
-  font-family: var(--font-accent);
+  font-family: var(--font-sans);
   font-size: 0.65rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #0B1E36 0%, #16365C 100%);
-  color: #F59E0B;
+  background: rgba(14, 107, 168, 0.12);
+  color: #0E6BA8 !important;
   padding: 3px 8px;
   border-radius: 6px;
   letter-spacing: 0.12em;
   line-height: 1.2;
   text-transform: uppercase;
   display: inline-block;
-  border: 1px solid rgba(200, 130, 25, 0.4);
-  box-shadow: 0 2px 8px rgba(11, 30, 54, 0.15);
+  border: 1px solid rgba(14, 107, 168, 0.4);
+  box-shadow: 0 2px 8px rgba(14, 107, 168, 0.18);
 }
 
 /* Nav Links Wrapper centered */
@@ -297,17 +336,17 @@ button, input, textarea, select {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #0B1E36 0%, #162F50 100%);
+  background: linear-gradient(135deg, #16A085 0%, #0E6BA8 100%);
   color: #FFFFFF;
-  font-family: var(--font-accent), 'Outfit', sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 10px 22px;
   border-radius: 9999px;
-  border: 1px solid rgba(200, 130, 25, 0.45);
-  box-shadow: 0 6px 18px rgba(11, 30, 54, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 18px rgba(22, 160, 133, 0.25);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
@@ -315,10 +354,10 @@ button, input, textarea, select {
 
 .btn-fashion-quote:hover,
 .nav-actions .btn-primary:hover {
-  background: linear-gradient(135deg, #0E2849 0%, #C88219 100%);
+  background: linear-gradient(135deg, #0E6BA8 0%, #16A085 100%);
   border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(200, 130, 25, 0.32);
+  box-shadow: 0 10px 28px rgba(14, 107, 168, 0.35);
   color: #FFFFFF;
 }
 
@@ -354,37 +393,37 @@ button, input, textarea, select {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--saffron-500) 0%, var(--saffron-600) 100%);
+  background: #16A085;
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(201, 130, 24, 0.28);
+  box-shadow: 0 4px 14px rgba(22, 160, 133, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(201, 130, 24, 0.38);
-  background: linear-gradient(135deg, var(--saffron-400) 0%, var(--saffron-500) 100%);
+  box-shadow: 0 8px 24px rgba(14, 107, 168, 0.4);
+  background: #0E6BA8;
 }
 
 .btn-forest {
-  background: var(--forest-800);
+  background: #1E2A44;
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(14, 53, 34, 0.22);
+  box-shadow: 0 4px 14px rgba(30, 42, 68, 0.25);
 }
 
 .btn-forest:hover {
   transform: translateY(-2px);
-  background: var(--forest-700);
-  box-shadow: 0 8px 24px rgba(14, 53, 34, 0.32);
+  background: #0E6BA8;
+  box-shadow: 0 8px 24px rgba(14, 107, 168, 0.35);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--forest-800);
-  border: 1.5px solid var(--forest-800);
+  color: #0E6BA8;
+  border: 1.5px solid #0E6BA8;
 }
 
 .btn-outline:hover {
-  background: var(--forest-800);
+  background: #0E6BA8;
   color: #FFFFFF;
   transform: translateY(-2px);
 }
@@ -945,7 +984,7 @@ button, input, textarea, select {
   border-radius: 32px;
 }
 
-/* Individual Folio Panel */
+/* Individual Folio Panel - Smooth Professional Hardware-Accelerated Transitions */
 .curious-folio-panel {
   flex: 1;
   height: 100%;
@@ -955,8 +994,11 @@ button, input, textarea, select {
   cursor: pointer;
   border: 1.5px solid rgba(11, 30, 54, 0.12);
   box-shadow: 0 14px 34px -10px rgba(11, 30, 54, 0.1);
-  transition: flex 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  transition: flex 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
   background: #0B1E36;
+  will-change: flex, transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Active or Hovered State Expands Broadly */
@@ -985,7 +1027,8 @@ button, input, textarea, select {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .curious-folio-panel:hover .folio-bg-media img,
@@ -1016,8 +1059,9 @@ button, input, textarea, select {
   padding: 30px 14px;
   z-index: 5;
   pointer-events: none;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   background: linear-gradient(180deg, rgba(5, 19, 41, 0.3) 0%, rgba(5, 19, 41, 0.85) 100%);
+  will-change: opacity, transform;
 }
 
 .curious-folio-panel:hover .folio-spine-view,
@@ -1076,8 +1120,9 @@ button, input, textarea, select {
   z-index: 6;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(18px);
-  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.1s, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.08s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+  will-change: opacity, transform;
 }
 
 .curious-folio-panel:hover .folio-expanded-content,
@@ -2036,6 +2081,7 @@ button, input, textarea, select {
 /* 4-Image Mosaic with Badge */
 .about-mosaic-wrap {
   position: relative;
+  padding-bottom: 50px;
 }
 
 .mosaic-grid {
@@ -2065,17 +2111,23 @@ button, input, textarea, select {
 
 .verified-suppliers-badge {
   position: absolute;
-  bottom: -20px;
-  right: -10px;
+  bottom: 0px;
+  right: 10px;
   background: #FFFFFF;
   border: 1.5px solid var(--saffron-500);
   border-radius: var(--radius-pill);
-  padding: 14px 24px;
-  box-shadow: var(--shadow-lg);
+  padding: 12px 22px;
+  box-shadow: 0 12px 32px rgba(11, 30, 54, 0.14);
   display: flex;
   align-items: center;
   gap: 12px;
   z-index: 10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.verified-suppliers-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(11, 30, 54, 0.2);
 }
 
 .badge-seal-circle {
@@ -2261,14 +2313,52 @@ button, input, textarea, select {
   justify-content: center;
   color: #FFFFFF;
   font-size: 1.1rem;
-  transition: var(--transition-smooth);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
-.social-btn:hover {
-  background: var(--saffron-500);
-  border-color: var(--saffron-500);
-  color: #FFFFFF;
-  transform: translateY(-3px);
+/* Original Brand Colors for Social Icons */
+.social-btn[aria-label="Facebook"],
+.social-btn.facebook {
+  background: #1877F2 !important;
+  border-color: #1877F2 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.35);
+}
+.social-btn[aria-label="Facebook"]:hover,
+.social-btn.facebook:hover {
+  background: #0D65D9 !important;
+  border-color: #0D65D9 !important;
+  transform: translateY(-3px) scale(1.08) !important;
+  box-shadow: 0 8px 22px rgba(24, 119, 242, 0.55) !important;
+}
+
+.social-btn[aria-label="Instagram"],
+.social-btn.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important;
+  border-color: transparent !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(214, 36, 159, 0.35);
+}
+.social-btn[aria-label="Instagram"]:hover,
+.social-btn.instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 35%, #d6249f 60%, #285AEB 90%) !important;
+  transform: translateY(-3px) scale(1.08) !important;
+  box-shadow: 0 8px 22px rgba(214, 36, 159, 0.55) !important;
+}
+
+.social-btn[aria-label="Whatsapp"],
+.social-btn.whatsapp {
+  background: #25D366 !important;
+  border-color: #25D366 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+}
+.social-btn[aria-label="Whatsapp"]:hover,
+.social-btn.whatsapp:hover {
+  background: #1EBE5D !important;
+  border-color: #1EBE5D !important;
+  transform: translateY(-3px) scale(1.08) !important;
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.55) !important;
 }
 
 .footer-bottom-bar {
@@ -2661,3 +2751,491 @@ button, input, textarea, select {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   HIDE NATIVE BROWSER SCROLLBAR & REPLACE WITH SLEEK SHIP SCROLLBAR ON RIGHT EDGE
+   ========================================================================== */
+
+/* 1. Hide Native Browser Scrollbar Completely */
+html {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE / Edge */
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* 2. Sleek Ship Scrollbar Positioned Cleanly Left of Screen Edge */
+.sleek-ship-scrollbar-track {
+  position: fixed !important;
+  right: 12px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  height: 70vh !important;
+  width: 8px !important;
+  background: rgba(30, 42, 68, 0.25) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(22, 160, 133, 0.35) !important;
+  border-radius: 999px !important;
+  z-index: 999999 !important;
+  box-shadow: 0 6px 20px rgba(30, 42, 68, 0.3) !important;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, border-color 0.25s ease !important;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.sleek-ship-scrollbar-track:hover {
+  width: 14px !important;
+  background: rgba(30, 42, 68, 0.45) !important;
+  border-color: rgba(22, 160, 133, 0.6) !important;
+}
+
+.sleek-ship-scrollbar-rail {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(180deg, rgba(22, 160, 133, 0.3) 0%, rgba(14, 107, 168, 0.7) 50%, rgba(22, 160, 133, 0.3) 100%);
+  border-radius: 1px;
+}
+
+.sleek-ship-thumb {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle at 35% 35%, #0E6BA8 0%, #1E2A44 100%);
+  border: 1.5px solid #16A085;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(30, 42, 68, 0.6), 0 0 12px rgba(22, 160, 133, 0.5);
+  cursor: grab;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.3s ease;
+  user-select: none;
+  z-index: 10;
+  will-change: transform, top;
+}
+
+.sleek-ship-thumb:hover, .sleek-ship-thumb.dragging {
+  transform: translate(-50%, -50%) scale(1.18);
+  background: radial-gradient(circle at 35% 35%, #16A085 0%, #1E2A44 100%);
+  box-shadow: 0 6px 22px rgba(30, 42, 68, 0.8), 0 0 18px rgba(22, 160, 133, 0.7);
+}
+
+.sleek-ship-thumb:active, .sleek-ship-thumb.dragging {
+  cursor: grabbing;
+}
+
+.sleek-ship-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 1.5px 3px rgba(0, 0, 0, 0.45));
+}
+
+.sleek-ship-tooltip {
+  position: absolute;
+  right: 42px;
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  background: #1E2A44;
+  color: #F5F8FA;
+  border: 1px solid #16A085;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 16px rgba(30, 42, 68, 0.4);
+  letter-spacing: 0.04em;
+}
+
+.sleek-ship-scrollbar-track:hover .sleek-ship-tooltip,
+.sleek-ship-thumb.dragging .sleek-ship-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+/* PT / Portfolio & Feature Area Lightweight Hardware-Accelerated Smooth Transitions */
+.catalog-item-card,
+.snapshot-card,
+.why-pillar-card,
+.expertise-card,
+.promise-card-dark,
+.promise-card-luxury,
+.portfolio-section,
+.curious-folio-section {
+  will-change: transform, opacity;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.catalog-item-card:hover,
+.snapshot-card:hover,
+.why-pillar-card:hover,
+.expertise-card:hover {
+  transform: translateY(-6px) translateZ(0);
+}
+
+@media (max-width: 768px) {
+  .sleek-ship-scrollbar-track {
+    right: 6px;
+    height: 50vh;
+    width: 10px;
+  }
+  .sleek-ship-thumb {
+    width: 32px;
+    height: 32px;
+  }
+  .sleek-ship-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ==========================================================================
+   INTERACTIVE LIGHT REFLECTION SHINE HOVER EFFECT & BUTTON ENHANCEMENTS
+   ========================================================================== */
+
+/* Shimmer Light Reflection Beam on Hover */
+.btn,
+.btn-fashion-quote,
+.btn-primary,
+.nav-link,
+.catalog-item-card,
+.snapshot-card,
+.why-pillar-card,
+.curious-folio-panel,
+.expertise-card,
+.promise-card-dark,
+.promise-card-luxury,
+.section-pill-tag,
+.verified-suppliers-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before,
+.btn-fashion-quote::before,
+.btn-primary::before,
+.catalog-item-card::before,
+.snapshot-card::before,
+.why-pillar-card::before,
+.expertise-card::before,
+.promise-card-dark::before,
+.promise-card-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 8;
+  transition: none;
+}
+
+.btn:hover::before,
+.btn-fashion-quote:hover::before,
+.btn-primary:hover::before,
+.catalog-item-card:hover::before,
+.snapshot-card:hover::before,
+.why-pillar-card:hover::before,
+.expertise-card:hover::before,
+.promise-card-dark:hover::before,
+.promise-card-luxury:hover::before {
+  left: 180%;
+  transition: left 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ENHANCED REQUEST QUOTE BUTTON */
+.btn-fashion-quote,
+#btn-header-quote,
+.nav-actions .btn-primary {
+  background: linear-gradient(135deg, #16A085 0%, #0E6BA8 100%) !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  padding: 11px 24px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 6px 20px rgba(22, 160, 133, 0.35), 0 0 0 2px rgba(22, 160, 133, 0.2) !important;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease !important;
+  animation: pulseQuoteGlow 3.5s infinite ease-in-out;
+}
+
+@keyframes pulseQuoteGlow {
+  0%, 100% { box-shadow: 0 6px 20px rgba(22, 160, 133, 0.35), 0 0 0 2px rgba(22, 160, 133, 0.2); }
+  50% { box-shadow: 0 8px 26px rgba(14, 107, 168, 0.5), 0 0 0 4px rgba(14, 107, 168, 0.3); }
+}
+
+.btn-fashion-quote:hover,
+#btn-header-quote:hover,
+.nav-actions .btn-primary:hover {
+  background: linear-gradient(135deg, #0E6BA8 0%, #16A085 100%) !important;
+  transform: translateY(-3px) scale(1.04) !important;
+  box-shadow: 0 12px 32px rgba(14, 107, 168, 0.55), 0 0 16px rgba(22, 160, 133, 0.6) !important;
+}
+
+/* ENHANCED EXPLORE / EXPORT PRODUCTS BUTTON */
+#btn-explore-products,
+.btn-explore-products {
+  background: linear-gradient(135deg, #0E6BA8 0%, #16A085 100%) !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  padding: 14px 30px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 8px 24px rgba(14, 107, 168, 0.38) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease !important;
+}
+
+#btn-explore-products:hover,
+.btn-explore-products:hover {
+  background: linear-gradient(135deg, #16A085 0%, #0E6BA8 100%) !important;
+  transform: translateY(-3px) scale(1.04) !important;
+  box-shadow: 0 14px 36px rgba(22, 160, 133, 0.5) !important;
+}
+
+#btn-explore-products:hover .btn-arrow-svg,
+.btn-explore-products:hover .btn-arrow-svg {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   FLAWLESS MOBILE & PHONE COMPATIBILITY (RESPONSIVE RETINA & TOUCH SYSTEM)
+   ========================================================================== */
+
+/* Universal Touch & Pointer Adjustments */
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Fluid Typography & Container Padding for Mobile */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .site-header {
+    top: 10px !important;
+    width: calc(100% - 16px) !important;
+    margin-bottom: 16px !important;
+  }
+
+  .nav-container {
+    height: 60px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .brand-logo-img {
+    max-width: 110px !important;
+    height: auto !important;
+  }
+
+  .brand-badge {
+    font-size: 0.58rem !important;
+    padding: 2px 6px !important;
+  }
+
+  .nav-links {
+    top: 76px !important;
+    left: 8px !important;
+    right: 8px !important;
+    width: calc(100% - 16px) !important;
+    padding: 16px !important;
+    border-radius: 18px !important;
+  }
+
+  .hero-section {
+    padding-top: 20px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.6rem) !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.98rem !important;
+  }
+
+  .console-viewport {
+    height: 260px !important;
+    border-radius: 16px !important;
+  }
+
+  .dock-caption-wrap {
+    padding: 14px 16px !important;
+  }
+
+  .dock-caption-title {
+    font-size: 0.95rem !important;
+  }
+
+  .dock-caption-sub {
+    font-size: 0.78rem !important;
+  }
+
+  /* Agro Folio Cards Responsive Stacking */
+  .curious-folio-deck {
+    flex-direction: column !important;
+    height: auto !important;
+    gap: 16px !important;
+  }
+
+  .curious-folio-panel {
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 380px !important;
+    border-radius: 20px !important;
+  }
+
+  .folio-expanded-content {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+    padding: 24px 20px !important;
+  }
+
+  .folio-spine-view {
+    display: none !important;
+  }
+
+  .folio-specimen-heading {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    font-size: 1.25rem !important;
+  }
+
+  .folio-specimen-summary {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    font-size: 0.88rem !important;
+  }
+
+  .folio-curiosity-drawer {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    padding: 12px 14px !important;
+  }
+
+  .folio-action-row {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Mosaic Image Grid & Verified Badge on Mobile */
+  .mosaic-img-box {
+    height: 140px !important;
+    border-radius: 14px !important;
+  }
+
+  .about-mosaic-wrap {
+    padding-bottom: 55px !important;
+  }
+
+  .verified-suppliers-badge {
+    bottom: 0px !important;
+    right: 50% !important;
+    transform: translateX(50%) !important;
+    padding: 10px 18px !important;
+    white-space: nowrap !important;
+  }
+
+  .verified-suppliers-badge:hover {
+    transform: translateX(50%) translateY(-2px) !important;
+  }
+
+  /* Sleek Ship Scrollbar Mobile Styling */
+  .sleek-ship-scrollbar-track {
+    right: 4px !important;
+    height: 42vh !important;
+    width: 7px !important;
+  }
+
+  .sleek-ship-thumb {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .sleek-ship-icon {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .sleek-ship-tooltip {
+    right: 32px !important;
+    font-size: 0.62rem !important;
+    padding: 2px 7px !important;
+  }
+
+  /* Modal Form Mobile Padding */
+  .quote-modal-card {
+    padding: 24px 18px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cta-group {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .hero-cta-group .btn {
+    width: 100% !important;
+  }
+
+  .nav-actions {
+    gap: 8px !important;
+  }
+
+  .btn-fashion-quote,
+  #btn-header-quote {
+    padding: 8px 14px !important;
+    font-size: 0.74rem !important;
+  }
+
+  .why-console-display {
+    min-height: 240px !important;
+  }
+
+  .snapshot-value {
+    font-size: 1.6rem !important;
+  }
+}
+
+

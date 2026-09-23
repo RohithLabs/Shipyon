@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWorldTradeMap();
   initWhyChooseShowcase();
   initCuriousFolio();
+  initSleekShipScrollbar();
 });
 
 // 1. Header scroll effect
@@ -395,3 +396,129 @@ function initCuriousFolio() {
     });
   });
 }
+
+// 9. Sleek Non-Emoji Custom Ship Scrollbar & Indicator
+function initSleekShipScrollbar() {
+  if (document.getElementById('sleek-ship-scrollbar-track')) return;
+
+  const track = document.createElement('div');
+  track.id = 'sleek-ship-scrollbar-track';
+  track.className = 'sleek-ship-scrollbar-track';
+  track.setAttribute('role', 'scrollbar');
+  track.setAttribute('aria-label', 'Sleek Ship Scroll Bar Indicator');
+
+  track.innerHTML = `
+    <div class="sleek-ship-scrollbar-rail"></div>
+    <div id="sleek-ship-thumb" class="sleek-ship-thumb">
+      <svg class="sleek-ship-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.5 15.5L4.8 11H20.2L22.5 15.5C22.5 15.5 20 17 12.5 17C5 17 2.5 15.5 2.5 15.5Z" fill="#1E2A44" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"/>
+        <path d="M3.5 14H21.5" stroke="#16A085" stroke-width="1.2" stroke-linecap="round"/>
+        <rect x="6" y="8" width="3.5" height="3" rx="0.5" fill="#16A085" stroke="#FFFFFF" stroke-width="0.6"/>
+        <rect x="10.5" y="8" width="3.5" height="3" rx="0.5" fill="#0E6BA8" stroke="#16A085" stroke-width="0.6"/>
+        <path d="M15.5 11V6.5C15.5 6.2 15.7 6 16 6H19C19.3 6 19.5 6.2 19.5 6.5V11" fill="#FFFFFF" stroke="#1E2A44" stroke-width="0.9"/>
+        <path d="M17.5 6V3.8" stroke="#16A085" stroke-width="1" stroke-linecap="round"/>
+        <circle cx="17.5" cy="3.5" r="0.7" fill="#58D3BD"/>
+      </svg>
+      <div id="sleek-ship-tooltip" class="sleek-ship-tooltip">0%</div>
+    </div>
+  `;
+
+  document.body.appendChild(track);
+
+  const thumb = track.querySelector('#sleek-ship-thumb');
+  const tooltip = track.querySelector('#sleek-ship-tooltip');
+  const shipIcon = track.querySelector('.sleek-ship-icon');
+
+  let isDragging = false;
+  let startY = 0;
+  let startScrollTop = 0;
+  let lastScrollY = window.scrollY;
+
+  function updateScrollPosition() {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (totalHeight <= 0) {
+      track.style.display = 'none';
+      return;
+    } else {
+      track.style.display = 'block';
+    }
+
+    const currentY = window.scrollY;
+    const progress = Math.min(Math.max(currentY / totalHeight, 0), 1);
+    
+    const trackHeight = track.clientHeight;
+    const padding = 18;
+    const availableHeight = trackHeight - (padding * 2);
+    thumb.style.top = (padding + (progress * availableHeight)) + 'px';
+
+    const pct = Math.round(progress * 100);
+    tooltip.textContent = `${pct}%`;
+    track.setAttribute('aria-valuenow', pct.toString());
+
+    if (currentY > lastScrollY + 2) {
+      shipIcon.style.transform = 'rotate(10deg)';
+    } else if (currentY < lastScrollY - 2) {
+      shipIcon.style.transform = 'rotate(-10deg)';
+    } else {
+      shipIcon.style.transform = 'rotate(0deg)';
+    }
+
+    lastScrollY = currentY;
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateScrollPosition();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', updateScrollPosition, { passive: true });
+  updateScrollPosition();
+
+  track.addEventListener('click', (e) => {
+    if (e.target.closest('#sleek-ship-thumb')) return;
+    const rect = track.getBoundingClientRect();
+    const clickY = e.clientY - rect.top;
+    const progress = Math.min(Math.max(clickY / rect.height, 0), 1);
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    window.scrollTo({
+      top: progress * totalHeight,
+      behavior: 'smooth'
+    });
+  });
+
+  thumb.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    startY = e.clientY;
+    startScrollTop = window.scrollY;
+    thumb.classList.add('dragging');
+    thumb.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+
+  thumb.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    const deltaY = e.clientY - startY;
+    const trackHeight = track.clientHeight;
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollDelta = (deltaY / trackHeight) * totalHeight;
+    window.scrollTo(0, startScrollTop + scrollDelta);
+  });
+
+  const stopDrag = (e) => {
+    if (isDragging) {
+      isDragging = false;
+      thumb.classList.remove('dragging');
+      shipIcon.style.transform = 'rotate(0deg)';
+    }
+  };
+
+  thumb.addEventListener('pointerup', stopDrag);
+  thumb.addEventListener('pointercancel', stopDrag);
+}
+
