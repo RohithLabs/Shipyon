@@ -63,7 +63,10 @@
   <section class="hero-serene-stage" id="hero-section">
     <!-- Scenic Panoramic Coastal Background with Ambient Ocean Drift & Caustic Light Flares -->
     <div class="hero-scenic-backdrop" aria-hidden="true">
-      <img src="assets/shipyon-cargoship-island.jpg" alt="Commercial Container Cargo Vessel Sailing in Ocean Waters near Tropical Coastline Island" class="hero-scenic-img">
+      <picture class="hero-picture-wrap">
+        <source srcset="assets/shipyon-cargoship-island.webp" type="image/webp">
+        <img src="assets/shipyon-cargoship-island.jpg" alt="Commercial Container Cargo Vessel Sailing in Ocean Waters near Tropical Coastline Island" class="hero-scenic-img" fetchpriority="high" decoding="async" width="3840" height="2144">
+      </picture>
       <div class="hero-scenic-gradient"></div>
       <div class="hero-ambient-lights">
         <span class="hero-ambient-orb orb-1"></span>
