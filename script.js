@@ -1341,3 +1341,20 @@ function initValuesInteractiveCards() {
     });
   });
 }
+
+/**
+ * Global smooth scroll & service highlight handler for Testimonials in Services Page
+ */
+function navigateToService(targetServiceId) {
+  const targetElement = document.getElementById(targetServiceId) || document.getElementById('core-export-services');
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    targetElement.classList.add('service-highlight-pulse');
+    setTimeout(() => {
+      targetElement.classList.remove('service-highlight-pulse');
+    }, 3500);
+  }
+}
+
+window.navigateToService = navigateToService;
+
