@@ -63,7 +63,10 @@
   <section class="hero-serene-stage" id="hero-section">
     <!-- Scenic Panoramic Coastal Background with Ambient Ocean Drift & Caustic Light Flares -->
     <div class="hero-scenic-backdrop" aria-hidden="true">
-      <img src="assets/shipyon-cargoship-island.jpg" alt="Commercial Container Cargo Vessel Sailing in Ocean Waters near Tropical Coastline Island" class="hero-scenic-img">
+      <picture class="hero-picture-wrap">
+        <source srcset="assets/shipyon-cargoship-island.webp" type="image/webp">
+        <img src="assets/shipyon-cargoship-island.jpg" alt="Commercial Container Cargo Vessel Sailing in Ocean Waters near Tropical Coastline Island" class="hero-scenic-img" fetchpriority="high" decoding="async" width="3840" height="2144">
+      </picture>
       <div class="hero-scenic-gradient"></div>
       <div class="hero-ambient-lights">
         <span class="hero-ambient-orb orb-1"></span>
@@ -117,6 +120,29 @@
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </span>
             </a>
+          </div>
+
+          <!-- Live Provenance & Trust Metrics (Covers content smoothly downwards) -->
+          <div class="hero-provenance-metrics">
+            <div class="hero-prov-item">
+              <div class="hero-prov-num">50+</div>
+              <div class="hero-prov-lbl">Global Destinations</div>
+            </div>
+            <div class="hero-prov-divider" aria-hidden="true"></div>
+            <div class="hero-prov-item">
+              <div class="hero-prov-num">500+</div>
+              <div class="hero-prov-lbl">Farm Alliances</div>
+            </div>
+            <div class="hero-prov-divider" aria-hidden="true"></div>
+            <div class="hero-prov-item">
+              <div class="hero-prov-num">99.8%</div>
+              <div class="hero-prov-lbl">Liner Clearance</div>
+            </div>
+            <div class="hero-prov-divider" aria-hidden="true"></div>
+            <div class="hero-prov-item">
+              <div class="hero-prov-num">24/7</div>
+              <div class="hero-prov-lbl">Reefer Cold Chain</div>
+            </div>
           </div>
         </div>
       </div>
@@ -256,25 +282,17 @@
             <span class="folio-spine-coord">10.72° N, 77.52° E</span>
           </div>
 
-          <!-- Expanded Content View -->
+          <!-- Expanded Content View (Reduced & Clean) -->
           <div class="folio-expanded-content">
             <h3 class="folio-specimen-heading">Freshness, Rooted in Origin.</h3>
             <p class="folio-specimen-summary">
-              Carefully sourced vegetables and fresh produce from trusted growing regions.
+              Direct farm-sourced fresh vegetables and perishable harvests delivered via expedited cold-chain.
             </p>
             
-            <div class="folio-curiosity-drawer">
-              <div class="folio-drawer-label-row">
-                <svg class="folio-drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                <span class="folio-drawer-title">Trade &amp; Origin Focus</span>
-              </div>
-              <p class="folio-drawer-text">
-                Rapid hydro-cooling and field-grade sorting arrest moisture loss within hours of harvest, retaining peak crispness and natural vitality through Tuticorin and Chennai maritime departures.
-              </p>
-              <div class="folio-transit-spec">
-                <span class="transit-label">COMMODITIES:</span>
-                <span class="transit-val">Red Onions, G4 Green Chillies, Drumstick • Cold-Chain Reefer</span>
-              </div>
+            <div class="folio-clean-tags">
+              <span class="folio-tag-pill">Red Onions</span>
+              <span class="folio-tag-pill">G4 Green Chillies</span>
+              <span class="folio-tag-pill">Fresh Drumstick</span>
             </div>
 
             <div class="folio-action-row">
@@ -286,41 +304,33 @@
           </div>
         </div>
 
-        <!-- 02 — FRUITS -->
-        <div class="curious-folio-panel" data-specimen="fruits" tabindex="0" role="button" aria-expanded="false">
+        <!-- 02 — TEXTILES & GARMENTS (Replaces Fruits) -->
+        <div class="curious-folio-panel" data-specimen="textiles" tabindex="0" role="button" aria-expanded="false">
           <div class="folio-bg-media">
-            <img src="assets/product-fruits.jpg" alt="Selected Quality Fresh Fruits" loading="lazy">
+            <img src="assets/product-textiles.jpg" alt="Premium Combed Cotton Textiles and Apparel" loading="lazy">
             <div class="folio-media-overlay"></div>
           </div>
           
           <div class="folio-spine-view">
             <span class="folio-spine-number">02</span>
-            <span class="folio-spine-title">Fruits</span>
-            <span class="folio-spine-coord">10.65° N, 77.00° E</span>
+            <span class="folio-spine-title">Textiles &amp; Garments</span>
+            <span class="folio-spine-coord">11.10° N, 77.34° E</span>
           </div>
 
           <div class="folio-expanded-content">
-            <h3 class="folio-specimen-heading">Nature, At Its Finest.</h3>
+            <h3 class="folio-specimen-heading">Woven with Precision.</h3>
             <p class="folio-specimen-summary">
-              Quality fruits selected for freshness, consistency, and market demand.
+              Tirupur combed cotton knitwear, organic cotton textiles, and precision export-grade apparel.
             </p>
             
-            <div class="folio-curiosity-drawer">
-              <div class="folio-drawer-label-row">
-                <svg class="folio-drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                <span class="folio-drawer-title">Trade &amp; Origin Focus</span>
-              </div>
-              <p class="folio-drawer-text">
-                Controlled Atmosphere (CA) shipping preserves cell integrity and suspends ripening during transit, ensuring tree-sweetness blooms precisely upon arrival at destination ports.
-              </p>
-              <div class="folio-transit-spec">
-                <span class="transit-label">COMMODITIES:</span>
-                <span class="transit-val">Alphonso Mangoes, Seedless Grapes, Pomegranates • APEDA Packhouse</span>
-              </div>
+            <div class="folio-clean-tags">
+              <span class="folio-tag-pill">Cotton Apparel</span>
+              <span class="folio-tag-pill">Knitted Fabrics</span>
+              <span class="folio-tag-pill">Organic Yarns</span>
             </div>
 
             <div class="folio-action-row">
-              <a href="products.html?category=fruits" class="folio-btn-action">
+              <a href="products.html?category=textiles" class="folio-btn-action">
                 <span>View Products</span>
                 <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
@@ -344,21 +354,13 @@
           <div class="folio-expanded-content">
             <h3 class="folio-specimen-heading">The Essence of Origin.</h3>
             <p class="folio-specimen-summary">
-              Authentic spices and plantation products sourced close to where they begin.
+              High-pungency whole spices and plantation crops sealed in hermetic moisture-barrier liners.
             </p>
             
-            <div class="folio-curiosity-drawer">
-              <div class="folio-drawer-label-row">
-                <svg class="folio-drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                <span class="folio-drawer-title">Trade &amp; Origin Focus</span>
-              </div>
-              <p class="folio-drawer-text">
-                High-elevation microclimates lock volatile piperine and aroma crystals into harvest seeds, packaged in hermetic moisture-proof liners to ensure intense pungency across maritime voyages.
-              </p>
-              <div class="folio-transit-spec">
-                <span class="transit-label">COMMODITIES:</span>
-                <span class="transit-val">Alleppey Cardamom, Salem Turmeric, Dry Red Chillies • Hermetic Liners</span>
-              </div>
+            <div class="folio-clean-tags">
+              <span class="folio-tag-pill">Alleppey Cardamom</span>
+              <span class="folio-tag-pill">Salem Turmeric</span>
+              <span class="folio-tag-pill">Dry Red Chillies</span>
             </div>
 
             <div class="folio-action-row">
@@ -386,21 +388,13 @@
           <div class="folio-expanded-content">
             <h3 class="folio-specimen-heading">Refined for Modern Trade.</h3>
             <p class="folio-specimen-summary">
-              Market-ready products prepared for convenience, consistency, and scale.
+              Optical Sortex-cleaned premium grains, organic moringa, and export-grade agro products.
             </p>
             
-            <div class="folio-curiosity-drawer">
-              <div class="folio-drawer-label-row">
-                <svg class="folio-drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                <span class="folio-drawer-title">Trade &amp; Processing Focus</span>
-              </div>
-              <p class="folio-drawer-text">
-                Multi-stage optical Sortex color cleaning and computerized grading eliminate defects with micro-pulse air valves, producing consistent export-ready quality for supermarkets and commercial trade.
-              </p>
-              <div class="folio-transit-spec">
-                <span class="transit-label">COMMODITIES:</span>
-                <span class="transit-val">Basmati Rice, Organic Moringa, Dehydrated Agro • Nitrogen-Flushed Bags</span>
-              </div>
+            <div class="folio-clean-tags">
+              <span class="folio-tag-pill">Aged Basmati Rice</span>
+              <span class="folio-tag-pill">Organic Moringa</span>
+              <span class="folio-tag-pill">Dehydrated Agro</span>
             </div>
 
             <div class="folio-action-row">
@@ -422,27 +416,19 @@
           <div class="folio-spine-view">
             <span class="folio-spine-number">05</span>
             <span class="folio-spine-title">Industrial &amp; Commercial</span>
-            <span class="folio-spine-coord">11.10° N, 77.34° E</span>
+            <span class="folio-spine-coord">11.66° N, 78.14° E</span>
           </div>
 
           <div class="folio-expanded-content">
             <h3 class="folio-specimen-heading">Built for Business.</h3>
             <p class="folio-specimen-summary">
-              Reliable products and supply solutions designed around commercial requirements.
+              Architectural black granite slabs, vitrified porcelain tiles, and heavy commercial materials.
             </p>
             
-            <div class="folio-curiosity-drawer">
-              <div class="folio-drawer-label-row">
-                <svg class="folio-drawer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                <span class="folio-drawer-title">Trade &amp; Commercial Focus</span>
-              </div>
-              <p class="folio-drawer-text">
-                Tirupur circular knitting looms, combed cotton apparel, architectural black granite, and precision industrial supplies containerized at deep-water terminals for reliable direct transshipment.
-              </p>
-              <div class="folio-transit-spec">
-                <span class="transit-label">COMMODITIES:</span>
-                <span class="transit-val">Combed Cotton Apparel, Vitrified Tiles, Black Granite • 40ft HC Palletized Liners</span>
-              </div>
+            <div class="folio-clean-tags">
+              <span class="folio-tag-pill">Black Granite Slabs</span>
+              <span class="folio-tag-pill">Vitrified Tiles</span>
+              <span class="folio-tag-pill">Industrial Goods</span>
             </div>
 
             <div class="folio-action-row">
@@ -546,16 +532,6 @@
               <span class="transit-tag" id="bar-dest-transit">3.5 Days Express</span>
             </span>
           </div>
-
-          <div class="globe-transition-controls">
-            <button type="button" class="globe-tour-btn active" id="btn-toggle-tour" title="Pause or Resume Automatic Transition">
-              <span class="tour-btn-icon">&#10074;&#10074;</span>
-              <span class="tour-btn-text">Auto Transition (4.5s)</span>
-            </button>
-            <button type="button" class="globe-tour-btn reset-btn" id="btn-reset-view" title="Reset View to India Origin">
-              <span>View India</span>
-            </button>
-          </div>
         </div>
 
       </div></div>
@@ -617,204 +593,308 @@
             </button>
           </div>
 
-          <!-- Main Interactive Stage: Left 3D Zigzag Highway + Right Stage Card -->
-          <div class="zigzag-showcase-split">
+          <!-- Main Interactive Stage: Panoramic 3D Zigzag Highway with 4 Staggered Milestone Boxes -->
+          <div class="zigzag-panorama-stage" id="zigzag-panorama-stage">
             
-            <!-- Left: 3D Isometric Zigzag Road Canvas / SVG -->
-            <div class="zigzag-road-stage-wrapper">
-              <div class="zigzag-road-stage" id="zigzag-road-stage">
-                <svg class="zigzag-road-svg" id="zigzag-road-svg" viewBox="0 0 1120 460" preserveAspectRatio="xMidYMid meet">
-                  <defs>
-                    <!-- Road Asphalt Gradient -->
-                    <linearGradient id="roadAsphaltGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                      <stop offset="0%" stop-color="#0F172A" />
-                      <stop offset="50%" stop-color="#1E293B" />
-                      <stop offset="100%" stop-color="#0F172A" />
-                    </linearGradient>
+            <!-- SVG Zigzag Road Highway Background & Vehicles -->
+            <svg class="zigzag-road-svg" id="zigzag-road-svg" viewBox="0 0 1200 500" preserveAspectRatio="none">
+              <defs>
+                <!-- Road Asphalt Gradient -->
+                <linearGradient id="roadAsphaltGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#0F172A" />
+                  <stop offset="50%" stop-color="#1E293B" />
+                  <stop offset="100%" stop-color="#0F172A" />
+                </linearGradient>
 
-                    <!-- 3D Curb Side Elevation Gradient (Silver/Metallic Bevel) -->
-                    <linearGradient id="roadCurbBevelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stop-color="#F8FAFC" />
-                      <stop offset="40%" stop-color="#CBD5E1" />
-                      <stop offset="100%" stop-color="#64748B" />
-                    </linearGradient>
+                <!-- 3D Curb Side Elevation Gradient -->
+                <linearGradient id="roadCurbBevelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#F8FAFC" />
+                  <stop offset="40%" stop-color="#CBD5E1" />
+                  <stop offset="100%" stop-color="#64748B" />
+                </linearGradient>
 
-                    <!-- Active Road Glow -->
-                    <linearGradient id="roadActiveGlowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stop-color="#2373F4" />
-                      <stop offset="50%" stop-color="#65D0F4" />
-                      <stop offset="100%" stop-color="#F2F7A0" />
-                    </linearGradient>
+                <!-- Headlight glow cone -->
+                <linearGradient id="truckLightGlowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="rgba(242, 247, 160, 0.85)" />
+                  <stop offset="100%" stop-color="rgba(242, 247, 160, 0)" />
+                </linearGradient>
 
-                    <!-- Drop Shadow for 3D Elevation -->
-                    <filter id="road3dShadow" x="-10%" y="-10%" width="130%" height="150%">
-                      <feDropShadow dx="0" dy="20" stdDeviation="14" flood-color="rgba(15, 23, 42, 0.22)" />
-                    </filter>
-                    
-                    <!-- Marker Pin Shadow -->
-                    <filter id="pinShadow" x="-30%" y="-30%" width="160%" height="160%">
-                      <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="rgba(15, 23, 42, 0.3)" />
-                    </filter>
-
-                    <!-- Road Reveal Dynamic ClipPath -->
-                    <clipPath id="roadRevealClip">
-                      <path id="road-clip-path" d="M 100 410 C 220 440, 320 360, 400 310 C 500 250, 600 270, 700 210 C 820 140, 890 120, 1020 80" fill="none" stroke="#FFFFFF" stroke-width="70" stroke-linecap="round" />
-                    </clipPath>
-                  </defs>
-
-                  <!-- Background Base Shadow Layer -->
-                  <path id="road-path-shadow" class="road-path-shadow" 
-                    d="M 100 410 C 220 440, 320 360, 400 310 C 500 250, 600 270, 700 210 C 820 140, 890 120, 1020 80"
-                    fill="none" stroke="rgba(15, 23, 42, 0.16)" stroke-width="50" stroke-linecap="round" />
-
-                  <!-- 3D Bevel Curb (Extruded Lower Deck) -->
-                  <path id="road-path-curb" class="road-path-curb"
-                    d="M 100 418 C 220 448, 320 368, 400 318 C 500 258, 600 278, 700 218 C 820 148, 890 128, 1020 88"
-                    fill="none" stroke="url(#roadCurbBevelGrad)" stroke-width="46" stroke-linecap="round" />
-
-                  <!-- Road Asphalt Base -->
-                  <path id="road-path-asphalt-bg" class="road-path-asphalt-bg"
-                    d="M 100 410 C 220 440, 320 360, 400 310 C 500 250, 600 270, 700 210 C 820 140, 890 120, 1020 80"
-                    fill="none" stroke="#1E293B" stroke-width="36" stroke-linecap="round" opacity="0.35" />
-
-                  <!-- Dynamic Emerging Road Layers (Revealed along scroll via clip-path) -->
-                  <g clip-path="url(#roadRevealClip)">
-                    <!-- Active Rich Asphalt -->
-                    <path id="road-path-asphalt-active" class="road-path-asphalt-active"
-                      d="M 100 410 C 220 440, 320 360, 400 310 C 500 250, 600 270, 700 210 C 820 140, 890 120, 1020 80"
-                      fill="none" stroke="url(#roadAsphaltGrad)" stroke-width="38" stroke-linecap="round" />
-
-                    <!-- Crisp White Lane Boundaries -->
-                    <path id="road-path-white-shoulder" class="road-path-white-shoulder"
-                      d="M 100 410 C 220 440, 320 360, 400 310 C 500 250, 600 270, 700 210 C 820 140, 890 120, 1020 80"
-                      fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="34" stroke-linecap="round" />
-                    
-                    <!-- Asphalt Inner Lane -->
-                    <path d="M 100 410 C 220 440, 320 360, 400 310 C 500 250, 600 270, 700 210 C 820 140, 890 120, 1020 80"
-                      fill="none" stroke="#0F172A" stroke-width="30" stroke-linecap="round" />
-
-                    <!-- Yellow/Gold Dashed Highway Centerline -->
-                    <path id="road-path-centerline" class="road-path-centerline"
-                      d="M 100 410 C 220 440, 320 360, 400 310 C 500 250, 600 270, 700 210 C 820 140, 890 120, 1020 80"
-                      fill="none" stroke="#F59E0B" stroke-width="3.5" stroke-dasharray="14 12" stroke-linecap="butt" />
-                  </g>
-
-                  <!-- Final Destination Road Arrow Head at (1020, 80) -->
-                  <g id="road-arrow-head" class="road-arrow-head" transform="translate(1020, 80) rotate(-22)">
-                    <polygon points="0,-18 36,0 0,18 -8,0" fill="#CBD5E1" stroke="#64748B" stroke-width="2" />
-                    <polygon points="2,-13 30,0 2,13 -4,0" fill="#0F172A" />
-                    <polyline points="0,0 18,0" stroke="#F59E0B" stroke-width="3" stroke-dasharray="5 4" />
-                  </g>
-
-                  <!-- 4 Numbered 3D Map Pin Markers (01, 02, 03, 04) -->
-                  <!-- PIN 01: Starting Point (100, 410) -->
-                  <g id="pin-marker-01" class="road-pin-marker active" transform="translate(100, 410)">
-                    <circle class="pin-beacon-ring" cx="0" cy="-38" r="24" fill="none" stroke="#2373F4" stroke-width="2.5" opacity="0.7" />
-                    <g class="road-pin-body" filter="url(#pinShadow)">
-                      <path class="pin-teardrop" d="M 0 0 C -14 -16, -18 -28, -18 -38 C -18 -48, -10 -56, 0 -56 C 10 -56, 18 -48, 18 -38 C 18 -28, 14 -16, 0 0 Z" fill="#2373F4" />
-                      <circle cx="0" cy="-38" r="13" fill="#FFFFFF" />
-                      <text cx="0" cy="-38" text-anchor="middle" dy="5" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#2373F4">01</text>
-                    </g>
-                  </g>
-
-                  <!-- PIN 02: (400, 310) -->
-                  <g id="pin-marker-02" class="road-pin-marker" transform="translate(400, 310)">
-                    <circle class="pin-beacon-ring" cx="0" cy="-38" r="24" fill="none" stroke="#578EF5" stroke-width="2.5" opacity="0.7" />
-                    <g class="road-pin-body" filter="url(#pinShadow)">
-                      <path class="pin-teardrop" d="M 0 0 C -14 -16, -18 -28, -18 -38 C -18 -48, -10 -56, 0 -56 C 10 -56, 18 -48, 18 -38 C 18 -28, 14 -16, 0 0 Z" fill="#EF4444" />
-                      <circle cx="0" cy="-38" r="13" fill="#FFFFFF" />
-                      <text cx="0" cy="-38" text-anchor="middle" dy="5" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#EF4444">02</text>
-                    </g>
-                  </g>
-
-                  <!-- PIN 03: (700, 210) -->
-                  <g id="pin-marker-03" class="road-pin-marker" transform="translate(700, 210)">
-                    <circle class="pin-beacon-ring" cx="0" cy="-38" r="24" fill="none" stroke="#578EF5" stroke-width="2.5" opacity="0.7" />
-                    <g class="road-pin-body" filter="url(#pinShadow)">
-                      <path class="pin-teardrop" d="M 0 0 C -14 -16, -18 -28, -18 -38 C -18 -48, -10 -56, 0 -56 C 10 -56, 18 -48, 18 -38 C 18 -28, 14 -16, 0 0 Z" fill="#EF4444" />
-                      <circle cx="0" cy="-38" r="13" fill="#FFFFFF" />
-                      <text cx="0" cy="-38" text-anchor="middle" dy="5" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#EF4444">03</text>
-                    </g>
-                  </g>
-
-                  <!-- PIN 04: (1020, 80) -->
-                  <g id="pin-marker-04" class="road-pin-marker" transform="translate(1020, 80)">
-                    <circle class="pin-beacon-ring" cx="0" cy="-38" r="24" fill="none" stroke="#10B981" stroke-width="2.5" opacity="0.7" />
-                    <g class="road-pin-body" filter="url(#pinShadow)">
-                      <path class="pin-teardrop" d="M 0 0 C -14 -16, -18 -28, -18 -38 C -18 -48, -10 -56, 0 -56 C 10 -56, 18 -48, 18 -38 C 18 -28, 14 -16, 0 0 Z" fill="#10B981" />
-                      <circle cx="0" cy="-38" r="13" fill="#FFFFFF" />
-                      <text cx="0" cy="-38" text-anchor="middle" dy="5" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#10B981">04</text>
-                    </g>
-                  </g>
-
-                  <!-- Cruising Container Cargo Truck (Animated along road path) -->
-                  <g id="road-cargo-truck" class="road-cargo-truck" transform="translate(100, 410)">
-                    <ellipse cx="0" cy="5" rx="18" ry="6" fill="rgba(0,0,0,0.3)" />
-                    <rect x="-16" y="-8" width="22" height="14" rx="2" fill="#2373F4" />
-                    <rect x="6" y="-6" width="10" height="12" rx="2" fill="#0B1E36" />
-                    <polygon points="16,-3 34,-9 34,9 16,3" fill="rgba(242, 247, 160, 0.45)" />
-                    <circle cx="16" cy="0" r="2" fill="#F2F7A0" />
-                  </g>
-                </svg>
-
-                <!-- Floating Roadmap Direction Helper -->
-                <div class="zigzag-road-status-chip">
-                  <span class="status-pulse-dot"></span>
-                  <span class="status-chip-text" id="zigzag-status-chip-text">Scroll Down: Advancing along highway</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: Dynamic Stage Presentation Showcase Card -->
-            <div class="zigzag-card-stage-wrapper">
-              <div class="zigzag-stage-card" id="zigzag-stage-card">
+                <!-- Drop Shadow for 3D Elevation -->
+                <filter id="road3dShadow" x="-10%" y="-10%" width="130%" height="150%">
+                  <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="rgba(15, 23, 42, 0.2)" />
+                </filter>
                 
-                <!-- Stage Header -->
-                <div class="zstage-card-header">
-                  <span class="zstage-badge" id="zstage-badge">STAGE 01 OF 04 &bull; ORIGIN PROCUREMENT</span>
-                  <span class="zstage-pct" id="zstage-pct">25% Pipeline</span>
-                </div>
+                <!-- Pin Drop Shadow -->
+                <filter id="pinShadow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="rgba(15, 23, 42, 0.28)" />
+                </filter>
 
-                <!-- Stage Headline & Subhead -->
-                <h3 class="zstage-headline" id="zstage-headline">Farm-Level Direct Sourcing</h3>
-                <p class="zstage-description" id="zstage-description">
-                  Direct agrarian partnerships across 3,500+ verified regional growers in Tamil Nadu &amp; Kerala. 100% terroir traceability, fair farmgate pricing, and rigorous soil-to-harvest purity inspection.
-                </p>
+                <!-- Dynamic Road Reveal ClipPath -->
+                <clipPath id="roadRevealClip">
+                  <path id="road-clip-path" d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120" fill="none" stroke="#FFFFFF" stroke-width="70" stroke-linecap="round" />
+                </clipPath>
+              </defs>
 
-                <!-- Stage Photo Frame -->
-                <div class="zstage-photo-frame">
-                  <img id="zstage-photo" src="assets/shipyon-coconut.png" alt="Stage Photo" class="zstage-img">
-                  <div class="zstage-photo-badge" id="zstage-photo-badge">
-                    <span class="badge-dot"></span>
-                    <span id="zstage-photo-badge-text">Origin Hub: Pollachi &amp; Salem Core</span>
-                  </div>
-                </div>
+              <!-- Inactive Background Guideline (Subtle dashed path showing full zigzag ahead) -->
+              <path class="road-path-blueprint"
+                d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120"
+                fill="none" stroke="rgba(35, 115, 244, 0.12)" stroke-width="32" stroke-linecap="round" />
 
-                <!-- Stage 3-Pillar Operational Highlights -->
-                <div class="zstage-metrics-grid">
-                  <div class="zmetric-item">
-                    <span class="zmetric-val" id="zmetric-val-1">3,500+</span>
-                    <span class="zmetric-lbl" id="zmetric-lbl-1">Verified Farms</span>
-                  </div>
-                  <div class="zmetric-item">
-                    <span class="zmetric-val" id="zmetric-val-2">100%</span>
-                    <span class="zmetric-lbl" id="zmetric-lbl-2">Origin Traceable</span>
-                  </div>
-                  <div class="zmetric-item">
-                    <span class="zmetric-val" id="zmetric-val-3">Zero</span>
-                    <span class="zmetric-lbl" id="zmetric-lbl-3">Middlemen Markups</span>
-                  </div>
-                </div>
+              <path class="road-path-blueprint-line"
+                d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120"
+                fill="none" stroke="rgba(35, 115, 244, 0.35)" stroke-width="2" stroke-dasharray="8 8" />
 
-                <!-- Footer Navigation Hint -->
-                <div class="zstage-footer-hint">
-                  <span class="hint-arrow">&#8595;</span>
-                  <span id="zstage-hint-text">Keep scrolling down to advance along the highway</span>
+              <!-- Vertical Connector Lines connecting Nodes to their respective Boxes -->
+              <!-- Node 1 (145, 380) up to Box 1 (145, 238) -->
+              <line id="connector-line-01" class="road-connector-line active" x1="145" y1="238" x2="145" y2="380" stroke="#14351B" stroke-width="2.5" stroke-dasharray="5 4" />
+              <!-- Node 2 (445, 120) down to Box 2 (445, 262) - Appears ONLY when truck reaches Node 2 -->
+              <line id="connector-line-02" class="road-connector-line" x1="445" y1="120" x2="445" y2="262" stroke="#15803D" stroke-width="2.5" stroke-dasharray="5 4" />
+              <!-- Node 3 (745, 380) up to Box 3 (745, 238) - Appears ONLY when truck reaches Node 3 -->
+              <line id="connector-line-03" class="road-connector-line" x1="745" y1="238" x2="745" y2="380" stroke="#15803D" stroke-width="2.5" stroke-dasharray="5 4" />
+              <!-- Node 4 (1045, 120) down to Box 4 (1045, 262) - Appears ONLY when truck reaches Node 4 -->
+              <line id="connector-line-04" class="road-connector-line" x1="1045" y1="120" x2="1045" y2="262" stroke="#15803D" stroke-width="2.5" stroke-dasharray="5 4" />
+
+              <!-- Base Elevation Shadow Layer -->
+              <path id="road-path-shadow" class="road-path-shadow" 
+                d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120"
+                fill="none" stroke="rgba(15, 23, 42, 0.14)" stroke-width="48" stroke-linecap="round" />
+
+              <!-- 3D Bevel Curb (Lower Deck) -->
+              <path id="road-path-curb" class="road-path-curb"
+                d="M 145 388 C 265 388, 325 128, 445 128 C 565 128, 625 388, 745 388 C 865 388, 925 128, 1045 128"
+                fill="none" stroke="url(#roadCurbBevelGrad)" stroke-width="44" stroke-linecap="round" />
+
+              <!-- Active Emerging Road Highway (Revealed along scroll progress) -->
+              <g id="active-road-highway-group">
+                <!-- Rich Asphalt Layer -->
+                <path class="road-path-asphalt-active"
+                  d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120"
+                  fill="none" stroke="url(#roadAsphaltGrad)" stroke-width="38" stroke-linecap="round" />
+
+                <!-- White Outer Safety Boundaries -->
+                <path class="road-path-white-shoulder"
+                  d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120"
+                  fill="none" stroke="rgba(255, 255, 255, 0.88)" stroke-width="34" stroke-linecap="round" />
+                
+                <!-- Inner Dark Asphalt Lane -->
+                <path class="road-path-inner-lane"
+                  d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120"
+                  fill="none" stroke="#0F172A" stroke-width="28" stroke-linecap="round" />
+
+                <!-- Yellow/Gold Dashed Highway Centerline -->
+                <path class="road-path-centerline"
+                  d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120"
+                  fill="none" stroke="#F59E0B" stroke-width="3.2" stroke-dasharray="14 12" stroke-linecap="butt" />
+              </g>
+
+              <!-- Final Destination Terminal / Harbor Flag at Node 4 (1045, 120) -->
+              <g id="road-arrow-head" class="road-arrow-head" transform="translate(1045, 120) rotate(-15)">
+                <polygon points="0,-16 32,0 0,16 -6,0" fill="#CBD5E1" stroke="#64748B" stroke-width="2" />
+                <polygon points="2,-12 26,0 2,12 -3,0" fill="#0F172A" />
+                <polyline points="0,0 16,0" stroke="#10B981" stroke-width="3" stroke-dasharray="4 3" />
+              </g>
+
+              <!-- 4 Numbered 3D Station Pins at the Zigzag Vertices -->
+              <!-- PIN 01: Sourcing Farmgate (145, 380) -->
+              <g id="pin-marker-01" class="road-pin-marker active" transform="translate(145, 380)">
+                <circle class="pin-beacon-ring" cx="0" cy="-34" r="22" fill="none" stroke="#2373F4" stroke-width="2.5" />
+                <g class="road-pin-body" filter="url(#pinShadow)">
+                  <path class="pin-teardrop" d="M 0 0 C -13 -15, -16 -26, -16 -34 C -16 -44, -9 -52, 0 -52 C 9 -52, 16 -44, 16 -34 C 16 -26, 13 -15, 0 0 Z" fill="#2373F4" />
+                  <circle cx="0" cy="-34" r="11" fill="#FFFFFF" />
+                  <text cx="0" cy="-34" text-anchor="middle" dy="4.5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#2373F4">01</text>
+                </g>
+              </g>
+
+              <!-- PIN 02: Quality Grading Hub (445, 120) -->
+              <g id="pin-marker-02" class="road-pin-marker" transform="translate(445, 120)">
+                <circle class="pin-beacon-ring" cx="0" cy="-34" r="22" fill="none" stroke="#0284C7" stroke-width="2.5" />
+                <g class="road-pin-body" filter="url(#pinShadow)">
+                  <path class="pin-teardrop" d="M 0 0 C -13 -15, -16 -26, -16 -34 C -16 -44, -9 -52, 0 -52 C 9 -52, 16 -44, 16 -34 C 16 -26, 13 -15, 0 0 Z" fill="#0284C7" />
+                  <circle cx="0" cy="-34" r="11" fill="#FFFFFF" />
+                  <text cx="0" cy="-34" text-anchor="middle" dy="4.5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#0284C7">02</text>
+                </g>
+              </g>
+
+              <!-- PIN 03: Reefer Cold Chain (745, 380) -->
+              <g id="pin-marker-03" class="road-pin-marker" transform="translate(745, 380)">
+                <circle class="pin-beacon-ring" cx="0" cy="-34" r="22" fill="none" stroke="#6366F1" stroke-width="2.5" />
+                <g class="road-pin-body" filter="url(#pinShadow)">
+                  <path class="pin-teardrop" d="M 0 0 C -13 -15, -16 -26, -16 -34 C -16 -44, -9 -52, 0 -52 C 9 -52, 16 -44, 16 -34 C 16 -26, 13 -15, 0 0 Z" fill="#6366F1" />
+                  <circle cx="0" cy="-34" r="11" fill="#FFFFFF" />
+                  <text cx="0" cy="-34" text-anchor="middle" dy="4.5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#6366F1">03</text>
+                </g>
+              </g>
+
+              <!-- PIN 04: Global Port Export (1045, 120) -->
+              <g id="pin-marker-04" class="road-pin-marker" transform="translate(1045, 120)">
+                <circle class="pin-beacon-ring" cx="0" cy="-34" r="22" fill="none" stroke="#10B981" stroke-width="2.5" />
+                <g class="road-pin-body" filter="url(#pinShadow)">
+                  <path class="pin-teardrop" d="M 0 0 C -13 -15, -16 -26, -16 -34 C -16 -44, -9 -52, 0 -52 C 9 -52, 16 -44, 16 -34 C 16 -26, 13 -15, 0 0 Z" fill="#10B981" />
+                  <circle cx="0" cy="-34" r="11" fill="#FFFFFF" />
+                  <text cx="0" cy="-34" text-anchor="middle" dy="4.5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#10B981">04</text>
+                </g>
+              </g>
+
+              <!-- Cruising Intermodal Cargo Truck (Animated along the zigzag curve) -->
+              <g id="road-cargo-truck" class="road-cargo-truck" transform="translate(145, 380)">
+                <!-- Under-chassis shadow -->
+                <ellipse cx="0" cy="8" rx="22" ry="6" fill="rgba(15, 23, 42, 0.35)" />
+                <!-- Blue Container Trailer -->
+                <rect x="-24" y="-12" width="28" height="19" rx="3" fill="#2373F4" stroke="#1D4ED8" stroke-width="1.2" />
+                <line x1="-16" y1="-12" x2="-16" y2="7" stroke="#1E40AF" stroke-width="1" />
+                <line x1="-8" y1="-12" x2="-8" y2="7" stroke="#1E40AF" stroke-width="1" />
+                <!-- Cab -->
+                <rect x="5" y="-9" width="13" height="16" rx="2.5" fill="#0B1E36" />
+                <!-- Windshield -->
+                <rect x="8" y="-7" width="8" height="6" rx="1.2" fill="#65D0F4" opacity="0.9" />
+                <!-- Headlights & Beam -->
+                <polygon points="18,-4 42,-12 42,12 18,4" fill="url(#truckLightGlowGrad)" opacity="0.75" />
+                <circle cx="18" cy="0" r="2.2" fill="#F2F7A0" />
+                <!-- Status Beacon -->
+                <circle cx="-10" cy="-14" r="2" fill="#10B981" />
+              </g>
+            </svg>
+
+            <!-- 4 Distinct Milestone Boxes along the Zigzag Path -->
+            <div class="zigzag-boxes-layer" id="zigzag-boxes-layer">
+              
+              <!-- BOX 01: Top-Left (Stage 0, Initially Visible) -->
+              <div class="zigzag-milestone-box zbox-top-row revealed active-milestone" id="zbox-01" data-stage="0" style="--stage-color: #2373F4;">
+                <div class="zbox-card-chrome">
+                  <div class="zbox-header">
+                    <div class="zbox-badge-wrap">
+                      <span class="zbox-num-badge">01</span>
+                      <span class="zbox-stage-tag">ORIGIN SOURCING</span>
+                    </div>
+                    <span class="zbox-status-beacon" title="Active Origin Stage"></span>
+                  </div>
+
+                  <h3 class="zbox-headline">Farm Direct Sourcing</h3>
+
+                  <div class="zbox-media-preview">
+                    <img src="assets/shipyon-coconut.png" alt="Farm Sourcing" class="zbox-img" loading="lazy">
+                    <div class="zbox-img-tag">
+                      <span class="tag-live-dot"></span>
+                      <span>Pollachi &amp; Salem Core</span>
+                    </div>
+                  </div>
+
+                  <p class="zbox-description">
+                    Direct partnerships with 3,500+ verified growers in TN &amp; Kerala. 100% terroir traceability and fair farmgate pricing.
+                  </p>
+
+                  <div class="zbox-metrics-strip">
+                    <span class="zbox-pill">3,500+ Farms</span>
+                    <span class="zbox-pill">100% Traceable</span>
+                  </div>
                 </div>
               </div>
+
+              <!-- BOX 02: Bottom-Mid-Left (Stage 1, Appears at 25% Scroll) -->
+              <div class="zigzag-milestone-box zbox-bottom-row" id="zbox-02" data-stage="1" style="--stage-color: #0284C7;">
+                <div class="zbox-card-chrome">
+                  <div class="zbox-header">
+                    <div class="zbox-badge-wrap">
+                      <span class="zbox-num-badge">02</span>
+                      <span class="zbox-stage-tag">LAB QUALITY</span>
+                    </div>
+                    <span class="zbox-status-beacon" title="Stage 2"></span>
+                  </div>
+
+                  <h3 class="zbox-headline">Sortex Grading &amp; Assays</h3>
+
+                  <div class="zbox-media-preview">
+                    <img src="assets/shipyon-reefer-terminal.jpg" alt="Sortex Optical Grading" class="zbox-img" loading="lazy">
+                    <div class="zbox-img-tag">
+                      <span class="tag-live-dot"></span>
+                      <span>APEDA &amp; FDA Certified</span>
+                    </div>
+                  </div>
+
+                  <p class="zbox-description">
+                    AI optical color sorting, density grading, and comprehensive NABL phytosanitary testing with zero chemical residue.
+                  </p>
+
+                  <div class="zbox-metrics-strip">
+                    <span class="zbox-pill">99.9% Purity</span>
+                    <span class="zbox-pill">0.1% Ceiling</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BOX 03: Top-Mid-Right (Stage 2, Appears at 55% Scroll) -->
+              <div class="zigzag-milestone-box zbox-top-row" id="zbox-03" data-stage="2" style="--stage-color: #6366F1;">
+                <div class="zbox-card-chrome">
+                  <div class="zbox-header">
+                    <div class="zbox-badge-wrap">
+                      <span class="zbox-num-badge">03</span>
+                      <span class="zbox-stage-tag">COLD CHAIN</span>
+                    </div>
+                    <span class="zbox-status-beacon" title="Stage 3"></span>
+                  </div>
+
+                  <h3 class="zbox-headline">Precision IoT Cold Chain</h3>
+
+                  <div class="zbox-media-preview">
+                    <img src="assets/shipyon-dock-cranes.jpg" alt="Reefer Cold Chain" class="zbox-img" loading="lazy">
+                    <div class="zbox-img-tag">
+                      <span class="tag-live-dot"></span>
+                      <span>-20°C to +14°C Active</span>
+                    </div>
+                  </div>
+
+                  <p class="zbox-description">
+                    Continuous temperature and humidity-controlled multimodal transit with 24/7 live IoT telemetry streaming to port gates.
+                  </p>
+
+                  <div class="zbox-metrics-strip">
+                    <span class="zbox-pill">&plusmn;0.5&deg;C Precision</span>
+                    <span class="zbox-pill">Zero Breaches</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BOX 04: Bottom-Far-Right (Stage 3, Appears at 85% Scroll) -->
+              <div class="zigzag-milestone-box zbox-bottom-row" id="zbox-04" data-stage="3" style="--stage-color: #10B981;">
+                <div class="zbox-card-chrome">
+                  <div class="zbox-header">
+                    <div class="zbox-badge-wrap">
+                      <span class="zbox-num-badge">04</span>
+                      <span class="zbox-stage-tag">GLOBAL EXPORT</span>
+                    </div>
+                    <span class="zbox-status-beacon" title="Stage 4"></span>
+                  </div>
+
+                  <h3 class="zbox-headline">Port Berths &amp; Liners</h3>
+
+                  <div class="zbox-media-preview">
+                    <img src="assets/shipyon-sunset-containership.jpg" alt="Ocean Vessels" class="zbox-img" loading="lazy">
+                    <div class="zbox-img-tag">
+                      <span class="tag-live-dot"></span>
+                      <span>VOCPT &amp; ICTT Terminals</span>
+                    </div>
+                  </div>
+
+                  <p class="zbox-description">
+                    Priority berth staging at Tuticorin &amp; Chennai Ports with direct container liner sailings to 50+ global trade hubs.
+                  </p>
+
+                  <div class="zbox-metrics-strip">
+                    <span class="zbox-pill">50+ Global Ports</span>
+                    <span class="zbox-pill">100% On-Time</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-          </div>
+            <!-- Bottom Floating Road Status Indicator -->
+            <div class="zigzag-road-status-chip">
+              <span class="status-pulse-dot"></span>
+              <span class="status-chip-text" id="zigzag-status-chip-text">Stage 01: Sourcing direct from regional farms</span>
+            </div>
+
+          </div></div>
 
         </div>
       </div>
@@ -891,7 +971,7 @@
         <div class="values-interactive-showcase" id="values-showcase-grid">
 
           <!-- 01 — QUALITY -->
-          <div class="value-luxury-card active-resonance" data-index="0" id="val-card-quality" role="region" aria-label="Value: Quality">
+          <div class="value-luxury-card active-resonance val-card-revealed" data-index="0" id="val-card-quality" role="region" aria-label="Value: Quality">
             <!-- Continuous Rotating Conic Border Beam -->
             <div class="card-border-beam" aria-hidden="true"></div>
             <div class="card-spotlight-glow" aria-hidden="true"></div>
@@ -935,7 +1015,7 @@
           </div>
 
           <!-- 02 — TRUST -->
-          <div class="value-luxury-card" data-index="1" id="val-card-trust" role="region" aria-label="Value: Trust">
+          <div class="value-luxury-card val-card-revealed" data-index="1" id="val-card-trust" role="region" aria-label="Value: Trust">
             <!-- Continuous Rotating Conic Border Beam -->
             <div class="card-border-beam" aria-hidden="true"></div>
             <div class="card-spotlight-glow" aria-hidden="true"></div>
@@ -980,7 +1060,7 @@
           </div>
 
           <!-- 03 — PRECISION -->
-          <div class="value-luxury-card" data-index="2" id="val-card-precision" role="region" aria-label="Value: Precision">
+          <div class="value-luxury-card val-card-revealed" data-index="2" id="val-card-precision" role="region" aria-label="Value: Precision">
             <!-- Continuous Rotating Conic Border Beam -->
             <div class="card-border-beam" aria-hidden="true"></div>
             <div class="card-spotlight-glow" aria-hidden="true"></div>
@@ -1026,7 +1106,7 @@
           </div>
 
           <!-- 04 — PROGRESS -->
-          <div class="value-luxury-card" data-index="3" id="val-card-progress" role="region" aria-label="Value: Progress">
+          <div class="value-luxury-card val-card-revealed" data-index="3" id="val-card-progress" role="region" aria-label="Value: Progress">
             <!-- Continuous Rotating Conic Border Beam -->
             <div class="card-border-beam" aria-hidden="true"></div>
             <div class="card-spotlight-glow" aria-hidden="true"></div>
@@ -1202,7 +1282,7 @@
           <div class="why-metric-sub">Verified institutional growers</div>
         </div>
         <div class="why-metric-col">
-          <div class="why-metric-number" data-target="99">99.8%</div>
+          <div class="why-metric-number" data-target="99.8" data-decimals="1">99.8%</div>
           <div class="why-metric-name">On-Time Dispatch</div>
           <div class="why-metric-sub">Multimodal vessel scheduling</div>
         </div>
@@ -1371,7 +1451,7 @@
   <script src="three.min.js"></script>
   <script src="OrbitControls.js"></script>
   <script src="globe3d.js"></script>
-  <script type="module" src="script.js"></script>
+  <script src="script.js"></script>
   <!-- Interactive WebGL Trade Flow Shader Engine -->
   <script>
   (function initHeroFlowShader() {
