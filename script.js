@@ -22,6 +22,8 @@ function initShipyonApp() {
   initProSpotlightAndTilt();
   initProScrollReveals();
   initProMetricCounters();
+  initCardSpotlightAnd3DTilt();
+  initPremiumWebsiteMotion();
 }
 
 if (document.readyState === 'loading') {
@@ -1413,6 +1415,7 @@ function initProSpotlightAndTilt() {
  * 2. Professional Staggered Scroll Reveal System
  */
 function initProScrollReveals() {
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') return;
   if (!('IntersectionObserver' in window)) return;
 
   // Target sections outside Home, Expertise, and Product
@@ -1428,7 +1431,6 @@ function initProScrollReveals() {
     #why-choose-us-section .why-metric-col,
     #global-trade-map .section-header-editorial,
     #core-export-services .expertise-card,
-    #institutional-solutions .institutional-card,
     .contact-left-column,
     .contact-form-card
   `;
@@ -1519,6 +1521,415 @@ function initProMetricCounters() {
     requestAnimationFrame(update);
   }
 }
+
+
+
+/**
+ * Card Mouse Spotlight & 3D Interactive Tilt Effect for Theme Cards
+ */
+function initCardSpotlightAnd3DTilt() {
+  const cards = document.querySelectorAll(
+    '.leader-exec-card, .volza-stat-card, .volza-pillar-card, .expertise-card, .testimonial-card-exim, .volza-hero-image-wrap'
+  );
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+
+      // Calculate 3D tilt angles
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -6; // max 6 deg
+      const rotateY = ((x - centerX) / centerX) * 6;  // max 6 deg
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+/**
+ * MASTER CINEMATIC SCROLL-DRIVEN MOTION SYSTEM
+ * Continuous Canvas, Layered Section Takeover, Differential Parallax Compression,
+ * Card Flight, Editorial Cascade Clip Reveals, and Dual Directional Founder Reveals.
+ */
+function initPremiumWebsiteMotion() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+
+  if (hasGSAP) {
+    gsap.registerPlugin(ScrollTrigger);
+    initGSAPScrollMotion();
+  } else {
+    initFallbackScrollMotion();
+  }
+}
+
+function initGSAPScrollMotion() {
+  // Enforce 100% solid opacity across elements (No opacity fading, no blur filter)
+  gsap.set('.hero-eyebrow-serene, .volza-pill-tag, .subpage-badge-pill, .hero-serif-title, .volza-hero-title, .subpage-title, .hero-serene-desc, .volza-hero-desc, .subpage-subtitle, .hero-serene-actions, .volza-hero-actions, .hero-prov-item, .volza-trust-item, .hero-scenic-backdrop, .volza-hero-image-wrap, .feature-col-item, .volza-pillar-card, .expertise-card, .export-service-card, .curious-folio-panel, .institutional-card, .leader-exec-card', { opacity: 1, filter: 'none' });
+
+  // 1. HERO SECTION: "Solid Physical Depth & Parallax Compression"
+  const heroSection = document.querySelector('#hero-section, .volza-hero-section, .subpage-hero-section');
+  if (heroSection) {
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1.0 } });
+
+    heroTl.fromTo('.hero-eyebrow-serene, .volza-pill-tag, .subpage-badge-pill', 
+      { y: 30 }, 
+      { y: 0, duration: 0.7 }
+    )
+    .fromTo('.hero-serif-title, .volza-hero-title, .subpage-title', 
+      { y: 45 }, 
+      { y: 0, duration: 0.9 }, 
+      '-=0.4'
+    )
+    .fromTo('.hero-serene-desc, .volza-hero-desc, .subpage-subtitle', 
+      { y: 25 }, 
+      { y: 0, duration: 0.8 }, 
+      '-=0.6'
+    )
+    .fromTo('.hero-serene-actions, .volza-hero-actions', 
+      { y: 20, scale: 0.96 }, 
+      { y: 0, scale: 1, duration: 0.75 }, 
+      '-=0.5'
+    )
+    .fromTo('.hero-provenance-metrics .hero-prov-item, .volza-trust-badges .volza-trust-item', 
+      { y: 18 }, 
+      { y: 0, stagger: 0.08, duration: 0.6 }, 
+      '-=0.4'
+    )
+    .fromTo('.hero-scenic-backdrop, .volza-hero-image-wrap', 
+      { scale: 0.94 }, 
+      { scale: 1, duration: 1.1, ease: 'power2.out' }, 
+      '-=1.0'
+    );
+
+    // Scroll Exit: Controlled, Stable Parallax (No fading, no blur)
+    const heroText = heroSection.querySelector('.hero-serene-content, .volza-hero-content, .subpage-hero-content');
+    const heroImg = heroSection.querySelector('.hero-scenic-img, .volza-hero-image-wrap img');
+    const nextSection = heroSection.nextElementSibling;
+
+    const exitTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: heroSection,
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1.2
+      }
+    });
+
+    if (heroText) {
+      exitTl.to(heroText, { y: -120, scale: 0.96, ease: 'none' }, 0);
+    }
+    if (heroImg) {
+      exitTl.to(heroImg, { scale: 1.08, y: 70, ease: 'none' }, 0);
+    }
+    if (nextSection) {
+      exitTl.fromTo(nextSection, { y: 50 }, { y: 0, ease: 'none' }, 0);
+    }
+  }
+
+  // 2. FOUR PILLARS: "Physical Card Flight & Layered Takeover" (Solid Opacity: 1)
+  const pillarCards = gsap.utils.toArray('.floating-features-card .feature-col-item, .volza-pillars-section .volza-pillar-card, #snapshots-section .feature-col-item');
+  if (pillarCards.length) {
+    const pillarsContainer = pillarCards[0].closest('.floating-features-card, .volza-pillars-section, #snapshots-section');
+
+    gsap.fromTo(pillarCards, 
+      { y: 50, scale: 0.95 },
+      {
+        y: 0,
+        scale: 1,
+        stagger: 0.1,
+        duration: 0.85,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: pillarsContainer,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+
+    // Controlled Card Flight exit scrubbed on scroll (cards lift away at solid opacity)
+    const flightTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: pillarsContainer,
+        start: 'top 35%',
+        end: 'bottom top',
+        scrub: 1.2
+      }
+    });
+
+    pillarCards.forEach((card, idx) => {
+      const flightSpeed = -35 - (idx % 4) * 20;
+      flightTl.to(card, {
+        y: flightSpeed,
+        scale: 0.94 - (idx * 0.012),
+        ease: 'none'
+      }, 0);
+    });
+  }
+
+  // 3. SERVICE CARDS: "Staggered Card Field & Stable Depth Shift"
+  const serviceCards = gsap.utils.toArray('#core-export-services .expertise-card, .export-service-card, .curious-folio-panel');
+  if (serviceCards.length) {
+    const serviceContainer = serviceCards[0].closest('#core-export-services, .expertise-grid, #trade-portfolio-section');
+
+    serviceCards.forEach((card, idx) => {
+      const badge = card.querySelector('.expertise-icon-box, .folio-spine-number');
+      const cardTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+
+      cardTl.fromTo(card,
+        { y: 45, scale: 0.96 },
+        { y: 0, scale: 1, duration: 0.8, delay: (idx % 3) * 0.1, ease: 'power3.out' }
+      );
+
+      if (badge) {
+        cardTl.fromTo(badge,
+          { scale: 0.7 },
+          { scale: 1, duration: 0.5, ease: 'back.out(1.5)' },
+          '-=0.4'
+        );
+      }
+    });
+
+    // Stable Controlled Scroll Depth Shift
+    if (serviceContainer) {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: serviceContainer,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2
+        }
+      }).to(serviceCards, {
+        y: (i) => (i % 2 === 0 ? -25 : 20),
+        ease: 'none'
+      });
+    }
+  }
+
+  // 4. INSTITUTIONAL SOLUTIONS: Smooth, Non-Popping Entrance & Gliding Transit Motion
+  const instSection = document.querySelector('#institutional-solutions, .institutional-solutions-section');
+  if (instSection) {
+    const instHeader = instSection.querySelector('.section-header-editorial, .volza-leadership-header');
+    const instCards = gsap.utils.toArray('.institutional-solution-box, #institutional-solutions .institutional-solution-box');
+
+    if (instHeader) {
+      gsap.fromTo(instHeader,
+        { y: 20 },
+        {
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: instHeader,
+            start: 'top 88%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+    }
+
+    // Complete Box + Icon + Title + Description + Tags move together smoothly (NO SCALE POPPING, NO JITTER)
+    if (instCards.length) {
+      gsap.fromTo(instCards,
+        { y: 25 },
+        {
+          y: 0,
+          duration: 0.6,
+          stagger: 0.08,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: instSection,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+    }
+
+    // 4B. MINI GREEN EXPORT CARGO TRUCK SCROLL-DRIVEN HORIZONTAL TRAVEL (Smooth Gliding, scrub: 0.8)
+    const instTruck = instSection.querySelector('.inst-export-truck');
+    const instLane = instSection.querySelector('.inst-cargo-transit-lane');
+    if (instTruck && instLane) {
+      const getTravelDist = () => (instLane.offsetWidth || 900) + 100;
+      gsap.fromTo(instTruck,
+        { x: 0 },
+        {
+          x: getTravelDist,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: instSection,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: 0.8
+          }
+        }
+      );
+
+      // Rotate wheels smoothly as truck glides
+      const wheels = instTruck.querySelectorAll('.truck-wheel-inner');
+      if (wheels.length) {
+        gsap.to(wheels, {
+          rotate: 1080,
+          transformOrigin: 'center center',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: instSection,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: 0.8
+          }
+        });
+      }
+    }
+  }
+
+  // 5. FOUNDERS / LEADERSHIP: "Sharp Crisp Directional Entry & Depth Separation (NO BLUR, NO FADING)"
+  const leaderCards = gsap.utils.toArray('.leadership-cards-grid .leader-exec-card, #leadership-section .leader-exec-card');
+  if (leaderCards.length) {
+    const leaderContainer = leaderCards[0].closest('#leadership-section, .leadership-cards-grid');
+
+    leaderCards.forEach((card, idx) => {
+      const isLeft = idx % 2 === 0;
+      const photo = card.querySelector('.leader-portrait-wrap img');
+      const name = card.querySelector('.leader-name');
+      const role = card.querySelector('.leader-role-title, .leader-badge-pill');
+      const quote = card.querySelector('.leader-bio-text');
+      const tags = card.querySelectorAll('.leader-tag-item');
+
+      const leaderTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      });
+
+      // Sharp Crisp Directional Entry: Left from -50px, Right from +50px (Opacity 1, No Blur Filter)
+      leaderTl.fromTo(card,
+        { x: isLeft ? -50 : 50, y: 30, scale: 0.97 },
+        { x: 0, y: 0, scale: 1, duration: 0.85, ease: 'power3.out' }
+      );
+
+      if (photo) {
+        leaderTl.fromTo(photo,
+          { scale: 0.92 },
+          { scale: 1, duration: 0.65, ease: 'power2.out' },
+          '-=0.6'
+        );
+      }
+
+      if (name) {
+        leaderTl.fromTo(name,
+          { x: isLeft ? -12 : 12 },
+          { x: 0, duration: 0.45, ease: 'power2.out' },
+          '-=0.45'
+        );
+      }
+
+      if (role) {
+        leaderTl.fromTo(role,
+          { y: 8 },
+          { y: 0, duration: 0.4, ease: 'power2.out' },
+          '-=0.35'
+        );
+      }
+
+      if (quote) {
+        leaderTl.fromTo(quote,
+          { y: 10 },
+          { y: 0, duration: 0.45, ease: 'power2.out' },
+          '-=0.35'
+        );
+      }
+
+      if (tags.length) {
+        leaderTl.fromTo(tags,
+          { scale: 0.92, y: 6 },
+          { scale: 1, y: 0, stagger: 0.06, duration: 0.4, ease: 'power2.out' },
+          '-=0.35'
+        );
+      }
+    });
+
+    // Sharp Depth Separation on Scroll Progress (100% Solid Opacity 1, Crisp & Readable, No Blur)
+    if (leaderContainer && leaderCards.length >= 2) {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: leaderContainer,
+          start: 'top center',
+          end: 'bottom top',
+          scrub: 1.2
+        }
+      })
+      .to(leaderCards[0], { y: -25, x: -10, ease: 'none' }, 0)
+      .to(leaderCards[1], { y: -12, x: 10, ease: 'none' }, 0);
+    }
+  }
+
+  // 6. MASTER LAYERED SECTION TAKEOVER (Sections Overlapping Continuously with Controlled Motion)
+  const sections = gsap.utils.toArray('section[id], footer[id]');
+  sections.forEach((sec, idx) => {
+    if (idx < sections.length - 1) {
+      const nextSec = sections[idx + 1];
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: sec,
+          start: 'bottom 60%',
+          end: 'bottom top',
+          scrub: 1.2
+        }
+      })
+      .to(sec, { y: -35, scale: 0.98, ease: 'none' }, 0)
+      .fromTo(nextSec, { y: 35 }, { y: 0, ease: 'none' }, 0);
+    }
+  });
+}
+
+function initFallbackScrollMotion() {
+  let ticking = false;
+  const sections = document.querySelectorAll('section[id], footer[id]');
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrolled = window.scrollY;
+        const vh = window.innerHeight;
+
+        sections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top < vh && rect.bottom > 0) {
+            const progress = (vh - rect.top) / (vh + rect.height);
+            const clamped = Math.min(Math.max(progress, 0), 1);
+            sec.style.setProperty('--scroll-progress', clamped.toFixed(3));
+          }
+        });
+
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
 
 
 
