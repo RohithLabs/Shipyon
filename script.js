@@ -19,6 +19,9 @@ function initShipyonApp() {
   initProcessRoadMilestones();
   initMobileMovesSwipe();
   initValuesInteractiveCards();
+  initShipyonCursorGimmicks();
+  initGlobalTradeNetworkInteractions();
+  initHighwayAtmosphereAndAutopilot();
 }
 
 if (document.readyState === 'loading') {
@@ -29,36 +32,51 @@ if (document.readyState === 'loading') {
 
 // 1. Header scroll effect
 function initHeaderScroll() {
-  const header = document.getElementById('site-header');
+  const header = document.getElementById('main-header') || document.getElementById('site-header') || document.querySelector('.site-header-serene');
   if (!header) return;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
+  const onScroll = () => {
+    if (window.scrollY > 25) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
-  }, { passive: true });
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
 // 2. Mobile Navigation
 function initMobileNav() {
-  const toggleBtn = document.getElementById('mobile-toggle-btn');
-  const navLinks = document.getElementById('nav-links');
+  const toggleBtn = document.getElementById('mobile-nav-toggle-serene') || document.getElementById('mobile-toggle-btn');
+  const header = document.querySelector('.site-header-serene') || document.getElementById('main-header');
+  const navLinks = document.getElementById('primary-nav') || document.getElementById('nav-links');
 
-  if (toggleBtn && navLinks) {
-    toggleBtn.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('active');
-      toggleBtn.classList.toggle('is-open', isOpen);
+  if (toggleBtn && header) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = header.classList.toggle('mobile-nav-open');
+      toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
-    // Close when clicking link
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        toggleBtn.classList.remove('is-open');
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target)) {
+        header.classList.remove('mobile-nav-open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close when clicking any nav link
+    if (navLinks) {
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          header.classList.remove('mobile-nav-open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        });
       });
-    });
+    }
   }
 }
 
@@ -1343,6 +1361,52 @@ function initValuesInteractiveCards() {
 }
 
 /**
+ * Interactive 3D Parallax Tilt & Specular Coordinates for Executive Leadership Cards
+ */
+function initLeadershipInteractiveCards() {
+  const cards = document.querySelectorAll(".leader-exec-card[data-tilt]");
+  if (!cards.length) return;
+
+  cards.forEach((card) => {
+    let ticking = false;
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)";
+      card.style.setProperty("--mouse-x", "50%");
+      card.style.setProperty("--mouse-y", "50%");
+      card.classList.remove("is-hovered");
+    });
+
+    card.addEventListener("mouseenter", () => {
+      card.classList.add("is-hovered");
+    });
+
+    card.addEventListener("mousemove", (e) => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        // Subtle, elegant 3D tilt (-5deg to +5deg)
+        const tiltX = ((y - centerY) / centerY) * -5.2;
+        const tiltY = ((x - centerX) / centerX) * 5.2;
+
+        card.style.transform = `perspective(1200px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-8px) scale(1.015)`;
+        ticking = false;
+      });
+    });
+  });
+}
+
+/**
  * Global smooth scroll & service highlight handler for Testimonials in Services Page
  */
 function navigateToService(targetServiceId) {
@@ -1358,3 +1422,501 @@ function navigateToService(targetServiceId) {
 
 window.navigateToService = navigateToService;
 
+/**
+ * ==========================================================================
+ * SHIPYON CURSOR GIMMICKS ENGINE
+ * Dual-element emerald-gold photon tracker with sonic click shockwaves,
+ * elastic lerp tracking, and contextual action morphing badges
+ * ==========================================================================
+ */
+function initShipyonCursorGimmicks() {
+  // Gracefully skip on touch / coarse pointer devices
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    return;
+  }
+
+  // Prevent duplicate insertion
+  if (document.getElementById('shipyon-cursor-dot')) return;
+
+  // 1. Create Glowing Central Dot
+  const dot = document.createElement('div');
+  dot.className = 'shipyon-cursor-dot';
+  dot.id = 'shipyon-cursor-dot';
+
+  // 2. Create Thin Animated Circular Ring
+  const ring = document.createElement('div');
+  ring.className = 'shipyon-cursor-ring';
+  ring.id = 'shipyon-cursor-ring';
+
+  // Inner components for contextual states
+  ring.innerHTML = `
+    <!-- Orbital Satellites for Globe Navigation State -->
+    <div class="cursor-orbit-satellites" aria-hidden="true">
+      <span class="orbit-satellite satellite-1"></span>
+      <span class="orbit-satellite satellite-2"></span>
+    </div>
+
+    <!-- Node Connection Icon for Trade Route State -->
+    <div class="cursor-node-icon" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2" stroke-linecap="round">
+        <circle cx="6" cy="12" r="3" fill="#D4AF37"/>
+        <circle cx="18" cy="12" r="3" fill="#D4AF37"/>
+        <line x1="9" y1="12" x2="15" y2="12" stroke-dasharray="2 2"/>
+      </svg>
+    </div>
+
+    <!-- Destination Region Tooltip -->
+    <div class="cursor-destination-tooltip" aria-hidden="true">
+      <span class="dest-tooltip-indicator"></span>
+      <span class="dest-tooltip-name" id="cursor-dest-tooltip-text">GLOBAL MARKET</span>
+    </div>
+
+    <!-- Product / Media View Indicator -->
+    <span class="cursor-view-label" aria-hidden="true">VIEW &rarr;</span>
+  `;
+
+  document.body.appendChild(dot);
+  document.body.appendChild(ring);
+
+  const tooltipText = ring.querySelector('#cursor-dest-tooltip-text');
+
+  // Physics & coordinates
+  let mouseX = -100;
+  let mouseY = -100;
+  let ringX = -100;
+  let ringY = -100;
+  let isVisible = false;
+  let lastParticleTime = 0;
+  let currentMagneticTarget = null;
+  let currentState = 'normal';
+
+  // Direct 0ms hardware transform for glowing dot
+  function updateDotPosition(x, y) {
+    dot.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+  }
+
+  // Trailing Particles Generator
+  function spawnTrailingParticle(x, y) {
+    const p = document.createElement('div');
+    p.className = 'shipyon-cursor-trail-dot';
+    const offsetX = (Math.random() - 0.5) * 8;
+    const offsetY = (Math.random() - 0.5) * 8;
+    p.style.left = `${x + offsetX}px`;
+    p.style.top = `${y + offsetY}px`;
+    document.body.appendChild(p);
+    setTimeout(() => {
+      p.remove();
+    }, 450);
+  }
+
+  // Click Shockwave Burst
+  function spawnClickShockwave(x, y) {
+    const burst = document.createElement('div');
+    burst.className = 'shipyon-click-burst';
+    burst.style.left = `${x}px`;
+    burst.style.top = `${y}px`;
+    document.body.appendChild(burst);
+    setTimeout(() => burst.remove(), 650);
+  }
+
+  // Click Spark Radiance
+  function spawnClickSparks(x, y) {
+    const sparkCount = 8;
+    for (let i = 0; i < sparkCount; i++) {
+      const spark = document.createElement('div');
+      spark.className = 'shipyon-click-spark';
+      const angle = (i / sparkCount) * 2 * Math.PI;
+      const distance = 22 + Math.random() * 20;
+      const tx = Math.cos(angle) * distance;
+      const ty = Math.sin(angle) * distance;
+      spark.style.setProperty('--tx', `${tx.toFixed(1)}px`);
+      spark.style.setProperty('--ty', `${ty.toFixed(1)}px`);
+      spark.style.left = `${x}px`;
+      spark.style.top = `${y}px`;
+      if (i % 2 === 0) {
+        spark.style.background = '#D4AF37';
+        spark.style.boxShadow = '0 0 8px #D4AF37';
+      }
+      document.body.appendChild(spark);
+      setTimeout(() => spark.remove(), 520);
+    }
+  }
+
+  // State Switcher
+  function setCursorState(state, meta) {
+    if (currentState === state && !meta) return;
+    currentState = state;
+
+    ring.classList.remove(
+      'cursor-state-globe',
+      'cursor-state-route',
+      'cursor-state-destination',
+      'cursor-state-button',
+      'cursor-state-view'
+    );
+    dot.classList.remove('dot-gold', 'dot-hidden');
+
+    switch (state) {
+      case 'globe':
+        ring.classList.add('cursor-state-globe');
+        dot.classList.add('dot-gold');
+        break;
+      case 'route':
+        ring.classList.add('cursor-state-route');
+        dot.classList.add('dot-gold');
+        break;
+      case 'destination':
+        ring.classList.add('cursor-state-destination');
+        dot.classList.add('dot-hidden');
+        if (tooltipText && meta && meta.destName) {
+          tooltipText.textContent = meta.destName;
+        }
+        break;
+      case 'button':
+        ring.classList.add('cursor-state-button');
+        dot.classList.add('dot-gold');
+        break;
+      case 'view':
+        ring.classList.add('cursor-state-view');
+        dot.classList.add('dot-hidden');
+        break;
+      default:
+        // normal
+        break;
+    }
+  }
+
+  // Mouse Movement
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    updateDotPosition(mouseX, mouseY);
+
+    if (!isVisible) {
+      isVisible = true;
+      dot.classList.add('visible');
+      ring.classList.add('visible');
+      ringX = mouseX;
+      ringY = mouseY;
+    }
+
+    // Emit subtle trailing particles
+    const now = performance.now();
+    if (now - lastParticleTime > 75) {
+      lastParticleTime = now;
+      spawnTrailingParticle(mouseX, mouseY);
+    }
+
+    // Magnetic Button Tracking
+    if (currentMagneticTarget) {
+      const rect = currentMagneticTarget.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const dist = Math.hypot(mouseX - centerX, mouseY - centerY);
+
+      if (dist < 80) {
+        const pullX = (mouseX - centerX) * 0.28;
+        const pullY = (mouseY - centerY) * 0.28;
+        currentMagneticTarget.style.transform = `translate3d(${pullX.toFixed(1)}px, ${pullY.toFixed(1)}px, 0)`;
+
+        // Also translate internal arrow icon toward cursor
+        const arrow = currentMagneticTarget.querySelector('.cta-arrow-box, .cta-arrow-box svg, svg');
+        if (arrow) {
+          arrow.style.transform = `translate3d(${pullX * 0.5}px, ${pullY * 0.5}px, 0)`;
+        }
+      } else {
+        currentMagneticTarget.style.transform = '';
+        const arrow = currentMagneticTarget.querySelector('.cta-arrow-box, .cta-arrow-box svg, svg');
+        if (arrow) arrow.style.transform = '';
+        currentMagneticTarget = null;
+      }
+    }
+  }, { passive: true });
+
+  // Mouse Down / Up
+  window.addEventListener('mousedown', (e) => {
+    ring.classList.add('click-compressed');
+    spawnClickShockwave(e.clientX, e.clientY);
+    spawnClickSparks(e.clientX, e.clientY);
+  });
+
+  window.addEventListener('mouseup', () => {
+    ring.classList.remove('click-compressed');
+  });
+
+  // Boundary Detection
+  document.addEventListener('mouseleave', () => {
+    dot.classList.remove('visible');
+    ring.classList.remove('visible');
+    isVisible = false;
+    if (currentMagneticTarget) {
+      currentMagneticTarget.style.transform = '';
+      currentMagneticTarget = null;
+    }
+  });
+
+  document.addEventListener('mouseenter', () => {
+    if (mouseX > 0 && mouseY > 0) {
+      dot.classList.add('visible');
+      ring.classList.add('visible');
+      isVisible = true;
+    }
+  });
+
+  // Intelligent Contextual Reaction on Hover
+  document.addEventListener('mouseover', (e) => {
+    // 1. Destination check
+    const destEl = e.target.closest('[data-cursor="DESTINATION"], .country-ribbon-btn, .gtn-floating-dest');
+    if (destEl) {
+      const destName = destEl.getAttribute('data-dest-name') || destEl.dataset.destName || destEl.textContent.trim();
+      setCursorState('destination', { destName: destName.toUpperCase() });
+      return;
+    }
+
+    // 2. Trade Route check
+    const routeEl = e.target.closest('[data-cursor="ROUTE"], .gtn-float-badge.float-bottom-left, .status-connector-arrow');
+    if (routeEl) {
+      setCursorState('route');
+      return;
+    }
+
+    // 3. Button / Magnetic CTA check
+    const btnEl = e.target.closest(
+      '#gtn-explore-corridors-btn, .gtn-interactive-cta-btn, .btn-pill-cobalt, .volza-btn-demo, .open-quote-modal-btn, .header-quote-btn, .btn-primary, button, [role="button"], a.btn-emerald'
+    );
+    if (btnEl) {
+      currentMagneticTarget = btnEl;
+      setCursorState('button');
+      return;
+    }
+
+    // 4. Globe 3D Stage check
+    const globeEl = e.target.closest('#shipyon-3d-globe-container, .gtn-globe-display-card, #globe-canvas-wrapper');
+    if (globeEl) {
+      setCursorState('globe');
+      return;
+    }
+
+    // 5. Product / Image "View" check
+    const viewEl = e.target.closest(
+      '[data-cursor="VIEW"], .category-hero-card, .ecom-product-card, .curious-folio-panel, .product-media-wrap, .btn-quick-view'
+    );
+    if (viewEl) {
+      setCursorState('view');
+      return;
+    }
+
+    // 6. Generic interactive links
+    const linkEl = e.target.closest('a, input, select, textarea');
+    if (linkEl) {
+      setCursorState('button');
+      return;
+    }
+
+    // Default normal state
+    if (currentMagneticTarget) {
+      currentMagneticTarget.style.transform = '';
+      const arrow = currentMagneticTarget.querySelector('.cta-arrow-box, .cta-arrow-box svg, svg');
+      if (arrow) arrow.style.transform = '';
+      currentMagneticTarget = null;
+    }
+    setCursorState('normal');
+  });
+
+  // Global helper for Three.js globe raycaster to set cursor state
+  window.setShipyonGlobeCursor = function (state, meta) {
+    setCursorState(state, meta);
+  };
+
+  // Render loop for smooth spring ring interpolation
+  function renderCursor() {
+    if (isVisible) {
+      ringX += (mouseX - ringX) * 0.22;
+      ringY += (mouseY - ringY) * 0.22;
+
+      ring.style.transform = `translate3d(${ringX.toFixed(1)}px, ${ringY.toFixed(1)}px, 0) translate(-50%, -50%)`;
+    }
+    requestAnimationFrame(renderCursor);
+  }
+  requestAnimationFrame(renderCursor);
+}
+
+/**
+ * ==========================================================================
+ * GLOBAL TRADE NETWORK: MODERN IMMERSIVE SECTION INTERACTIONS
+ * - Cinematic Staggered Entrance Reveal with IntersectionObserver
+ * - Multi-layer Mouse Parallax (Grid, Map, Light Blobs, Headline)
+ * - 3D Glass Data Card Tilt Physics
+ * - Word-level Headline Shimmer Physics
+ * - Magnetic CTA Button & Micro-Particle Sparkle Emitter
+ * ==========================================================================
+ */
+function initGlobalTradeNetworkInteractions() {
+  const section = document.getElementById('global-trade-map');
+  if (!section) return;
+
+  // 1. Cinematic Staggered Scroll Entrance Reveal
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          section.classList.add('gtn-revealed');
+          // Dispatch event so 3D Globe initiates outward route drawing and sequential node light-up
+          window.dispatchEvent(new CustomEvent('gtnSectionRevealed'));
+          observer.unobserve(section);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(section);
+  } else {
+    section.classList.add('gtn-revealed');
+  }
+
+  // 2. Multi-Layer Parallax Physics on Mouse Movement
+  const parallaxGrid = document.getElementById('gtn-parallax-grid');
+  const parallaxMap = document.getElementById('gtn-parallax-map');
+  const lightLeft = document.getElementById('gtn-light-left');
+  const lightRight = document.getElementById('gtn-light-right');
+  const lightCenter = document.getElementById('gtn-light-center');
+  const headline = document.getElementById('gtn-interactive-headline');
+
+  let targetNormX = 0;
+  let targetNormY = 0;
+  let currentNormX = 0;
+  let currentNormY = 0;
+
+  section.addEventListener('mousemove', (e) => {
+    const rect = section.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    targetNormX = (e.clientX - centerX) / (rect.width / 2);
+    targetNormY = (e.clientY - centerY) / (rect.height / 2);
+
+    // Also communicate normalized position to 3D Globe for subtle tilt & shift
+    if (window.ShipyonGlobe && typeof window.ShipyonGlobe.onSectionMouseMove === 'function') {
+      window.ShipyonGlobe.onSectionMouseMove(targetNormX, targetNormY);
+    }
+  }, { passive: true });
+
+  section.addEventListener('mouseleave', () => {
+    targetNormX = 0;
+    targetNormY = 0;
+    if (window.ShipyonGlobe && typeof window.ShipyonGlobe.onSectionMouseMove === 'function') {
+      window.ShipyonGlobe.onSectionMouseMove(0, 0);
+    }
+  });
+
+  // Smooth lerp animation loop for parallax layers
+  function animateParallax() {
+    currentNormX += (targetNormX - currentNormX) * 0.08;
+    currentNormY += (targetNormY - currentNormY) * 0.08;
+
+    if (parallaxGrid) {
+      parallaxGrid.style.transform = `translate3d(${(-currentNormX * 16).toFixed(1)}px, ${(-currentNormY * 16).toFixed(1)}px, 0)`;
+    }
+    if (parallaxMap) {
+      parallaxMap.style.transform = `translate(calc(-50% + ${(currentNormX * 22).toFixed(1)}px), calc(-50% + ${(currentNormY * 18).toFixed(1)}px))`;
+    }
+    if (lightLeft) {
+      lightLeft.style.transform = `translate3d(${(-currentNormX * 30).toFixed(1)}px, ${(-currentNormY * 24).toFixed(1)}px, 0)`;
+    }
+    if (lightRight) {
+      lightRight.style.transform = `translate3d(${(currentNormX * 30).toFixed(1)}px, ${(currentNormY * 24).toFixed(1)}px, 0)`;
+    }
+    if (lightCenter) {
+      lightCenter.style.transform = `translate3d(${(currentNormX * 14).toFixed(1)}px, ${(currentNormY * 12).toFixed(1)}px, 0)`;
+    }
+    if (headline) {
+      headline.style.transform = `translate3d(${(currentNormX * 6).toFixed(1)}px, ${(currentNormY * 4).toFixed(1)}px, 0)`;
+    }
+
+    requestAnimationFrame(animateParallax);
+  }
+  requestAnimationFrame(animateParallax);
+
+  // 3. 3D Glass Data Cards Tilt Effect
+  const tiltCards = section.querySelectorAll('.gtn-data-card[data-tilt]');
+  tiltCards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const cardX = (e.clientX - rect.left) / rect.width - 0.5;
+      const cardY = (e.clientY - rect.top) / rect.height - 0.5;
+
+      const rotX = -cardY * 14;
+      const rotY = cardX * 16;
+      card.style.transform = `perspective(700px) rotateX(${rotX.toFixed(1)}deg) rotateY(${rotY.toFixed(1)}deg) translateY(-5px) scale3d(1.025, 1.025, 1.025)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  // 4. Word-level Headline Shimmer Physics
+  const headlineWords = section.querySelectorAll('.gtn-headline-word');
+  headlineWords.forEach((word) => {
+    word.addEventListener('mouseenter', () => {
+      word.style.transform = 'translateY(-4px) scale(1.04)';
+      word.style.filter = 'drop-shadow(0 6px 16px rgba(16, 185, 129, 0.4))';
+    });
+    word.addEventListener('mouseleave', () => {
+      word.style.transform = '';
+      word.style.filter = '';
+    });
+  });
+
+  // 5. Magnetic CTA Button Micro-Sparkles on Hover
+  const ctaBtn = document.getElementById('gtn-explore-corridors-btn');
+  let ctaSparkleInterval = null;
+
+  if (ctaBtn) {
+    ctaBtn.addEventListener('mouseenter', () => {
+      if (ctaSparkleInterval) clearInterval(ctaSparkleInterval);
+      ctaSparkleInterval = setInterval(() => {
+        const rect = ctaBtn.getBoundingClientRect();
+        const spark = document.createElement('div');
+        spark.className = 'shipyon-click-spark';
+        const posX = rect.left + Math.random() * rect.width;
+        const posY = rect.top + Math.random() * rect.height;
+        const tx = (Math.random() - 0.5) * 24;
+        const ty = (Math.random() - 0.5) * 24;
+        spark.style.setProperty('--tx', `${tx.toFixed(1)}px`);
+        spark.style.setProperty('--ty', `${ty.toFixed(1)}px`);
+        spark.style.left = `${posX}px`;
+        spark.style.top = `${posY}px`;
+        spark.style.background = '#D4AF37';
+        spark.style.boxShadow = '0 0 6px #D4AF37';
+        document.body.appendChild(spark);
+        setTimeout(() => spark.remove(), 450);
+      }, 140);
+    });
+
+    ctaBtn.addEventListener('mouseleave', () => {
+      if (ctaSparkleInterval) {
+        clearInterval(ctaSparkleInterval);
+        ctaSparkleInterval = null;
+      }
+    });
+  }
+}
+
+/**
+ * ==========================================================================
+ * UNIQUE & CREATIVE FEATURE:
+ * THE SHIPYON MULTIMODAL COMMAND HORIZON
+ * 1. Climate & Atmosphere Switcher (Day / Golden Hour Sunset / Maritime Night Radar)
+ * 2. Autopilot Multimodal Highway Dispatch Simulation
+ * 3. 40ft High-Cube Cargo X-Ray Scanner & IoT Telemetry Inspector
+ * 4. Cryptographic Digital Bill of Lading (e-BL) Maritime Manifest
+ * ==========================================================================
+ */
+function initHighwayAtmosphereAndAutopilot() {
+  const stage = document.getElementById('zigzag-panorama-stage');
+  if (stage) {
+    stage.classList.remove('atmo-day', 'atmo-night');
+    stage.classList.add('atmo-dusk');
+  }
+}

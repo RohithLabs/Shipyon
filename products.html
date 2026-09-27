@@ -3,264 +3,1504 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Products | Shipyon Global Trade Portfolio</title>
-  <meta name="description" content="Explore Shipyon's export product portfolio: Fresh produce, plantation spices, tropical fruits, value-added botanicals, and commercial bulk commodities.">
+  <title>Global Import &amp; Export Trade Catalog | Multimodal Sourcing | Shipyon</title>
+  <meta name="description" content="Discover verified export-grade agricultural commodities, organic spices, commercial textiles, engineering components, processed foods, and industrial minerals with direct container dispatch across 50+ global markets.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="products-ecommerce.css">
   <link rel="icon" type="image/png" href="assets/shipyon-logo.png">
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-      <header class="site-header-serene" id="main-header">
+  <!-- Floating Navigation Bar with Integrated Manifest & Saved List -->
+  <header class="site-header-serene" id="main-header">
     <div class="container header-container-serene">
       <!-- Brand Logo -->
       <a href="index.html" class="brand-logo-serene" id="brand-logo" aria-label="Shipyon Global Trade &amp; Sourcing">
         <img src="assets/shipyon-logo.png" alt="Shipyon Logo" class="brand-logo-img-serene" width="138" height="42">
       </a>
 
-      <!-- Center Navigation -->
+      <!-- Center Navigation Links -->
       <nav class="nav-links-serene" id="primary-nav">
         <a href="index.html" class="nav-link-serene">Home</a>
         <a href="about.html" class="nav-link-serene">About</a>
         <a href="services.html" class="nav-link-serene">Services</a>
         <a href="products.html" class="nav-link-serene active">Products</a>
-        <a href="index.html#expertise-section" class="nav-link-serene">Expertise</a>
         <a href="contact.html" class="nav-link-serene">Contact</a>
       </nav>
 
-      <!-- Right Action Button -->
-      <div class="header-action-serene">
+      <!-- Right Action Group (Saved Commodities + RFQ Manifest + Get Started) -->
+      <div class="header-actions-group">
+        <!-- Saved / Wishlist Button -->
+        <button type="button" class="header-icon-btn" id="header-wishlist-btn" aria-label="View Saved Commodities">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="header-badge-count wishlist-badge-count" style="display: none;">0</span>
+        </button>
+
+        <!-- Manifest / Cart Button -->
+        <button type="button" class="header-icon-btn" id="header-cart-btn" aria-label="View Sourcing Manifest">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          <span class="header-badge-count cart-badge-count" style="display: none;">0</span>
+        </button>
+
+        <!-- Get Started / Quote Button -->
         <a href="contact.html" class="btn-pill-cobalt" id="header-btn-quote">
-          <span>Get Started</span>
+          <span>Request Quote</span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+
+        <!-- Mobile Nav Toggle -->
+        <button type="button" class="mobile-nav-toggle-serene" id="mobile-nav-toggle-serene" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- Subpage Hero -->
-  <section class="subpage-hero-serene">
+  <!-- 1. Hero Header & Search / Filter / Sort Bar -->
+  <section class="ecom-hero-header" id="products-hero">
     <div class="container">
-      <span class="section-pill-tag">Export Catalog</span>
-      <h1 class="subpage-title">Our Global Trade Portfolio</h1>
-      <p class="subpage-subtitle">
-        Discover quality products sourced and supplied through our trusted global trade network. Farm-direct traceability and international grade compliance.
-      </p>
+      <div class="ecom-hero-top">
+        <div class="ecom-hero-badge">
+          <span class="badge-pulse-dot"></span>
+          <span>Sovereign Multimodal Trade Gateway • APEDA / US FDA / ISO Compliant</span>
+        </div>
+        <h1 class="ecom-hero-title">International Import &amp; Export <span>Trade Catalog</span></h1>
+        <p class="ecom-hero-subtitle">
+          Direct multimodal export bridges connecting South India's premier farm-gate origins and industrial manufacturing clusters to 50+ global markets. Certified grades, bulk container dispatch (FCL/LCL), and FOB/CIF trade solutions.
+        </p>
+      </div>
 
-      <!-- Category Filter Tabs -->
-      <div class="filter-tabs-bar">
-        <button class="filter-tab-btn active" data-category="all">All Commodities (12)</button>
-        <button class="filter-tab-btn" data-category="fresh-produce">Fresh Produce</button>
-        <button class="filter-tab-btn" data-category="spices">Spices & Plantation Crops</button>
-        <button class="filter-tab-btn" data-category="textiles">Textiles &amp; Garments</button>
-        <button class="filter-tab-btn" data-category="processed">Processed & Value-Added</button>
-        <button class="filter-tab-btn" data-category="industrial">Industrial & Commercial</button>
+      <!-- Interactive Control Bar -->
+      <div class="ecom-control-bar">
+        <!-- Live Search Input -->
+        <div class="ecom-search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="ecom-search-input" class="ecom-search-input" placeholder="Search by commodity name, HS code, origin hub, or specifications..." autocomplete="off">
+          <button type="button" id="ecom-search-clear" class="ecom-search-clear" aria-label="Clear search query">&times;</button>
+        </div>
+
+        <!-- Filter Trigger & Sort Options -->
+        <div class="ecom-control-actions">
+          <button type="button" class="btn-filter-trigger" id="btn-filter-trigger">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="4" y1="21" x2="4" y2="14"></line>
+              <line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line>
+              <line x1="20" y1="12" x2="20" y2="3"></line>
+              <line x1="1" y1="14" x2="7" y2="14"></line>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+              <line x1="17" y1="16" x2="23" y2="16"></line>
+            </svg>
+            <span>Trade Filters</span>
+            <span class="filter-active-count" id="filter-active-count">0</span>
+          </button>
+
+          <div class="ecom-sort-wrap">
+            <select id="ecom-sort-select" class="ecom-sort-select" aria-label="Sort commodities by">
+              <option value="featured">Featured Commodities</option>
+              <option value="price-low">Indicative Price: Low to High</option>
+              <option value="price-high">Indicative Price: High to Low</option>
+              <option value="rating">Highest Quality Grade</option>
+              <option value="discount">Export Incentive Rate</option>
+            </select>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Product Catalog Grid -->
-  <section style="padding: 60px 0;">
+  <!-- 2. Section 1: "Explore Flagship Export Categories" — First View (6 Large Interactive Bento Cards) -->
+  <section class="ecom-categories-section" id="explore-categories">
     <div class="container">
-      <div class="catalog-grid" id="catalog-grid">
+      <div class="section-head-lux">
+        <span class="section-tag-lux">First View Showcase</span>
+        <h2 class="section-title-lux">Explore Sovereign Export Categories</h2>
+        <p class="section-sub-lux">
+          Select any interactive trade vertical below to smoothly navigate straight into verified container-ready catalogs.
+        </p>
+      </div>
 
-        <!-- 1: Red Onions -->
-        <div class="catalog-item-card" data-category="fresh-produce">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-onion.png" alt="Export Red Onions">
+      <!-- 6-Category Bento Grid with 3D Hover & Glow -->
+      <div class="ecom-category-cards-grid">
+        
+        <!-- Category 1: Agro Commodities & Spices -->
+        <div class="category-hero-card" data-target-section="category-agro-spices" tabindex="0" role="button">
+          <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&auto=format&fit=crop&q=80" alt="Agro Commodities and Spices" class="category-card-bg-img" loading="lazy">
+          <div class="category-card-scrim"></div>
+          <div class="category-card-glow-beam"></div>
+          <div class="category-top-meta">
+            <div class="category-icon-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <span class="category-count-badge">5 Commodities</span>
           </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Fresh Produce</span>
-            <h2 class="catalog-item-title">Nashik & South Red Onions</h2>
-            <p class="catalog-item-spec">
-              Graded 45mm–60mm+ mesh packaging. High dry-matter content with long transit shelf-life for Middle East and SE Asian markets.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
+          <div class="category-card-content">
+            <h3 class="category-name">Agro Commodities &amp; Spices</h3>
+            <p class="category-short-desc">Malabar black pepper, Salem turmeric, Alleppey cardamom, basmati rice, and cashew kernels.</p>
+            <span class="category-explore-cta">
+              <span>Explore Collection</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
         </div>
 
-        <!-- 2: Coconuts -->
-        <div class="catalog-item-card" data-category="fresh-produce">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-coconut.png" alt="Semi Husked Coconuts">
+        <!-- Category 2: Commercial Textiles & Garments -->
+        <div class="category-hero-card" data-target-section="category-textiles-garments" tabindex="0" role="button">
+          <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=800&auto=format&fit=crop&q=80" alt="Commercial Textiles and Garments" class="category-card-bg-img" loading="lazy">
+          <div class="category-card-scrim"></div>
+          <div class="category-card-glow-beam"></div>
+          <div class="category-top-meta">
+            <div class="category-icon-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+            </div>
+            <span class="category-count-badge">5 Verticals</span>
           </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Fresh Produce</span>
-            <h2 class="catalog-item-title">Pollachi Semi-Husked Coconuts</h2>
-            <p class="catalog-item-spec">
-              550g–650g mature nuts with high water and thick kernel. Sourced directly from Pollachi organic groves.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
-          </div>
-        </div>
-
-        <!-- 3: Cardamom -->
-        <div class="catalog-item-card" data-category="spices">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-cardamom.png" alt="Green Cardamom">
-          </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Spices & Plantation Crops</span>
-            <h2 class="catalog-item-title">Western Ghats Green Cardamom</h2>
-            <p class="catalog-item-spec">
-              7mm–8mm bold green pods with high volatile oil aroma. Dried with natural moisture retention protocols.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
+          <div class="category-card-content">
+            <h3 class="category-name">Textiles &amp; Commercial Fabrics</h3>
+            <p class="category-short-desc">Combed cotton yarn, luxury terry hotel linen, bleached pure linen rolls, and jute burlap sacks.</p>
+            <span class="category-explore-cta">
+              <span>Explore Collection</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
         </div>
 
-        <!-- 4: Red Chilly -->
-        <div class="catalog-item-card" data-category="spices">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-red-chilly.png" alt="Guntur Red Chilly">
+        <!-- Category 3: Processed Food & Seafood -->
+        <div class="category-hero-card" data-target-section="category-processed-food" tabindex="0" role="button">
+          <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=800&auto=format&fit=crop&q=80" alt="Processed Food and Seafood" class="category-card-bg-img" loading="lazy">
+          <div class="category-card-scrim"></div>
+          <div class="category-card-glow-beam"></div>
+          <div class="category-top-meta">
+            <div class="category-icon-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+            </div>
+            <span class="category-count-badge">5 Lines</span>
           </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Spices & Plantation Crops</span>
-            <h2 class="catalog-item-title">Stemless Teja & S17 Red Chilly</h2>
-            <p class="catalog-item-spec">
-              Deep crimson color with heat level of 40,000–75,000 SHU. Tested for aflatoxin compliance.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
-          </div>
-        </div>
-
-        <!-- 5: Turmeric -->
-        <div class="catalog-item-card" data-category="spices">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-turmeric.png" alt="Erode Turmeric Fingers">
-          </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Spices & Plantation Crops</span>
-            <h2 class="catalog-item-title">Erode & Salem Curcumin Turmeric</h2>
-            <p class="catalog-item-spec">
-              Curcumin content 3.5%–5.0%+. Double-polished fingers and pure powdered form for pharmaceutical and culinary buyers.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
+          <div class="category-card-content">
+            <h3 class="category-name">Processed Foods &amp; Seafood</h3>
+            <p class="category-short-desc">Aseptic mango pulp in steel drums, IQF Vannamei white prawns, dehydrated flakes, and virgin coconut oil.</p>
+            <span class="category-explore-cta">
+              <span>Explore Collection</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
         </div>
 
-        <!-- 6: Basmati Rice -->
-        <div class="catalog-item-card" data-category="spices">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-basmati-rice.png" alt="Aged Basmati Rice">
+        <!-- Category 4: Engineering Goods & Hardware -->
+        <div class="category-hero-card" data-target-section="category-engineering-hardware" tabindex="0" role="button">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80" alt="Engineering Goods and Hardware" class="category-card-bg-img" loading="lazy">
+          <div class="category-card-scrim"></div>
+          <div class="category-card-glow-beam"></div>
+          <div class="category-top-meta">
+            <div class="category-icon-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
+            <span class="category-count-badge">5 Lines</span>
           </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Grains & Pulses</span>
-            <h2 class="catalog-item-title">1121 XXL Aged Basmati Rice</h2>
-            <p class="catalog-item-spec">
-              8.35mm average grain length with 2x elongation ratio upon cooking. Aged 2+ years for quintessential aromatic texture.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
-          </div>
-        </div>
-
-        <!-- 7: Mangoes -->
-        <div class="catalog-item-card" data-category="fruits">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-mango.png" alt="Alphonso and Banganapalli Mangoes">
-          </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Fruits</span>
-            <h2 class="catalog-item-title">Alphonso & Banganapalli Mangoes</h2>
-            <p class="catalog-item-spec">
-              Naturally ripened, Brix 18°–22°. Shipped in air-freight foam cushioned protective cartons.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
+          <div class="category-card-content">
+            <h3 class="category-name">Engineering &amp; Industrial Castings</h3>
+            <p class="category-short-desc">SS-316 ball valves, high-tensile structural bolts, ductile iron fittings, and submersible pumps.</p>
+            <span class="category-explore-cta">
+              <span>Explore Collection</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
         </div>
 
-        <!-- 8: Grapes -->
-        <div class="catalog-item-card" data-category="fruits">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-grapes.png" alt="Fresh Grapes">
+        <!-- Category 5: Specialty Minerals & Polymers -->
+        <div class="category-hero-card" data-target-section="category-minerals-polymers" tabindex="0" role="button">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&auto=format&fit=crop&q=80" alt="Specialty Minerals and Polymers" class="category-card-bg-img" loading="lazy">
+          <div class="category-card-scrim"></div>
+          <div class="category-card-glow-beam"></div>
+          <div class="category-top-meta">
+            <div class="category-icon-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <span class="category-count-badge">4 Commodities</span>
           </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Fruits</span>
-            <h2 class="catalog-item-title">Thomson Seedless & Crimson Grapes</h2>
-            <p class="catalog-item-spec">
-              Crisp texture with controlled berry size (16mm–18mm). Cold-chain pre-cooled at 0°C within 4 hours of harvest.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
-          </div>
-        </div>
-
-        <!-- 9: Moringa Powder -->
-        <div class="catalog-item-card" data-category="processed">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-moringa-powder.png" alt="Organic Moringa Powder">
-          </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Processed & Value-Added</span>
-            <h2 class="catalog-item-title">Organic Moringa Oleifera Leaf Powder</h2>
-            <p class="catalog-item-spec">
-              Shadow-dried 100% pure green leaf powder with high chlorophyll retention. USDA & EU organic certified.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
+          <div class="category-card-content">
+            <h3 class="category-name">Specialty Minerals &amp; Polymers</h3>
+            <p class="category-short-desc">Muscovite mica flakes, API sodium bentonite clay, steam-activated carbon, and prime HDPE granules.</p>
+            <span class="category-explore-cta">
+              <span>Explore Collection</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
         </div>
 
-        <!-- 10: Cotton T-Shirts -->
-        <div class="catalog-item-card" data-category="textiles">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-cotton-tshirts.png" alt="Cotton Garments & Textiles">
+        <!-- Category 6: Eco-Sustainable Products & Coir -->
+        <div class="category-hero-card" data-target-section="category-eco-coir" tabindex="0" role="button">
+          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&auto=format&fit=crop&q=80" alt="Eco-Sustainable and Coir Products" class="category-card-bg-img" loading="lazy">
+          <div class="category-card-scrim"></div>
+          <div class="category-card-glow-beam"></div>
+          <div class="category-top-meta">
+            <div class="category-icon-pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+            </div>
+            <span class="category-count-badge">4 Eco-Lines</span>
           </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Textiles &amp; Garments</span>
-            <h2 class="catalog-item-title">Combed Ring-Spun Cotton Textiles</h2>
-            <p class="catalog-item-spec">
-              160–220 GSM 100% organic combed cotton knitted garments from the Tirupur apparel corridor.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
-          </div>
-        </div>
-
-        <!-- 11: Black Granite -->
-        <div class="catalog-item-card" data-category="industrial">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-black-granite.png" alt="Absolute Black Granite Slabs">
-          </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Industrial & Commercial</span>
-            <h2 class="catalog-item-title">Absolute Premium Black Granite</h2>
-            <p class="catalog-item-spec">
-              Quarried in Tamil Nadu. Gangsaw mirror-polished slabs and cut-to-size dimensional architectural tiles.
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
-          </div>
-        </div>
-
-        <!-- 12: Vitrified Tiles -->
-        <div class="catalog-item-card" data-category="industrial">
-          <div class="catalog-card-media">
-            <img src="assets/shipyon-vitrified-tiles.png" alt="Glazed Vitrified Porcelain Tiles">
-          </div>
-          <div class="catalog-card-body">
-            <span class="catalog-item-category">Industrial & Commercial</span>
-            <h2 class="catalog-item-title">Double-Charged Vitrified Tiles</h2>
-            <p class="catalog-item-spec">
-              600x1200mm and 800x1600mm ultra-durable porcelain tiles with zero water absorption (&lt;0.05%).
-            </p>
-            <button class="btn-inquire-serene open-quote-modal-btn" style="width: 100%;">Inquire FOB / CIF</button>
+          <div class="category-card-content">
+            <h3 class="category-name">Eco-Sustainable &amp; Coir Products</h3>
+            <p class="category-short-desc">Low EC coco peat 5kg blocks, areca palm dinnerware, coir geotextiles, and kraft honeycomb dunnage.</p>
+            <span class="category-explore-cta">
+              <span>Explore Collection</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- 3. Sticky Category Navigation Bar (Scroll-Spy) -->
+  <nav class="sticky-category-nav-bar" id="sticky-category-nav" aria-label="Quick Commodity Vertical Switcher">
+    <div class="container">
+      <div class="category-nav-scroll-wrap">
+        <button type="button" class="category-nav-pill-btn active" data-target-section="all">
+          <span>All Commodities</span>
+        </button>
+        <button type="button" class="category-nav-pill-btn" data-target-section="category-agro-spices">
+          <span>Agro &amp; Spices</span>
+        </button>
+        <button type="button" class="category-nav-pill-btn" data-target-section="category-textiles-garments">
+          <span>Textiles &amp; Yarn</span>
+        </button>
+        <button type="button" class="category-nav-pill-btn" data-target-section="category-processed-food">
+          <span>Food &amp; Seafood</span>
+        </button>
+        <button type="button" class="category-nav-pill-btn" data-target-section="category-engineering-hardware">
+          <span>Engineering &amp; Hardware</span>
+        </button>
+        <button type="button" class="category-nav-pill-btn" data-target-section="category-minerals-polymers">
+          <span>Minerals &amp; Polymers</span>
+        </button>
+        <button type="button" class="category-nav-pill-btn" data-target-section="category-eco-coir">
+          <span>Eco-Coir &amp; Packaging</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 4. Separate Category Product Sections (Only Import & Export Goods) -->
+  <main id="products-catalog-sections">
+
+    <!-- Section 1: Agro Commodities & Spices -->
+    <section class="ecom-category-product-section" id="category-agro-spices">
+      <div class="container">
+        <div class="category-section-header">
+          <div class="category-section-title-wrap">
+            <span class="category-badge-micro">HS Chapter 09 &amp; 10 • Farm-Gate Certified</span>
+            <h2 class="category-section-title">Agro Commodities &amp; Organic Spices</h2>
+            <p class="category-section-desc">Steam-sterilized spices, GI-tagged plantation crops, and grain reserves ready for 20ft &amp; 40ft container dispatch.</p>
+          </div>
+          <div class="category-section-controls">
+            <button class="carousel-nav-btn" data-direction="prev" aria-label="Previous Commodities">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-nav-btn" data-direction="next" aria-label="Next Commodities">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="ecom-products-grid">
+          <!-- Commodity 1: Black Pepper -->
+          <div class="ecom-product-card" data-id="malabar-black-pepper" data-category="Agro Commodities & Spices" data-brand="Shipyon Agro Estates" data-origin="Idukki, Kerala, India" data-hs-code="0904.11.10" data-moq="2 Metric Tons" data-packaging="25kg 3-Ply Kraft Paper Bags" data-price="6450.00" data-original-price="7100.00" data-unit="MT" data-rating="4.9" data-reviews="284" data-discount="9" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 0904.11</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=800&auto=format&fit=crop&q=80" alt="Malabar Bold Black Pepper TGSEB" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="malabar-black-pepper">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Kerala Origin • APEDA</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.9</span>
+                  <span class="product-reviews-count">(284)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Malabar Bold Black Pepper (TGSEB)</h3>
+              <p class="product-desc">Tellicherry Garbled Special Extra Bold. Piperine: 6.8% min, Moisture: &lt;11%, Bulk Density: 570 g/L, Steam Sterilized.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$6,450 / MT</span>
+                  <span class="price-original">$7,100</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="malabar-black-pepper">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Commodity 2: Turmeric -->
+          <div class="ecom-product-card" data-id="salem-finger-turmeric" data-category="Agro Commodities & Spices" data-brand="Kaveri Basin Exports" data-origin="Salem, Tamil Nadu, India" data-hs-code="0910.30.20" data-moq="5 Metric Tons" data-packaging="50kg Double Jute Gunny Bags" data-price="1850.00" data-original-price="2100.00" data-unit="MT" data-rating="4.8" data-reviews="192" data-discount="12" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 0910.30</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=800&auto=format&fit=crop&q=80" alt="Salem Grade Finger Turmeric" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="salem-finger-turmeric">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Tamil Nadu • Curcumin 5%+</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.8</span>
+                  <span class="product-reviews-count">(192)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Salem Grade Pure Finger Turmeric</h3>
+              <p class="product-desc">High-potency organic finger turmeric with Curcumin &gt;5.2%. Total Ash: &lt;6.5%, Zero Lead Chromate, laboratory certified.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$1,850 / MT</span>
+                  <span class="price-original">$2,100</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="salem-finger-turmeric">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Commodity 3: Green Cardamom -->
+          <div class="ecom-product-card" data-id="alleppey-green-cardamom" data-category="Agro Commodities & Spices" data-brand="Highland Spice Reserves" data-origin="Cardamom Hills, Kerala, India" data-hs-code="0908.31.10" data-moq="500 Kg (Air/Sea)" data-packaging="10kg Vacuum Nitrogen Flushed Foil Pouches" data-price="32500.00" data-original-price="36000.00" data-unit="MT" data-rating="5.0" data-reviews="310" data-discount="10" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 0908.31</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&auto=format&fit=crop&q=80" alt="Alleppey Green Cardamom Extra Bold" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="alleppey-green-cardamom">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Kerala Origin • Jumbo 8mm+</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>5.0</span>
+                  <span class="product-reviews-count">(310)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Alleppey Green Cardamom Extra Bold (8mm+)</h3>
+              <p class="product-desc">GI tagged deep green pods. Size: 8mm+ diameter, Volatile Oil: 8.5%, Sun-dried with zero artificial coloring additives.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$32,500 / MT</span>
+                  <span class="price-original">$36,000</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="alleppey-green-cardamom">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Commodity 4: 1121 Basmati Rice -->
+          <div class="ecom-product-card" data-id="1121-basmati-rice" data-category="Agro Commodities & Spices" data-brand="Heritage Royal Grain" data-origin="Punjab Basin, India" data-hs-code="1006.30.20" data-moq="20 Metric Tons (1 FCL)" data-packaging="25kg BOPP Breathable Sacks" data-price="1380.00" data-original-price="1550.00" data-unit="MT" data-rating="4.9" data-reviews="415" data-discount="11" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 1006.30</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&auto=format&fit=crop&q=80" alt="1121 XXL Basmati Rice" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="1121-basmati-rice">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 North India • Aged 2 Years</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.9</span>
+                  <span class="product-reviews-count">(415)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Traditional Aged 1121 XXL Basmati Rice</h3>
+              <p class="product-desc">Average Grain Length: 8.4mm raw, Elongation: 2.2x on cooking. Non-sticky aromatic grains, Moisture &lt;12%, Sortex cleaned.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$1,380 / MT</span>
+                  <span class="price-original">$1,550</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="1121-basmati-rice">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Commodity 5: Cashew Kernels -->
+          <div class="ecom-product-card" data-id="cashew-kernels-w240" data-category="Agro Commodities & Spices" data-brand="Coromandel Nut Works" data-origin="Panruti, Tamil Nadu, India" data-hs-code="0801.32.10" data-moq="1 Metric Ton" data-packaging="11.34kg x 2 Vacuum Tins / Carton" data-price="8200.00" data-original-price="9000.00" data-unit="MT" data-rating="4.8" data-reviews="176" data-discount="9" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 0801.32</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1569466896818-335b1bedfcce?w=800&auto=format&fit=crop&q=80" alt="Export Grade Cashew Kernels W240" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="cashew-kernels-w240">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Tamil Nadu • Grade W-240 / W-320</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.8</span>
+                  <span class="product-reviews-count">(176)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Raw Cashew Kernels (W-240 Export)</h3>
+              <p class="product-desc">Whole white cashew nuts. Count: 220-240 nuts/lb, Moisture &lt;5%, US FDA &amp; Halal certified, export tin sealed.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$8,200 / MT</span>
+                  <span class="price-original">$9,000</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="cashew-kernels-w240">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Commercial Textiles & Garments -->
+    <section class="ecom-category-product-section" id="category-textiles-garments">
+      <div class="container">
+        <div class="category-section-header">
+          <div class="category-section-title-wrap">
+            <span class="category-badge-micro">HS Chapter 52, 53 &amp; 63 • Coimbatore &amp; Tirupur Clusters</span>
+            <h2 class="category-section-title">Commercial Textiles, Yarn &amp; Finished Fabrics</h2>
+            <p class="category-section-desc">GOTS organic cotton yarns, institutional hospitality linens, bleached fabrics, and heavy export packaging jute.</p>
+          </div>
+          <div class="category-section-controls">
+            <button class="carousel-nav-btn" data-direction="prev" aria-label="Previous Textiles">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-nav-btn" data-direction="next" aria-label="Next Textiles">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="ecom-products-grid">
+          <!-- Textile 1: Cotton Yarn -->
+          <div class="ecom-product-card" data-id="combed-cotton-yarn" data-category="Commercial Textiles & Garments" data-brand="Kongu Spinning Mills" data-origin="Coimbatore, Tamil Nadu, India" data-hs-code="5205.12.00" data-moq="5 Metric Tons" data-packaging="45kg Palletized Corrugated Cartons" data-price="4100.00" data-original-price="4600.00" data-unit="MT" data-rating="4.9" data-reviews="230" data-discount="11" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 5205.12</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=800&auto=format&fit=crop&q=80" alt="Combed Organic Cotton Yarn" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="combed-cotton-yarn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Tamil Nadu • Ne 30s/40s GOTS</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.9</span>
+                  <span class="product-reviews-count">(230)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Combed Organic Cotton Ring-Spun Yarn</h3>
+              <p class="product-desc">100% GOTS Certified Organic Cotton. CSP: &gt;3200, Low Imperfection Index (IPI &lt; 80), Auto-coned &amp; electronic cleared.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$4,100 / MT</span>
+                  <span class="price-original">$4,600</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="combed-cotton-yarn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Textile 2: Terry Towels -->
+          <div class="ecom-product-card" data-id="institutional-terry-towels" data-category="Commercial Textiles & Garments" data-brand="Shipyon Weaving Mills" data-origin="Karur Textile Cluster, India" data-hs-code="6302.60.00" data-moq="1,000 Pcs (FCL/LCL)" data-packaging="Compressed Export Bales / Master Cartons" data-price="6.80" data-original-price="8.50" data-unit="Pc" data-rating="4.8" data-reviews="380" data-discount="20" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 6302.60</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800&auto=format&fit=crop&q=80" alt="Institutional Luxury Terry Towels" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="institutional-terry-towels">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Karur Hub • 600 GSM Luxury</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.8</span>
+                  <span class="product-reviews-count">(380)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Institutional Terry Towels &amp; Hotel Linen</h3>
+              <p class="product-desc">100% Ring Spun Combed Cotton, 600 GSM weight. OEKO-TEX Standard 100, optical white vat-dyed for commercial laundering.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$6.80 / Pc</span>
+                  <span class="price-original">$8.50</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="institutional-terry-towels">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Textile 3: Linen Fabric Rolls -->
+          <div class="ecom-product-card" data-id="bleached-linen-fabric" data-category="Commercial Textiles & Garments" data-brand="Vedic Weave Guild" data-origin="Surat & Tirupur, India" data-hs-code="5309.11.00" data-moq="1,500 Meters" data-packaging="Rolls on Cardboard Cores with Double Poly Wrap" data-price="7.40" data-original-price="9.00" data-unit="Meter" data-rating="4.9" data-reviews="145" data-discount="18" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 5309.11</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=800&auto=format&fit=crop&q=80" alt="100% Bleached Linen Fabric Rolls" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="bleached-linen-fabric">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 India • 185 GSM Pure Flax</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.9</span>
+                  <span class="product-reviews-count">(145)</span>
+                </div>
+              </div>
+              <h3 class="product-title">100% Bleached Pure Linen Fabric Rolls</h3>
+              <p class="product-desc">Width: 58/60 inches, 185 GSM weight. Pre-shrunk, bio-washed enzyme finish for apparel and high-end home upholstery.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$7.40 / Meter</span>
+                  <span class="price-original">$9.00</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="bleached-linen-fabric">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Textile 4: Jute Burlap Sacks -->
+          <div class="ecom-product-card" data-id="jute-hessian-sacks" data-category="Commercial Textiles & Garments" data-brand="Ganges Burlap Corp" data-origin="Kolkata, West Bengal, India" data-hs-code="6305.10.30" data-moq="10,000 Sacks" data-packaging="Iron-Hooped Hydraulic Bales of 400 Pcs" data-price="1.45" data-original-price="1.75" data-unit="Bag" data-rating="4.7" data-reviews="290" data-discount="17" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 6305.10</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800&auto=format&fit=crop&q=80" alt="Heavy Duty Jute Hessian Sacks" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="jute-hessian-sacks">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 West Bengal • Food Grade Oil</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.7</span>
+                  <span class="product-reviews-count">(290)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Heavy-Duty Treated Jute Hessian Sacks</h3>
+              <p class="product-desc">Capacity: 50kg grain load. Hydrocarbon-free vegetable batching oil for coffee, cocoa, and potato international export.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$1.45 / Bag</span>
+                  <span class="price-original">$1.75</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="jute-hessian-sacks">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Processed Foods, Purees & Seafood -->
+    <section class="ecom-category-product-section" id="category-processed-food">
+      <div class="container">
+        <div class="category-section-header">
+          <div class="category-section-title-wrap">
+            <span class="category-badge-micro">HS Chapter 03, 15 &amp; 20 • HACCP &amp; US FDA Certified</span>
+            <h2 class="category-section-title">Processed Food, Agro-Extracts &amp; Marine Seafood</h2>
+            <p class="category-section-desc">Aseptic purees in open-top steel drums, cold-chain frozen seafood, dehydrated condiments, and certified oils.</p>
+          </div>
+          <div class="category-section-controls">
+            <button class="carousel-nav-btn" data-direction="prev" aria-label="Previous Foods">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-nav-btn" data-direction="next" aria-label="Next Foods">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="ecom-products-grid">
+          <!-- Food 1: Mango Pulp -->
+          <div class="ecom-product-card" data-id="alphonso-mango-pulp" data-category="Processed Foods & Seafood" data-brand="Malnad Fruit Processing" data-origin="Krishnagiri, Tamil Nadu, India" data-hs-code="2007.99.10" data-moq="1 x 20ft FCL (80 Drums)" data-packaging="215kg Aseptic Bag in Steel Drums" data-price="1290.00" data-original-price="1450.00" data-unit="MT" data-rating="4.9" data-reviews="340" data-discount="11" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 2007.99</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=800&auto=format&fit=crop&q=80" alt="Alphonso Mango Puree" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="alphonso-mango-pulp">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 South India • Brix 28° Natural</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.9</span>
+                  <span class="product-reviews-count">(340)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Alphonso &amp; Totapuri Mango Pulp (Aseptic)</h3>
+              <p class="product-desc">Brix: 28-30° (Natural), Acidity: 0.5-0.8%. US FDA &amp; FSSC 22000 certified, micro-filtered and hermetically sealed.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$1,290 / MT</span>
+                  <span class="price-original">$1,450</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="alphonso-mango-pulp">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Food 2: Frozen Prawns -->
+          <div class="ecom-product-card" data-id="frozen-vannamei-prawns" data-category="Processed Foods & Seafood" data-brand="Coromandel Oceanics" data-origin="Andhra Coast & Tuticorin, India" data-hs-code="0306.17.20" data-moq="1 x 40ft Reefer (24 MT)" data-packaging="1.8kg Block x 6 / Master Carton (10.8kg)" data-price="8600.00" data-original-price="9400.00" data-unit="MT" data-rating="4.9" data-reviews="265" data-discount="9" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 0306.17</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=800&auto=format&fit=crop&q=80" alt="Frozen Vannamei White Prawns" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="frozen-vannamei-prawns">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Bay of Bengal • IQF Headless</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.9</span>
+                  <span class="product-reviews-count">(265)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Frozen Vannamei IQF White Prawns</h3>
+              <p class="product-desc">Grades: 16/20, 21/25, 26/30 count/lb. EU approved packing facility, HACCP &amp; BAP 4-Star certified for deep freezing.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$8,600 / MT</span>
+                  <span class="price-original">$9,400</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="frozen-vannamei-prawns">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Food 3: Dehydrated Onion Flakes -->
+          <div class="ecom-product-card" data-id="dehydrated-onion-flakes" data-category="Processed Foods & Seafood" data-brand="Solaris Agro Dehydrates" data-origin="Mahuva, Gujarat, India" data-hs-code="0712.20.00" data-moq="5 Metric Tons" data-packaging="14kg Double Poly Lined Master Cartons" data-price="2450.00" data-original-price="2800.00" data-unit="MT" data-rating="4.8" data-reviews="185" data-discount="12" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 0712.20</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=800&auto=format&fit=crop&q=80" alt="Dehydrated White Onion Flakes" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="dehydrated-onion-flakes">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Gujarat Hub • Sortex Cleaned</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.8</span>
+                  <span class="product-reviews-count">(185)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Dehydrated White Onion &amp; Garlic Flakes</h3>
+              <p class="product-desc">Moisture: &lt;5.5%, Grade A commercial sortex cleaned. Micro-treated for industrial seasoning and ready-to-eat export foods.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$2,450 / MT</span>
+                  <span class="price-original">$2,800</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="dehydrated-onion-flakes">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Food 4: Virgin Coconut Oil -->
+          <div class="ecom-product-card" data-id="virgin-coconut-oil" data-category="Processed Foods & Seafood" data-brand="Kongu Virgin Extracts" data-origin="Pollachi, Tamil Nadu, India" data-hs-code="1513.11.00" data-moq="2 Metric Tons" data-packaging="1,000L IBC Totes / 200L HDPE Drums" data-price="3850.00" data-original-price="4300.00" data-unit="MT" data-rating="5.0" data-reviews="295" data-discount="10" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 1513.11</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&auto=format&fit=crop&q=80" alt="Cold Pressed Virgin Coconut Oil" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="virgin-coconut-oil">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Tamil Nadu • Lauric Acid &gt;50%</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>5.0</span>
+                  <span class="product-reviews-count">(295)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Cold-Pressed Extra Virgin Coconut Oil</h3>
+              <p class="product-desc">Centrifuged cold extraction from fresh wet coconut kernel. Lauric Acid &gt;50%, Moisture &lt;0.1%, USDA Organic certified.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$3,850 / MT</span>
+                  <span class="price-original">$4,300</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="virgin-coconut-oil">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Engineering, Castings & Hardware -->
+    <section class="ecom-category-product-section" id="category-engineering-hardware">
+      <div class="container">
+        <div class="category-section-header">
+          <div class="category-section-title-wrap">
+            <span class="category-badge-micro">HS Chapter 73 &amp; 84 • ISO 9001 / API Certified</span>
+            <h2 class="category-section-title">Engineering Goods, Castings &amp; Industrial Hardware</h2>
+            <p class="category-section-desc">Coimbatore &amp; Jamnagar precision machining, ductile iron foundry products, and high-tensile structural fittings.</p>
+          </div>
+          <div class="category-section-controls">
+            <button class="carousel-nav-btn" data-direction="prev" aria-label="Previous Engineering">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-nav-btn" data-direction="next" aria-label="Next Engineering">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="ecom-products-grid">
+          <!-- Engineering 1: Valves -->
+          <div class="ecom-product-card" data-id="ss316-industrial-valves" data-category="Engineering Goods & Hardware" data-brand="Shipyon Precision Valves" data-origin="Coimbatore Industrial Zone, India" data-hs-code="8481.80.30" data-moq="100 Units" data-packaging="Export Wooden Crates with VCI Barrier Bags" data-price="64.00" data-original-price="78.00" data-unit="Unit" data-rating="4.9" data-reviews="210" data-discount="18" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 8481.80</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80" alt="SS-316 Industrial Valves" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="ss316-industrial-valves">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Coimbatore • SS-316 Class 150/300</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.9</span>
+                  <span class="product-reviews-count">(210)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Precision SS-316 Industrial Ball Valves</h3>
+              <p class="product-desc">Pressure Rating: Class 150/300. API 6D and ISO 5211 direct mounting pad, PTFE seats, full metallurgical mill certificates.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$64.00 / Unit</span>
+                  <span class="price-original">$78.00</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="ss316-industrial-valves">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Engineering 2: Fasteners -->
+          <div class="ecom-product-card" data-id="structural-fasteners" data-category="Engineering Goods & Hardware" data-brand="Apex Bolt & Forgings" data-origin="Chennai & Ludhiana, India" data-hs-code="7318.15.00" data-moq="2 Metric Tons" data-packaging="25kg Master Cartons on Euro Pallets" data-price="1750.00" data-original-price="2050.00" data-unit="MT" data-rating="4.8" data-reviews="170" data-discount="14" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 7318.15</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=800&auto=format&fit=crop&q=80" alt="High Tensile Fasteners" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="structural-fasteners">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Tamil Nadu • Grade 8.8 / 10.9</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.8</span>
+                  <span class="product-reviews-count">(170)</span>
+                </div>
+              </div>
+              <h3 class="product-title">High-Tensile Structural Fasteners &amp; Bolts</h3>
+              <p class="product-desc">Hot-dip galvanized / PTFE coated stud bolts and heavy hex nuts. ISO 898-1 certified with EN 10204 3.1 chemical inspection sheets.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$1,750 / MT</span>
+                  <span class="price-original">$2,050</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="structural-fasteners">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Engineering 3: Submersible Pumps -->
+          <div class="ecom-product-card" data-id="submersible-pumps" data-category="Engineering Goods & Hardware" data-brand="Kongu Hydro Systems" data-origin="Coimbatore (Pump City), India" data-hs-code="8413.70.10" data-moq="25 Units" data-packaging="Reinforced Plywood Export Cases" data-price="480.00" data-original-price="560.00" data-unit="Unit" data-rating="4.9" data-reviews="195" data-discount="14" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 8413.70</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80" alt="Submersible Pumps" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="submersible-pumps">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Coimbatore • 5HP - 50HP</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.9</span>
+                  <span class="product-reviews-count">(195)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Submersible Agricultural &amp; Industrial Pumps</h3>
+              <p class="product-desc">100% Copper winding with stainless steel SS-304 impellers. High hydraulic efficiency, dynamic balanced rotor, CE certified.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$480.00 / Unit</span>
+                  <span class="price-original">$560.00</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="submersible-pumps">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Specialty Minerals, Carbon & Polymers -->
+    <section class="ecom-category-product-section" id="category-minerals-polymers">
+      <div class="container">
+        <div class="category-section-header">
+          <div class="category-section-title-wrap">
+            <span class="category-badge-micro">HS Chapter 25, 38 &amp; 39 • Raw Industrial Input</span>
+            <h2 class="category-section-title">Specialty Minerals, Activated Carbon &amp; Polymers</h2>
+            <p class="category-section-desc">Muscovite mica, API grade sodium bentonite clay, coconut shell activated carbon, and virgin polymer granules.</p>
+          </div>
+          <div class="category-section-controls">
+            <button class="carousel-nav-btn" data-direction="prev" aria-label="Previous Minerals">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-nav-btn" data-direction="next" aria-label="Next Minerals">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="ecom-products-grid">
+          <!-- Mineral 1: Mica Flakes -->
+          <div class="ecom-product-card" data-id="muscovite-mica-flakes" data-category="Specialty Minerals & Polymers" data-brand="Shipyon Mineral Reserves" data-origin="Nellore & Koderma, India" data-hs-code="2525.20.00" data-moq="1 x 20ft FCL (20 MT)" data-packaging="25kg Laminated Bags / 1 MT Jumbo Bags" data-price="620.00" data-original-price="740.00" data-unit="MT" data-rating="4.8" data-reviews="165" data-discount="16" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 2525.20</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&auto=format&fit=crop&q=80" alt="Muscovite Mica Flakes" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="muscovite-mica-flakes">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 India Belts • 99.2% Purity</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.8</span>
+                  <span class="product-reviews-count">(165)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Natural Muscovite Mica Flakes &amp; Powder</h3>
+              <p class="product-desc">Purity: 99.2%, Dielectric strength: 25 kV/mm. Available in 20 mesh to 325 mesh for electrical insulation and pearl pigments.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$620 / MT</span>
+                  <span class="price-original">$740</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="muscovite-mica-flakes">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mineral 2: Activated Carbon -->
+          <div class="ecom-product-card" data-id="activated-coconut-carbon" data-category="Specialty Minerals & Polymers" data-brand="Kongu Activated Carbons" data-origin="Kangayam, Tamil Nadu, India" data-hs-code="3802.10.00" data-moq="5 Metric Tons" data-packaging="25kg PP Bags / 500kg Bulk Big Bags" data-price="2150.00" data-original-price="2450.00" data-unit="MT" data-rating="5.0" data-reviews="312" data-discount="12" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 3802.10</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&auto=format&fit=crop&q=80" alt="Activated Coconut Shell Carbon" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="activated-coconut-carbon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Tamil Nadu • Iodine 1100+ mg/g</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>5.0</span>
+                  <span class="product-reviews-count">(312)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Steam-Activated Coconut Shell Carbon</h3>
+              <p class="product-desc">Iodine Number: 1100 mg/g min, Hardness: 98.5%. CTC activity &gt;60%, acid-washed for high-purity water and gold extraction.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$2,150 / MT</span>
+                  <span class="price-original">$2,450</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="activated-coconut-carbon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mineral 3: Sodium Bentonite -->
+          <div class="ecom-product-card" data-id="sodium-bentonite-clay" data-category="Specialty Minerals & Polymers" data-brand="Kutch Geotech Minerals" data-origin="Kutch Basin, Gujarat, India" data-hs-code="2508.10.00" data-moq="1 x 20ft FCL (25 MT)" data-packaging="1.25 MT Big Bags with Lifting Loops" data-price="165.00" data-original-price="195.00" data-unit="MT" data-rating="4.7" data-reviews="128" data-discount="15" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 2508.10</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=800&auto=format&fit=crop&q=80" alt="Sodium Bentonite Clay" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="sodium-bentonite-clay">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Gujarat • API Spec 13A</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.7</span>
+                  <span class="product-reviews-count">(128)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Pure Sodium Bentonite Clay (API Drilling)</h3>
+              <p class="product-desc">Swelling index: 32 ml/2g. Viscometer dial reading 600 rpm: &gt;30. Certified for offshore oil drilling and foundry bonding.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$165 / MT</span>
+                  <span class="price-original">$195</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="sodium-bentonite-clay">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Eco-Sustainable Products & Coir -->
+    <section class="ecom-category-product-section" id="category-eco-coir">
+      <div class="container">
+        <div class="category-section-header">
+          <div class="category-section-title-wrap">
+            <span class="category-badge-micro">HS Chapter 44, 48 &amp; 53 • 100% Biodegradable</span>
+            <h2 class="category-section-title">Eco-Sustainable Products, Coir &amp; Bio-Packaging</h2>
+            <p class="category-section-desc">Pollachi washed coco peat, naturally compostable areca tableware, coir geotextiles, and recyclable paper dunnage.</p>
+          </div>
+          <div class="category-section-controls">
+            <button class="carousel-nav-btn" data-direction="prev" aria-label="Previous Eco Products">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="carousel-nav-btn" data-direction="next" aria-label="Next Eco Products">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="ecom-products-grid">
+          <!-- Eco 1: Coco Peat 5kg Blocks -->
+          <div class="ecom-product-card" data-id="coco-peat-blocks" data-category="Eco-Sustainable Products & Coir" data-brand="Shipyon Eco Fibers" data-origin="Pollachi Coir Hub, Tamil Nadu, India" data-hs-code="5305.00.40" data-moq="1 x 40ft HC (26 MT / 5200 Blocks)" data-packaging="Palletized Shrink Wrap (240 Blocks/Pallet)" data-price="340.00" data-original-price="390.00" data-unit="MT" data-rating="4.9" data-reviews="480" data-discount="13" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 5305.00</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&auto=format&fit=crop&q=80" alt="Low EC Coco Peat 5kg Blocks" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="coco-peat-blocks">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Pollachi • EC &lt;0.5 mS/cm Washed</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.9</span>
+                  <span class="product-reviews-count">(480)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Low EC Washed Coco Peat (5kg Blocks)</h3>
+              <p class="product-desc">Electrical Conductivity: &lt;0.5 mS/cm, Expansion Volume: 75 Liters per block. pH 5.8-6.8, triple washed for greenhouse horticulture.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$340 / MT</span>
+                  <span class="price-original">$390</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="coco-peat-blocks">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Eco 2: Areca Palm Dinnerware -->
+          <div class="ecom-product-card" data-id="areca-palm-dinnerware" data-category="Eco-Sustainable Products & Coir" data-brand="Vedic Leafware Works" data-origin="Shimoga, Western Ghats, India" data-hs-code="4419.90.90" data-moq="1 x 20ft FCL (50,000 Pcs)" data-packaging="Shrink Packs of 25 Pcs in 5-Ply Export Master Cartons" data-price="0.12" data-original-price="0.16" data-unit="Pc" data-rating="4.9" data-reviews="320" data-discount="25" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 4419.90</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?w=800&auto=format&fit=crop&q=80" alt="Areca Palm Leaf Dinnerware" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="areca-palm-dinnerware">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 Western Ghats • 100% Fallen Leaves</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.9</span>
+                  <span class="product-reviews-count">(320)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Biodegradable Areca Palm Leaf Dinnerware</h3>
+              <p class="product-desc">Heat-pressed from fallen leaves. Zero chemicals, dyes, or wax coating. Microwave and freezer safe, composts naturally in 60 days.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$0.12 / Pc</span>
+                  <span class="price-original">$0.16</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="areca-palm-dinnerware">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Eco 3: Coir Geotextiles -->
+          <div class="ecom-product-card" data-id="coir-geotextiles" data-category="Eco-Sustainable Products & Coir" data-brand="Kerala Coir Consortium" data-origin="Alappuzha & Pollachi, India" data-hs-code="5311.00.00" data-moq="5,000 Sq. Meters" data-packaging="Rolls 2m x 50m in HDPE Woven Sleeves" data-price="1.15" data-original-price="1.40" data-unit="Sqm" data-rating="4.8" data-reviews="190" data-discount="18" data-in-stock="true">
+            <div class="product-card-media">
+              <span class="product-badge-float">HS 5311.00</span>
+              <button class="product-wishlist-btn" title="Save to Sourcing List" aria-label="Save">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&auto=format&fit=crop&q=80" alt="Coir Geotextile Blankets" class="product-card-img" loading="lazy">
+              <div class="product-quick-view-overlay">
+                <button type="button" class="btn-quick-view" data-product-id="coir-geotextiles">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <span>Spec Sheet</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-row">
+                <span class="product-category-lbl">🇮🇳 South India • 700 GSM Mesh</span>
+                <div class="product-rating-box">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span>4.8</span>
+                  <span class="product-reviews-count">(190)</span>
+                </div>
+              </div>
+              <h3 class="product-title">Coir Geotextile Erosion Control Blankets</h3>
+              <p class="product-desc">100% natural coconut fiber woven netting. Tensile strength &gt;18 kN/m, high water retention for slope stabilization and civil highway works.</p>
+              <div class="product-card-footer">
+                <div class="product-price-block">
+                  <span class="price-current">$1.15 / Sqm</span>
+                  <span class="price-original">$1.40</span>
+                </div>
+                <button class="btn-add-to-cart" data-product-id="coir-geotextiles">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                  <span>Inquire / FOB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 5. Slide-Out Trade Filters Drawer -->
+  <div class="filter-drawer-overlay" id="filter-drawer-overlay"></div>
+  <aside class="filter-drawer" id="filter-drawer" aria-label="Trade Filters">
+    <div class="filter-drawer-head">
+      <h3 class="filter-drawer-title">
+        <span>Trade Filters</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+      </h3>
+      <button type="button" class="filter-drawer-close" id="filter-drawer-close" aria-label="Close Filter Drawer">&times;</button>
+    </div>
+
+    <div class="filter-drawer-body">
+      <!-- Category Multi-Select -->
+      <div class="filter-group-block">
+        <h4 class="filter-group-title">Export Verticals</h4>
+        <div class="filter-checkbox-grid">
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-cat-check" value="Agro Commodities & Spices">
+            <span>Agro &amp; Spices (5)</span>
+          </label>
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-cat-check" value="Commercial Textiles & Garments">
+            <span>Textiles &amp; Yarn (4)</span>
+          </label>
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-cat-check" value="Processed Foods & Seafood">
+            <span>Food &amp; Seafood (4)</span>
+          </label>
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-cat-check" value="Engineering Goods & Hardware">
+            <span>Engineering &amp; Hardware (3)</span>
+          </label>
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-cat-check" value="Specialty Minerals & Polymers">
+            <span>Minerals &amp; Polymers (3)</span>
+          </label>
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-cat-check" value="Eco-Sustainable Products & Coir">
+            <span>Eco-Coir &amp; Bio-Pack (3)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Minimum Rating Filter -->
+      <div class="filter-group-block">
+        <h4 class="filter-group-title">Inspection Grade</h4>
+        <div class="rating-filter-pills">
+          <button type="button" class="rating-filter-chip active" data-rating="0">All Grades</button>
+          <button type="button" class="rating-filter-chip" data-rating="4.8">4.8★ &amp; Above</button>
+          <button type="button" class="rating-filter-chip" data-rating="4.9">4.9★ Elite</button>
+        </div>
+      </div>
+
+      <!-- Origin Producers -->
+      <div class="filter-group-block">
+        <h4 class="filter-group-title">Sourcing Clusters &amp; Mills</h4>
+        <div class="filter-checkbox-grid">
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-brand-check" value="Shipyon Agro Estates">
+            <span>Shipyon Agro Estates</span>
+          </label>
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-brand-check" value="Kaveri Basin Exports">
+            <span>Kaveri Basin Exports</span>
+          </label>
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-brand-check" value="Kongu Spinning Mills">
+            <span>Kongu Spinning Mills</span>
+          </label>
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-brand-check" value="Coromandel Oceanics">
+            <span>Coromandel Oceanics</span>
+          </label>
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-brand-check" value="Shipyon Precision Valves">
+            <span>Shipyon Precision Valves</span>
+          </label>
+          <label class="filter-check-lbl">
+            <input type="checkbox" class="filter-brand-check" value="Shipyon Eco Fibers">
+            <span>Shipyon Eco Fibers</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-drawer-foot">
+      <button type="button" class="btn-filter-reset" id="btn-filter-reset">Reset All</button>
+      <button type="button" class="btn-filter-apply" id="btn-filter-apply">Apply Filters</button>
+    </div>
+  </aside>
+
+  <!-- 6. Slide-Out Sourcing RFQ Manifest Drawer -->
+  <div class="ecom-side-drawer-overlay" id="cart-drawer-overlay"></div>
+  <aside class="ecom-side-drawer" id="cart-drawer" aria-label="Sourcing Manifest">
+    <div class="side-drawer-head">
+      <h3 class="side-drawer-title">
+        <span>Sourcing Manifest / RFQ</span>
+        <span id="cart-drawer-count" style="font-size: 0.95rem; color: #10B981;">(0)</span>
+      </h3>
+      <button type="button" class="filter-drawer-close" id="cart-drawer-close" aria-label="Close Manifest Drawer">&times;</button>
+    </div>
+
+    <div class="side-drawer-items-list" id="cart-items-list">
+      <!-- Items dynamically populated via products-ecommerce.js -->
+    </div>
+
+    <div class="side-drawer-foot">
+      <div class="drawer-subtotal-row">
+        <span>Indicative FOB Value (USD):</span>
+        <span class="drawer-total-val" id="cart-drawer-subtotal">$0.00</span>
+      </div>
+      <p style="font-size: 11.5px; color: #64748B; margin: 0;">✓ Direct multimodal booking with pre-shipment SGS / APEDA inspection</p>
+      <button type="button" class="btn-drawer-checkout" onclick="window.location.href='contact.html'">
+        <span>Submit Manifest for Formal FOB/CIF Quote</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- 7. Slide-Out Saved Commodities Drawer -->
+  <div class="ecom-side-drawer-overlay" id="wishlist-drawer-overlay"></div>
+  <aside class="ecom-side-drawer" id="wishlist-drawer" aria-label="Saved Commodities">
+    <div class="side-drawer-head">
+      <h3 class="side-drawer-title">
+        <span>Saved Commodities</span>
+        <span id="wishlist-drawer-count" style="font-size: 0.95rem; color: #EF4444;">(0)</span>
+      </h3>
+      <button type="button" class="filter-drawer-close" id="wishlist-drawer-close" aria-label="Close Saved Drawer">&times;</button>
+    </div>
+
+    <div class="side-drawer-items-list" id="wishlist-items-list">
+      <!-- Items dynamically populated via products-ecommerce.js -->
+    </div>
+  </aside>
+
+  <!-- 8. Interactive Quick View Spec Sheet Modal -->
+  <div class="quick-view-overlay" id="quick-view-overlay">
+    <div class="quick-view-box">
+      <button type="button" class="quick-view-close-btn" id="quick-view-close-btn" aria-label="Close Spec Sheet">&times;</button>
+      <div class="quick-view-gallery">
+        <img src="" alt="" id="qv-main-img" class="quick-view-main-img">
+      </div>
+      <div class="quick-view-details">
+        <div>
+          <span class="qv-category-pill" id="qv-cat-pill">Category</span>
+          <h2 class="qv-title" id="qv-title">Commodity Name</h2>
+          
+          <div class="qv-rating-row">
+            <span style="color: #F59E0B; font-weight: 800;">★</span>
+            <strong id="qv-rating-val">4.9</strong>
+            <span style="color: #94A3B8; font-size: 12px;" id="qv-reviews-val">(280 verified shipments)</span>
+          </div>
+
+          <div class="qv-price-row">
+            <span class="qv-price-current" id="qv-price-cur">$0.00</span>
+            <span class="qv-price-original" id="qv-price-orig">$0.00</span>
+            <span class="qv-discount-pill" id="qv-discount-pill">FOB Available</span>
+          </div>
+
+          <p class="qv-description" id="qv-desc">Commercial trade specifications and laboratory test parameters...</p>
+
+          <div class="qv-specs-list">
+            <div class="qv-spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>APEDA, US FDA &amp; Global GAP Pre-Shipment Inspection Guaranteed</span>
+            </div>
+            <div class="qv-spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>FCL (20ft / 40ft) &amp; LCL Multimodal Container Freight Consolidation</span>
+            </div>
+            <div class="qv-spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Ports of Lading: Chennai, Tuticorin VOC, Cochin &amp; JNPT Mumbai</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="qv-actions-row">
+          <button type="button" class="btn-add-to-cart" id="qv-add-cart-btn" style="flex: 1; height: 46px; font-size: 0.92rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+            <span>Add to Sourcing Manifest</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. Floating Toast Notification Container -->
+  <div class="ecom-toast-container" id="ecom-toast-container"></div>
 
   <!-- Universal Institutional Footer -->
   <footer class="site-footer" id="site-footer">
     <div class="container">
       <div class="footer-top-banner">
-        <a href="index.html" class="footer-brand-link" aria-label="Shipyon Exim Home">
+        <a href="index.html" class="footer-brand-link" aria-label="Shipyon Home">
           <img src="assets/shipyon-logo.png" alt="Shipyon Logo" class="footer-logo" width="132" height="42">
-          <span class="brand-badge brand-badge-gold">EXIM</span>
+          <span class="brand-badge brand-badge-gold">GLOBAL TRADE</span>
         </a>
         <p class="footer-banner-text">
-          SHIPYON - IMPORT AND EXPORTS | LOGISTICS SUPPORT | INTERNATIONAL AND DOMESTIC SUPPLY
+          SHIPYON - IMPORT AND EXPORTS | MULTIMODAL LOGISTICS | COMMERCIAL SOURCING &amp; INTERNATIONAL SUPPLY
         </p>
       </div>
 
@@ -296,77 +1536,47 @@
         </div>
 
         <div>
-          <h3 class="footer-col-headline">Services</h3>
+          <h3 class="footer-col-headline">Trade Verticals</h3>
           <ul class="footer-links-list">
-            <li class="footer-link-item"><a href="services.html">Fresh Fruits Sourcing</a></li>
-            <li class="footer-link-item"><a href="services.html">Organic Vegetables Import</a></li>
-            <li class="footer-link-item"><a href="services.html">Premium Spices Trade</a></li>
-            <li class="footer-link-item"><a href="services.html">Grains & pulses distribution</a></li>
-            <li class="footer-link-item"><a href="services.html">Bulk Procurement & Logistics</a></li>
+            <li class="footer-link-item"><a href="#category-agro-spices">Agro &amp; Spices</a></li>
+            <li class="footer-link-item"><a href="#category-textiles-garments">Commercial Textiles</a></li>
+            <li class="footer-link-item"><a href="#category-processed-food">Processed Food &amp; Seafood</a></li>
+            <li class="footer-link-item"><a href="#category-engineering-hardware">Engineering &amp; Castings</a></li>
+            <li class="footer-link-item"><a href="#category-minerals-polymers">Minerals &amp; Polymers</a></li>
+            <li class="footer-link-item"><a href="#category-eco-coir">Eco-Coir &amp; Packaging</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="footer-col-headline">Solutions</h3>
+          <h3 class="footer-col-headline">Export Corridors</h3>
           <ul class="footer-links-list">
-            <li class="footer-link-item"><a href="services.html">Sourcing & Supply chain</a></li>
-            <li class="footer-link-item"><a href="services.html">Custom Packaging & Canning</a></li>
-            <li class="footer-link-item"><a href="services.html">Global Freight & Customs</a></li>
-            <li class="footer-link-item"><a href="services.html">Warehousing & Cold chain</a></li>
+            <li class="footer-link-item"><a href="index.html#global-trade-map">🇺🇸 United States &amp; Canada</a></li>
+            <li class="footer-link-item"><a href="index.html#global-trade-map">🇪🇺 Germany &amp; Western Europe</a></li>
+            <li class="footer-link-item"><a href="index.html#global-trade-map">🇦🇪 Dubai, UAE &amp; GCC Nations</a></li>
+            <li class="footer-link-item"><a href="index.html#global-trade-map">🇸🇬 Singapore &amp; Southeast Asia</a></li>
+            <li class="footer-link-item"><a href="index.html#global-trade-map">🇦🇺 Australia &amp; Oceania</a></li>
           </ul>
 
           <div class="footer-social-wrap">
             <div class="social-title">Connect With Us</div>
             <div class="social-icons-row">
-              <a href="#" class="social-btn" aria-label="Facebook"><svg class="svg-ico" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C20.112 23.027 24 18.062 24 12.073z"/></svg></a>
-              <a href="#" class="social-btn" aria-label="Instagram"><svg class="svg-ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-              <a href="https://wa.me/919500690740" target="_blank" class="social-btn" aria-label="Whatsapp"><svg class="svg-ico" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg></a>
+              <a href="#" class="social-btn" aria-label="Facebook"><svg class="svg-ico" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.52-.14-2.71-.14-2.77 0-4.79 1.69-4.79 4.88V9.5H7v4h3V22h4v-8.5z"/></svg></a>
+              <a href="#" class="social-btn" aria-label="Instagram"><svg class="svg-ico" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+              <a href="https://wa.me/919500690740" target="_blank" class="social-btn" aria-label="Whatsapp"><svg class="svg-ico" viewBox="0 0 24 24" width="20" height="20"><path fill="#FFFFFF" fill-rule="evenodd" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
             </div>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <div>© 2026 SHIPYON. All Rights Reserved. South India’s Premier Trade & Sourcing Company.</div>
-        <div>Dharapuram • Chennai • Cochin • International Corridors</div>
+        <div>© 2026 SHIPYON. All Rights Reserved. Sovereign Multimodal Global Trade &amp; Sourcing.</div>
+        <div>APEDA Verified • US FDA Compliant • Multimodal Container Dispatch</div>
       </div>
     </div>
   </footer>
 
-  <!-- Quote Modal -->
-  <div class="modal-overlay" id="quote-modal-overlay">
-    <div class="modal-box">
-      <button class="modal-close-btn" id="modal-close-btn">&times;</button>
-      <h2 class="modal-title">Request a Trade Quote</h2>
-      <p class="modal-subtitle">Direct institutional pricing from South India’s premier sourcing network.</p>
-      <form id="quote-modal-form" onsubmit="handleQuoteSubmit(event)">
-        <div class="form-group">
-          <label class="form-label" for="quote-name">Full Name / Company</label>
-          <input type="text" id="quote-name" class="form-input" placeholder="e.g. Al-Mansoor Trading LLC" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="quote-email">Business Email</label>
-          <input type="email" id="quote-email" class="form-input" placeholder="procurement@company.com" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="quote-category">Trade Category</label>
-          <select id="quote-category" class="form-select">
-            <option>Fresh Produce (Onions, Vegetables)</option>
-            <option>Spices & Plantation Crops (Cardamom, Chilly, Turmeric)</option>
-            <option>Fruits (Mangoes, Grapes, Pomegranates)</option>
-            <option>Processed & Value-Added Products (Moringa, Extracts)</option>
-            <option>Industrial & Commercial (Granite, Tiles, Textiles)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="quote-destination">Destination Country / Port</label>
-          <input type="text" id="quote-destination" class="form-input" placeholder="e.g. Rotterdam, Jebel Ali, Hamburg" required>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Submit RFQ Specification</button>
-      </form>
-    </div>
-  </div>
-
+  <!-- Scripts -->
   <script src="script.js"></script>
+  <script src="products-ecommerce.js"></script>
 </body>
 </html>

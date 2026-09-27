@@ -37,16 +37,20 @@
         <a href="about.html" class="nav-link-serene">About</a>
         <a href="services.html" class="nav-link-serene">Services</a>
         <a href="products.html" class="nav-link-serene">Products</a>
-        <a href="#expertise-section" class="nav-link-serene">Expertise</a>
         <a href="contact.html" class="nav-link-serene">Contact</a>
       </nav>
 
-      <!-- Right Action Button -->
+      <!-- Right Action Button & Mobile Nav Toggle -->
       <div class="header-action-serene">
         <a href="contact.html" class="btn-pill-cobalt" id="header-btn-quote">
           <span>Get Started</span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <button type="button" class="mobile-nav-toggle-serene" id="mobile-nav-toggle-serene" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -110,7 +114,7 @@
 
           <!-- Duo Pill CTAs -->
           <div class="hero-serene-actions">
-            <a href="#trade-portfolio-section" class="btn-pill-primary-serene">
+            <a href="products.html" class="btn-pill-primary-serene">
               <span>Start Your Sourcing</span>
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -451,90 +455,268 @@
        Interactive animated world map visualizing direct trade corridors:
        USA, Germany, Dubai (UAE), India (HQ), Sri Lanka, Malaysia, Singapore, Vietnam, Australia
        ========================================================================== -->
-    <!-- ==========================================================================
-       WORLD TRADE MAP: CONNECTING SOUTH INDIA TO GLOBAL HORIZONS (BLUE THEME)
-       Brand New Interactive Blue Maritime Console & Animated Trade Corridors
+  <!-- ==========================================================================
+       GLOBAL TRADE NETWORK: PREMIUM TWO-COLUMN GLOBAL TRADE SHOWCASE SECTION
+       Left: Editorial Eyebrow, Headline, Description, Key Metrics, Interactive CTA
+       Right: Visually Impressive 3D Animated World Map Globe with Origin & Destinations
        ========================================================================== -->
-  <section class="global-map-section" id="global-trade-map">
-    <div class="container">
-      <!-- Section Header -->
-      <div class="section-header-editorial text-center">
-        <span class="section-pill-tag map-pulse-pill">
-          <span class="live-sonar-beacon"></span>
-          <span>Global Maritime Telemetry</span>
-        </span>
-        <h2 class="section-title-editorial">Connecting South India to Global Horizons</h2>
-        <p class="section-subtitle-editorial">
-          Direct multimodal container corridors linking our agro-industrial sourcing hubs in Tamil Nadu &amp; Kerala to premier trade gateways across 50+ countries.
-        </p>
+  <!-- ==========================================================================
+       GLOBAL TRADE NETWORK: ULTRA-MODERN IMMERSIVE TWO-COLUMN SHOWCASE SECTION
+       Combination of Global Trade Network, Futuristic Logistics, Interactive World Map,
+       Premium International Business, and Digital Global Connectivity.
+       ========================================================================== -->
+  <section class="global-trade-network-section" id="global-trade-map" aria-label="Global Trade Network">
+    
+    <!-- Sophisticated Layered Animated Background (Forest Green, Emerald, Mint, Cream & Subtle Gold) -->
+    <div class="gtn-bg-layer" aria-hidden="true">
+      <div class="gtn-bg-gradient"></div>
+      <div class="gtn-bg-grid" id="gtn-parallax-grid"></div>
+      
+      <!-- Faint World Map Vector Silhouette Outline with Parallax Drift -->
+      <svg class="gtn-bg-world-outline" id="gtn-parallax-map" viewBox="0 0 1000 500" fill="none" preserveAspectRatio="xMidYMid slice">
+        <!-- Coordinate latitude / longitude curves -->
+        <path d="M0,125 Q500,100 1000,125 M0,250 Q500,230 1000,250 M0,375 Q500,360 1000,375" stroke="rgba(20, 53, 27, 0.035)" stroke-width="1" stroke-dasharray="4 4"/>
+        <path d="M250,0 Q230,250 250,500 M500,0 Q500,250 500,500 M750,0 Q770,250 750,500" stroke="rgba(20, 53, 27, 0.035)" stroke-width="1" stroke-dasharray="4 4"/>
+        <!-- Continents Outline -->
+        <path d="M120,80 Q140,50 180,45 Q220,40 240,70 Q250,110 230,140 Q190,160 150,140 Z M160,180 Q200,200 190,270 Q170,320 140,280 Q130,220 160,180 Z M440,60 Q500,50 540,70 Q560,110 520,130 Q460,120 440,60 Z M450,140 Q500,150 520,220 Q500,300 460,290 Q430,210 450,140 Z M600,70 Q700,60 740,110 Q720,170 660,150 Q610,120 600,70 Z M630,220 Q690,210 710,260 Q690,310 640,290 Z" stroke="rgba(16, 185, 129, 0.07)" stroke-width="1.8" stroke-dasharray="4 3"/>
+      </svg>
+      
+      <!-- Soft Radial Light Glow Blobs with Parallax Response -->
+      <div class="gtn-light-effect gtn-light-left" id="gtn-light-left"></div>
+      <div class="gtn-light-effect gtn-light-right" id="gtn-light-right"></div>
+      <div class="gtn-light-effect gtn-light-center" id="gtn-light-center"></div>
+
+      <!-- Subtle Floating Ambient Particles -->
+      <div class="gtn-particles-wrap" aria-hidden="true">
+        <span class="gtn-dot gtn-dot-1"></span>
+        <span class="gtn-dot gtn-dot-2"></span>
+        <span class="gtn-dot gtn-dot-3"></span>
+        <span class="gtn-dot gtn-dot-4"></span>
+        <span class="gtn-dot gtn-dot-5"></span>
+        <span class="gtn-dot gtn-dot-6"></span>
       </div>
+    </div>
 
-      <!-- Full-Stage 3D Globe Visualization Canvas (Real 3D Model with Trade Lines to India) -->
-      <div class="globe-hero-fullstage" id="globe-hero-fullstage">
-        
-        <!-- Top Country Selector Ribbon with Smooth Transitions -->
-        <div class="globe-country-ribbon" id="globe-country-ribbon" role="tablist" aria-label="Trade Destination Selector">
-          <button type="button" class="country-ribbon-btn" data-dest="INDIA" role="tab" aria-selected="false">
-            <span class="ribbon-flag">🇮🇳</span>
-            <span class="ribbon-name">India (Origin)</span>
-          </button>
-          <button type="button" class="country-ribbon-btn active" data-dest="DUBAI" role="tab" aria-selected="true">
-            <span class="ribbon-flag">🇦🇪</span>
-            <span class="ribbon-name">Dubai (UAE)</span>
-          </button>
-          <button type="button" class="country-ribbon-btn" data-dest="SINGAPORE" role="tab" aria-selected="false">
-            <span class="ribbon-flag">🇸🇬</span>
-            <span class="ribbon-name">Singapore</span>
-          </button>
-          <button type="button" class="country-ribbon-btn" data-dest="MALAYSIA" role="tab" aria-selected="false">
-            <span class="ribbon-flag">🇲🇾</span>
-            <span class="ribbon-name">Malaysia</span>
-          </button>
-          <button type="button" class="country-ribbon-btn" data-dest="SRILANKA" role="tab" aria-selected="false">
-            <span class="ribbon-flag">🇱🇰</span>
-            <span class="ribbon-name">Sri Lanka</span>
-          </button>
-          <button type="button" class="country-ribbon-btn" data-dest="VIETNAM" role="tab" aria-selected="false">
-            <span class="ribbon-flag">🇻🇳</span>
-            <span class="ribbon-name">Vietnam</span>
-          </button>
-          <button type="button" class="country-ribbon-btn" data-dest="AUSTRALIA" role="tab" aria-selected="false">
-            <span class="ribbon-flag">🇦🇺</span>
-            <span class="ribbon-name">Australia</span>
-          </button>
-          <button type="button" class="country-ribbon-btn" data-dest="GERMANY" role="tab" aria-selected="false">
-            <span class="ribbon-flag">🇩🇪</span>
-            <span class="ribbon-name">Germany</span>
-          </button>
-          <button type="button" class="country-ribbon-btn" data-dest="USA" role="tab" aria-selected="false">
-            <span class="ribbon-flag">🇺🇸</span>
-            <span class="ribbon-name">USA</span>
-          </button>
-        </div>
+    <div class="container">
+      <div class="gtn-showcase-grid">
 
-        <!-- 3D Canvas Stage with Floating Projected Country Name Badges -->
-        <div class="globe-canvas-wrapper" id="globe-canvas-wrapper">
-          <div id="shipyon-3d-globe-container" class="globe-webgl-canvas" aria-label="Real 3D Earth Globe Model showing lines connected to India"></div>
-          <div id="globe-labels-overlay" class="globe-labels-overlay"></div>
-        </div>
+        <!-- LEFT SIDE: Content, Visual Hierarchy & Interactive Controls -->
+        <div class="gtn-content-col" id="gtn-content-col">
+          <!-- Small Uppercase Eyebrow Text with Live Radar Pulse -->
+          <div class="gtn-eyebrow-badge">
+            <span class="gtn-beacon-pulse"></span>
+            <span class="gtn-eyebrow-text">GLOBAL TRADE NETWORK</span>
+          </div>
 
-        <!-- Bottom Active Corridor Info & Transition Controls -->
-        <div class="globe-bottom-bar" id="globe-bottom-bar">
-          <div class="corridor-status-pill">
-            <span class="status-origin-tag">
-              <span class="flag">🇮🇳</span>
-              <span class="name">India Origin</span>
-            </span>
-            <span class="status-connector-arrow">&rarr;</span>
-            <span class="status-active-dest" id="status-active-dest">
-              <span class="flag" id="bar-dest-flag">🇦🇪</span>
-              <span class="name" id="bar-dest-name">Dubai (UAE)</span>
-              <span class="transit-tag" id="bar-dest-transit">3.5 Days Express</span>
-            </span>
+          <!-- Large Bold Headline with Shimmering Interactive Hover Effect -->
+          <h2 class="gtn-headline" id="gtn-interactive-headline">
+            <span class="gtn-headline-word" data-word="Connect">Connect</span>
+            <span class="gtn-headline-word" data-word="to">to</span>
+            <span class="gtn-headline-word" data-word="the">the</span>
+            <span class="gtn-headline-word gtn-headline-accent" data-word="World">World</span>
+          </h2>
+
+          <!-- Supporting Description -->
+          <p class="gtn-desc">
+            Direct multimodal export bridges connecting South Indian agricultural and commercial origins to 50+ global markets.
+          </p>
+
+          <!-- Futuristic Floating Data Cards (Glassmorphism + Subtle Depth) -->
+          <div class="gtn-glass-data-grid">
+            <div class="gtn-data-card" data-tilt>
+              <div class="data-card-glow"></div>
+              <div class="data-card-header">
+                <span class="data-card-beacon"></span>
+                <span class="data-card-label">COVERAGE</span>
+              </div>
+              <div class="data-card-metric">50+</div>
+              <div class="data-card-caption">Global Sovereign Markets</div>
+            </div>
+
+            <div class="gtn-data-card" data-tilt>
+              <div class="data-card-glow"></div>
+              <div class="data-card-header">
+                <span class="data-card-beacon beacon-gold"></span>
+                <span class="data-card-label">LIVE STATUS</span>
+              </div>
+              <div class="data-card-metric">Active Routes</div>
+              <div class="data-card-caption">Real-Time IoT Corridors</div>
+            </div>
+
+            <div class="gtn-data-card" data-tilt>
+              <div class="data-card-glow"></div>
+              <div class="data-card-header">
+                <span class="data-card-beacon beacon-mint"></span>
+                <span class="data-card-label">PROVENANCE</span>
+              </div>
+              <div class="data-card-metric">South India</div>
+              <div class="data-card-caption">Tuticorin • Chennai • Cochin</div>
+            </div>
+
+            <div class="gtn-data-card" data-tilt>
+              <div class="data-card-glow"></div>
+              <div class="data-card-header">
+                <span class="data-card-beacon"></span>
+                <span class="data-card-label">LOGISTICS</span>
+              </div>
+              <div class="data-card-metric">Export Ready</div>
+              <div class="data-card-caption">Global Multimodal Network</div>
+            </div>
+          </div>
+
+          <!-- Interactive Destination Corridors Ribbon -->
+          <div class="gtn-destinations-block">
+            <span class="gtn-destinations-heading">Select Sovereign Trade Corridor:</span>
+            <div class="globe-country-ribbon gtn-corridor-chips-list" id="globe-country-ribbon" role="tablist" aria-label="Trade Destination Selector">
+              <button type="button" class="country-ribbon-btn active" data-dest="USA" role="tab" aria-selected="true" data-cursor="DESTINATION" data-dest-name="North America (USA)">
+                <span class="ribbon-flag">🇺🇸</span>
+                <span class="ribbon-name">North America</span>
+              </button>
+              <button type="button" class="country-ribbon-btn" data-dest="GERMANY" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Europe (Germany)">
+                <span class="ribbon-flag">🇩🇪</span>
+                <span class="ribbon-name">Europe</span>
+              </button>
+              <button type="button" class="country-ribbon-btn" data-dest="DUBAI" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Middle East (Dubai)">
+                <span class="ribbon-flag">🇦🇪</span>
+                <span class="ribbon-name">Middle East</span>
+              </button>
+              <button type="button" class="country-ribbon-btn" data-dest="SINGAPORE" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Southeast Asia (Singapore)">
+                <span class="ribbon-flag">🇸🇬</span>
+                <span class="ribbon-name">Southeast Asia</span>
+              </button>
+              <button type="button" class="country-ribbon-btn" data-dest="AFRICA" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Africa (Durban/Mombasa)">
+                <span class="ribbon-flag">🌍</span>
+                <span class="ribbon-name">Africa</span>
+              </button>
+              <button type="button" class="country-ribbon-btn" data-dest="AUSTRALIA" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Australia (Sydney)">
+                <span class="ribbon-flag">🇦🇺</span>
+                <span class="ribbon-name">Australia</span>
+              </button>
+              <button type="button" class="country-ribbon-btn" data-dest="INDIA" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="India (HQ Origin)">
+                <span class="ribbon-flag">🇮🇳</span>
+                <span class="ribbon-name">India (Origin)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Premium Magnetic Interactive CTA Button -->
+          <div class="gtn-cta-action-row">
+            <a href="contact.html" class="gtn-interactive-cta-btn" id="gtn-explore-corridors-btn" data-cursor="BUTTON">
+              <span class="cta-magnetic-glow" aria-hidden="true"></span>
+              <span class="cta-sheen-effect" aria-hidden="true"></span>
+              <span class="cta-text">Explore Trade Corridors</span>
+              <span class="cta-arrow-box" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+            <span class="gtn-origin-footnote">Direct Multimodal Port Staging &amp; Fast Freight Clearance</span>
           </div>
         </div>
 
-      </div></div>
+        <!-- RIGHT SIDE: 3D-Style Animated Interactive Globe Showcase -->
+        <div class="gtn-visual-col" id="gtn-visual-col">
+          <div class="gtn-globe-display-card" id="gtn-globe-display-card" data-cursor="GLOBE">
+            
+            <!-- Top HUD Bar with Origin Beacon & Real-Time Security Badge -->
+            <div class="gtn-hud-bar">
+              <div class="gtn-hud-origin-pill">
+                <span class="gtn-origin-dot"></span>
+                <span class="gtn-origin-text">ORIGIN: <strong>South India Hub</strong> (Tuticorin / Chennai)</span>
+              </div>
+              <div class="gtn-hud-markets-pill">
+                <span class="gtn-pulse-ring-sm"></span>
+                <span>50+ SOVEREIGN MARKETS</span>
+              </div>
+            </div>
+
+            <!-- Floating Data Indicators Layer (Glassmorphism Cards around Globe) -->
+            <div class="gtn-globe-floating-badges" aria-hidden="true">
+              <div class="gtn-float-badge float-top-left">
+                <span class="badge-mini-dot dot-origin"></span>
+                <div class="badge-content">
+                  <span class="badge-micro-title">SOUTH INDIA ORIGIN</span>
+                  <span class="badge-micro-val">Tuticorin &amp; Cochin Gateways</span>
+                </div>
+              </div>
+
+              <div class="gtn-float-badge float-top-right">
+                <span class="badge-mini-dot dot-market"></span>
+                <div class="badge-content">
+                  <span class="badge-micro-title">50+ GLOBAL MARKETS</span>
+                  <span class="badge-micro-val">APEDA &amp; FDA Certified</span>
+                </div>
+              </div>
+
+              <div class="gtn-float-badge float-bottom-left">
+                <span class="badge-mini-dot dot-route"></span>
+                <div class="badge-content">
+                  <span class="badge-micro-title">ACTIVE TRADE ROUTES</span>
+                  <span class="badge-micro-val">Continuous Multimodal Flow</span>
+                </div>
+              </div>
+
+              <div class="gtn-float-badge float-bottom-right">
+                <span class="badge-mini-dot dot-network"></span>
+                <div class="badge-content">
+                  <span class="badge-micro-title">GLOBAL EXPORT NETWORK</span>
+                  <span class="badge-micro-val">Liner Priority Berthing</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3D Canvas Stage with Leader Lines and Interactive Callouts -->
+            <div class="globe-canvas-wrapper gtn-canvas-wrapper" id="globe-canvas-wrapper">
+              <div id="shipyon-3d-globe-container" class="globe-webgl-canvas" aria-label="Interactive 3D Earth Globe Model showing trade routes originating from South India to global markets"></div>
+              <svg class="globe-svg-leader-lines" id="globe-svg-lines" aria-hidden="true"></svg>
+              <div id="globe-labels-overlay" class="globe-labels-overlay"></div>
+            </div>
+
+            <!-- Ambient Interactive Destination Pills on Hover/Tap -->
+            <div class="gtn-ambient-dest-labels" aria-hidden="true">
+              <div class="gtn-floating-dest dest-north-america" data-dest="USA" data-cursor="DESTINATION" data-dest-name="North America">
+                <span class="dest-dot"></span>
+                <span class="dest-label">NORTH AMERICA</span>
+              </div>
+              <div class="gtn-floating-dest dest-europe" data-dest="GERMANY" data-cursor="DESTINATION" data-dest-name="Europe">
+                <span class="dest-dot"></span>
+                <span class="dest-label">EUROPE</span>
+              </div>
+              <div class="gtn-floating-dest dest-middle-east" data-dest="DUBAI" data-cursor="DESTINATION" data-dest-name="Middle East">
+                <span class="dest-dot"></span>
+                <span class="dest-label">MIDDLE EAST</span>
+              </div>
+              <div class="gtn-floating-dest dest-southeast-asia" data-dest="SINGAPORE" data-cursor="DESTINATION" data-dest-name="Southeast Asia">
+                <span class="dest-dot"></span>
+                <span class="dest-label">SOUTHEAST ASIA</span>
+              </div>
+              <div class="gtn-floating-dest dest-africa" data-dest="AFRICA" data-cursor="DESTINATION" data-dest-name="Africa">
+                <span class="dest-dot"></span>
+                <span class="dest-label">AFRICA</span>
+              </div>
+            </div>
+
+            <!-- Bottom Active Corridor Telemetry Status Bar -->
+            <div class="globe-bottom-bar gtn-bottom-telemetry" id="globe-bottom-bar">
+              <div class="corridor-status-pill">
+                <span class="status-origin-tag">
+                  <span class="flag">🇮🇳</span>
+                  <span class="name">South India Origin</span>
+                </span>
+                <span class="status-connector-arrow">&rarr;</span>
+                <span class="status-active-dest" id="status-active-dest">
+                  <span class="flag" id="bar-dest-flag">🇺🇸</span>
+                  <span class="name" id="bar-dest-name">USA — North America Gateway</span>
+                  <span class="transit-tag" id="bar-dest-transit">22 Days Transatlantic • New York</span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -549,6 +731,111 @@
        Animation: Interactive Horizontal Expanding Folio Deck (Accordion Folio)
        ========================================================================== -->
   
+
+  <!-- ==========================================================================
+       OUR VALUES (4 PILLARS + CLOSING STATEMENT)
+       Headline: OUR VALUES
+       4 sections:
+       - QUALITY: What we deliver matters.
+       - TRUST: How we build matters.
+       - PRECISION: Every detail matters.
+       - PROGRESS: What comes next matters.
+       Closing statement: The Principles Behind Every Move
+       Positioned before WHY CHOOSE US with interactive spotlight & motion
+       ========================================================================== -->
+  <section class="modern-values-section" id="values-section">
+    <div class="container">
+      <div class="section-header-editorial text-center" style="max-width: 720px; margin: 0 auto 52px auto;">
+        <span class="section-pill-tag">
+          <span class="live-dot-beacon"></span>
+          <span>CORE PHILOSOPHY</span>
+        </span>
+        <h2 class="section-title-editorial">The Principles Behind Every Move.</h2>
+        <p class="section-subtitle-editorial">
+          Four enduring commitments defining how we operate, build partnerships, and deliver excellence across continents.
+        </p>
+      </div>
+
+      <!-- 4 Editorial Value Cards Grid -->
+      <div class="values-editorial-grid">
+        <!-- 01 — QUALITY -->
+        <div class="value-editorial-card">
+          <div class="value-card-top">
+            <span class="value-card-num">01</span>
+            <div class="value-card-icon-box">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="value-pillar-label">PILLAR 01 &bull; STANDARD</div>
+          <h3 class="value-card-name">QUALITY</h3>
+          <p class="value-card-statement">What we deliver matters.</p>
+          <p class="value-card-desc">
+            Direct harvest aggregation, optical laser Sortex grading, and complete zero-chemical residue screening on every harvest.
+          </p>
+        </div>
+
+        <!-- 02 — TRUST -->
+        <div class="value-editorial-card">
+          <div class="value-card-top">
+            <span class="value-card-num">02</span>
+            <div class="value-card-icon-box">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="value-pillar-label">PILLAR 02 &bull; INTEGRITY</div>
+          <h3 class="value-card-name">TRUST</h3>
+          <p class="value-card-statement">How we build matters.</p>
+          <p class="value-card-desc">
+            Transparent institutional trade contracts, verified provenance documents, and zero-compromise Escrow &amp; LC settlement frameworks.
+          </p>
+        </div>
+
+        <!-- 03 — PRECISION -->
+        <div class="value-editorial-card">
+          <div class="value-card-top">
+            <span class="value-card-num">03</span>
+            <div class="value-card-icon-box">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="6" x2="12" y2="12"/>
+                <line x1="12" y1="12" x2="16" y2="14"/>
+              </svg>
+            </div>
+          </div>
+          <div class="value-pillar-label">PILLAR 03 &bull; METRICS</div>
+          <h3 class="value-card-name">PRECISION</h3>
+          <p class="value-card-statement">Every detail matters.</p>
+          <p class="value-card-desc">
+            Continuous IoT GPS telematics, precision 2°C – 4°C active Reefer cold-chain stewardship, and zero-delay phytosanitary clearance.
+          </p>
+        </div>
+
+        <!-- 04 — PROGRESS -->
+        <div class="value-editorial-card">
+          <div class="value-card-top">
+            <span class="value-card-num">04</span>
+            <div class="value-card-icon-box">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="value-pillar-label">PILLAR 04 &bull; VELOCITY</div>
+          <h3 class="value-card-name">PROGRESS</h3>
+          <p class="value-card-statement">What comes next matters.</p>
+          <p class="value-card-desc">
+            Direct priority vessel berthing across Tuticorin, Chennai, and Cochin connecting South Indian origins to 50+ global sovereign ports.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div id="how-we-deliver-section"></div>
 
@@ -593,8 +880,8 @@
             </button>
           </div>
 
-          <!-- Main Interactive Stage: Panoramic 3D Zigzag Highway with 4 Staggered Milestone Boxes -->
-          <div class="zigzag-panorama-stage" id="zigzag-panorama-stage">
+          <!-- Main Interactive Stage: Panoramic 3D Zigzag Highway with 4 Staggered Milestone Boxes (Afternoon / Golden Hour Sunset Atmosphere) -->
+          <div class="zigzag-panorama-stage atmo-dusk" id="zigzag-panorama-stage">
             
             <!-- SVG Zigzag Road Highway Background & Vehicles -->
             <svg class="zigzag-road-svg" id="zigzag-road-svg" viewBox="0 0 1200 500" preserveAspectRatio="none">
@@ -619,6 +906,26 @@
                   <stop offset="100%" stop-color="rgba(242, 247, 160, 0)" />
                 </linearGradient>
 
+                <!-- Dynamic High-Intensity Night Headlight Beam -->
+                <linearGradient id="truckBeamWideGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="rgba(254, 240, 138, 0.95)" />
+                  <stop offset="35%" stop-color="rgba(254, 240, 138, 0.5)" />
+                  <stop offset="100%" stop-color="rgba(254, 240, 138, 0)" />
+                </linearGradient>
+
+                <!-- Dusk Sun & Atmosphere Gradients -->
+                <radialGradient id="duskSunGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#FEF08A" />
+                  <stop offset="45%" stop-color="#F59E0B" />
+                  <stop offset="80%" stop-color="#EA580C" />
+                  <stop offset="100%" stop-color="#DC2626" stop-opacity="0" />
+                </radialGradient>
+
+                <linearGradient id="duskOceanSheenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(251, 146, 60, 0.75)" />
+                  <stop offset="100%" stop-color="rgba(194, 65, 12, 0.1)" />
+                </linearGradient>
+
                 <!-- Drop Shadow for 3D Elevation -->
                 <filter id="road3dShadow" x="-10%" y="-10%" width="130%" height="150%">
                   <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="rgba(15, 23, 42, 0.2)" />
@@ -633,7 +940,364 @@
                 <clipPath id="roadRevealClip">
                   <path id="road-clip-path" d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120" fill="none" stroke="#FFFFFF" stroke-width="70" stroke-linecap="round" />
                 </clipPath>
+
+                <!-- Environmental Scenery Gradients (Countryside Farmland & Coastal Sea) -->
+                <linearGradient id="farmMeadowGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#F0FDF4" />
+                  <stop offset="50%" stop-color="#DCFCE7" />
+                  <stop offset="100%" stop-color="#BBF7D0" />
+                </linearGradient>
+
+                <linearGradient id="farmMeadowGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#DCFCE7" />
+                  <stop offset="100%" stop-color="#86EFAC" />
+                </linearGradient>
+
+                <linearGradient id="inlandHillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#F0FDF4" />
+                  <stop offset="100%" stop-color="#BBF7D0" />
+                </linearGradient>
+
+                <linearGradient id="cottageRoofGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#EA580C" />
+                  <stop offset="100%" stop-color="#C2410C" />
+                </linearGradient>
+
+                <!-- Coastal Sea Ocean Gradients -->
+                <linearGradient id="coastalSeaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#E0F2FE" stop-opacity="0.9" />
+                  <stop offset="35%" stop-color="#38BDF8" stop-opacity="0.92" />
+                  <stop offset="70%" stop-color="#0284C7" stop-opacity="0.95" />
+                  <stop offset="100%" stop-color="#0369A1" stop-opacity="0.98" />
+                </linearGradient>
+
+                <!-- Lighthouse Sweeping Beam Gradient -->
+                <linearGradient id="lighthouseBeamGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="rgba(254, 240, 138, 0.9)" />
+                  <stop offset="45%" stop-color="rgba(254, 240, 138, 0.45)" />
+                  <stop offset="100%" stop-color="rgba(254, 240, 138, 0)" />
+                </linearGradient>
               </defs>
+
+              <!-- ==========================================================
+                   ENVIRONMENTAL LANDSCAPE SCENERY (ANIMATED WORLD-BUILDING)
+                   Left: Countryside, Farms, Animated Houses, Swaying Trees, Windmills
+                   Center: Rolling Hills, Eco Solar Array, Terraces
+                   Right: Animated Coastal Sea, Ocean Waves, Cargo Ship, Lighthouse & Seagulls
+                   ========================================================== -->
+              <g id="road-environment-scenery" class="road-environment-scenery">
+                
+                <!-- Atmosphere Sky Overlays (Dusk Sun, Twinkling Stars, Harbor Radar) -->
+                <g id="scenery-sky-atmosphere" class="scenery-sky-atmosphere">
+                  <!-- 1. Dusk Sunset Sun over the coastal sea (Visible in Dusk mode) -->
+                  <g id="scenery-dusk-sun" class="scenery-dusk-sun" transform="translate(1085, 175)">
+                    <circle cx="0" cy="0" r="32" fill="url(#duskSunGrad)" opacity="0.9" />
+                    <circle cx="0" cy="0" r="14" fill="#FEF9C3" />
+                    <!-- Ocean Sun Glimmer on water -->
+                    <ellipse cx="0" cy="48" rx="36" ry="6" fill="url(#duskOceanSheenGrad)" />
+                    <ellipse cx="0" cy="65" rx="22" ry="4" fill="url(#duskOceanSheenGrad)" />
+                  </g>
+
+                  <!-- 2. Starlit Night Constellations (Visible in Night mode) -->
+                  <g id="scenery-night-stars" class="scenery-night-stars">
+                    <circle cx="45" cy="55" r="1.5" class="night-star star-twinkle-1" fill="#FFFFFF" />
+                    <circle cx="95" cy="35" r="1.8" class="night-star star-twinkle-2" fill="#FEF08A" />
+                    <circle cx="160" cy="70" r="1.2" class="night-star star-twinkle-3" fill="#FFFFFF" />
+                    <circle cx="210" cy="40" r="1.6" class="night-star star-twinkle-1" fill="#E2E8F0" />
+                    <circle cx="280" cy="85" r="2.0" class="night-star star-twinkle-2" fill="#FEF08A" />
+                    <circle cx="340" cy="50" r="1.4" class="night-star star-twinkle-3" fill="#FFFFFF" />
+                    <circle cx="410" cy="30" r="1.7" class="night-star star-twinkle-1" fill="#FFFFFF" />
+                    <circle cx="475" cy="65" r="1.3" class="night-star star-twinkle-2" fill="#E2E8F0" />
+                    <circle cx="530" cy="45" r="1.9" class="night-star star-twinkle-3" fill="#FEF08A" />
+                    <circle cx="610" cy="75" r="1.5" class="night-star star-twinkle-1" fill="#FFFFFF" />
+                    <circle cx="680" cy="35" r="1.7" class="night-star star-twinkle-2" fill="#FFFFFF" />
+                    <circle cx="730" cy="60" r="1.3" class="night-star star-twinkle-3" fill="#FEF08A" />
+                    <circle cx="820" cy="40" r="1.8" class="night-star star-twinkle-1" fill="#E2E8F0" />
+                    <circle cx="890" cy="70" r="1.4" class="night-star star-twinkle-2" fill="#FFFFFF" />
+                    <circle cx="960" cy="30" r="2.2" class="night-star star-twinkle-3" fill="#FEF08A" />
+                    <circle cx="1020" cy="55" r="1.5" class="night-star star-twinkle-1" fill="#FFFFFF" />
+                    <circle cx="1110" cy="45" r="1.8" class="night-star star-twinkle-2" fill="#FEF08A" />
+                    <circle cx="1170" cy="75" r="1.3" class="night-star star-twinkle-3" fill="#FFFFFF" />
+                  </g>
+
+                  <!-- 3. Coastal Maritime Sonar Radar Waves (Pulsing from harbor) -->
+                  <g id="scenery-harbor-radar" class="scenery-harbor-radar" transform="translate(1135, 175)">
+                    <circle cx="0" cy="0" r="30" class="radar-ping-ring radar-ring-1" fill="none" stroke="rgba(16, 185, 129, 0.45)" stroke-width="1.2" />
+                    <circle cx="0" cy="0" r="60" class="radar-ping-ring radar-ring-2" fill="none" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1.2" stroke-dasharray="4 4" />
+                    <circle cx="0" cy="0" r="95" class="radar-ping-ring radar-ring-3" fill="none" stroke="rgba(16, 185, 129, 0.18)" stroke-width="1" />
+                  </g>
+                </g>
+
+                <!-- 1. LEFT COUNTRYSIDE & FARMLAND (Origin / Sourcing Zone) -->
+                <g class="scenery-zone-farmland" id="scenery-zone-farmland">
+                  <!-- Rolling Meadow Base Gradients -->
+                  <path d="M 0 420 Q 70 395 150 415 Q 220 435 280 410 L 280 500 L 0 500 Z" fill="url(#farmMeadowGrad1)" />
+                  <path d="M 0 455 Q 90 440 180 460 Q 250 475 320 450 L 320 500 L 0 500 Z" fill="url(#farmMeadowGrad2)" />
+
+                  <!-- Agricultural Furrows / Crop Rows -->
+                  <path d="M 20 470 Q 80 458 140 468" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" fill="none" stroke-dasharray="4 4" />
+                  <path d="M 30 482 Q 90 470 150 480" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" fill="none" stroke-dasharray="4 4" />
+                  <path d="M 40 494 Q 100 482 160 492" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" fill="none" stroke-dasharray="4 4" />
+
+                  <!-- Wooden Farm Fence -->
+                  <g class="scenery-fence" opacity="0.85">
+                    <line x1="25" y1="452" x2="25" y2="466" stroke="#92400E" stroke-width="2.2" stroke-linecap="round" />
+                    <line x1="45" y1="450" x2="45" y2="464" stroke="#92400E" stroke-width="2.2" stroke-linecap="round" />
+                    <line x1="65" y1="449" x2="65" y2="463" stroke="#92400E" stroke-width="2.2" stroke-linecap="round" />
+                    <line x1="22" y1="456" x2="68" y2="453" stroke="#B45309" stroke-width="1.6" />
+                    <line x1="22" y1="462" x2="68" y2="459" stroke="#B45309" stroke-width="1.6" />
+                  </g>
+
+                  <!-- Animated Farm Windmill / Eco Turbine -->
+                  <g class="scenery-windmill" transform="translate(68, 415)">
+                    <!-- Windmill Tower -->
+                    <polygon points="-4,28 4,28 2,0 -2,0" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8" />
+                    <circle cx="0" cy="0" r="3" fill="#0F172A" />
+                    <!-- Spinning Rotor Blades -->
+                    <g class="scenery-spinning-blades">
+                      <line x1="0" y1="0" x2="0" y2="-22" stroke="#64748B" stroke-width="2.2" stroke-linecap="round" />
+                      <line x1="0" y1="0" x2="19" y2="11" stroke="#64748B" stroke-width="2.2" stroke-linecap="round" />
+                      <line x1="0" y1="0" x2="-19" y2="11" stroke="#64748B" stroke-width="2.2" stroke-linecap="round" />
+                      <circle cx="0" cy="0" r="1.5" fill="#10B981" />
+                    </g>
+                  </g>
+
+                  <!-- Cute Animated Farm Cottage 1 (with Smoking Chimney & Glowing Window) -->
+                  <g class="scenery-cottage scenery-cottage-1" transform="translate(95, 432)">
+                    <!-- Shadow -->
+                    <ellipse cx="14" cy="28" rx="18" ry="4" fill="rgba(15, 23, 42, 0.15)" />
+                    <!-- Cottage Walls -->
+                    <rect x="0" y="8" width="28" height="20" rx="2" fill="#FFFDF8" stroke="#E2E8F0" stroke-width="1" />
+                    <!-- Arched Wooden Door -->
+                    <path d="M 10 28 L 10 18 A 4 4 0 0 1 18 18 L 18 28 Z" fill="#92400E" />
+                    <!-- Warm Glowing Window -->
+                    <rect class="cottage-window-glow" x="3" y="13" width="5" height="5" rx="1" fill="#FDE047" stroke="#CA8A04" stroke-width="0.6" />
+                    <!-- Brick Chimney -->
+                    <rect x="20" y="-1" width="5" height="10" fill="#B91C1C" rx="0.5" />
+                    <!-- Cottage Gabled Roof (Terracotta) -->
+                    <polygon points="-3,9 14,-2 31,9" fill="url(#cottageRoofGrad)" />
+                    <!-- Animated Chimney Smoke Puffs -->
+                    <g class="scenery-chimney-smoke" transform="translate(22, -3)">
+                      <circle class="smoke-puff smoke-puff-1" cx="0" cy="0" r="2.2" fill="rgba(203, 213, 225, 0.75)" />
+                      <circle class="smoke-puff smoke-puff-2" cx="1" cy="-4" r="3.2" fill="rgba(203, 213, 225, 0.6)" />
+                      <circle class="smoke-puff smoke-puff-3" cx="3" cy="-9" r="4.2" fill="rgba(203, 213, 225, 0.45)" />
+                    </g>
+                  </g>
+
+                  <!-- Small Village Barn / Storage Shed -->
+                  <g class="scenery-barn" transform="translate(182, 452)">
+                    <rect x="0" y="6" width="22" height="16" rx="1.5" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8" />
+                    <polygon points="-2,7 11,0 24,7" fill="#DC2626" />
+                    <rect x="7" y="11" width="8" height="11" fill="#7F1D1D" />
+                    <rect class="cottage-window-glow" x="2" y="10" width="3.5" height="3.5" rx="0.5" fill="#FEF08A" />
+                  </g>
+
+                  <!-- Swaying Tropical Coconut Palm Tree (Pollachi Terroir) -->
+                  <g class="scenery-tree scenery-palm-tree" transform="translate(142, 412)">
+                    <!-- Slender curved trunk -->
+                    <path d="M 0 38 Q 6 18 -2 0" fill="none" stroke="#78350F" stroke-width="2.8" stroke-linecap="round" />
+                    <!-- Swaying Palm Fronds -->
+                    <g class="scenery-palm-canopy">
+                      <path d="M -2 0 Q -16 -10 -22 2" fill="none" stroke="#059669" stroke-width="2.4" stroke-linecap="round" />
+                      <path d="M -2 0 Q -12 -18 -6 -24" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" />
+                      <path d="M -2 0 Q 6 -20 16 -18" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" />
+                      <path d="M -2 0 Q 18 -12 24 2" fill="none" stroke="#059669" stroke-width="2.4" stroke-linecap="round" />
+                      <path d="M -2 0 Q 4 -4 8 8" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" />
+                      <!-- Coconuts cluster -->
+                      <circle cx="-1" cy="1" r="1.6" fill="#78350F" />
+                      <circle cx="1" cy="2" r="1.6" fill="#78350F" />
+                    </g>
+                  </g>
+
+                  <!-- Swaying Round Canopy Trees -->
+                  <g class="scenery-tree scenery-canopy-tree" transform="translate(28, 436)">
+                    <rect x="-1.5" y="0" width="3" height="12" fill="#78350F" rx="1" />
+                    <circle class="tree-crown" cx="0" cy="-6" r="9" fill="#10B981" />
+                    <circle class="tree-crown-highlight" cx="-2.5" cy="-8.5" r="5" fill="#34D399" opacity="0.75" />
+                  </g>
+                  <g class="scenery-tree scenery-canopy-tree scenery-tree-delay" transform="translate(225, 438)">
+                    <rect x="-1.5" y="0" width="3" height="11" fill="#78350F" rx="1" />
+                    <circle class="tree-crown" cx="0" cy="-5" r="8" fill="#059669" />
+                    <circle class="tree-crown-highlight" cx="-2" cy="-7" r="4.5" fill="#10B981" opacity="0.8" />
+                  </g>
+                </g>
+
+                <!-- 2. CENTRAL INLAND MEADOWS & HILLS (Between Node 1 & Node 3) -->
+                <g class="scenery-zone-hills" id="scenery-zone-hills">
+                  <!-- Rolling Meadow Silhouette -->
+                  <path d="M 240 270 Q 300 230 380 250 Q 430 265 470 250 L 470 330 L 240 330 Z" fill="url(#inlandHillGrad)" opacity="0.75" />
+
+                  <!-- Tiny Hilltop Farmstead (x: 310, y: 226) -->
+                  <g class="scenery-cottage" transform="translate(310, 226)">
+                    <rect x="0" y="5" width="16" height="12" rx="1" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.6" />
+                    <polygon points="-1,5 8,0 17,5" fill="#0D2413" />
+                    <rect class="cottage-window-glow" x="2" y="8" width="3" height="3" fill="#FDE047" />
+                    <!-- Chimney & smoke -->
+                    <rect x="12" y="1" width="2.5" height="5" fill="#92400E" />
+                    <circle class="smoke-puff smoke-puff-1" cx="13" cy="-1" r="1.5" fill="rgba(203, 213, 225, 0.7)" />
+                  </g>
+
+                  <!-- Hilltop Canopy Trees -->
+                  <g class="scenery-tree scenery-canopy-tree" transform="translate(275, 248)">
+                    <rect x="-1" y="0" width="2" height="8" fill="#78350F" />
+                    <circle class="tree-crown" cx="0" cy="-4" r="6" fill="#15803D" />
+                  </g>
+                  <g class="scenery-tree scenery-canopy-tree" transform="translate(345, 235)">
+                    <rect x="-1" y="0" width="2" height="7" fill="#78350F" />
+                    <circle class="tree-crown" cx="0" cy="-4" r="5" fill="#10B981" />
+                  </g>
+
+                  <!-- Eco Solar Array on Mid-ridge (x: 540, y: 275) -->
+                  <g class="scenery-solar-array" transform="translate(540, 275)">
+                    <polygon points="0,10 16,4 36,8 20,14" fill="#1E3A8A" stroke="#60A5FA" stroke-width="0.8" />
+                    <line x1="8" y1="7" x2="28" y2="11" stroke="#93C5FD" stroke-width="0.6" />
+                    <line x1="10" y1="5.5" x2="6" y2="12" stroke="#93C5FD" stroke-width="0.6" />
+                    <line x1="18" y1="4.5" x2="14" y2="11" stroke="#93C5FD" stroke-width="0.6" />
+                    <line x1="26" y1="6" x2="22" y2="12.5" stroke="#93C5FD" stroke-width="0.6" />
+                  </g>
+
+                  <!-- Second Wind Turbine on Ridge (x: 615, y: 245) -->
+                  <g class="scenery-windmill" transform="translate(615, 245)">
+                    <polygon points="-3,24 3,24 1.5,0 -1.5,0" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.6" />
+                    <circle cx="0" cy="0" r="2.5" fill="#0F172A" />
+                    <g class="scenery-spinning-blades" style="animation-duration: 7s;">
+                      <line x1="0" y1="0" x2="0" y2="-18" stroke="#64748B" stroke-width="1.8" stroke-linecap="round" />
+                      <line x1="0" y1="0" x2="15" y2="9" stroke="#64748B" stroke-width="1.8" stroke-linecap="round" />
+                      <line x1="0" y1="0" x2="-15" y2="9" stroke="#64748B" stroke-width="1.8" stroke-linecap="round" />
+                    </g>
+                  </g>
+
+                  <!-- Pine / Cypress Trees along Cold Chain route -->
+                  <g class="scenery-tree scenery-pine-tree" transform="translate(660, 290)">
+                    <rect x="-1" y="0" width="2" height="6" fill="#78350F" />
+                    <polygon points="0,-16 -5,0 5,0" fill="#065F46" />
+                    <polygon points="0,-12 -4,-2 4,-2" fill="#047857" />
+                  </g>
+                  <g class="scenery-tree scenery-pine-tree" transform="translate(675, 296)">
+                    <rect x="-1" y="0" width="2" height="5" fill="#78350F" />
+                    <polygon points="0,-13 -4,0 4,0" fill="#047857" />
+                  </g>
+                </g>
+
+                <!-- 3. THE SEA & MARITIME PORT (Top-Right Zone: Node 4 / Global Export) -->
+                <g class="scenery-zone-sea" id="scenery-zone-sea">
+                  <!-- Ocean Waters Bay (Deep Blue & Teal Gradient) -->
+                  <path class="scenery-ocean-base"
+                    d="M 870 0 Q 940 35 1010 30 Q 1070 25 1200 45 L 1200 210 L 920 210 Q 880 140 870 0 Z"
+                    fill="url(#coastalSeaGrad)" />
+
+                  <!-- Coastal Shoreline / Harbor Quay Wall -->
+                  <path d="M 870 0 Q 940 35 1010 30 Q 1070 25 1200 45" 
+                    fill="none" stroke="#F1F5F9" stroke-width="6" stroke-linecap="round" opacity="0.9" />
+                  <path d="M 870 0 Q 940 35 1010 30 Q 1070 25 1200 45" 
+                    fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+
+                  <!-- Animated Undulating Ocean Waves & Water Shimmers -->
+                  <g class="scenery-ocean-waves">
+                    <!-- Wave Layer 1 (Slow Deep Swell) -->
+                    <path class="ocean-wave-path wave-path-1"
+                      d="M 920 50 Q 960 42 1000 50 T 1080 50 T 1160 50 T 1200 50"
+                      fill="none" stroke="rgba(255, 255, 255, 0.6)" stroke-width="2.2" stroke-linecap="round" />
+                    <!-- Wave Layer 2 (Mid Surface Ripple) -->
+                    <path class="ocean-wave-path wave-path-2"
+                      d="M 940 85 Q 980 78 1020 85 T 1100 85 T 1180 85"
+                      fill="none" stroke="rgba(186, 230, 253, 0.7)" stroke-width="2.5" stroke-linecap="round" />
+                    <!-- Wave Layer 3 (Harbor Water Ripple) -->
+                    <path class="ocean-wave-path wave-path-3"
+                      d="M 960 120 Q 1000 114 1040 120 T 1120 120 T 1200 120"
+                      fill="none" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2" stroke-linecap="round" />
+                    <!-- Wave Layer 4 (Lower Swell) -->
+                    <path class="ocean-wave-path wave-path-4"
+                      d="M 980 160 Q 1030 152 1080 160 T 1180 160"
+                      fill="none" stroke="rgba(125, 211, 252, 0.55)" stroke-width="2" stroke-linecap="round" />
+                  </g>
+
+                  <!-- Animated Coastal Harbor Lighthouse (x: 965, y: 30) -->
+                  <g class="scenery-lighthouse" transform="translate(965, 30)">
+                    <!-- Rocky Island Base -->
+                    <path d="M -12 28 Q 0 22 14 26 Q 22 30 18 36 L -14 36 Z" fill="#475569" stroke="#334155" stroke-width="1" />
+                    <!-- Lighthouse Tower with Red Stripes -->
+                    <polygon points="-5,26 5,26 3,2 -3,2" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8" />
+                    <!-- Red Warning Band 1 -->
+                    <polygon points="-4.5,20 4.5,20 4,14 -4,14" fill="#EF4444" />
+                    <!-- Red Warning Band 2 -->
+                    <polygon points="-3.6,8 3.6,8 3.2,3 -3.2,3" fill="#EF4444" />
+                    <!-- Lantern Room / Glass Dome -->
+                    <rect x="-3" y="-3" width="6" height="5" fill="#FEF08A" stroke="#CA8A04" stroke-width="0.8" rx="0.5" />
+                    <path d="M -4 -3 Q 0 -7 4 -3 Z" fill="#0F172A" />
+                    <!-- Sweeping Lighthouse Light Beam Cone -->
+                    <g class="lighthouse-beam-rotator">
+                      <polygon points="0,-1 115,-45 115,40" fill="url(#lighthouseBeamGrad)" opacity="0.65" />
+                    </g>
+                  </g>
+
+                  <!-- Floating Maritime Navigation Buoy with Blinking Strobe -->
+                  <g class="scenery-buoy" transform="translate(1030, 80)">
+                    <!-- Water Ripple -->
+                    <ellipse cx="0" cy="5" rx="7" ry="2.2" fill="none" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1" />
+                    <!-- Buoy Float Body -->
+                    <path d="M -4 5 L 4 5 L 2.5 -2 L -2.5 -2 Z" fill="#DC2626" />
+                    <rect x="-1" y="-6" width="2" height="4" fill="#0F172A" />
+                    <!-- Blinking Beacon Light -->
+                    <circle class="buoy-strobe" cx="0" cy="-7" r="2" fill="#FDE047" />
+                  </g>
+
+                  <!-- Animated Cargo Container Vessel / Ocean Liner (Bobbing on the Sea!) -->
+                  <g class="scenery-cargo-ship" transform="translate(1085, 58)">
+                    <!-- Ship Shadow / Water Reflection -->
+                    <ellipse cx="26" cy="18" rx="34" ry="5" fill="rgba(3, 105, 161, 0.35)" />
+                    <!-- Main Hull (Navy with Red Waterline) -->
+                    <path d="M -6 14 L 56 14 Q 68 14 74 6 L -10 6 Q -8 11 -6 14 Z" fill="#DC2626" />
+                    <path d="M -10 6 L 74 6 L 68 0 L -12 0 Z" fill="#0F172A" stroke="#1E293B" stroke-width="0.8" />
+                    <!-- White Navigation Bridge / Superstructure -->
+                    <rect x="42" y="-14" width="16" height="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="0.8" rx="1" />
+                    <rect x="44" y="-12" width="12" height="4" fill="#38BDF8" rx="0.5" />
+                    <rect x="48" y="-18" width="4" height="4" fill="#FFFFFF" />
+                    <line x1="50" y1="-18" x2="50" y2="-23" stroke="#94A3B8" stroke-width="1" />
+                    <circle cx="50" cy="-23" r="1.5" fill="#F59E0B" />
+                    <!-- Exhaust Funnel with Shipyon Green Stripe -->
+                    <rect x="36" y="-12" width="5" height="12" fill="#0F172A" />
+                    <rect x="36" y="-9" width="5" height="3" fill="#10B981" />
+
+                    <!-- Multicolored Export Container Stacks on Deck -->
+                    <!-- Stack 1 (Emerald Green - Agro/Spices) -->
+                    <rect x="-6" y="-7" width="13" height="7" rx="0.8" fill="#059669" stroke="#047857" stroke-width="0.6" />
+                    <rect x="-6" y="-14" width="13" height="7" rx="0.8" fill="#10B981" stroke="#059669" stroke-width="0.6" />
+                    <!-- Stack 2 (Marine Blue - Cold Chain) -->
+                    <rect x="9" y="-7" width="13" height="7" rx="0.8" fill="#1D4ED8" stroke="#1E40AF" stroke-width="0.6" />
+                    <rect x="9" y="-14" width="13" height="7" rx="0.8" fill="#2563EB" stroke="#1D4ED8" stroke-width="0.6" />
+                    <!-- Stack 3 (Gold / Ochre - Commercial Freight) -->
+                    <rect x="24" y="-7" width="13" height="7" rx="0.8" fill="#D97706" stroke="#B45309" stroke-width="0.6" />
+                    <rect x="24" y="-14" width="13" height="7" rx="0.8" fill="#F59E0B" stroke="#D97706" stroke-width="0.6" />
+
+                    <!-- Ship Bow Wake Foam (Animated) -->
+                    <path class="ship-wake-foam" d="M 74 6 Q 84 9 92 12" fill="none" stroke="rgba(255, 255, 255, 0.75)" stroke-width="1.6" stroke-linecap="round" />
+                  </g>
+
+                  <!-- Small Tilting Sailboat near the Coast (x: 1148, y: 118) -->
+                  <g class="scenery-sailboat" transform="translate(1148, 118)">
+                    <!-- White Hull -->
+                    <path d="M -6 5 L 8 5 L 12 1 L -8 1 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.6" />
+                    <!-- Mast & Triangular Sails -->
+                    <line x1="1" y1="1" x2="1" y2="-16" stroke="#475569" stroke-width="1" />
+                    <polygon points="1,-15 1,-2 8,-2" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="0.6" />
+                    <polygon points="0,-13 0,-2 -6,-2" fill="#E0F2FE" opacity="0.9" />
+                  </g>
+
+                  <!-- Graceful Gliding Coastal Seagulls in Sea Breeze -->
+                  <g class="scenery-seagull scenery-seagull-1" transform="translate(1015, 18)">
+                    <path d="M -5 2 Q -2 -2 0 0 Q 2 -2 5 2" fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" />
+                  </g>
+                  <g class="scenery-seagull scenery-seagull-2" transform="translate(1048, 12)">
+                    <path d="M -4 1.5 Q -1.5 -1.5 0 0 Q 1.5 -1.5 4 1.5" fill="none" stroke="#F1F5F9" stroke-width="1.2" stroke-linecap="round" />
+                  </g>
+                  <g class="scenery-seagull scenery-seagull-3" transform="translate(1115, 22)">
+                    <path d="M -4 1.5 Q -1.5 -1.5 0 0 Q 1.5 -1.5 4 1.5" fill="none" stroke="#E2E8F0" stroke-width="1.2" stroke-linecap="round" />
+                  </g>
+
+                </g>
+
+              </g>
 
               <!-- Inactive Background Guideline (Subtle dashed path showing full zigzag ahead) -->
               <path class="road-path-blueprint"
@@ -736,9 +1400,11 @@
               </g>
 
               <!-- Cruising Intermodal Cargo Truck (Animated along the zigzag curve) -->
-              <g id="road-cargo-truck" class="road-cargo-truck" transform="translate(145, 380)">
+              <g id="road-cargo-truck" class="road-cargo-truck" transform="translate(145, 380)" data-cursor="X-RAY" tabindex="0" role="button" aria-label="Inspect Cargo Container">
                 <!-- Under-chassis shadow -->
                 <ellipse cx="0" cy="8" rx="22" ry="6" fill="rgba(15, 23, 42, 0.35)" />
+                <!-- High-Intensity Night Headlight Beam (Activates in dusk & night) -->
+                <polygon class="truck-night-beam" points="18,-4 140,-45 140,45 18,4" fill="url(#truckBeamWideGrad)" />
                 <!-- Blue Container Trailer -->
                 <rect x="-24" y="-12" width="28" height="19" rx="3" fill="#2373F4" stroke="#1D4ED8" stroke-width="1.2" />
                 <line x1="-16" y1="-12" x2="-16" y2="7" stroke="#1E40AF" stroke-width="1" />
@@ -747,8 +1413,8 @@
                 <rect x="5" y="-9" width="13" height="16" rx="2.5" fill="#0B1E36" />
                 <!-- Windshield -->
                 <rect x="8" y="-7" width="8" height="6" rx="1.2" fill="#65D0F4" opacity="0.9" />
-                <!-- Headlights & Beam -->
-                <polygon points="18,-4 42,-12 42,12 18,4" fill="url(#truckLightGlowGrad)" opacity="0.75" />
+                <!-- Headlights & Daylight Glow Beam -->
+                <polygon class="truck-day-beam" points="18,-4 42,-12 42,12 18,4" fill="url(#truckLightGlowGrad)" opacity="0.75" />
                 <circle cx="18" cy="0" r="2.2" fill="#F2F7A0" />
                 <!-- Status Beacon -->
                 <circle cx="-10" cy="-14" r="2" fill="#10B981" />
@@ -894,404 +1560,110 @@
               <span class="status-chip-text" id="zigzag-status-chip-text">Stage 01: Sourcing direct from regional farms</span>
             </div>
 
-          </div></div>
+          </div>
 
         </div>
       </div>
     </div>
   </section>
   <!-- ==========================================================================
-       OUR VALUES (4 PILLARS + CLOSING STATEMENT)
-       Headline: OUR VALUES
-       4 sections:
-       - QUALITY: What we deliver matters.
-       - TRUST: How we build matters.
-       - PRECISION: Every detail matters.
-       - PROGRESS: What comes next matters.
-       Closing statement: The Principles Behind Every Move
-       Positioned before WHY CHOOSE US with interactive spotlight & motion
+       WHY CHOOSE US - SMALL EXECUTIVE SECTION
+       Compact, small footprint with golden "Connect to the World" accent
        ========================================================================== -->
-  <section class="values-section modern-values-section" id="values-section">
+  <section class="why-choose-compact-section" id="why-choose-us-section">
     <div class="container">
-      <div class="section-header-editorial text-center">
-        <span class="section-pill-tag values-pill-tag">
-          <span class="live-dot-beacon values-beacon"></span>
-          <span>Core Philosophy</span>
-        </span>
-        <h2 class="section-title-editorial values-headline-monumental">OUR VALUES</h2>
-        <p class="section-subtitle-editorial">
-          Four enduring commitments defining how we operate, build partnerships, and deliver excellence across continents.
-        </p>
-      </div>
-
-      <!-- Continuous Kinetic Values Showcase with Interconnected Energy Arteries & Harmonic Resonance -->
-      <div class="values-kinetic-showcase-wrapper" id="values-showcase-wrapper">
-        
-        <!-- Continuous SVG Connecting Energy Arteries Behind Cards -->
-        <svg class="values-artery-svg" id="values-artery-svg" viewBox="0 0 1200 380" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="arteryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#2373F4" stop-opacity="0.85" />
-              <stop offset="50%" stop-color="#65D0F4" stop-opacity="0.95" />
-              <stop offset="100%" stop-color="#F2F7A0" stop-opacity="0.85" />
-            </linearGradient>
-            <filter id="arteryBeamShadow" x="-30%" y="-30%" width="160%" height="160%">
-              <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="rgba(35, 115, 244, 0.7)" />
-            </filter>
-          </defs>
-
-          <!-- Interconnecting Artery Splines: Track + Flow Beam -->
-          <path id="artery-path-1-2" class="artery-track" d="M 150 190 C 250 240, 350 240, 450 190" />
-          <path id="artery-flow-1-2" class="artery-flow-beam" d="M 150 190 C 250 240, 350 240, 450 190" />
-
-          <path id="artery-path-2-3" class="artery-track" d="M 450 190 C 550 240, 650 240, 750 190" />
-          <path id="artery-flow-2-3" class="artery-flow-beam" d="M 450 190 C 550 240, 650 240, 750 190" />
-
-          <path id="artery-path-3-4" class="artery-track" d="M 750 190 C 850 240, 950 240, 1050 190" />
-          <path id="artery-flow-3-4" class="artery-flow-beam" d="M 750 190 C 850 240, 950 240, 1050 190" />
-
-          <!-- Moving Energy Photons along Arteries -->
-          <circle class="artery-photon photon-1" r="5" fill="#65D0F4">
-            <animateMotion dur="3s" repeatCount="indefinite">
-              <mpath href="#artery-path-1-2" />
-            </animateMotion>
-          </circle>
-          <circle class="artery-photon photon-2" r="5" fill="#F2F7A0">
-            <animateMotion dur="3s" repeatCount="indefinite" begin="0.75s">
-              <mpath href="#artery-path-2-3" />
-            </animateMotion>
-          </circle>
-          <circle class="artery-photon photon-3" r="5" fill="#65D0F4">
-            <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s">
-              <mpath href="#artery-path-3-4" />
-            </animateMotion>
-          </circle>
-        </svg>
-
-        <div class="values-interactive-showcase" id="values-showcase-grid">
-
-          <!-- 01 — QUALITY -->
-          <div class="value-luxury-card active-resonance val-card-revealed" data-index="0" id="val-card-quality" role="region" aria-label="Value: Quality">
-            <!-- Continuous Rotating Conic Border Beam -->
-            <div class="card-border-beam" aria-hidden="true"></div>
-            <div class="card-spotlight-glow" aria-hidden="true"></div>
-            
-            <div class="value-card-inner">
-              <div class="value-top-bar">
-                <span class="value-index-badge">01</span>
-                <div class="value-orbit-icon-box">
-                  <div class="icon-orbit-ring" aria-hidden="true"></div>
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                </div>
-              </div>
-
-              <div class="value-name-wrap">
-                <div class="value-pillar-label">PILLAR 01 &bull; STANDARD</div>
-                <h3 class="value-title-name">QUALITY</h3>
-                <p class="value-statement-text">What we deliver matters.</p>
-                
-                <!-- Smart Benchmark Hover/Resonance Expansion -->
-                <div class="value-benchmark-badge">
-                  <span class="benchmark-dot"></span>
-                  <span class="benchmark-text">Zero-Defect Farmgate Purity</span>
-                </div>
-              </div>
-
-              <!-- Continuous Live Harmonic Sine Wave Canvas -->
-              <div class="value-harmonic-wave-box">
-                <canvas class="harmonic-wave-canvas" data-wave="quality" width="220" height="34"></canvas>
-                <div class="wave-telemetry-legend">
-                  <span class="wave-name">Harmonic Purity Flux</span>
-                  <span class="wave-freq">432 Hz</span>
-                </div>
-              </div>
-
-              <div class="value-indicator-track">
-                <div class="value-indicator-fill"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 02 — TRUST -->
-          <div class="value-luxury-card val-card-revealed" data-index="1" id="val-card-trust" role="region" aria-label="Value: Trust">
-            <!-- Continuous Rotating Conic Border Beam -->
-            <div class="card-border-beam" aria-hidden="true"></div>
-            <div class="card-spotlight-glow" aria-hidden="true"></div>
-            
-            <div class="value-card-inner">
-              <div class="value-top-bar">
-                <span class="value-index-badge">02</span>
-                <div class="value-orbit-icon-box">
-                  <div class="icon-orbit-ring" aria-hidden="true"></div>
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="M9 12l2 2 4-4"/>
-                  </svg>
-                </div>
-              </div>
-
-              <div class="value-name-wrap">
-                <div class="value-pillar-label">PILLAR 02 &bull; INTEGRITY</div>
-                <h3 class="value-title-name">TRUST</h3>
-                <p class="value-statement-text">How we build matters.</p>
-                
-                <!-- Smart Benchmark Hover/Resonance Expansion -->
-                <div class="value-benchmark-badge">
-                  <span class="benchmark-dot"></span>
-                  <span class="benchmark-text">100% Escrow &amp; LC Settlement</span>
-                </div>
-              </div>
-
-              <!-- Continuous Live Harmonic Sine Wave Canvas -->
-              <div class="value-harmonic-wave-box">
-                <canvas class="harmonic-wave-canvas" data-wave="trust" width="220" height="34"></canvas>
-                <div class="wave-telemetry-legend">
-                  <span class="wave-name">Network Trust Resonance</span>
-                  <span class="wave-freq">528 Hz</span>
-                </div>
-              </div>
-
-              <div class="value-indicator-track">
-                <div class="value-indicator-fill"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 03 — PRECISION -->
-          <div class="value-luxury-card val-card-revealed" data-index="2" id="val-card-precision" role="region" aria-label="Value: Precision">
-            <!-- Continuous Rotating Conic Border Beam -->
-            <div class="card-border-beam" aria-hidden="true"></div>
-            <div class="card-spotlight-glow" aria-hidden="true"></div>
-            
-            <div class="value-card-inner">
-              <div class="value-top-bar">
-                <span class="value-index-badge">03</span>
-                <div class="value-orbit-icon-box">
-                  <div class="icon-orbit-ring" aria-hidden="true"></div>
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/>
-                    <line x1="12" y1="6" x2="12" y2="12"/>
-                    <line x1="12" y1="12" x2="16" y2="14"/>
-                  </svg>
-                </div>
-              </div>
-
-              <div class="value-name-wrap">
-                <div class="value-pillar-label">PILLAR 03 &bull; METRICS</div>
-                <h3 class="value-title-name">PRECISION</h3>
-                <p class="value-statement-text">Every detail matters.</p>
-                
-                <!-- Smart Benchmark Hover/Resonance Expansion -->
-                <div class="value-benchmark-badge">
-                  <span class="benchmark-dot"></span>
-                  <span class="benchmark-text">&plusmn;0.1g Sortex Optical Tolerance</span>
-                </div>
-              </div>
-
-              <!-- Continuous Live Harmonic Sine Wave Canvas -->
-              <div class="value-harmonic-wave-box">
-                <canvas class="harmonic-wave-canvas" data-wave="precision" width="220" height="34"></canvas>
-                <div class="wave-telemetry-legend">
-                  <span class="wave-name">Thermal &amp; Sortex Telemetry</span>
-                  <span class="wave-freq">741 Hz</span>
-                </div>
-              </div>
-
-              <div class="value-indicator-track">
-                <div class="value-indicator-fill"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 04 — PROGRESS -->
-          <div class="value-luxury-card val-card-revealed" data-index="3" id="val-card-progress" role="region" aria-label="Value: Progress">
-            <!-- Continuous Rotating Conic Border Beam -->
-            <div class="card-border-beam" aria-hidden="true"></div>
-            <div class="card-spotlight-glow" aria-hidden="true"></div>
-            
-            <div class="value-card-inner">
-              <div class="value-top-bar">
-                <span class="value-index-badge">04</span>
-                <div class="value-orbit-icon-box">
-                  <div class="icon-orbit-ring" aria-hidden="true"></div>
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                    <polyline points="17 6 23 6 23 12"/>
-                  </svg>
-                </div>
-              </div>
-
-              <div class="value-name-wrap">
-                <div class="value-pillar-label">PILLAR 04 &bull; VELOCITY</div>
-                <h3 class="value-title-name">PROGRESS</h3>
-                <p class="value-statement-text">What comes next matters.</p>
-                
-                <!-- Smart Benchmark Hover/Resonance Expansion -->
-                <div class="value-benchmark-badge">
-                  <span class="benchmark-dot"></span>
-                  <span class="benchmark-text">50+ Global Direct Liners</span>
-                </div>
-              </div>
-
-              <!-- Continuous Live Harmonic Sine Wave Canvas -->
-              <div class="value-harmonic-wave-box">
-                <canvas class="harmonic-wave-canvas" data-wave="progress" width="220" height="34"></canvas>
-                <div class="wave-telemetry-legend">
-                  <span class="wave-name">Expansion Momentum Vector</span>
-                  <span class="wave-freq">852 Hz</span>
-                </div>
-              </div>
-
-              <div class="value-indicator-track">
-                <div class="value-indicator-fill"></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
       
-      <!-- Closing Statement Ribbon -->
-      <div class="values-closing-ribbon" id="values-closing-banner">
-        <div class="closing-ribbon-line" aria-hidden="true"></div>
-        <div class="closing-statement-wrap">
-          <span class="closing-compass-dot"></span>
-          <h4 class="closing-statement-text">The Principles Behind Every Move</h4>
-          <span class="closing-compass-dot"></span>
+      <!-- Compact Header -->
+      <div class="why-compact-header">
+        <div class="why-compact-badge">
+          <span class="why-gold-dot"></span>
+          <span>WHY CHOOSE US</span>
         </div>
-        <div class="closing-ribbon-line" aria-hidden="true"></div>
-      </div>
-    </div>
-  </section>
-<section class="why-choose-section" id="why-choose-us-section">
-    <div class="container">
-      <div class="section-header-editorial">
-        <span class="section-pill-tag">Why Shipyon</span>
-        <h2 class="section-title-editorial">WHY CHOOSE US</h2>
-        <p class="section-subtitle-editorial">
-          From farm-level sourcing to multimodal vessel delivery, explore how our vertically integrated operations eliminate risk and deliver predictable trade outcomes.
+        <h2 class="why-compact-title">
+          <span class="why-title-white">Why Choose Us &bull; </span><span class="why-title-gold">Connect to the World</span>
+        </h2>
+        <p class="why-compact-subtitle">
+          Direct farmgate origins, active reefer fleets, and priority seaport corridors delivering precision trade to 50+ sovereign markets.
         </p>
       </div>
 
-      <!-- Interactive Pillars & Live Console Grid -->
-      <div class="why-interactive-grid">
-        <!-- Left: Interactive Pillar Cards -->
-        <div class="why-pillars-list" id="why-pillars-list">
-          <!-- Pillar 1 -->
-          <div class="why-pillar-card active" data-pillar="0">
-            <div class="pillar-header">
-              <span class="pillar-index">01</span>
-              <span class="pillar-category-tag">Direct Farm Aggregation</span>
-            </div>
-            <h3 class="pillar-title">Origin Control & Certified Grading</h3>
-            <p class="pillar-desc">
-              Direct contracts with 500+ verified growers in Dharapuram, Theni, and Western Ghats. Eliminating intermediaries ensures farm-fresh pricing, Sortex cleaning, and strict APEDA quality certification.
-            </p>
-            <div class="pillar-metrics-strip">
-              <span class="p-stat">50+ Sourcing Centers</span>
-              <span class="p-stat">0 Intermediaries</span>
-            </div>
+      <!-- 4 Compact Cards Row -->
+      <div class="why-compact-grid">
+        
+        <!-- 01 Origin Control -->
+        <div class="why-compact-card">
+          <div class="why-card-top">
+            <span class="why-card-index">01</span>
+            <span class="why-card-tag">SOURCING</span>
           </div>
-
-          <!-- Pillar 2 -->
-          <div class="why-pillar-card" data-pillar="1">
-            <div class="pillar-header">
-              <span class="pillar-index">02</span>
-              <span class="pillar-category-tag">Cold Chain Logistics</span>
-            </div>
-            <h3 class="pillar-title">Precision Reefer & Cold Chain Fleet</h3>
-            <p class="pillar-desc">
-              Continuous temperature-controlled reefer fleet with real-time GPS telemetry from farm packhouses to container vessel berths within 24 hours of harvest.
-            </p>
-            <div class="pillar-metrics-strip">
-              <span class="p-stat">&lt;24h Farm to Reefer</span>
-              <span class="p-stat">0°C to 14°C Precision</span>
-            </div>
-          </div>
-
-          <!-- Pillar 3 -->
-          <div class="why-pillar-card" data-pillar="2">
-            <div class="pillar-header">
-              <span class="pillar-index">03</span>
-              <span class="pillar-category-tag">Port Terminals</span>
-            </div>
-            <h3 class="pillar-title">Deep-Water Seaport Access</h3>
-            <p class="pillar-desc">
-              Dedicated container berthing slots and automated customs clearances at Cochin (Vallarpadam ICTT), Tuticorin, and Chennai ports with weekly direct liner sailings.
-            </p>
-            <div class="pillar-metrics-strip">
-              <span class="p-stat">3 Direct Seaports</span>
-              <span class="p-stat">99.8% On-Time Vessel Loading</span>
-            </div>
-          </div>
-
-          <!-- Pillar 4 -->
-          <div class="why-pillar-card" data-pillar="3">
-            <div class="pillar-header">
-              <span class="pillar-index">04</span>
-              <span class="pillar-category-tag">Global Compliance</span>
-            </div>
-            <h3 class="pillar-title">Phytosanitary & Institutional Trust</h3>
-            <p class="pillar-desc">
-              Full international certification compliance (Global GAP, FSSAI, US FDA, Halal, ISO 22000) with comprehensive laboratory pesticide residue testing for each container.
-            </p>
-            <div class="pillar-metrics-strip">
-              <span class="p-stat">50+ Global Gateways</span>
-              <span class="p-stat">100% Traceability</span>
-            </div>
+          <h3 class="why-card-title">Origin Control</h3>
+          <p class="why-card-desc">
+            Direct contracts with 500+ verified growers &amp; Sortex laser optical cleaning.
+          </p>
+          <div class="why-card-pill">
+            <span class="why-pill-dot"></span>
+            <span>0 Intermediaries</span>
           </div>
         </div>
 
-        <!-- Right: Animated Command Console Display -->
-        <div class="why-console-display" id="why-console-display">
-          <div class="why-console-frame">
-            <img src="assets/shipyon-reefer-terminal.jpg" alt="Shipyon Reefer Terminal and Container Logistics" class="console-img active" id="why-console-img-0">
-            <img src="assets/shipyon-harbor-docks.jpg" alt="Shipyon Harbor Docks and Reefer Logistics" class="console-img" id="why-console-img-1">
-            <img src="assets/shipyon-dock-cranes.jpg" alt="Deep-water Seaport Container Loading Cranes" class="console-img" id="why-console-img-2">
-            <img src="assets/shipyon-sunset-containership.jpg" alt="Ocean Container Cargo Ship Sailing Global Routes at Sunset" class="console-img" id="why-console-img-3">
-            
-            <div class="console-hud-overlay">
-              <div class="hud-chip live-chip">
-                <span class="hud-radar-beacon"></span>
-                <span id="why-hud-status">OPERATIONAL TELEMETRY: ACTIVE</span>
-              </div>
-              <div class="hud-caption-glass">
-                <div class="hud-caption-tag" id="why-hud-tag">Pillar 01 • Sourcing</div>
-                <h4 class="hud-caption-title" id="why-hud-title">Origin Control & Certified Grading</h4>
-                <div class="hud-progress-track">
-                  <div class="hud-progress-fill" id="why-hud-progress"></div>
-                </div>
-              </div>
-            </div>
+        <!-- 02 Cold Chain -->
+        <div class="why-compact-card">
+          <div class="why-card-top">
+            <span class="why-card-index">02</span>
+            <span class="why-card-tag">COLD CHAIN</span>
+          </div>
+          <h3 class="why-card-title">Active Reefer Fleet</h3>
+          <p class="why-card-desc">
+            Continuous 2&deg;C&ndash;4&deg;C IoT GPS telematics from farm packhouse to vessel berth.
+          </p>
+          <div class="why-card-pill">
+            <span class="why-pill-dot"></span>
+            <span>&lt;24h Farm to Berth</span>
           </div>
         </div>
+
+        <!-- 03 Seaport Access -->
+        <div class="why-compact-card">
+          <div class="why-card-top">
+            <span class="why-card-index">03</span>
+            <span class="why-card-tag">PORTS</span>
+          </div>
+          <h3 class="why-card-title">Seaport Gateways</h3>
+          <p class="why-card-desc">
+            Priority berthing and automated customs at Cochin, Tuticorin &amp; Chennai.
+          </p>
+          <div class="why-card-pill">
+            <span class="why-pill-dot"></span>
+            <span>3 Direct Seaports</span>
+          </div>
+        </div>
+
+        <!-- 04 Global Compliance -->
+        <div class="why-compact-card">
+          <div class="why-card-top">
+            <span class="why-card-index">04</span>
+            <span class="why-card-tag">COMPLIANCE</span>
+          </div>
+          <h3 class="why-card-title">Institutional Trust</h3>
+          <p class="why-card-desc">
+            APEDA, US FDA, Global GAP, Halal &amp; 100% batch residue laboratory testing.
+          </p>
+          <div class="why-card-pill">
+            <span class="why-pill-dot"></span>
+            <span>50+ Global Gateways</span>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Animated Metric Counters Ribbon -->
-      <div class="why-metrics-ribbon">
-        <div class="why-metric-col">
-          <div class="why-metric-number" data-target="50">50+</div>
-          <div class="why-metric-name">Sourcing Centers</div>
-          <div class="why-metric-sub">Direct farm-gate clusters</div>
-        </div>
-        <div class="why-metric-col">
-          <div class="why-metric-number" data-target="100">100+</div>
-          <div class="why-metric-name">Supplier Network</div>
-          <div class="why-metric-sub">Verified institutional growers</div>
-        </div>
-        <div class="why-metric-col">
-          <div class="why-metric-number" data-target="99.8" data-decimals="1">99.8%</div>
-          <div class="why-metric-name">On-Time Dispatch</div>
-          <div class="why-metric-sub">Multimodal vessel scheduling</div>
-        </div>
-        <div class="why-metric-col">
-          <div class="why-metric-number" data-target="50">50+</div>
-          <div class="why-metric-name">Global Markets</div>
-          <div class="why-metric-sub">Direct international trade ports</div>
-        </div>
+      <!-- Compact CTA Row -->
+      <div class="why-compact-action-row">
+        <a href="contact.html" class="why-compact-cta-btn">
+          <span>Explore Trade Corridors</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
+
     </div>
   </section>
 
@@ -1446,6 +1818,8 @@
       </form>
     </div>
   </div>
+
+
 
   <!-- 3D Realistic Globe Dependencies -->
   <script src="three.min.js"></script>
