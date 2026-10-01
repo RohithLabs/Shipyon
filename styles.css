@@ -458,39 +458,44 @@ button, input, textarea, select {
 }
 
 .btn-primary {
-  background: #16A085;
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(22, 160, 133, 0.3);
+  background: linear-gradient(135deg, #14351B 0%, #1B7339 60%, #82C867 100%) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #82C867 !important;
+  box-shadow: 0 6px 20px rgba(27, 115, 57, 0.3) !important;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(14, 107, 168, 0.4);
-  background: #0E6BA8;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 28px rgba(27, 115, 57, 0.45) !important;
+  background: linear-gradient(135deg, #1B7339 0%, #22994C 100%) !important;
+  border-color: #B0DB9C !important;
+  color: #FFFFFF !important;
 }
 
 .btn-forest {
-  background: #0D2413;
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(30, 42, 68, 0.25);
+  background: #0D2413 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #1B7339 !important;
+  box-shadow: 0 4px 14px rgba(13, 36, 19, 0.2) !important;
 }
 
 .btn-forest:hover {
-  transform: translateY(-2px);
-  background: #0E6BA8;
-  box-shadow: 0 8px 24px rgba(14, 107, 168, 0.35);
+  transform: translateY(-2px) !important;
+  background: #1B7339 !important;
+  box-shadow: 0 8px 24px rgba(27, 115, 57, 0.35) !important;
 }
 
 .btn-outline {
-  background: transparent;
-  color: #0E6BA8;
-  border: 1.5px solid #0E6BA8;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #0D2413 !important;
+  border: 1.5px solid #1B7339 !important;
 }
 
 .btn-outline:hover {
-  background: #0E6BA8;
-  color: #FFFFFF;
-  transform: translateY(-2px);
+  background: #ECFAE5 !important;
+  color: #1B7339 !important;
+  border-color: #1B7339 !important;
+  transform: translateY(-2px) !important;
 }
 
 .mobile-toggle {
@@ -12092,19 +12097,23 @@ body.about-page-botanical {
 }
 
 .institutional-card {
-  background: #FFFFFF;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  padding: 36px;
-  box-shadow: var(--shadow-sm);
+  background: rgba(236, 250, 229, 0.92);
+  border: 1.5px solid #CAE8BD;
+  border-radius: 18px;
+  padding: 28px 30px;
+  box-shadow: 0 10px 30px -6px rgba(13, 36, 19, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   box-sizing: border-box;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
   position: relative;
   overflow: hidden;
+  will-change: transform;
+  transform-style: preserve-3d;
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 .institutional-card::before {
@@ -12113,60 +12122,69 @@ body.about-page-botanical {
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 3.5px;
   background: linear-gradient(90deg, #1B7339, #B0DB9C);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  opacity: 1;
+  transition: opacity 0.35s ease;
 }
 
 .institutional-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-  border-color: #1B7339;
-}
-
-.institutional-card:hover::before {
-  opacity: 1;
+  background: #ECFAE5;
+  border-color: #B0DB9C;
+  box-shadow: 0 16px 36px -6px rgba(13, 36, 19, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
 }
 
 .inst-title {
   font-family: var(--font-editorial);
-  font-size: 1.28rem;
+  font-size: 1.22rem;
   font-weight: 700;
-  color: var(--forest-950);
-  line-height: 1.4;
-  margin-bottom: 22px;
+  color: #0D2413;
+  line-height: 1.35;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.inst-star-icon {
-  flex-shrink: 0;
+.inst-star-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: rgba(176, 219, 156, 0.45);
+  border: 1px solid rgba(176, 219, 156, 0.75);
   color: #1B7339;
-  width: 18px;
-  height: 18px;
-  transition: transform 0.35s ease, color 0.3s ease;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease, color 0.3s ease;
 }
 
-.institutional-card:hover .inst-star-icon {
-  transform: rotate(72deg) scale(1.25);
-  color: #0D2413;
+.inst-star-icon {
+  width: 16px;
+  height: 16px;
+  color: inherit;
+}
+
+.institutional-card:hover .inst-star-icon-box {
+  transform: scale(1.12) rotate(12deg);
+  background: #1B7339;
+  color: #FFFFFF;
 }
 
 .inst-desc {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  margin-bottom: 26px;
+  font-size: 0.92rem;
+  color: #2E5336;
+  line-height: 1.62;
+  margin-bottom: 20px;
 }
 
 .inst-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding-top: 18px;
-  border-top: 1px solid var(--border-subtle);
+  padding-top: 16px;
+  border-top: 1.5px solid rgba(202, 232, 189, 0.75);
 }
 
 .inst-chip {
@@ -12174,10 +12192,10 @@ body.about-page-botanical {
   font-weight: 700;
   color: #1B7339;
   background: rgba(27, 115, 57, 0.08);
+  border: 1px solid rgba(202, 232, 189, 0.9);
   padding: 5px 12px;
   border-radius: 9999px;
 }
-
 /* 6. AMBIENT LAPTOP DASHBOARD BACKDROP FOR ABOUT SECTION */
 .ambient-about-stage {
   position: relative;
@@ -13197,4 +13215,1689 @@ body.about-page-botanical {
 @keyframes heavyLiquidSheen {
   0% { left: -100%; }
   35%, 100% { left: 100%; }
+}
+
+/* ==========================================================================
+   EXECUTIVE MARITIME LUXURY DESIGN SYSTEM - ABOUT US & SERVICES PAGES
+   Theme: Pristine Editorial Canvas with Deep Ocean Cobalt & Saffron Accents
+   No Space Effects, No Purple Tints, Pure Professional Luxury
+   ========================================================================== */
+
+/* 1. Base Theme Scoping */
+body.about-page-theme,
+body.services-page-theme {
+  background-color: #F8FAFC !important;
+  color: #1E293B !important;
+  font-family: var(--font-sans);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle Architectural Ambient Overlay */
+body.about-page-theme::before,
+body.services-page-theme::before {
+  content: '';
+  position: fixed;
+  top: -15%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.05) 0%, rgba(16, 185, 129, 0.03) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 2. Navigation Bar Styling for About & Services Pages */
+body.about-page-theme .site-header-serene,
+body.services-page-theme .site-header-serene {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 4px 25px rgba(15, 23, 42, 0.05) !important;
+}
+
+body.about-page-theme .nav-link-serene,
+body.services-page-theme .nav-link-serene {
+  color: #334155 !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+body.about-page-theme .nav-link-serene:hover,
+body.services-page-theme .nav-link-serene:hover,
+body.about-page-theme .nav-link-serene.active,
+body.services-page-theme .nav-link-serene.active {
+  color: #0284C7 !important;
+}
+
+body.about-page-theme .volza-email-link,
+body.services-page-theme .volza-email-link {
+  color: #475569;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+body.about-page-theme .volza-email-link:hover,
+body.services-page-theme .volza-email-link:hover {
+  color: #0284C7;
+}
+
+/* 3. Section Containers */
+body.about-page-theme section,
+body.services-page-theme section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Eyebrow & Pill Tags */
+.volza-pill-tag,
+.subpage-badge-pill,
+.section-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(2, 132, 199, 0.08) !important;
+  border: 1px solid rgba(2, 132, 199, 0.25) !important;
+  color: #0284C7 !important;
+  border-radius: 9999px !important;
+  padding: 8px 20px !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.08) !important;
+  transition: all 0.35s ease;
+}
+
+.volza-pill-tag:hover,
+.subpage-badge-pill:hover,
+.section-pill-tag:hover {
+  border-color: #0284C7 !important;
+  background: rgba(2, 132, 199, 0.14) !important;
+  transform: translateY(-2px);
+}
+
+.volza-pill-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #0284C7;
+  border-radius: 50%;
+  position: relative;
+}
+
+.volza-pill-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid #0284C7;
+  animation: radarPulse 2s infinite ease-out;
+}
+
+@keyframes radarPulse {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Titles & Typography */
+.volza-hero-title,
+.volza-section-title-large,
+.volza-leadership-title,
+.subpage-title,
+.section-title-editorial {
+  color: #0F172A !important;
+  font-family: var(--font-editorial) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+}
+
+.highlight-blue {
+  background: linear-gradient(135deg, #0284C7 0%, #1E40AF 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.highlight-accent {
+  background: linear-gradient(135deg, #059669 0%, #0284C7 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.volza-hero-desc,
+.volza-leadership-subtitle,
+.subpage-subtitle,
+.section-subtitle-editorial,
+.volza-about-body {
+  color: #475569 !important;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Hero Section (About) */
+.volza-hero-section {
+  padding: 90px 0 60px 0;
+  position: relative;
+}
+
+.volza-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.volza-hero-image-wrap {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.12);
+  background: #FFFFFF;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.volza-hero-image-wrap:hover {
+  border-color: #0284C7;
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px -12px rgba(2, 132, 199, 0.2);
+}
+
+.volza-hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.volza-hero-image-wrap:hover img {
+  transform: scale(1.04);
+}
+
+.volza-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 32px 0;
+  flex-wrap: wrap;
+}
+
+/* High-Contrast Luxury Buttons */
+.btn-volza-orange {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #14351B 0%, #1B7339 60%, #82C867 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 0.98rem !important;
+  padding: 14px 32px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid #82C867 !important;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(27, 115, 57, 0.3) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
+}
+
+.btn-volza-orange:hover {
+  background: linear-gradient(135deg, #1B7339 0%, #22994C 100%) !important;
+  color: #FFFFFF !important;
+  border-color: #B0DB9C !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 32px rgba(27, 115, 57, 0.45) !important;
+}
+
+.btn-volza-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1.5px solid #1B7339 !important;
+  color: #0D2413 !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  padding: 14px 28px !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 4px 14px rgba(13, 36, 19, 0.08) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
+}
+
+.btn-volza-outline:hover {
+  background: #ECFAE5 !important;
+  color: #1B7339 !important;
+  border-color: #1B7339 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 24px rgba(27, 115, 57, 0.2) !important;
+}
+
+/* Trust Badges */
+.volza-trust-badges {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.volza-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.volza-trust-item svg {
+  color: #059669;
+}
+
+/* 4. About Split Section & Stats Cards */
+.volza-about-split-section {
+  padding: 80px 0;
+}
+
+.volza-about-split-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.laptop-blend-wrap {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.12);
+  border: 1px solid #E2E8F0;
+}
+
+.about-portrait-blend-container {
+  position: relative;
+  width: 100%;
+  height: 480px;
+}
+
+.about-portrait-img-blended {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-portrait-gradient-blend {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(15, 23, 42, 0.7) 100%);
+}
+
+.volza-about-lead {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0284C7;
+  line-height: 1.6;
+  margin: 16px 0;
+}
+
+.volza-stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.volza-stat-card {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 20px !important;
+  padding: 24px !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px -5px rgba(15, 23, 42, 0.05) !important;
+  transition: all 0.35s ease !important;
+}
+
+.volza-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0284C7, #059669);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.volza-stat-card:hover::before {
+  opacity: 1;
+}
+
+.volza-stat-card:hover {
+  transform: translateY(-6px) !important;
+  border-color: #0284C7 !important;
+  box-shadow: 0 16px 36px -10px rgba(2, 132, 199, 0.15) !important;
+}
+
+.volza-stat-number {
+  font-family: var(--font-editorial) !important;
+  font-size: clamp(2.2rem, 3vw, 2.8rem) !important;
+  font-weight: 900 !important;
+  background: linear-gradient(135deg, #0F172A 0%, #0284C7 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  line-height: 1.1;
+}
+
+.volza-stat-label {
+  color: #64748B !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  margin-top: 6px;
+}
+
+/* 5. Executive Leadership Section & Cards */
+.volza-leadership-section {
+  padding: 90px 0;
+  position: relative;
+}
+
+.volza-leadership-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
+}
+
+.volza-leadership-title {
+  font-size: clamp(2rem, 3.5vw, 3rem) !important;
+  margin: 16px 0;
+}
+
+.leadership-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+
+.leader-exec-card {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 24px !important;
+  padding: 36px !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 14px 40px -10px rgba(15, 23, 42, 0.08) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.leader-exec-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0284C7, #059669, #F59E0B);
+}
+
+.leader-exec-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: #0284C7 !important;
+  box-shadow: 0 24px 50px -12px rgba(2, 132, 199, 0.18) !important;
+}
+
+.leader-top-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.leader-portrait-wrap {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #0284C7;
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.2);
+  flex-shrink: 0;
+}
+
+.leader-portrait-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.leader-badge-pill {
+  background: linear-gradient(135deg, #0284C7, #0F766E) !important;
+  color: #FFFFFF !important;
+  border-radius: 9999px !important;
+  font-weight: 800 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.12em !important;
+  padding: 4px 12px !important;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.leader-name {
+  font-size: 1.55rem !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+  margin-bottom: 2px;
+}
+
+.leader-role-title {
+  font-size: 0.92rem !important;
+  color: #0284C7 !important;
+  font-weight: 600 !important;
+}
+
+.leader-bio-text {
+  font-size: 0.98rem !important;
+  line-height: 1.7 !important;
+  color: #334155 !important;
+  margin: 24px 0 !important;
+  font-style: italic;
+  border-left: 3px solid #0284C7;
+  padding-left: 18px;
+}
+
+.leader-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.leader-tag-item {
+  background: #F1F5F9 !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #475569 !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  padding: 6px 16px !important;
+  transition: all 0.3s ease;
+}
+
+.leader-exec-card:hover .leader-tag-item {
+  border-color: #0284C7;
+  color: #0284C7;
+  background: rgba(2, 132, 199, 0.08);
+}
+
+/* 6. Four Pillars Charter Section */
+.volza-pillars-section {
+  padding: 90px 0;
+}
+
+.values-grid.promise-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.volza-pillar-card {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 20px !important;
+  padding: 32px 26px !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05) !important;
+  transition: all 0.35s ease !important;
+}
+
+.volza-pillar-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: #0284C7 !important;
+  box-shadow: 0 20px 40px -10px rgba(2, 132, 199, 0.15) !important;
+}
+
+.volza-pillar-num {
+  font-family: var(--font-editorial) !important;
+  font-size: 0.85rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: #0284C7 !important;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.volza-pillar-title {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+  margin-bottom: 12px;
+}
+
+.volza-pillar-text {
+  font-size: 0.94rem !important;
+  color: #475569 !important;
+  line-height: 1.65 !important;
+}
+
+/* 7. Bottom Conversion Banner */
+.volza-bottom-banner {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+  border-radius: 24px !important;
+  margin: 70px auto !important;
+  max-width: 1320px !important;
+  padding: 44px 50px !important;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2) !important;
+}
+
+.volza-bottom-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.volza-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.volza-banner-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  background: rgba(2, 132, 199, 0.2);
+  border: 1px solid rgba(2, 132, 199, 0.4);
+  color: #38BDF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.volza-banner-text {
+  color: #FFFFFF !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  line-height: 1.4;
+}
+
+/* 8. Services Page - Core Services Cards */
+.subpage-hero-serene {
+  padding: 90px 0 50px 0;
+  text-align: center;
+}
+
+.subpage-title {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem) !important;
+  margin: 18px 0;
+}
+
+.subpage-subtitle {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.expertise-card.export-service-card {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 24px !important;
+  padding: 38px !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 14px 40px -10px rgba(15, 23, 42, 0.07) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.expertise-card.export-service-card:hover {
+  transform: translateY(-8px) scale(1.01) !important;
+  border-color: #0284C7 !important;
+  box-shadow: 0 24px 50px -10px rgba(2, 132, 199, 0.18) !important;
+}
+
+.expertise-icon-box {
+  font-family: var(--font-editorial) !important;
+  font-size: 1.5rem !important;
+  font-weight: 900 !important;
+  color: #0284C7 !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 18px !important;
+  background: rgba(2, 132, 199, 0.08) !important;
+  border: 1px solid rgba(2, 132, 199, 0.25) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 24px !important;
+}
+
+.expertise-name {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+  margin-bottom: 14px !important;
+}
+
+.expertise-desc {
+  font-size: 0.98rem !important;
+  color: #475569 !important;
+  line-height: 1.7 !important;
+  margin-bottom: 24px !important;
+}
+
+.service-card-action {
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  color: #0284C7 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.expertise-card.export-service-card:hover .service-card-action {
+  color: #059669 !important;
+  transform: translateX(6px);
+}
+
+/* 9. Institutional Solutions Grid Cards */
+.institutional-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.institutional-card {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 20px !important;
+  padding: 34px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05) !important;
+  transition: all 0.35s ease !important;
+}
+
+.institutional-card:hover {
+  transform: translateY(-6px) !important;
+  border-color: #0284C7 !important;
+  box-shadow: 0 18px 40px -8px rgba(2, 132, 199, 0.15) !important;
+}
+
+.inst-title {
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.inst-star-icon {
+  fill: #0284C7 !important;
+}
+
+.inst-desc {
+  font-size: 0.96rem !important;
+  color: #475569 !important;
+  line-height: 1.65 !important;
+  margin-bottom: 24px;
+}
+
+.inst-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.inst-chip {
+  background: rgba(2, 132, 199, 0.08) !important;
+  border: 1px solid rgba(2, 132, 199, 0.2) !important;
+  color: #0284C7 !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  padding: 6px 14px !important;
+  border-radius: 9999px !important;
+  transition: all 0.3s ease;
+}
+
+.institutional-card:hover .inst-chip {
+  border-color: #0284C7 !important;
+  color: #FFFFFF !important;
+  background: #0284C7 !important;
+}
+
+/* 10. EXIM Testimonials Grid Cards */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.testimonial-card-exim {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 24px !important;
+  padding: 36px !important;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 14px 40px -10px rgba(15, 23, 42, 0.07) !important;
+  transition: all 0.4s ease !important;
+}
+
+.testimonial-card-exim:hover {
+  transform: translateY(-8px) scale(1.01) !important;
+  border-color: #0284C7 !important;
+  box-shadow: 0 24px 50px -10px rgba(2, 132, 199, 0.18) !important;
+}
+
+.testimonial-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.testimonial-country {
+  font-size: 0.84rem !important;
+  font-weight: 700 !important;
+  color: #0284C7 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+}
+
+.verified-badge {
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  color: #059669 !important;
+  background: rgba(5, 150, 105, 0.08) !important;
+  border: 1px solid rgba(5, 150, 105, 0.25) !important;
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+}
+
+.testimonial-stars {
+  color: #F59E0B !important;
+  font-size: 1.15rem !important;
+  letter-spacing: 3px !important;
+  margin: 10px 0 !important;
+}
+
+.testimonial-quote {
+  font-size: 1.02rem !important;
+  color: #334155 !important;
+  line-height: 1.7 !important;
+  font-style: italic !important;
+  margin-bottom: 24px !important;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.author-avatar {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #0284C7, #0F766E) !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  font-size: 0.95rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.author-name {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #0F172A !important;
+}
+
+.author-title {
+  font-size: 0.84rem !important;
+  color: #64748B !important;
+}
+
+.testimonial-card-link {
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  color: #0284C7 !important;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card-exim:hover .testimonial-card-link {
+  color: #059669 !important;
+  transform: translateX(4px);
+}
+
+/* 11. Universal Footer Styling on Theme Pages */
+body.about-page-theme .site-footer,
+body.services-page-theme .site-footer {
+  background: #0B1320 !important;
+  border-top: 1px solid rgba(226, 232, 240, 0.1) !important;
+  color: #94A3B8 !important;
+}
+
+body.about-page-theme .footer-col-headline,
+body.services-page-theme .footer-col-headline {
+  color: #FFFFFF !important;
+}
+
+body.about-page-theme .footer-banner-text,
+body.services-page-theme .footer-banner-text {
+  color: #CBD5E1 !important;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  .volza-hero-grid,
+  .volza-about-split-grid,
+  .leadership-cards-grid,
+  .expertise-grid,
+  .institutional-solutions-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .values-grid.promise-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .values-grid.promise-cards-grid,
+  .volza-stats-row {
+    grid-template-columns: 1fr !important;
+  }
+  .volza-bottom-banner-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .volza-banner-left {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   MASTER CINEMATIC MOTION & SECTION OVERLAP TRANSITION SYSTEM
+   ========================================================================== */
+
+/* 1. CINEMATIC LAYERED HERO REVEAL & PARALLAX EXIT */
+.hero-reveal-item {
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity 850ms cubic-bezier(0.22, 1, 0.36, 1), transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.hero-reveal-item.is-hero-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-eyebrow-serene.hero-reveal-item,
+.volza-pill-tag.hero-reveal-item,
+.subpage-badge-pill.hero-reveal-item {
+  transition-delay: 0ms;
+}
+
+.hero-serif-title .title-line-dark,
+.hero-serif-title .title-gradient-group,
+.volza-hero-title > span,
+.subpage-title {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1), transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.is-hero-loaded .hero-serif-title .title-line-dark,
+.is-hero-loaded .volza-hero-title > span:first-child,
+.is-hero-loaded.subpage-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 120ms;
+}
+
+.is-hero-loaded .hero-serif-title .title-gradient-group,
+.is-hero-loaded .volza-hero-title > span:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 250ms;
+}
+
+.hero-serene-desc.hero-reveal-item,
+.volza-hero-desc.hero-reveal-item,
+.subpage-subtitle.hero-reveal-item {
+  transition-delay: 380ms;
+}
+
+.hero-serene-actions.hero-reveal-item,
+.volza-hero-actions.hero-reveal-item {
+  transition-delay: 500ms;
+}
+
+.hero-provenance-metrics.hero-reveal-item,
+.volza-trust-badges.hero-reveal-item {
+  transition-delay: 620ms;
+}
+
+.hero-scenic-img,
+.volza-hero-image-wrap,
+.workspace-desk-img {
+  opacity: 0;
+  transform: translateY(50px) scale(0.94);
+  transition: opacity 1000ms cubic-bezier(0.22, 1, 0.36, 1), transform 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.is-hero-loaded .hero-scenic-img,
+.is-hero-loaded .volza-hero-image-wrap,
+.is-hero-loaded .workspace-desk-img,
+.volza-hero-image-wrap.is-hero-loaded,
+.workspace-desk-img.is-hero-loaded {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: 200ms;
+}
+
+.volza-hero-image-wrap img:hover,
+.workspace-showcase-frame img:hover,
+.hero-scenic-img:hover {
+  transform: scale(1.02) !important;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.btn-pill-primary-serene:hover svg,
+.btn-volza-orange:hover svg,
+.btn-pill-cobalt:hover svg,
+.btn-pill-secondary-serene:hover svg,
+.btn-volza-outline:hover svg {
+  transform: translateX(5px) !important;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* 2. FOUR PILLARS: Deep Card Lift (50px movement) + Section Overlap */
+.pillar-card-motion {
+  opacity: 0;
+  transform: translateY(55px);
+  transition: opacity 850ms cubic-bezier(0.22, 1, 0.36, 1), transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.pillar-card-motion.is-pillar-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pillar-card-motion:nth-child(1) { transition-delay: 0ms; }
+.pillar-card-motion:nth-child(2) { transition-delay: 100ms; }
+.pillar-card-motion:nth-child(3) { transition-delay: 200ms; }
+.pillar-card-motion:nth-child(4) { transition-delay: 300ms; }
+
+/* Section Overlap & Rise Underneath */
+.pillars-next-section {
+  opacity: 0;
+  transform: translateY(65px);
+  transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1), transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  z-index: 2;
+  will-change: opacity, transform;
+}
+
+.pillars-next-section.is-next-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 160ms;
+}
+
+/* 3. SERVICE CARDS: Dynamic Staggered Card Rise (50px movement) */
+.service-card-motion {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  will-change: opacity, transform;
+}
+
+.service-card-motion.is-service-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card-motion:nth-child(1) { transition-delay: 0ms; }
+.service-card-motion:nth-child(2) { transition-delay: 100ms; }
+.service-card-motion:nth-child(3) { transition-delay: 200ms; }
+.service-card-motion:nth-child(4) { transition-delay: 300ms; }
+.service-card-motion:nth-child(5) { transition-delay: 400ms; }
+
+.expertise-icon-box,
+.feature-icon-badge {
+  opacity: 0;
+  transform: scale(0.75);
+  transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1), transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.is-service-revealed .expertise-icon-box,
+.is-pillar-revealed .feature-icon-badge {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 160ms;
+}
+
+.expertise-card.export-service-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1), border-color 450ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.expertise-card.export-service-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #10B981, #059669, transparent);
+  transition: left 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.expertise-card.export-service-card:hover {
+  transform: translateY(-7px) !important;
+  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.18) !important;
+}
+
+.expertise-card.export-service-card:hover::after {
+  left: 100%;
+}
+
+/* 4. INSTITUTIONAL SOLUTIONS: Progressive Vertical Cascade */
+.inst-header-motion {
+  opacity: 1;
+  transform: none;
+}
+
+/* ==========================================================================
+   MASTER CINEMATIC SCROLL & LAYERED SECTION TAKEOVER SYSTEM
+   High-End Scroll-Driven Motion, Differential Parallax, Card Flight,
+   and Dual Directional Founder Entrances (Solid Opacity, No Blur)
+   ========================================================================== */
+
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* CONTINUOUS CANVAS SECTION LAYERING */
+#hero-section, .volza-hero-section, .subpage-hero-section {
+  position: relative;
+  z-index: 10;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+#about-section, #about-overview {
+  position: relative;
+  z-index: 20;
+  margin-top: -30px;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  box-shadow: 0 -15px 40px rgba(13, 36, 19, 0.06);
+  background: var(--bg-canvas);
+}
+
+#trade-portfolio-section, .product-catalog-section {
+  position: relative;
+  z-index: 30;
+  margin-top: -20px;
+  background: var(--bg-canvas);
+}
+
+#global-trade-map {
+  position: relative;
+  z-index: 40;
+}
+
+#expertise-section {
+  position: relative;
+  z-index: 50;
+}
+
+#values-section, .volza-pillars-section {
+  position: relative;
+  z-index: 60;
+  margin-top: -20px;
+  background: var(--bg-canvas);
+}
+
+#why-choose-us-section {
+  position: relative;
+  z-index: 70;
+}
+
+#leadership-section {
+  position: relative;
+  z-index: 75;
+}
+
+#institutional-solutions {
+  position: relative;
+  z-index: 80;
+}
+
+#site-footer {
+  position: relative;
+  z-index: 90;
+}
+
+/* 1. HERO — CINEMATIC DEPTH & PARALLAX COMPRESSION */
+.hero-serif-title, .volza-hero-title {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.hero-serif-title .title-word-block,
+.hero-serif-title .title-line-gradient {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.hero-scenic-backdrop, .volza-hero-image-wrap {
+  overflow: hidden;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.hero-scenic-img, .volza-hero-image-wrap img {
+  will-change: transform;
+  transform-origin: center center;
+}
+
+/* 2. FOUR PILLARS — CARD FLIGHT & LAYERED TAKEOVER */
+.floating-features-card, .values-grid {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.floating-features-card .feature-col-item,
+.volza-pillars-section .volza-pillar-card {
+  will-change: transform, opacity, box-shadow;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.floating-features-card .feature-col-item:hover,
+.volza-pillars-section .volza-pillar-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 24px 50px rgba(13, 36, 19, 0.16) !important;
+}
+
+/* 3. SERVICE CARDS — STAGGERED CARD FIELD, BORDER BEAM & DEPTH SHIFT */
+.expertise-grid, .curious-folio-deck {
+  perspective: 1000px;
+}
+
+.expertise-card, .export-service-card {
+  position: relative;
+  will-change: transform, opacity;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease;
+}
+
+.export-service-card::before,
+.expertise-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(from var(--beam-angle, 0deg), transparent 65%, var(--pal-accent) 85%, var(--pal-forest-btn) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.export-service-card:hover::before,
+.expertise-card:hover::before {
+  opacity: 1;
+  animation: borderBeamRotate 3s linear infinite;
+}
+
+@keyframes borderBeamRotate {
+  0% { --beam-angle: 0deg; }
+  100% { --beam-angle: 360deg; }
+}
+
+.expertise-card:hover, .export-service-card:hover {
+  transform: translateY(-10px) scale(1.015) !important;
+  box-shadow: 0 24px 55px rgba(13, 36, 19, 0.18) !important;
+}
+
+.expertise-card:hover .expertise-icon-box {
+  transform: scale(1.15) rotate(-5deg);
+  background: var(--pal-accent) !important;
+  color: var(--pal-forest-dark) !important;
+  box-shadow: 0 8px 20px rgba(176, 219, 156, 0.4);
+}
+
+.expertise-icon-box {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* 4. INSTITUTIONAL SOLUTIONS — EDITORIAL CASCADE & CLIP REVEAL */
+/* 4. INSTITUTIONAL SOLUTIONS — UNIFIED PREMIUM CONTENT BOX */
+.institutional-solutions-section {
+  overflow: visible;
+}
+
+.institutional-card {
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+/* 5. FOUNDERS & LEADERSHIP — DUAL DIRECTIONAL REVEAL & SHARP CLEAN TRANSITIONS (NO BLUR) */
+.leadership-cards-grid {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.leader-exec-card,
+.leader-exec-card *,
+.leader-portrait-wrap img,
+.leader-name,
+.leader-bio-text,
+.leader-tag-item {
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.leader-exec-card {
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.leader-exec-card:hover {
+  transform: translateY(-8px) scale(1.015) !important;
+  box-shadow: 0 26px 60px rgba(13, 36, 19, 0.18) !important;
+}
+
+.leader-portrait-wrap img {
+  will-change: transform, opacity;
+  transform-origin: center center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.leader-exec-card:hover .leader-portrait-wrap img {
+  transform: scale(1.06) !important;
+}
+
+/* ==========================================================================
+   INSTITUTIONAL SOLUTIONS — 4 DISTINCT VERTICALLY STACKED RECTANGULAR BOXES
+   ========================================================================== */
+.institutional-solutions-section {
+  position: relative !important;
+  width: 100% !important;
+  padding: 80px 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+
+.institutional-solutions-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  max-width: 980px !important;
+  margin: 40px auto 0 auto !important;
+  width: 100% !important;
+}
+
+/* Visibly distinct rectangular containers around EACH of the 4 solution items */
+.institutional-solution-box,
+.institutional-solutions-section .institutional-card {
+  background: #F4FAF0 !important; /* Light cream / very light green background */
+  border: 1.5px solid #82C867 !important; /* Thin clearly visible green border */
+  border-radius: 16px !important; /* Rounded corners */
+  padding: 24px 30px !important; /* Comfortable internal padding */
+  box-shadow: 0 8px 24px rgba(13, 36, 19, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important; /* Subtle premium shadow */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, background-color 0.35s ease !important;
+  will-change: transform !important;
+}
+
+.institutional-solution-box:hover,
+.institutional-solutions-section .institutional-card:hover {
+  background: #ECFAE5 !important;
+  border-color: #1B7339 !important;
+  box-shadow: 0 16px 36px rgba(13, 36, 19, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+}
+
+/* Header inside box: icon on left, title on right */
+.inst-box-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Small star icon badge on the left */
+.inst-icon-badge,
+.inst-star-icon-box {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 10px !important;
+  background: #E1F4D9 !important;
+  border: 1px solid #9CDA84 !important;
+  color: #1B7339 !important;
+  fill: #1B7339 !important;
+  flex-shrink: 0 !important;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.inst-icon-badge svg,
+.inst-star-icon-box svg {
+  width: 18px !important;
+  height: 18px !important;
+  fill: #1B7339 !important;
+  color: #1B7339 !important;
+}
+
+.institutional-solution-box:hover .inst-icon-badge,
+.institutional-solutions-section .institutional-card:hover .inst-icon-badge,
+.institutional-solutions-section .institutional-card:hover .inst-star-icon-box {
+  background: #1B7339 !important;
+  color: #FFFFFF !important;
+  border-color: #1B7339 !important;
+  transform: scale(1.1) rotate(6deg) !important;
+}
+
+.institutional-solution-box:hover .inst-icon-badge svg,
+.institutional-solutions-section .institutional-card:hover .inst-icon-badge svg,
+.institutional-solutions-section .institutional-card:hover .inst-star-icon-box svg {
+  fill: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+/* Title inside the box */
+.inst-box-title,
+.inst-title {
+  font-family: var(--font-editorial, 'Plus Jakarta Sans', sans-serif) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #0D2413 !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+}
+
+/* Description inside the box */
+.inst-box-desc,
+.inst-desc {
+  font-size: 0.98rem !important;
+  color: #2D4A34 !important;
+  line-height: 1.6 !important;
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
+}
+
+/* Tag chips inside the box */
+.inst-box-tags,
+.inst-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin-top: auto !important;
+}
+
+.inst-tag-chip,
+.inst-chip {
+  background: #E7F6E1 !important;
+  border: 1px solid #A3DD8D !important;
+  color: #1B7339 !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  padding: 5px 14px !important;
+  border-radius: 9999px !important;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease !important;
+}
+
+.institutional-solution-box:hover .inst-tag-chip,
+.institutional-solutions-section .institutional-card:hover .inst-chip {
+  background: #1B7339 !important;
+  color: #FFFFFF !important;
+  border-color: #1B7339 !important;
+}
+
+/* TRANSIT LANE & MINI GREEN EXPORT CARGO TRUCK */
+.inst-cargo-transit-lane {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 980px !important;
+  margin: 32px auto 28px auto !important;
+  height: 48px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background: rgba(244, 250, 240, 0.6) !important;
+  border: 1px dashed rgba(130, 200, 103, 0.4) !important;
+  border-radius: 24px !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+}
+
+.inst-transit-track-line {
+  position: absolute !important;
+  top: 50% !important;
+  left: 20px !important;
+  right: 20px !important;
+  height: 2px !important;
+  border-top: 2px dashed rgba(27, 115, 57, 0.35) !important;
+  transform: translateY(-50%) !important;
+}
+
+.inst-transit-track-line::before {
+  content: 'SOUTH INDIA ORIGIN ➔ GLOBAL EXIM CORRIDOR' !important;
+  position: absolute !important;
+  right: 15px !important;
+  top: -18px !important;
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  color: #1B7339 !important;
+  opacity: 0.8 !important;
+}
+
+.inst-export-truck {
+  position: absolute !important;
+  top: 50% !important;
+  left: -85px !important;
+  transform: translateY(-50%) !important;
+  will-change: transform !important;
+  z-index: 2 !important;
+}
+
+.truck-motion-trail {
+  position: absolute !important;
+  top: 50% !important;
+  right: 100% !important;
+  width: 70px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, transparent, rgba(130, 200, 103, 0.7)) !important;
+  transform: translateY(-50%) !important;
+  border-radius: 999px !important;
+}
+
+/* Supporting line inside box */
+.inst-box-support {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-top: 14px !important;
+  padding-top: 12px !important;
+  border-top: 1px dashed rgba(27, 115, 57, 0.25) !important;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+  color: #1B7339 !important;
+}
+
+.inst-box-support svg {
+  flex-shrink: 0 !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL BRAND BUTTON COLOR SYSTEM (HOME GREEN THEME ON SUBPAGES)
+   Enforces exact Home section green button styling across Services, About, Contact, and Products
+   ========================================================================== */
+
+/* Primary Action Buttons (Home Section Deep Green & Mint Accent Gradient) */
+.btn-primary,
+.btn-volza-orange,
+.btn-fashion-quote,
+.btn-forest,
+.btn-inquire-serene,
+.nav-actions .btn-primary,
+#contact-page-form .btn-primary,
+#modal-rfq-form .btn-primary,
+.heavy-liquid-btn,
+.open-quote-modal-btn {
+  background: linear-gradient(135deg, #14351B 0%, #1B7339 60%, #82C867 100%) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #82C867 !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 8px 24px rgba(27, 115, 57, 0.3) !important;
+  font-weight: 700 !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease !important;
+  text-decoration: none !important;
+}
+
+.btn-primary:hover,
+.btn-volza-orange:hover,
+.btn-fashion-quote:hover,
+.btn-forest:hover,
+.btn-inquire-serene:hover,
+.nav-actions .btn-primary:hover,
+#contact-page-form .btn-primary:hover,
+#modal-rfq-form .btn-primary:hover,
+.heavy-liquid-btn:hover,
+.open-quote-modal-btn:hover {
+  background: linear-gradient(135deg, #1B7339 0%, #22994C 100%) !important;
+  color: #FFFFFF !important;
+  border-color: #B0DB9C !important;
+  box-shadow: 0 14px 32px rgba(27, 115, 57, 0.45) !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-primary svg,
+.btn-volza-orange svg,
+.btn-fashion-quote svg,
+.btn-forest svg,
+.btn-inquire-serene svg,
+.heavy-liquid-btn svg,
+.open-quote-modal-btn svg {
+  color: #FFFFFF !important;
+  fill: currentColor !important;
+}
+
+/* Secondary / Outline Action Buttons (Clean White/Cream Fill with Forest Green Border) */
+.btn-outline,
+.btn-volza-outline,
+.btn-pill-secondary-serene {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #0D2413 !important;
+  border: 1.5px solid #1B7339 !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 4px 14px rgba(13, 36, 19, 0.08) !important;
+  font-weight: 700 !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease !important;
+  text-decoration: none !important;
+}
+
+.btn-outline:hover,
+.btn-volza-outline:hover,
+.btn-pill-secondary-serene:hover {
+  background: #ECFAE5 !important;
+  color: #1B7339 !important;
+  border-color: #1B7339 !important;
+  box-shadow: 0 10px 24px rgba(27, 115, 57, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-outline svg,
+.btn-volza-outline svg,
+.btn-pill-secondary-serene svg {
+  stroke: #1B7339 !important;
+}
+
+.btn-outline:hover svg,
+.btn-volza-outline:hover svg,
+.btn-pill-secondary-serene:hover svg {
+  stroke: #1B7339 !important;
+}
+
+/* PREFERS REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
 }
