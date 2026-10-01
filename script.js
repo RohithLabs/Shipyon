@@ -973,7 +973,7 @@ let parallaxElements = [];
 
 function initSmoothScrolling() {
   // Pure native browser scrolling: instant, direct hardware response without inertia or lag
-  window.lenis = null;
+  try { delete window.lenis; } catch(e) {}
   lenisInstance = null;
   document.documentElement.style.scrollBehavior = 'auto';
 
