@@ -32,6 +32,9 @@ function initShipyonApp() {
   initSequentialHoverTestimonials();
   initWhatsAppFloatingButton();
   initUniversalVisibilityManager();
+  initProSpotlightAndTilt();
+  initProScrollReveals();
+  initProMetricCounters();
 }
 
 if (document.readyState === 'loading') {
@@ -2455,6 +2458,142 @@ function initUniversalVisibilityManager() {
   });
 
   targetSections.forEach(sec => observer.observe(sec));
+}
+
+/**
+ * 1. Professional Spotlight Glow & 3D Tilt for Non-Home/Expertise/Product Cards
+ */
+function initProSpotlightAndTilt() {
+  const cards = document.querySelectorAll(`
+    .volza-stat-card,
+    .institutional-card,
+    .expertise-card.export-service-card,
+    .why-pillar-card,
+    .contact-desk-normal-card,
+    .contact-form-card,
+    .leader-exec-card,
+    .volza-pillar-card,
+    .workspace-showcase-frame,
+    .metric-stack-item
+  `);
+
+  cards.forEach(card => {
+    if (!card.classList.contains('pro-card-shimmer-border')) {
+      card.classList.add('pro-card-shimmer-border');
+    }
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const tiltX = ((y - centerY) / centerY) * -5;
+      const tiltY = ((x - centerX) / centerX) * 5;
+
+      card.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-6px) scale(1.015)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.setProperty('--mouse-x', '50%');
+      card.style.setProperty('--mouse-y', '50%');
+    });
+  });
+}
+
+/**
+ * 2. Professional Staggered Scroll Reveal System (Safe - elements immediately visible)
+ */
+function initProScrollReveals() {
+  const targetSelectors = `
+    #about-section .about-col-story,
+    #about-section .about-col-visual,
+    #about-section .metric-stack-item,
+    #about-overview .volza-about-content,
+    #about-overview .volza-stat-card,
+    #leadership-section .leader-exec-card,
+    #values-section .volza-pillar-card,
+    #why-choose-us-section .why-pillar-card,
+    #why-choose-us-section .why-metric-col,
+    #global-trade-map .section-header-editorial,
+    #core-export-services .expertise-card,
+    #institutional-solutions .institutional-card,
+    .contact-left-column,
+    .contact-form-card
+  `;
+
+  const elements = document.querySelectorAll(targetSelectors);
+  if (!elements.length) return;
+
+  elements.forEach((el) => {
+    el.classList.add('is-revealed');
+  });
+}
+
+/**
+ * 3. Smooth Animated Metric Counters for Statistics Cards
+ */
+function initProMetricCounters() {
+  if (!('IntersectionObserver' in window)) return;
+
+  const statEls = document.querySelectorAll('.volza-stat-number, .metric-number, .why-metric-number');
+  if (!statEls.length) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateSingleCounter(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  statEls.forEach(el => observer.observe(el));
+
+  function animateSingleCounter(el) {
+    const rawText = el.innerText.trim();
+    const matches = rawText.match(/([\d\.,]+)/);
+    if (!matches) return;
+
+    const numStr = matches[0].replace(/,/g, '');
+    const targetVal = parseFloat(numStr);
+    if (isNaN(targetVal)) return;
+
+    const prefix = rawText.substring(0, rawText.indexOf(matches[0]));
+    const suffix = rawText.substring(rawText.indexOf(matches[0]) + matches[0].length);
+    const hasDecimals = numStr.includes('.');
+    const decimalPlaces = hasDecimals ? numStr.split('.')[1].length : 0;
+
+    const duration = 1800;
+    const startTime = performance.now();
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      const currentVal = targetVal * easeProgress;
+
+      let formattedNum = hasDecimals 
+        ? currentVal.toFixed(decimalPlaces)
+        : Math.floor(currentVal).toLocaleString();
+
+      el.innerText = `${prefix}${formattedNum}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.innerText = rawText;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
 }
 
 
