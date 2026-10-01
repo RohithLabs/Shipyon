@@ -4,6 +4,9 @@ Thumbs.db
 node_modules/
 dist/
 vanguard-reference.html
+scratch/
+.vercel
 
 *.bak
 *.backup
+.env*

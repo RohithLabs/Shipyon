@@ -4220,17 +4220,34 @@ html, body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Universal Scroll Reveal */
+/* Universal Safe Scroll Reveal: Content is visible by default to guarantee zero hidden sections */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-on-scroll.is-revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+
+/* Guard against any section or container ever staying hidden */
+section,
+main,
+section.reveal-on-scroll,
+.shipyon-vision-section,
+.testimonials-exim-section,
+.quayside-showcase-section,
+.site-footer,
+.site-footer .footer-top-banner,
+.site-footer .footer-bottom-bar,
+.zigzag-panorama-stage,
+.zigzag-header,
+.section-header-editorial,
+.charter-header-wrapper {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 
@@ -5120,15 +5137,15 @@ html, body {
   width: clamp(230px, 22.5vw, 275px);
   pointer-events: auto;
   
-  /* Initial hidden state: only box 1 will be revealed at start */
-  opacity: 0;
-  visibility: hidden;
-  filter: blur(8px);
+  /* All milestone boxes visible and crystal clear */
+  opacity: 0.95;
+  visibility: visible;
+  filter: none;
   transition: 
-    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    visibility 0.65s ease;
+    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease;
 }
 
 /* TOP-ROW BOXES (Box 1 and Box 3) */
@@ -12518,10 +12535,20 @@ body.about-page-botanical {
    CURSOR GIMMICKS: INTERACTIVE DUAL-ELEMENT EMERALD LENS & SONIC TRAIL
    ========================================================================== */
 @media (hover: hover) and (pointer: fine) {
-  /* Complete removal of the default OS cursor on mouse devices across all interactive elements */
-  html, body, *, *::before, *::after,
-  a, button, input, select, textarea, label, [role="button"], summary {
-    cursor: none !important;
+  /* Ensure standard OS cursor is always visible and functional */
+  html, body {
+    cursor: auto !important;
+  }
+  a, button, [role="button"], summary, select, .btn-pill-cobalt, .volza-wa-link {
+    cursor: pointer !important;
+  }
+  input, textarea {
+    cursor: text !important;
+  }
+  .shipyon-cursor-root,
+  .shipyon-cursor-dot,
+  .shipyon-cursor-ring {
+    display: none !important;
   }
 
   /* 1. Small Glowing Central Dot */
@@ -12846,9 +12873,3 @@ body.about-page-botanical {
     transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, background 0.25s ease;
   }
 }
-
-
-
-
-
-

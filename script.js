@@ -4,6 +4,12 @@
  */
 
 function initShipyonApp() {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  initSmoothScrolling();
+  initSmoothNavAnchors();
+  initScrollSpy();
   initHeaderScroll();
   initMobileNav();
   initQuoteModal();
@@ -16,12 +22,16 @@ function initShipyonApp() {
   initHeroConsoleTilt();
   initCounterAnimation();
   initScrollReveals();
+  initParallaxEngine();
   initProcessRoadMilestones();
   initMobileMovesSwipe();
   initValuesInteractiveCards();
   initShipyonCursorGimmicks();
   initGlobalTradeNetworkInteractions();
   initHighwayAtmosphereAndAutopilot();
+  initSequentialHoverTestimonials();
+  initWhatsAppFloatingButton();
+  initUniversalVisibilityManager();
 }
 
 if (document.readyState === 'loading') {
@@ -35,11 +45,12 @@ function initHeaderScroll() {
   const header = document.getElementById('main-header') || document.getElementById('site-header') || document.querySelector('.site-header-serene');
   if (!header) return;
 
+  let isScrolled = false;
   const onScroll = () => {
-    if (window.scrollY > 25) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    const shouldBeScrolled = (window.scrollY || window.pageYOffset || 0) > 25;
+    if (shouldBeScrolled !== isScrolled) {
+      isScrolled = shouldBeScrolled;
+      header.classList.toggle('scrolled', isScrolled);
     }
   };
 
@@ -88,9 +99,47 @@ function initQuoteModal() {
 
   if (!overlay) return;
 
+  function renderQuoteModalCart() {
+    let cartBox = overlay.querySelector('.modal-cart-preview');
+    try {
+      const raw = localStorage.getItem('shipyon_cart');
+      const cart = raw ? JSON.parse(raw) : [];
+      if (Array.isArray(cart) && cart.length > 0) {
+        if (!cartBox) {
+          cartBox = document.createElement('div');
+          cartBox.className = 'modal-cart-preview';
+          const form = overlay.querySelector('#quote-modal-form');
+          if (form) form.insertBefore(cartBox, form.firstChild);
+        }
+        cartBox.innerHTML = `
+          <div style="background: rgba(20,53,27,0.06); border: 1px solid rgba(27,115,57,0.25); border-radius: 10px; padding: 10px 14px; margin-bottom: 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+              <span style="font-size: 0.78rem; font-weight: 800; color: #1B7339; text-transform: uppercase; letter-spacing: 0.04em;">✦ Selected Products (${cart.length})</span>
+              <span style="font-size: 0.72rem; color: #1B7339; background: rgba(27,115,57,0.1); padding: 2px 6px; border-radius: 4px; font-weight: 700;">Included in WhatsApp Quote</span>
+            </div>
+            <div style="max-height: 110px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
+              ${cart.map(item => `
+                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.82rem; color: #14351B; background: #fff; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(20,53,27,0.1);">
+                  <span style="font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70%;">${item.title}</span>
+                  <span style="color: #1B7339; font-weight: 800; font-size: 0.76rem; background: #ECFDF5; padding: 2px 6px; border-radius: 4px;">${item.qty} ${item.unit || 'MT'}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+        cartBox.style.display = 'block';
+      } else if (cartBox) {
+        cartBox.style.display = 'none';
+      }
+    } catch (e) {
+      if (cartBox) cartBox.style.display = 'none';
+    }
+  }
+
   openButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      renderQuoteModalCart();
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
@@ -122,9 +171,35 @@ function initQuoteModal() {
 
 function handleQuoteSubmit(e) {
   e.preventDefault();
-  const name = document.getElementById('quote-name').value;
-  const category = document.getElementById('quote-category').value;
-  alert(`Thank you, ${name}! Your trade quotation request for ${category} has been received. Our export desk will connect within 4 business hours.`);
+  const name = document.getElementById('quote-name')?.value.trim() || 'Procurement Representative';
+  const email = document.getElementById('quote-email')?.value.trim() || '';
+  const category = document.getElementById('quote-category')?.value || 'Agro Commodities & Spices';
+  const destination = document.getElementById('quote-destination')?.value.trim() || 'Global Seaport';
+
+  let cartText = '';
+  try {
+    const raw = localStorage.getItem('shipyon_cart');
+    const cart = raw ? JSON.parse(raw) : [];
+    if (Array.isArray(cart) && cart.length > 0) {
+      cartText += `\n📦 *Selected Products from Catalog (${cart.length} Items):*\n`;
+      cart.forEach((item, idx) => {
+        cartText += `  ${idx + 1}. *${item.title}* (${item.qty} ${item.unit || 'MT'}) - ${item.packaging || 'Export Standard'}\n`;
+      });
+    }
+  } catch (err) {}
+
+  const msgLines = [
+    `📋 *SHIPYON TRADE QUOTATION INQUIRY*`,
+    `• *Representative / Company:* ${name}`,
+    `• *Corporate Email:* ${email}`,
+    `• *Trade Category:* ${category}`,
+    `• *Destination Country / Port:* ${destination}`,
+    cartText.trimEnd()
+  ].filter(l => l !== '');
+
+  const waUrl = `https://wa.me/919500690740?text=${encodeURIComponent(msgLines.join('\n'))}`;
+  window.open(waUrl, '_blank');
+
   const overlay = document.getElementById('quote-modal-overlay');
   if (overlay) {
     overlay.classList.remove('active');
@@ -475,7 +550,7 @@ function initWhyChooseShowcase() {
   startAutoCycle();
 }
 
-// 8. Curious Agro-Terroir Folio Interactions
+// 8. Curious Agro-Terroir Folio Interactions (Auto-Cycle & Interactive Expansion)
 function initCuriousFolio() {
   const deck = document.getElementById('curious-folio-deck');
   if (!deck) return;
@@ -483,40 +558,93 @@ function initCuriousFolio() {
   const panels = deck.querySelectorAll('.curious-folio-panel');
   if (!panels.length) return;
 
-  function setActivePanel(activePanel) {
-    panels.forEach(panel => {
-      const isTarget = panel === activePanel;
+  let currentIndex = 0;
+  let autoTimer = null;
+  let isHovered = false;
+
+  function setActivePanel(indexOrPanel) {
+    let targetIndex = typeof indexOrPanel === 'number' ? indexOrPanel : Array.from(panels).indexOf(indexOrPanel);
+    if (targetIndex < 0 || targetIndex >= panels.length) return;
+    currentIndex = targetIndex;
+
+    panels.forEach((panel, idx) => {
+      const isTarget = idx === targetIndex;
       panel.classList.toggle('active', isTarget);
       panel.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
-      if (!isTarget && document.activeElement === panel) {
-        panel.blur();
+      if (isTarget) {
+        const bar = panel.querySelector('.folio-progress-timer-bar');
+        if (bar) {
+          bar.style.animation = 'none';
+          void bar.offsetHeight;
+          bar.style.animation = '';
+        }
       }
     });
   }
 
-  panels.forEach(panel => {
+  function startAutoCycle() {
+    stopAutoCycle();
+    if (isHovered) return;
+    autoTimer = setInterval(() => {
+      if (!isHovered) {
+        const nextIndex = (currentIndex + 1) % panels.length;
+        setActivePanel(nextIndex);
+      }
+    }, 4500);
+  }
+
+  function stopAutoCycle() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  panels.forEach((panel, idx) => {
     panel.addEventListener('mouseenter', () => {
-      setActivePanel(panel);
+      isHovered = true;
+      stopAutoCycle();
+      setActivePanel(idx);
     });
 
     panel.addEventListener('click', (e) => {
       if (e.target.closest('.folio-btn-action')) return;
-      setActivePanel(panel);
+      isHovered = true;
+      stopAutoCycle();
+      setActivePanel(idx);
     });
 
     panel.addEventListener('focusin', () => {
-      setActivePanel(panel);
+      isHovered = true;
+      stopAutoCycle();
+      setActivePanel(idx);
     });
 
     panel.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         if (!e.target.closest('.folio-btn-action')) {
           e.preventDefault();
-          setActivePanel(panel);
+          isHovered = true;
+          stopAutoCycle();
+          setActivePanel(idx);
         }
       }
     });
   });
+
+  deck.addEventListener('mouseenter', () => {
+    isHovered = true;
+    stopAutoCycle();
+  });
+
+  deck.addEventListener('mouseleave', () => {
+    isHovered = false;
+    startAutoCycle();
+  });
+
+  // Start initial panel and continuous auto-cycle
+  setActivePanel(0);
+  startAutoCycle();
 }
 
 // 9. Sleek Non-Emoji Custom Ship Scrollbar & Indicator
@@ -629,7 +757,8 @@ function initSleekShipScrollbar() {
     const trackHeight = track.clientHeight;
     const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollDelta = (deltaY / trackHeight) * totalHeight;
-    window.scrollTo(0, startScrollTop + scrollDelta);
+    const targetScroll = startScrollTop + scrollDelta;
+    window.scrollTo(0, targetScroll);
   });
 
   const stopDrag = (e) => {
@@ -669,72 +798,349 @@ function initHeroConsoleTilt() {
   });
 }
 
-// 11. Eased Number Counter Animation
+// 11. Eased Number Counter Animation with Auto-Formatting
 function initCounterAnimation() {
-  const counters = document.querySelectorAll('.counter-value, .why-metric-number');
-  if (!counters.length) return;
+  const counterEls = document.querySelectorAll(
+    '.metric-number, .metric-num, .metric-val, .snapshot-value, ' +
+    '.why-metric-stat, .counter-value, .why-metric-number, [data-counter]'
+  );
+  if (!counterEls.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
+  function parseNumberFormat(rawText) {
+    const trimmed = (rawText || '').trim();
+    if (!trimmed || trimmed === '24/7') return null;
+
+    // Matches numbers with optional prefix (like $) and suffixes (like +, %, + Yrs, M, etc.)
+    const match = trimmed.match(/^([^0-9]*)([\d,]+(?:\.\d+)?)(.*)$/);
+    if (!match) return null;
+
+    const prefix = match[1];
+    const numStr = match[2];
+    const suffix = match[3];
+
+    const hasCommas = numStr.includes(',');
+    const cleanNumStr = numStr.replace(/,/g, '');
+    const target = parseFloat(cleanNumStr);
+    if (isNaN(target)) return null;
+
+    const decimals = cleanNumStr.includes('.') ? cleanNumStr.split('.')[1].length : 0;
+    return { prefix, target, decimals, hasCommas, suffix };
+  }
+
+  function animateCounter(el, parsed) {
+    const duration = 1600;
+    const startTime = performance.now();
+    const { prefix, target, decimals, hasCommas, suffix } = parsed;
+
+    function formatNum(val) {
+      let str = val.toFixed(decimals);
+      if (hasCommas) {
+        const parts = str.split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        str = parts.join('.');
+      }
+      return prefix + str + suffix;
+    }
+
+    function frame(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Exponential ease-out: 1 - 2^(-10 * t)
+      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const currentVal = target * ease;
+
+      el.textContent = formatNum(currentVal);
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        el.textContent = formatNum(target);
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
-        const target = parseFloat(el.dataset.target);
-        const decimals = parseInt(el.dataset.decimals || '0', 10);
-        const originalText = el.textContent;
-        const isPlus = originalText.includes('+');
-        const isPercent = originalText.includes('%');
-        const isSupport = originalText.includes('/7');
-
-        if (isSupport) {
-          el.textContent = '24/7';
-          observer.unobserve(el);
-          return;
+        const parsed = el.__parsedCounter;
+        if (parsed) {
+          animateCounter(el, parsed);
         }
-
-        let start = 0;
-        const duration = 1800;
-        const startTime = performance.now();
-
-        function updateCount(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          // easeOutExpo
-          const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-          const currentVal = (start + (target - start) * easeProgress).toFixed(decimals);
-
-          el.textContent = currentVal + (isPercent ? '%' : (isPlus ? '+' : ''));
-
-          if (progress < 1) {
-            requestAnimationFrame(updateCount);
-          } else {
-            el.textContent = target.toFixed(decimals) + (isPercent ? '%' : (isPlus ? '+' : ''));
-          }
-        }
-
-        requestAnimationFrame(updateCount);
-        observer.unobserve(el);
+        obs.unobserve(el);
       }
     });
-  }, { threshold: 0.25 });
+  }, { threshold: 0.15 });
 
-  counters.forEach(c => observer.observe(c));
+  counterEls.forEach(el => {
+    const parsed = parseNumberFormat(el.textContent);
+    if (parsed) {
+      el.__parsedCounter = parsed;
+      observer.observe(el);
+    }
+  });
 }
 
 // 12. Fluid Universal Scroll Reveal Animations
 function initScrollReveals() {
-  const revealEls = document.querySelectorAll('.reveal-on-scroll, .section-header-editorial, .snapshot-item, .curious-folio-panel, .global-map-section');
-  if (!revealEls.length) return;
+  // Pre-tag candidate parent elements as stagger groups across all sections and subpages
+  const staggerContainers = document.querySelectorAll(
+    '.about-col-metrics, .gtn-clean-metrics-row, .charter-pillars-grid, ' +
+    '.modern-values-grid, .volza-pillars-grid, .volza-leadership-grid, .volza-trust-badges, ' +
+    '.floating-features-card, .footer-columns-grid, .category-hero-grid, ' +
+    '.ecom-categories-grid, .ecom-products-grid, .ecom-trust-ribbon, ' +
+    '.globe-country-ribbon, .zigzag-milestones-tabs-bar, .zigzag-boxes-layer, ' +
+    '.testimonials-slider-track, .testimonials-grid, .testimonials-client-logos, ' +
+    '.testimonials-provenance-bar, .comm-regional-gateways, ' +
+    '.global-contact-cards-grid, .hero-provenance-metrics, .pipeline-track, ' +
+    '.featured-metrics-grid, .premium-services-grid, .services-hero-badges, .quayside-showcase-grid'
+  );
+  staggerContainers.forEach(container => {
+    container.classList.add('stagger-reveal-group');
+  });
 
-  const observer = new IntersectionObserver((entries) => {
+  // Pre-tag candidate standalone elements as reveal-on-scroll (safe cards only - never whole sections or headers)
+  const standaloneElements = document.querySelectorAll(
+    '.volza-section-header, .ecom-section-header, ' +
+    '.section-head-lux, .about-editorial-header, .about-col-narrative, ' +
+    '.portfolio-header-split, .curious-folio-deck, .gtn-content-col, .gtn-visual-col, .gtn-globe-display-card, ' +
+    '.comm-hub-wrapper, .comm-core-dock, .floating-rfq-portal, .live-whatsapp-terminal, ' +
+    '.volza-about-text-col, .volza-about-visual-col, .volza-timeline-track, ' +
+    '.volza-trade-map-card, .contact-card, .contact-form-card, .faq-accordion-item, ' +
+    '.pipeline-header, .featured-service-hero, .catalog-header-bar, .category-group-header'
+  );
+  standaloneElements.forEach(el => {
+    el.classList.add('reveal-on-scroll');
+  });
+
+  // Tag directional & scale emergence variants for rich UI choreography
+  document.querySelectorAll('.gtn-content-col, .about-col-narrative, .volza-about-text-col, .floating-rfq-portal, .featured-content-col').forEach(el => {
+    el.classList.add('reveal-from-left');
+  });
+  document.querySelectorAll('.gtn-visual-col, .volza-about-visual-col, .live-whatsapp-terminal, .featured-visual-col').forEach(el => {
+    el.classList.add('reveal-from-right');
+  });
+  document.querySelectorAll('.gtn-globe-display-card, .comm-core-dock, .featured-service-hero, .quayside-showcase-card').forEach(el => {
+    el.classList.add('reveal-scale');
+  });
+
+  const revealTargets = document.querySelectorAll(
+    '.reveal-on-scroll, .stagger-reveal-group, .reveal-from-left, .reveal-from-right, .reveal-scale'
+  );
+  if (!revealTargets.length) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, {
+    threshold: 0.01,
+    rootMargin: '250px 0px 250px 0px'
+  });
 
-  revealEls.forEach(el => observer.observe(el));
+  const vh = window.innerHeight || 800;
+
+  revealTargets.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < vh + 100 && rect.bottom > -100) {
+      el.classList.add('is-revealed');
+    } else {
+      observer.observe(el);
+    }
+  });
+
+  // Safety fallback: reveal any remaining elements to guarantee 0 hidden content
+  setTimeout(() => {
+    revealTargets.forEach(el => el.classList.add('is-revealed'));
+  }, 1000);
+}
+
+// ============================================================================
+// 12B. LENIS SMOOTH SCROLLING, ANCHOR NAVIGATION, SCROLL-SPY & PARALLAX ENGINE
+// ============================================================================
+let lenisInstance = null;
+let parallaxElements = [];
+
+function initSmoothScrolling() {
+  // Pure native browser scrolling: instant, direct hardware response without inertia or lag
+  window.lenis = null;
+  lenisInstance = null;
+  document.documentElement.style.scrollBehavior = 'auto';
+
+  window.addEventListener('scroll', () => {
+    if (parallaxElements.length) {
+      updateParallax();
+    }
+  }, { passive: true });
+}
+
+function initSmoothNavAnchors() {
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href || href === '#' || href === '#!') return;
+
+    // Check if on index.html and clicking "Home" (href="index.html" or "index.html#...")
+    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
+    
+    if (isHomePage && (href === 'index.html' || href === './index.html' || href === '/')) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // Check for in-page anchors (e.g. href="#about-section" or href="index.html#about-section" while on index.html)
+    try {
+      const url = new URL(link.href, window.location.href);
+      if (url.pathname === window.location.pathname && url.hash) {
+        const target = document.querySelector(url.hash);
+        if (target) {
+          e.preventDefault();
+          const header = document.querySelector('.site-header-serene') || document.getElementById('main-header');
+          const headerHeight = header ? header.offsetHeight : 80;
+          const offset = -(headerHeight + 20);
+          const targetY = target.getBoundingClientRect().top + window.pageYOffset + offset;
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+
+          // Close mobile menu if open
+          if (header) {
+            header.classList.remove('mobile-nav-open');
+            const toggle = document.getElementById('mobile-nav-toggle-serene') || document.getElementById('mobile-toggle-btn');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+          }
+        }
+      }
+    } catch (err) {}
+  });
+
+  // Handle URL hash on initial page load with proper header offset
+  if (window.location.hash) {
+    setTimeout(() => {
+      try {
+        const hashTarget = document.querySelector(window.location.hash);
+        if (hashTarget) {
+          const header = document.querySelector('.site-header-serene') || document.getElementById('main-header');
+          const offset = header ? -(header.offsetHeight + 20) : -90;
+          const targetY = hashTarget.getBoundingClientRect().top + window.pageYOffset + offset;
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        }
+      } catch (err) {}
+    }, 250);
+  }
+}
+
+function initScrollSpy() {
+  const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
+  const navLinks = document.querySelectorAll('.nav-links-serene .nav-link-serene');
+  if (!navLinks.length) return;
+
+  // On the home page, keep 'Home' selected in the menu bar at all times
+  if (isHomePage) {
+    navLinks.forEach(link => {
+      const isHome = link.getAttribute('href') === 'index.html' || link.textContent.trim() === 'Home';
+      link.classList.toggle('active', isHome);
+    });
+  }
+}
+
+function initParallaxEngine() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  const heroImg = document.querySelector('.hero-scenic-img');
+  if (heroImg) {
+    heroImg.setAttribute('data-parallax', 'true');
+    heroImg.setAttribute('data-parallax-speed', '0.07');
+  }
+
+  const orb1 = document.querySelector('.hero-ambient-orb.orb-1');
+  if (orb1) {
+    orb1.setAttribute('data-parallax', 'true');
+    orb1.setAttribute('data-parallax-speed', '-0.05');
+  }
+
+  const orb2 = document.querySelector('.hero-ambient-orb.orb-2');
+  if (orb2) {
+    orb2.setAttribute('data-parallax', 'true');
+    orb2.setAttribute('data-parallax-speed', '0.05');
+  }
+
+  const goldenGlows = document.querySelectorAll('.golden-aurora-glow, .about-golden-glow');
+  goldenGlows.forEach(glow => {
+    glow.setAttribute('data-parallax', 'true');
+    glow.setAttribute('data-parallax-speed', '0.04');
+  });
+
+  const atmosphericMesh = document.querySelector('.values-ambient-mesh');
+  if (atmosphericMesh) {
+    atmosphericMesh.setAttribute('data-parallax', 'true');
+    atmosphericMesh.setAttribute('data-parallax-speed', '0.04');
+  }
+
+  parallaxElements = Array.from(document.querySelectorAll('[data-parallax]'));
+  if (!parallaxElements.length) return;
+
+  cacheParallaxMetrics();
+  window.addEventListener('resize', cacheParallaxMetrics, { passive: true });
+
+  window.addEventListener('scroll', () => {
+    if (!lenisInstance) {
+      updateParallax();
+    }
+  }, { passive: true });
+
+  updateParallax();
+}
+
+let parallaxMetrics = [];
+let parallaxRafPending = false;
+
+function cacheParallaxMetrics() {
+  const scrollY = window.scrollY || window.pageYOffset || 0;
+  parallaxMetrics = parallaxElements.map(el => {
+    const rect = el.getBoundingClientRect();
+    const speed = parseFloat(el.getAttribute('data-parallax-speed') || '0.05');
+    return {
+      el,
+      speed,
+      top: rect.top + scrollY,
+      height: rect.height || 100
+    };
+  });
+}
+
+function updateParallax() {
+  if (parallaxRafPending) return;
+  parallaxRafPending = true;
+
+  requestAnimationFrame(() => {
+    parallaxRafPending = false;
+    if (!parallaxMetrics.length) return;
+
+    const vh = window.innerHeight || 800;
+    const vCenter = vh * 0.5;
+    const scrollY = window.scrollY || window.pageYOffset || 0;
+
+    for (let i = 0; i < parallaxMetrics.length; i++) {
+      const item = parallaxMetrics[i];
+      const elTop = item.top - scrollY;
+      const elBottom = elTop + item.height;
+
+      if (elBottom >= -120 && elTop <= vh + 120) {
+        const elCenter = elTop + item.height * 0.5;
+        const distFromCenter = elCenter - vCenter;
+        const translateY = Math.round(distFromCenter * item.speed * 10) / 10;
+        item.el.style.transform = `translate3d(0, ${translateY}px, 0)`;
+      }
+    }
+  });
 }
 
 
@@ -859,32 +1265,76 @@ function initProcessRoadMilestones() {
   let currentProgress = 0;
   let currentStageIndex = 0;
 
-  // Compute scroll progress relative to track
-  function onScroll() {
+  let trackTop = 0;
+  let trackHeight = 0;
+  let trackMaxScroll = 0;
+
+  function cacheTrackMetrics() {
     const rect = track.getBoundingClientRect();
-    const maxScroll = track.offsetHeight - window.innerHeight;
-    
-    if (maxScroll > 0) {
-      const scrolled = -rect.top;
-      targetProgress = Math.max(0, Math.min(1, scrolled / maxScroll));
-    } else {
-      // Responsive fallback when track is not taller than window
-      const vpHeight = window.innerHeight || 800;
-      const totalSpan = rect.height + vpHeight;
-      const scrolled = vpHeight - rect.top;
-      targetProgress = Math.max(0, Math.min(1, scrolled / totalSpan));
+    trackTop = rect.top + (window.scrollY || window.pageYOffset || 0);
+    trackHeight = track.offsetHeight || rect.height;
+    trackMaxScroll = trackHeight - window.innerHeight;
+  }
+  cacheTrackMetrics();
+  window.addEventListener("resize", cacheTrackMetrics, { passive: true });
+
+  let isRoadVisible = false;
+  let isRoadLoopRunning = false;
+
+  function scheduleAnimLoop() {
+    if (!isRoadLoopRunning && isRoadVisible) {
+      isRoadLoopRunning = true;
+      requestAnimationFrame(animLoop);
     }
   }
 
+  // Compute scroll progress relative to track without layout thrashing
+  function onScroll() {
+    const scrollY = window.scrollY || window.pageYOffset || 0;
+    if (trackMaxScroll > 0) {
+      const scrolled = scrollY - trackTop;
+      targetProgress = Math.max(0, Math.min(1, scrolled / trackMaxScroll));
+    } else {
+      const vpHeight = window.innerHeight || 800;
+      const totalSpan = trackHeight + vpHeight;
+      const scrolled = vpHeight - (trackTop - scrollY);
+      targetProgress = Math.max(0, Math.min(1, scrolled / totalSpan));
+    }
+    scheduleAnimLoop();
+  }
+
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll, { passive: true });
   onScroll();
 
-  // Smooth 60fps animation loop
+  if ('IntersectionObserver' in window) {
+    const roadObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isRoadVisible = entry.isIntersecting;
+        if (isRoadVisible) {
+          cacheTrackMetrics();
+          scheduleAnimLoop();
+        }
+      });
+    }, { rootMargin: '150px 0px 150px 0px', threshold: 0.01 });
+    roadObserver.observe(track);
+  } else {
+    isRoadVisible = true;
+    scheduleAnimLoop();
+  }
+
+  // Ultra-efficient animation loop that sleeps when settled or offscreen
   function animLoop() {
+    if (!isRoadVisible) {
+      isRoadLoopRunning = false;
+      return;
+    }
+
     const diff = targetProgress - currentProgress;
+    let shouldContinue = false;
+
     if (Math.abs(diff) > 0.0004) {
-      currentProgress += diff * 0.14;
+      currentProgress += diff * 0.07;
+      shouldContinue = true;
     } else {
       currentProgress = targetProgress;
     }
@@ -913,7 +1363,6 @@ function initProcessRoadMilestones() {
     }
 
     // 4. Sequential milestone & connector reveals along zigzag path
-    // Precise physical node arrival thresholds: Node 2 @ 0.31, Node 3 @ 0.64, Node 4 @ 0.95
     const isStage1 = p >= 0.31;
     const isStage2 = p >= 0.64;
     const isStage3 = p >= 0.95;
@@ -975,22 +1424,26 @@ function initProcessRoadMilestones() {
       }
     }
 
-    requestAnimationFrame(animLoop);
+    if (shouldContinue) {
+      requestAnimationFrame(animLoop);
+    } else {
+      isRoadLoopRunning = false;
+    }
   }
 
   // Interactive Tab Clicks
   tabs.forEach((tab, idx) => {
     tab.addEventListener("click", () => {
       const targetPercent = [0.0, 0.33, 0.67, 1.0][idx];
-      const trackTop = track.getBoundingClientRect().top + window.scrollY;
-      const maxScroll = track.offsetHeight - window.innerHeight;
-      if (maxScroll > 0) {
+      if (trackMaxScroll > 0) {
+        const destY = trackTop + trackMaxScroll * targetPercent;
         window.scrollTo({
-          top: trackTop + maxScroll * targetPercent,
+          top: destY,
           behavior: "smooth"
         });
       } else {
         targetProgress = targetPercent;
+        scheduleAnimLoop();
       }
     });
   });
@@ -1042,322 +1495,134 @@ function initMobileMovesSwipe() {
   // Mobile swipe support if needed
 }
 
-// 15. Continuous Kinetic Values Interactive System & One-by-One Smooth Sequence Flow
+// 15. The Shipyon Charter: Four Pillars Interactive System with Glowing Auto-Cycle & 3D Micro-Tilt
 function initValuesInteractiveCards() {
-  const showcaseWrapper = document.getElementById("values-showcase-wrapper");
-  const cards = document.querySelectorAll(".value-luxury-card");
+  const section = document.getElementById("values-section");
+  if (!section) return;
+
+  const cards = section.querySelectorAll(".charter-pillar-card");
+  const grid = section.querySelector(".charter-pillars-grid");
   if (!cards.length) return;
 
-  // --- A. Dynamic SVG Interconnecting Artery Coordinates ---
-  const arterySvg = document.getElementById("values-artery-svg");
-  const path12 = document.getElementById("artery-path-1-2");
-  const path23 = document.getElementById("artery-path-2-3");
-  const path34 = document.getElementById("artery-path-3-4");
-  const flow12 = document.getElementById("artery-flow-1-2");
-  const flow23 = document.getElementById("artery-flow-2-3");
-  const flow34 = document.getElementById("artery-flow-3-4");
-  const flowBeams = [flow12, flow23, flow34];
-
-  function updateArteryCoordinates() {
-    if (!arterySvg || !path12 || !path23 || !path34 || window.innerWidth < 992 || !showWrapperIsVisible()) return;
-    const wrapperRect = showcaseWrapper.getBoundingClientRect();
-    if (wrapperRect.width <= 0) return;
-
-    const centers = [];
-    cards.forEach(card => {
-      const r = card.getBoundingClientRect();
-      const cx = (r.left + r.width / 2) - wrapperRect.left;
-      const cy = (r.top + r.height / 2) - wrapperRect.top;
-      centers.push({ x: cx, y: cy });
-    });
-
-    if (centers.length === 4) {
-      arterySvg.setAttribute("viewBox", `0 0 ${wrapperRect.width} ${wrapperRect.height}`);
-      arterySvg.style.height = `${wrapperRect.height}px`;
-      arterySvg.style.top = "0";
-      arterySvg.style.transform = "none";
-
-      function makeSpline(p1, p2) {
-        const dx = (p2.x - p1.x) * 0.5;
-        const dip = (p1.y + p2.y) / 2 + 35;
-        return `M ${p1.x.toFixed(1)} ${p1.y.toFixed(1)} C ${(p1.x + dx).toFixed(1)} ${dip.toFixed(1)}, ${(p2.x - dx).toFixed(1)} ${dip.toFixed(1)}, ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}`;
-      }
-
-      const d12 = makeSpline(centers[0], centers[1]);
-      const d23 = makeSpline(centers[1], centers[2]);
-      const d34 = makeSpline(centers[2], centers[3]);
-
-      path12.setAttribute("d", d12);
-      path23.setAttribute("d", d23);
-      path34.setAttribute("d", d34);
-
-      if (flow12) flow12.setAttribute("d", d12);
-      if (flow23) flow23.setAttribute("d", d23);
-      if (flow34) flow34.setAttribute("d", d34);
-    }
-  }
-
-  function showWrapperIsVisible() {
-    return showcaseWrapper.offsetParent !== null;
-  }
-
-  setTimeout(updateArteryCoordinates, 300);
-  let resizeTimer = null;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(updateArteryCoordinates, 150);
-  });
-
-  // --- B. 60fps Mathematical Harmonic Sine Wave Visualizer ---
-  const canvases = document.querySelectorAll(".harmonic-wave-canvas");
-  const waveStates = [];
-
-  canvases.forEach((canvas, idx) => {
-    const ctx = canvas.getContext("2d");
-    const dpr = window.devicePixelRatio || 1;
-    const w = canvas.offsetWidth || 220;
-    const h = 34;
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-
-    const baseFreqs = [0.038, 0.046, 0.032, 0.052];
-    const speeds = [0.042, 0.035, 0.048, 0.039];
-
-    waveStates.push({
-      canvas,
-      ctx,
-      dpr,
-      w,
-      h,
-      t: idx * 2.5,
-      baseFreq: baseFreqs[idx] || 0.04,
-      speed: speeds[idx] || 0.04,
-      targetAmp: 4.5,
-      currentAmp: 4.5,
-      card: cards[idx]
-    });
-  });
-
-  let waveAnimFrameId = null;
-
-  function renderHarmonicWaves() {
-    waveStates.forEach((state) => {
-      const { ctx, canvas, dpr, w, h, baseFreq, speed, card } = state;
-      if (!ctx || !canvas) return;
-
-      const isResonant = card.classList.contains("active-resonance") || card.classList.contains("is-hovered");
-      state.targetAmp = isResonant ? 9.5 : 4.5;
-      state.currentAmp += (state.targetAmp - state.currentAmp) * 0.12;
-      state.t += speed * (isResonant ? 1.6 : 1.0);
-
-      ctx.save();
-      ctx.scale(dpr, dpr);
-      ctx.clearRect(0, 0, w, h);
-
-      const midY = h / 2;
-      const amp = state.currentAmp;
-
-      // 1. Translucent underfill gradient
-      ctx.beginPath();
-      ctx.moveTo(0, midY);
-      for (let x = 0; x <= w; x += 2) {
-        const y = midY + 
-          Math.sin(x * baseFreq - state.t) * amp * 0.75 + 
-          Math.cos(x * baseFreq * 0.45 - state.t * 0.6) * (amp * 0.35);
-        ctx.lineTo(x, y);
-      }
-      ctx.lineTo(w, h);
-      ctx.lineTo(0, h);
-      ctx.closePath();
-      const fillGrad = ctx.createLinearGradient(0, 0, 0, h);
-      fillGrad.addColorStop(0, isResonant ? "rgba(101, 208, 244, 0.28)" : "rgba(35, 115, 244, 0.12)");
-      fillGrad.addColorStop(1, "rgba(11, 25, 44, 0.0)");
-      ctx.fillStyle = fillGrad;
-      ctx.fill();
-
-      // 2. High-energy stroke gradient
-      ctx.beginPath();
-      for (let x = 0; x <= w; x += 2) {
-        const y = midY + 
-          Math.sin(x * baseFreq - state.t) * amp * 0.75 + 
-          Math.cos(x * baseFreq * 0.45 - state.t * 0.6) * (amp * 0.35);
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-
-      const strokeGrad = ctx.createLinearGradient(0, 0, w, 0);
-      strokeGrad.addColorStop(0, "#2373F4");
-      strokeGrad.addColorStop(0.5, "#65D0F4");
-      strokeGrad.addColorStop(0.85, isResonant ? "#F2F7A0" : "#65D0F4");
-      strokeGrad.addColorStop(1, "#578EF5");
-
-      ctx.strokeStyle = strokeGrad;
-      ctx.lineWidth = isResonant ? 2.4 : 1.6;
-      ctx.shadowColor = isResonant ? "#65D0F4" : "rgba(35, 115, 244, 0.6)";
-      ctx.shadowBlur = isResonant ? 8 : 4;
-      ctx.stroke();
-
-      // 3. Traveling photon node on the wave
-      const photonX = ((state.t * 24) % (w + 20)) - 10;
-      if (photonX >= 0 && photonX <= w) {
-        const photonY = midY + 
-          Math.sin(photonX * baseFreq - state.t) * amp * 0.75 + 
-          Math.cos(photonX * baseFreq * 0.45 - state.t * 0.6) * (amp * 0.35);
-
-        ctx.beginPath();
-        ctx.arc(photonX, photonY, isResonant ? 3 : 2.2, 0, Math.PI * 2);
-        ctx.fillStyle = isResonant ? "#F2F7A0" : "#FFFFFF";
-        ctx.shadowColor = "#F2F7A0";
-        ctx.shadowBlur = 10;
-        ctx.fill();
-      }
-
-      ctx.restore();
-    });
-
-    waveAnimFrameId = requestAnimationFrame(renderHarmonicWaves);
-  }
-
-  // --- C. Continuous Auto-Advancing Values Progression (Under 3 Sec: 2.8s Cycle) ---
-  const CYCLE_INTERVAL_MS = 2800; // Continuous transition under 3 seconds
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let activeIndex = 0;
-  let cycleTimer = null;
-  let isUserHovering = false;
-  let idleResumeTimer = null;
+  let autoTimer = null;
+  let isHovered = false;
 
-  function setActiveCard(idx, restartTimer = false) {
-    activeIndex = (idx + cards.length) % cards.length;
-
+  function setActiveCard(idx) {
+    if (idx < 0 || idx >= cards.length) return;
+    activeIndex = idx;
     cards.forEach((card, i) => {
-      const isActive = (i === activeIndex);
-      card.classList.toggle("active-resonance", isActive);
-
-      // Re-trigger 2.8s countdown progress animation on the active card
-      const fill = card.querySelector(".value-indicator-fill");
-      if (fill) {
-        fill.style.animation = "none";
-        fill.offsetHeight; // force reflow
-        if (isActive && !isUserHovering) {
-          fill.style.animation = `valueFillTimer ${CYCLE_INTERVAL_MS}ms linear forwards`;
-        } else if (isActive && isUserHovering) {
-          fill.style.width = "100%";
-        } else {
-          fill.style.width = "0%";
+      const isCurrent = (i === activeIndex);
+      card.classList.toggle("is-active", isCurrent);
+      card.setAttribute("aria-pressed", isCurrent ? "true" : "false");
+      if (isCurrent) {
+        const fill = card.querySelector(".pillar-progress-fill");
+        if (fill) {
+          fill.style.animation = "none";
+          void fill.offsetHeight;
+          fill.style.animation = "";
         }
       }
     });
 
-    // Light up connecting energy artery beam linking current card to next
-    if (flowBeams && flowBeams.length) {
-      flowBeams.forEach((beam, bIdx) => {
-        if (beam) {
-          // Beam 0 links 0->1, Beam 1 links 1->2, Beam 2 links 2->3
-          const isBeamActive = (bIdx === activeIndex && activeIndex < cards.length - 1);
-          beam.classList.toggle("active-beam", isBeamActive);
-        }
-      });
-    }
-
-    if (restartTimer) {
-      startCycleTimer();
-    }
+    // Update continuous SVG artery nodes
+    const nodes = section.querySelectorAll(".charter-artery-node");
+    nodes.forEach((node, nIdx) => {
+      node.classList.toggle("is-active", nIdx === activeIndex);
+    });
   }
 
-  function advanceToNextCard() {
-    if (!isUserHovering) {
-      const nextIdx = (activeIndex + 1) % cards.length;
-      setActiveCard(nextIdx);
-    }
+  function startAutoCycle() {
+    stopAutoCycle();
+    if (isHovered || prefersReducedMotion) return;
+    autoTimer = setInterval(() => {
+      if (!isHovered) {
+        const nextIndex = (activeIndex + 1) % cards.length;
+        setActiveCard(nextIndex);
+      }
+    }, 4200);
   }
 
-  function startCycleTimer() {
-    stopCycleTimer();
-    cycleTimer = setInterval(advanceToNextCard, CYCLE_INTERVAL_MS);
-  }
-
-  function stopCycleTimer() {
-    if (cycleTimer) {
-      clearInterval(cycleTimer);
-      cycleTimer = null;
+  function stopAutoCycle() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
     }
   }
 
-  // Ensure all cards are revealed and start continuous under-3s auto-advance
-  cards.forEach(card => card.classList.add("val-card-revealed"));
+  // Set initial active card (Pillar I) and start glowing sequence
   setActiveCard(0);
-  startCycleTimer();
+  startAutoCycle();
 
-  // --- D. Intersection Observer for Smooth Pause/Resume ---
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (!waveAnimFrameId) renderHarmonicWaves();
-          updateArteryCoordinates();
-          startCycleTimer();
-        } else {
-          stopCycleTimer();
-          if (waveAnimFrameId) {
-            cancelAnimationFrame(waveAnimFrameId);
-            waveAnimFrameId = null;
-          }
-        }
-      });
-    }, { threshold: 0.15 });
-
-    const valuesSection = document.getElementById("values-section");
-    if (valuesSection) observer.observe(valuesSection);
-  }
-
-  // --- E. Interactive Hover & Click Handling ---
   cards.forEach((card, idx) => {
-    // Clicking any card immediately highlights it and restarts the 2.8s continuous cycle
-    card.addEventListener("click", () => {
-      isUserHovering = false;
-      setActiveCard(idx, true);
-    });
-
+    // Hover: focus card elevation and pause auto-cycle
     card.addEventListener("mouseenter", () => {
-      isUserHovering = true;
-      card.classList.add("is-hovered");
+      isHovered = true;
+      stopAutoCycle();
       setActiveCard(idx);
-      stopCycleTimer();
-
-      // Auto-resume fallback if mouse is left idle over card for > 5s
-      clearTimeout(idleResumeTimer);
-      idleResumeTimer = setTimeout(() => {
-        isUserHovering = false;
-        startCycleTimer();
-      }, 5000);
     });
 
-    card.addEventListener("mouseleave", () => {
-      clearTimeout(idleResumeTimer);
-      isUserHovering = false;
-      card.classList.remove("is-hovered");
-      card.style.transform = "";
-      card.style.setProperty("--mouse-x", "50%");
-      card.style.setProperty("--mouse-y", "50%");
-      // Smoothly advance from current card after a fresh 2.8s cycle
-      setActiveCard(idx, true);
+    // Click: set active card
+    card.addEventListener("click", () => {
+      isHovered = true;
+      stopAutoCycle();
+      setActiveCard(idx);
     });
 
+    // Keyboard support
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        isHovered = true;
+        stopAutoCycle();
+        setActiveCard(idx);
+      }
+    });
+
+    if (prefersReducedMotion) return;
+
+    const glare = card.querySelector(".pillar-card-glare");
+
+    // Dynamic 3D micro-tilt and specular glare tracking
     card.addEventListener("mousemove", (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
+      if (glare) {
+        glare.style.left = `${x}px`;
+        glare.style.top = `${y}px`;
+      }
 
+      // Elegant, subtle 3D tilt (max 3.2 degrees - controlled and refined)
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const tiltX = ((y - centerY) / centerY) * -6;
-      const tiltY = ((x - centerX) / centerX) * 6;
+      const tiltX = (((y - centerY) / centerY) * -3.2).toFixed(2);
+      const tiltY = (((x - centerX) / centerX) * 3.2).toFixed(2);
+      card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-8px)`;
+    });
 
-      card.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-8px) scale(1.02)`;
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
     });
   });
+
+  // When mouse leaves the entire grid, resume glowing auto-cycle
+  if (grid) {
+    grid.addEventListener("mouseenter", () => {
+      isHovered = true;
+      stopAutoCycle();
+    });
+
+    grid.addEventListener("mouseleave", () => {
+      isHovered = false;
+      cards.forEach((card) => {
+        card.style.transform = "";
+      });
+      startAutoCycle();
+    });
+  }
 }
 
 /**
@@ -1407,340 +1672,462 @@ function initLeadershipInteractiveCards() {
 }
 
 /**
- * Global smooth scroll & service highlight handler for Testimonials in Services Page
+ * Global smooth scroll & service highlight handler for Testimonials
+ * Works across both services.html and about.html
  */
 function navigateToService(targetServiceId) {
-  const targetElement = document.getElementById(targetServiceId) || document.getElementById('core-export-services');
+  const targetElement = document.getElementById(targetServiceId);
   if (targetElement) {
     targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     targetElement.classList.add('service-highlight-pulse');
     setTimeout(() => {
       targetElement.classList.remove('service-highlight-pulse');
-    }, 3500);
+    }, 4200);
+  } else {
+    // If clicked on about.html or another page, redirect cleanly to services.html
+    window.location.href = `services.html#${targetServiceId}`;
   }
 }
 
 window.navigateToService = navigateToService;
 
 /**
+ * Center-Distance Dynamic Hover Controller for Testimonials Marquee
+ * Elevates & illuminates testimonial cards strictly when they reach a particular distance at the middle of the screen
+ */
+function initSequentialHoverTestimonials() {
+  const wrapper = document.getElementById('testimonials-marquee-wrapper');
+  const track = document.getElementById('testimonials-marquee-track');
+  if (!wrapper || !track) return;
+
+  const cards = track.querySelectorAll('.testimonial-card-exim');
+  if (!cards || cards.length === 0) return;
+
+  let currentAutoActiveCard = null;
+  let rafId;
+
+  // Manual hover interaction:
+  // Allows user to hover any card with full elevated styling (via .is-manual-hovered & :hover).
+  // Automatic center-stage hovering NEVER pauses or falters during manual hovering; both run concurrently.
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.classList.add('is-manual-hovered');
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.classList.remove('is-manual-hovered');
+    });
+
+    card.addEventListener('touchstart', () => {
+      cards.forEach(c => {
+        if (c !== card) c.classList.remove('is-manual-hovered');
+      });
+      card.classList.add('is-manual-hovered');
+    }, { passive: true });
+  });
+
+  let isMarqueeVisible = false;
+  let lastCheckTime = 0;
+
+  function updateCenterHover() {
+    if (!isMarqueeVisible) {
+      rafId = null;
+      return;
+    }
+
+    const now = performance.now();
+    // Run distance calculations at max 10Hz (every 100ms) rather than 60/120Hz
+    // This reduces DOM reflows by over 90% while keeping marquee auto-hover silky smooth
+    if (now - lastCheckTime > 100) {
+      lastCheckTime = now;
+      const centerX = (window.innerWidth || 1200) / 2;
+      let closestCard = null;
+      let minDistance = Infinity;
+
+      for (let i = 0; i < cards.length; i++) {
+        const card = cards[i];
+        const rect = card.getBoundingClientRect();
+
+        // Clear active state if card scrolls completely offscreen
+        if (rect.right < 0 || rect.left > window.innerWidth) {
+          if (card === currentAutoActiveCard) {
+            card.classList.remove('is-auto-hovered');
+            currentAutoActiveCard = null;
+          }
+          card.classList.remove('is-manual-hovered');
+          continue;
+        }
+
+        const cardCenterX = rect.left + rect.width / 2;
+        const distFromCenter = Math.abs(cardCenterX - centerX);
+
+        if (distFromCenter < minDistance) {
+          minDistance = distFromCenter;
+          closestCard = card;
+        }
+      }
+
+      if (closestCard && closestCard !== currentAutoActiveCard) {
+        const cardWidth = closestCard.offsetWidth || 300;
+        const middleTriggerZone = Math.max(90, cardWidth * 0.45);
+
+        if (minDistance <= middleTriggerZone) {
+          if (currentAutoActiveCard) {
+            currentAutoActiveCard.classList.remove('is-auto-hovered');
+          }
+          closestCard.classList.add('is-auto-hovered');
+          currentAutoActiveCard = closestCard;
+        }
+      }
+    }
+
+    rafId = requestAnimationFrame(updateCenterHover);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const marqueeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const wasVisible = isMarqueeVisible;
+        isMarqueeVisible = entry.isIntersecting;
+        if (isMarqueeVisible && !wasVisible) {
+          if (!rafId) rafId = requestAnimationFrame(updateCenterHover);
+        } else if (!isMarqueeVisible && wasVisible) {
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+          if (currentAutoActiveCard) {
+            currentAutoActiveCard.classList.remove('is-auto-hovered');
+            currentAutoActiveCard = null;
+          }
+        }
+      });
+    }, { rootMargin: '100px 0px 100px 0px', threshold: 0.01 });
+    marqueeObserver.observe(wrapper);
+  } else {
+    isMarqueeVisible = true;
+    rafId = requestAnimationFrame(updateCenterHover);
+  }
+}
+
+/**
  * ==========================================================================
- * SHIPYON CURSOR GIMMICKS ENGINE
- * Dual-element emerald-gold photon tracker with sonic click shockwaves,
- * elastic lerp tracking, and contextual action morphing badges
+ * SHIPYON CELESTIAL COMPASS & OPTICAL RETICLE CURSOR SYSTEM
+ * Style: Luxury Maritime Navigational Instrument in Golden Yellow
+ * Elements:
+ * 1. Central Golden Core (shipyon-cursor-dot): 6.5px radiant gold photon dot,
+ *    follows mouse instantaneously (0ms delay)
+ * 2. Celestial Compass Reticle (shipyon-cursor-ring): 38px gold compass reticle
+ *    with 4 cardinal tick marks (N, E, S, W) and viewfinder optical brackets,
+ *    fluid spring delay (0.18 lerp) with velocity-based gyroscopic tilt
+ * Contextual States:
+ * - buttons: expands to 56px, magnetic 3-5px pull on button
+ * - links: displays golden directional arrow (→)
+ * - images: morphs into optical viewfinder brackets (⌜ ⌝ ⌞ ⌟)
+ * - globe / map: switches to rotating radar dashed ring
+ * - explore: displays golden pill badge with destination name
+ * - journey / values: highlights charter pillars
+ * - click: triggers golden solar shockwave ripple
+ * - fast velocity: emits subtle stardust trail particles
  * ==========================================================================
  */
 function initShipyonCursorGimmicks() {
-  // Gracefully skip on touch / coarse pointer devices
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    return;
-  }
+  // Use natural native OS cursor everywhere to ensure 100% visibility, zero lag, and instant responsiveness
+  window.setShipyonGlobeCursor = function () {};
+  const existingRoot = document.getElementById('shipyon-cursor-root');
+  if (existingRoot) existingRoot.remove();
+  return;
 
-  // Prevent duplicate insertion
-  if (document.getElementById('shipyon-cursor-dot')) return;
-
-  // 1. Create Glowing Central Dot
-  const dot = document.createElement('div');
-  dot.className = 'shipyon-cursor-dot';
-  dot.id = 'shipyon-cursor-dot';
-
-  // 2. Create Thin Animated Circular Ring
-  const ring = document.createElement('div');
-  ring.className = 'shipyon-cursor-ring';
-  ring.id = 'shipyon-cursor-ring';
-
-  // Inner components for contextual states
-  ring.innerHTML = `
-    <!-- Orbital Satellites for Globe Navigation State -->
-    <div class="cursor-orbit-satellites" aria-hidden="true">
-      <span class="orbit-satellite satellite-1"></span>
-      <span class="orbit-satellite satellite-2"></span>
+  // Create the root multi-shape cursor container
+  const root = document.createElement('div');
+  root.className = 'shipyon-cursor-root';
+  root.id = 'shipyon-cursor-root';
+  root.setAttribute('aria-hidden', 'true');
+  root.innerHTML = `
+    <div class="shipyon-cursor-circle" id="shipyon-cursor-circle">
+      <div class="cursor-circle-content" id="cursor-circle-content">
+        <span class="cursor-circle-label" id="cursor-circle-label"></span>
+        <span class="cursor-circle-icon" id="cursor-circle-icon"></span>
+      </div>
     </div>
-
-    <!-- Node Connection Icon for Trade Route State -->
-    <div class="cursor-node-icon" aria-hidden="true">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2" stroke-linecap="round">
-        <circle cx="6" cy="12" r="3" fill="#D4AF37"/>
-        <circle cx="18" cy="12" r="3" fill="#D4AF37"/>
-        <line x1="9" y1="12" x2="15" y2="12" stroke-dasharray="2 2"/>
+    <div class="shipyon-cursor-arrow" id="shipyon-cursor-arrow">
+      <svg class="classic-arrow-svg" viewBox="0 0 24 24" width="22" height="22">
+        <path class="classic-arrow-path" 
+              d="M 2.2 1.8 L 9.8 21.2 L 13.4 13.8 L 20.8 10.2 Z" 
+              fill="#FFFFFF" 
+              stroke="#0A1C10" 
+              stroke-width="1.5" 
+              stroke-linejoin="round" 
+              stroke-linecap="round"/>
       </svg>
+      <span class="cursor-explore-badge" id="cursor-explore-badge" aria-hidden="true">EXPLORE</span>
     </div>
-
-    <!-- Destination Region Tooltip -->
-    <div class="cursor-destination-tooltip" aria-hidden="true">
-      <span class="dest-tooltip-indicator"></span>
-      <span class="dest-tooltip-name" id="cursor-dest-tooltip-text">GLOBAL MARKET</span>
-    </div>
-
-    <!-- Product / Media View Indicator -->
-    <span class="cursor-view-label" aria-hidden="true">VIEW &rarr;</span>
   `;
 
-  document.body.appendChild(dot);
-  document.body.appendChild(ring);
+  document.body.appendChild(root);
 
-  const tooltipText = ring.querySelector('#cursor-dest-tooltip-text');
+  const circle = root.querySelector('#shipyon-cursor-circle');
+  const arrow = root.querySelector('#shipyon-cursor-arrow');
+  const circleLabel = root.querySelector('#cursor-circle-label');
+  const circleIcon = root.querySelector('#cursor-circle-icon');
+  const exploreBadge = root.querySelector('#cursor-explore-badge');
 
-  // Physics & coordinates
+  // Vector Shape Icons for Circle
+  const ICONS = {
+    arrowRight: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`,
+    arrowLeft: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>`,
+    arrowUpRight: `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>`,
+    orbit: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5BA31" stroke-width="2.2" stroke-linecap="round"><path d="M21 12A9 9 0 1 1 18.36 5.64L21 3M21 3L21 8L16 8"/></svg>`
+  };
+
   let mouseX = -100;
   let mouseY = -100;
-  let ringX = -100;
-  let ringY = -100;
+  let prevMouseX = -100;
+  let prevMouseY = -100;
+  let circleX = -100;
+  let circleY = -100;
   let isVisible = false;
-  let lastParticleTime = 0;
-  let currentMagneticTarget = null;
-  let currentState = 'normal';
+  let lastTrailTime = 0;
+  let activeTrailCount = 0;
+  const MAX_TRAIL_COUNT = 3;
 
-  // Direct 0ms hardware transform for glowing dot
-  function updateDotPosition(x, y) {
-    dot.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
-  }
+  // Stardust Particle Generator (trailing particles when moving fast)
+  function spawnMotionParticle(x, y) {
+    if (activeTrailCount >= MAX_TRAIL_COUNT) return;
+    activeTrailCount++;
 
-  // Trailing Particles Generator
-  function spawnTrailingParticle(x, y) {
     const p = document.createElement('div');
-    p.className = 'shipyon-cursor-trail-dot';
-    const offsetX = (Math.random() - 0.5) * 8;
-    const offsetY = (Math.random() - 0.5) * 8;
-    p.style.left = `${x + offsetX}px`;
-    p.style.top = `${y + offsetY}px`;
+    p.className = 'shipyon-motion-trail-particle';
+    const offsetX = (Math.random() - 0.5) * 6;
+    const offsetY = (Math.random() - 0.5) * 6;
+    p.style.transform = `translate3d(${(x + offsetX).toFixed(1)}px, ${(y + offsetY).toFixed(1)}px, 0)`;
     document.body.appendChild(p);
+
     setTimeout(() => {
       p.remove();
-    }, 450);
+      activeTrailCount = Math.max(0, activeTrailCount - 1);
+    }, 280);
   }
 
-  // Click Shockwave Burst
-  function spawnClickShockwave(x, y) {
-    const burst = document.createElement('div');
-    burst.className = 'shipyon-click-burst';
-    burst.style.left = `${x}px`;
-    burst.style.top = `${y}px`;
-    document.body.appendChild(burst);
-    setTimeout(() => burst.remove(), 650);
+  // Click Shockwave Ripple (Concentric Circles)
+  function triggerClickShockwave(x, y) {
+    const ripple = document.createElement('div');
+    ripple.className = 'shipyon-click-ripple';
+    ripple.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) translate(-50%, -50%)`;
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 380);
   }
 
-  // Click Spark Radiance
-  function spawnClickSparks(x, y) {
-    const sparkCount = 8;
-    for (let i = 0; i < sparkCount; i++) {
-      const spark = document.createElement('div');
-      spark.className = 'shipyon-click-spark';
-      const angle = (i / sparkCount) * 2 * Math.PI;
-      const distance = 22 + Math.random() * 20;
-      const tx = Math.cos(angle) * distance;
-      const ty = Math.sin(angle) * distance;
-      spark.style.setProperty('--tx', `${tx.toFixed(1)}px`);
-      spark.style.setProperty('--ty', `${ty.toFixed(1)}px`);
-      spark.style.left = `${x}px`;
-      spark.style.top = `${y}px`;
-      if (i % 2 === 0) {
-        spark.style.background = '#D4AF37';
-        spark.style.boxShadow = '0 0 8px #D4AF37';
+  // Smooth Spring Lerp Loop for Trailing Circle (Sleeps when idle to save 100% CPU)
+  let circleSettled = true;
+  let isCursorRafRunning = false;
+
+  function wakeCursorLoop() {
+    if (!isCursorRafRunning) {
+      isCursorRafRunning = true;
+      requestAnimationFrame(renderCircleLoop);
+    }
+  }
+
+  function renderCircleLoop() {
+    if (!isVisible) {
+      isCursorRafRunning = false;
+      return;
+    }
+
+    const dx = mouseX - circleX;
+    const dy = mouseY - circleY;
+
+    if (Math.abs(dx) > 0.15 || Math.abs(dy) > 0.15) {
+      circleX += dx * 0.22;
+      circleY += dy * 0.22;
+      circle.style.transform = `translate3d(${circleX.toFixed(1)}px, ${circleY.toFixed(1)}px, 0) translate(-50%, -50%)`;
+      circleSettled = false;
+      requestAnimationFrame(renderCircleLoop);
+    } else {
+      if (!circleSettled) {
+        circleX = mouseX;
+        circleY = mouseY;
+        circle.style.transform = `translate3d(${circleX.toFixed(1)}px, ${circleY.toFixed(1)}px, 0) translate(-50%, -50%)`;
+        circleSettled = true;
       }
-      document.body.appendChild(spark);
-      setTimeout(() => spark.remove(), 520);
+      isCursorRafRunning = false;
     }
   }
 
-  // State Switcher
-  function setCursorState(state, meta) {
-    if (currentState === state && !meta) return;
-    currentState = state;
-
-    ring.classList.remove(
-      'cursor-state-globe',
-      'cursor-state-route',
-      'cursor-state-destination',
-      'cursor-state-button',
-      'cursor-state-view'
-    );
-    dot.classList.remove('dot-gold', 'dot-hidden');
-
-    switch (state) {
-      case 'globe':
-        ring.classList.add('cursor-state-globe');
-        dot.classList.add('dot-gold');
-        break;
-      case 'route':
-        ring.classList.add('cursor-state-route');
-        dot.classList.add('dot-gold');
-        break;
-      case 'destination':
-        ring.classList.add('cursor-state-destination');
-        dot.classList.add('dot-hidden');
-        if (tooltipText && meta && meta.destName) {
-          tooltipText.textContent = meta.destName;
-        }
-        break;
-      case 'button':
-        ring.classList.add('cursor-state-button');
-        dot.classList.add('dot-gold');
-        break;
-      case 'view':
-        ring.classList.add('cursor-state-view');
-        dot.classList.add('dot-hidden');
-        break;
-      default:
-        // normal
-        break;
-    }
-  }
-
-  // Mouse Movement
+  // Mouse Movement - Direct 0ms Tracking for Lead Arrow + Target for Follower Circle
   window.addEventListener('mousemove', (e) => {
+    prevMouseX = mouseX;
+    prevMouseY = mouseY;
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-    updateDotPosition(mouseX, mouseY);
-
     if (!isVisible) {
       isVisible = true;
-      dot.classList.add('visible');
-      ring.classList.add('visible');
-      ringX = mouseX;
-      ringY = mouseY;
+      arrow.classList.add('visible');
+      circle.classList.add('visible');
+      circleX = mouseX;
+      circleY = mouseY;
     }
 
-    // Emit subtle trailing particles
-    const now = performance.now();
-    if (now - lastParticleTime > 75) {
-      lastParticleTime = now;
-      spawnTrailingParticle(mouseX, mouseY);
-    }
+    // Direct 0ms Arrow tip alignment at (2.2, 1.8)
+    arrow.style.transform = `translate3d(${(mouseX - 2.2).toFixed(1)}px, ${(mouseY - 1.8).toFixed(1)}px, 0)`;
 
-    // Magnetic Button Tracking
-    if (currentMagneticTarget) {
-      const rect = currentMagneticTarget.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const dist = Math.hypot(mouseX - centerX, mouseY - centerY);
+    // Wake circle loop when mouse moves
+    wakeCursorLoop();
 
-      if (dist < 80) {
-        const pullX = (mouseX - centerX) * 0.28;
-        const pullY = (mouseY - centerY) * 0.28;
-        currentMagneticTarget.style.transform = `translate3d(${pullX.toFixed(1)}px, ${pullY.toFixed(1)}px, 0)`;
-
-        // Also translate internal arrow icon toward cursor
-        const arrow = currentMagneticTarget.querySelector('.cta-arrow-box, .cta-arrow-box svg, svg');
-        if (arrow) {
-          arrow.style.transform = `translate3d(${pullX * 0.5}px, ${pullY * 0.5}px, 0)`;
-        }
-      } else {
-        currentMagneticTarget.style.transform = '';
-        const arrow = currentMagneticTarget.querySelector('.cta-arrow-box, .cta-arrow-box svg, svg');
-        if (arrow) arrow.style.transform = '';
-        currentMagneticTarget = null;
+    // Velocity trail particles (only on fast deliberate gestures)
+    if (prevMouseX > 0 && prevMouseY > 0) {
+      const vx = mouseX - prevMouseX;
+      const vy = mouseY - prevMouseY;
+      const speed = Math.hypot(vx, vy);
+      const now = performance.now();
+      if (speed > 16.0 && now - lastTrailTime > 60) {
+        lastTrailTime = now;
+        spawnMotionParticle(mouseX, mouseY);
       }
     }
   }, { passive: true });
 
-  // Mouse Down / Up
+  // Mouse Down / Up Tactile Feedback
   window.addEventListener('mousedown', (e) => {
-    ring.classList.add('click-compressed');
-    spawnClickShockwave(e.clientX, e.clientY);
-    spawnClickSparks(e.clientX, e.clientY);
+    root.classList.add('cursor-pressed');
+    triggerClickShockwave(e.clientX, e.clientY);
   });
 
   window.addEventListener('mouseup', () => {
-    ring.classList.remove('click-compressed');
+    root.classList.remove('cursor-pressed');
   });
 
-  // Boundary Detection
+  // Window Boundary Detection
   document.addEventListener('mouseleave', () => {
-    dot.classList.remove('visible');
-    ring.classList.remove('visible');
+    arrow.classList.remove('visible');
+    circle.classList.remove('visible');
     isVisible = false;
-    if (currentMagneticTarget) {
-      currentMagneticTarget.style.transform = '';
-      currentMagneticTarget = null;
-    }
   });
 
   document.addEventListener('mouseenter', () => {
     if (mouseX > 0 && mouseY > 0) {
-      dot.classList.add('visible');
-      ring.classList.add('visible');
+      arrow.classList.add('visible');
+      circle.classList.add('visible');
       isVisible = true;
     }
   });
 
-  // Intelligent Contextual Reaction on Hover
+  // Helper to clear contextual states
+  function clearStates() {
+    root.classList.remove(
+      'cursor-state-button',
+      'cursor-state-link',
+      'cursor-state-product',
+      'cursor-state-carousel-prev',
+      'cursor-state-carousel-next',
+      'cursor-state-globe',
+      'cursor-state-input',
+      'cursor-state-explore'
+    );
+  }
+
+  // Contextual Hover Detection (Circles & Arrows)
   document.addEventListener('mouseover', (e) => {
-    // 1. Destination check
-    const destEl = e.target.closest('[data-cursor="DESTINATION"], .country-ribbon-btn, .gtn-floating-dest');
-    if (destEl) {
-      const destName = destEl.getAttribute('data-dest-name') || destEl.dataset.destName || destEl.textContent.trim();
-      setCursorState('destination', { destName: destName.toUpperCase() });
+    // 1. Destination / Country Tag Check
+    const countryEl = e.target.closest('[data-cursor="DESTINATION"], .country-ribbon-btn, .gtn-floating-dest, .country-card, [data-dest]');
+    if (countryEl) {
+      clearStates();
+      const destName = countryEl.getAttribute('data-dest-name') || countryEl.getAttribute('data-dest') || countryEl.textContent.trim();
+      root.classList.add('cursor-state-explore');
+      if (exploreBadge) {
+        exploreBadge.textContent = (destName || 'EXPLORE').toUpperCase();
+      }
       return;
     }
 
-    // 2. Trade Route check
-    const routeEl = e.target.closest('[data-cursor="ROUTE"], .gtn-float-badge.float-bottom-left, .status-connector-arrow');
-    if (routeEl) {
-      setCursorState('route');
-      return;
-    }
-
-    // 3. Button / Magnetic CTA check
-    const btnEl = e.target.closest(
-      '#gtn-explore-corridors-btn, .gtn-interactive-cta-btn, .btn-pill-cobalt, .volza-btn-demo, .open-quote-modal-btn, .header-quote-btn, .btn-primary, button, [role="button"], a.btn-emerald'
-    );
-    if (btnEl) {
-      currentMagneticTarget = btnEl;
-      setCursorState('button');
-      return;
-    }
-
-    // 4. Globe 3D Stage check
-    const globeEl = e.target.closest('#shipyon-3d-globe-container, .gtn-globe-display-card, #globe-canvas-wrapper');
+    // 2. 3D Globe / Spatial Map Check
+    const globeEl = e.target.closest('#globe-canvas, .globe-container, .comm-core-radar-stage, [data-cursor="globe"]');
     if (globeEl) {
-      setCursorState('globe');
+      clearStates();
+      root.classList.add('cursor-state-globe');
+      if (circleLabel) circleLabel.textContent = 'DRAG';
+      if (circleIcon) circleIcon.innerHTML = ICONS.orbit;
       return;
     }
 
-    // 5. Product / Image "View" check
-    const viewEl = e.target.closest(
-      '[data-cursor="VIEW"], .category-hero-card, .ecom-product-card, .curious-folio-panel, .product-media-wrap, .btn-quick-view'
-    );
-    if (viewEl) {
-      setCursorState('view');
+    // 3. Products / Commodities / Cards Check
+    const productEl = e.target.closest('.ecom-product-card, .catalog-item-card, .category-hero-card, .curious-folio-panel, .charter-pillar-card, [data-cursor="product"]');
+    if (productEl) {
+      clearStates();
+      root.classList.add('cursor-state-product');
+      if (circleLabel) circleLabel.textContent = 'VIEW';
+      if (circleIcon) circleIcon.innerHTML = ICONS.arrowRight;
       return;
     }
 
-    // 6. Generic interactive links
-    const linkEl = e.target.closest('a, input, select, textarea');
+    // 4. Primary Button CTAs
+    const btnEl = e.target.closest('button, .btn, [role="button"], input[type="submit"], .btn-rfq-begin, .btn-quote-submit-wa, .btn-pill-cobalt, .btn-terminal-wa');
+    if (btnEl) {
+      clearStates();
+      root.classList.add('cursor-state-button');
+      return;
+    }
+
+    // 5. Form & Search Inputs
+    const inputEl = e.target.closest('input, textarea, select');
+    if (inputEl) {
+      clearStates();
+      root.classList.add('cursor-state-input');
+      return;
+    }
+
+    // 6. Hyperlinks / Navigation Items
+    const linkEl = e.target.closest('a, .nav-link, .link');
     if (linkEl) {
-      setCursorState('button');
+      clearStates();
+      root.classList.add('cursor-state-link');
       return;
     }
 
-    // Default normal state
-    if (currentMagneticTarget) {
-      currentMagneticTarget.style.transform = '';
-      const arrow = currentMagneticTarget.querySelector('.cta-arrow-box, .cta-arrow-box svg, svg');
-      if (arrow) arrow.style.transform = '';
-      currentMagneticTarget = null;
-    }
-    setCursorState('normal');
+    // Normal State
+    clearStates();
   });
 
-  // Global helper for Three.js globe raycaster to set cursor state
-  window.setShipyonGlobeCursor = function (state, meta) {
-    setCursorState(state, meta);
-  };
-
-  // Render loop for smooth spring ring interpolation
-  function renderCursor() {
-    if (isVisible) {
-      ringX += (mouseX - ringX) * 0.22;
-      ringY += (mouseY - ringY) * 0.22;
-
-      ring.style.transform = `translate3d(${ringX.toFixed(1)}px, ${ringY.toFixed(1)}px, 0) translate(-50%, -50%)`;
+  // Carousel Directional Arrows on Mouse Move over Carousels
+  document.addEventListener('mousemove', (e) => {
+    if (e.target.closest('.ecom-product-card, .catalog-item-card, .category-hero-card, button, a, input, [role="button"]')) {
+      return;
     }
-    requestAnimationFrame(renderCursor);
-  }
-  requestAnimationFrame(renderCursor);
+
+    const carouselEl = e.target.closest('.ecom-product-carousel, .carousel-track, .splide__track, .ecom-products-carousel-wrap');
+    if (carouselEl) {
+      const rect = carouselEl.getBoundingClientRect();
+      const relX = e.clientX - rect.left;
+      if (relX < rect.width * 0.45) {
+        clearStates();
+        root.classList.add('cursor-state-carousel-prev');
+        if (circleLabel) circleLabel.textContent = '';
+        if (circleIcon) circleIcon.innerHTML = ICONS.arrowLeft;
+      } else if (relX > rect.width * 0.55) {
+        clearStates();
+        root.classList.add('cursor-state-carousel-next');
+        if (circleLabel) circleLabel.textContent = '';
+        if (circleIcon) circleIcon.innerHTML = ICONS.arrowRight;
+      }
+    }
+  }, { passive: true });
+
+  // Global helper for Three.js globe raycaster
+  window.setShipyonGlobeCursor = function (state, meta) {
+    if (state === 'explore' || state === 'button') {
+      clearStates();
+      root.classList.add('cursor-state-explore');
+      if (meta && meta.destName && exploreBadge) {
+        exploreBadge.textContent = meta.destName.toUpperCase();
+      }
+    } else {
+      clearStates();
+    }
+  };
 }
+
 
 /**
  * ==========================================================================
@@ -1756,22 +2143,26 @@ function initGlobalTradeNetworkInteractions() {
   const section = document.getElementById('global-trade-map');
   if (!section) return;
 
+  // Immediately reveal section to guarantee no blank/hidden states
+  section.classList.add('gtn-revealed');
+  window.dispatchEvent(new CustomEvent('gtnSectionRevealed'));
+
   // 1. Cinematic Staggered Scroll Entrance Reveal
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           section.classList.add('gtn-revealed');
-          // Dispatch event so 3D Globe initiates outward route drawing and sequential node light-up
           window.dispatchEvent(new CustomEvent('gtnSectionRevealed'));
+          if (window.ShipyonGlobeEngine && window.ShipyonGlobeEngine.onWindowResize) {
+            window.ShipyonGlobeEngine.onWindowResize();
+          }
           observer.unobserve(section);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.02, rootMargin: '200px' });
 
     observer.observe(section);
-  } else {
-    section.classList.add('gtn-revealed');
   }
 
   // 2. Multi-Layer Parallax Physics on Mouse Movement
@@ -1786,14 +2177,32 @@ function initGlobalTradeNetworkInteractions() {
   let targetNormY = 0;
   let currentNormX = 0;
   let currentNormY = 0;
+  let isGtnVisible = false;
+  let isGtnParallaxRunning = false;
+
+  let sectionRect = null;
+  function updateSectionRect() {
+    sectionRect = section.getBoundingClientRect();
+  }
+  window.addEventListener('resize', updateSectionRect, { passive: true });
+  updateSectionRect();
+
+  function scheduleGtnParallax() {
+    if (!isGtnParallaxRunning && isGtnVisible) {
+      isGtnParallaxRunning = true;
+      requestAnimationFrame(animateParallax);
+    }
+  }
 
   section.addEventListener('mousemove', (e) => {
-    const rect = section.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+    if (!sectionRect) updateSectionRect();
+    const centerX = sectionRect.left + sectionRect.width / 2;
+    const centerY = sectionRect.top + sectionRect.height / 2;
 
-    targetNormX = (e.clientX - centerX) / (rect.width / 2);
-    targetNormY = (e.clientY - centerY) / (rect.height / 2);
+    targetNormX = (e.clientX - centerX) / (sectionRect.width / 2);
+    targetNormY = (e.clientY - centerY) / (sectionRect.height / 2);
+
+    scheduleGtnParallax();
 
     // Also communicate normalized position to 3D Globe for subtle tilt & shift
     if (window.ShipyonGlobe && typeof window.ShipyonGlobe.onSectionMouseMove === 'function') {
@@ -1804,15 +2213,31 @@ function initGlobalTradeNetworkInteractions() {
   section.addEventListener('mouseleave', () => {
     targetNormX = 0;
     targetNormY = 0;
+    scheduleGtnParallax();
     if (window.ShipyonGlobe && typeof window.ShipyonGlobe.onSectionMouseMove === 'function') {
       window.ShipyonGlobe.onSectionMouseMove(0, 0);
     }
   });
 
-  // Smooth lerp animation loop for parallax layers
+  // Smooth lerp animation loop for parallax layers (sleeps when idle or offscreen)
   function animateParallax() {
-    currentNormX += (targetNormX - currentNormX) * 0.08;
-    currentNormY += (targetNormY - currentNormY) * 0.08;
+    if (!isGtnVisible) {
+      isGtnParallaxRunning = false;
+      return;
+    }
+
+    const diffX = targetNormX - currentNormX;
+    const diffY = targetNormY - currentNormY;
+    let shouldContinue = false;
+
+    if (Math.abs(diffX) > 0.0008 || Math.abs(diffY) > 0.0008) {
+      currentNormX += diffX * 0.08;
+      currentNormY += diffY * 0.08;
+      shouldContinue = true;
+    } else {
+      currentNormX = targetNormX;
+      currentNormY = targetNormY;
+    }
 
     if (parallaxGrid) {
       parallaxGrid.style.transform = `translate3d(${(-currentNormX * 16).toFixed(1)}px, ${(-currentNormY * 16).toFixed(1)}px, 0)`;
@@ -1833,9 +2258,28 @@ function initGlobalTradeNetworkInteractions() {
       headline.style.transform = `translate3d(${(currentNormX * 6).toFixed(1)}px, ${(currentNormY * 4).toFixed(1)}px, 0)`;
     }
 
-    requestAnimationFrame(animateParallax);
+    if (shouldContinue) {
+      requestAnimationFrame(animateParallax);
+    } else {
+      isGtnParallaxRunning = false;
+    }
   }
-  requestAnimationFrame(animateParallax);
+
+  if ('IntersectionObserver' in window) {
+    const gtnObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isGtnVisible = entry.isIntersecting;
+        if (isGtnVisible) {
+          updateSectionRect();
+          scheduleGtnParallax();
+        }
+      });
+    }, { rootMargin: '100px 0px 100px 0px', threshold: 0.01 });
+    gtnObserver.observe(section);
+  } else {
+    isGtnVisible = true;
+    scheduleGtnParallax();
+  }
 
   // 3. 3D Glass Data Cards Tilt Effect
   const tiltCards = section.querySelectorAll('.gtn-data-card[data-tilt]');
@@ -1920,3 +2364,98 @@ function initHighwayAtmosphereAndAutopilot() {
     stage.classList.add('atmo-dusk');
   }
 }
+
+/**
+ * ==========================================================================
+ * PERSISTENT FLOATING WHATSAPP BUTTON (Always present at bottom-right corner)
+ * ==========================================================================
+ */
+function initWhatsAppFloatingButton() {
+  if (document.getElementById('shipyon-whatsapp-fab')) return;
+
+  const aside = document.createElement('aside');
+  aside.className = 'shipyon-whatsapp-floating';
+  aside.id = 'shipyon-whatsapp-fab';
+  aside.setAttribute('aria-label', 'WhatsApp Trade Assistance');
+
+  aside.innerHTML = `
+    <a href="https://wa.me/919500690740?text=Hello%20Shipyon%2C%20I%20would%20like%20to%20inquire%20about%20international%20trade%20and%20commodities." 
+       class="wa-float-btn" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Chat with Shipyon on WhatsApp (+91 95006 90740)"
+       title="Chat with Shipyon on WhatsApp">
+      <span class="wa-pulse-aura" aria-hidden="true"></span>
+      <span class="wa-pulse-aura secondary" aria-hidden="true"></span>
+      <span class="wa-tooltip-pill" aria-hidden="true">
+        <span class="wa-tooltip-title">Chat with us</span>
+        <span class="wa-tooltip-sub">24/7 Trade Desk</span>
+      </span>
+      <span class="wa-icon-sphere">
+        <svg class="wa-svg-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M16 2.667C8.636 2.667 2.667 8.636 2.667 16c0 2.485.681 4.887 1.973 6.985L2.8 28.533a1.067 1.067 0 0 0 1.306 1.307l5.694-1.802A13.275 13.275 0 0 0 16 29.333c7.364 0 13.333-5.969 13.333-13.333S23.364 2.667 16 2.667zm7.534 18.066c-.314.883-1.558 1.62-2.158 1.722-.572.096-1.314.137-2.12-.12a14.77 14.77 0 0 1-5.46-3.486 15.65 15.65 0 0 1-3.626-5.36c-.4-.9-.044-1.385.204-1.8.225-.375.498-.44.743-.44.246 0 .493.003.71.013.23.01.537-.087.84.64.315.753 1.077 2.628 1.173 2.822.095.195.158.423.03.676-.126.253-.19.41-.378.63-.19.223-.4.498-.57.668-.19.19-.388.397-.167.776.222.38 1.025 1.69 2.215 2.748 1.533 1.363 2.828 1.786 3.23 1.986.402.2.639.167.876-.104.237-.272 1.016-1.186 1.288-1.593.272-.407.544-.339.914-.203.37.136 2.348 1.108 2.75 1.31.402.203.67.305.768.474.098.17.098.983-.216 1.867z" fill="white"/>
+        </svg>
+        <span class="wa-status-badge" aria-hidden="true"></span>
+      </span>
+    </a>
+  `;
+
+  document.body.appendChild(aside);
+}
+
+/**
+ * ============================================================================
+ * 34. UNIVERSAL VISIBILITY & PERFORMANCE ENGINE
+ * Pauses off-screen CSS animations, keyframes, HTML5 videos, and heavy loops
+ * Guarantees 60-120 FPS buttery smooth scrolling with minimal CPU/GPU usage
+ * ============================================================================
+ */
+function initUniversalVisibilityManager() {
+  if (!('IntersectionObserver' in window)) return;
+
+  const targetSections = document.querySelectorAll(
+    'section, header, footer, .services-hero-wrapper, .supply-pipeline-section, ' +
+    '.featured-service-section, .services-catalog-section, .quayside-showcase-section, ' +
+    '.hero-serene-stage, .about-editorial-section, .curious-folio-section, ' +
+    '.global-trade-network-section, .delivery-process-section, .charter-values-section, ' +
+    '.shipyon-vision-section, .volza-about-split-section, .ecom-hero-header, ' +
+    '.ecom-categories-section, .comm-hero-header, .site-footer'
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const section = entry.target;
+      if (entry.isIntersecting) {
+        section.classList.remove('is-offscreen');
+        section.classList.add('is-in-viewport');
+
+        // Resume HTML5 videos inside section
+        const videos = section.querySelectorAll('video');
+        videos.forEach(v => {
+          if (v.paused && v.dataset.manualPaused !== 'true') {
+            v.play().catch(() => {});
+          }
+        });
+      } else {
+        section.classList.add('is-offscreen');
+        section.classList.remove('is-in-viewport');
+
+        // Pause HTML5 videos to free GPU hardware decoder
+        const videos = section.querySelectorAll('video');
+        videos.forEach(v => {
+          if (!v.paused) {
+            v.pause();
+          }
+        });
+      }
+    });
+  }, {
+    rootMargin: '120px 0px 120px 0px',
+    threshold: 0
+  });
+
+  targetSections.forEach(sec => observer.observe(sec));
+}
+
+
+

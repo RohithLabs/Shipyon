@@ -6,7 +6,20 @@ function copyStaticAssets() {
   return {
     name: 'copy-static-assets',
     closeBundle() {
-      const files = ['three.min.js', 'OrbitControls.js', 'globe3d.js', 'script.js'];
+      const files = [
+        'three.min.js',
+        'OrbitControls.js',
+        'trade_countries_geojson.js',
+        'world_land_geojson.js',
+        'globe3d.js',
+        'script.js',
+        'contact-center.js',
+        'contact-center.css',
+        'services-trade.js',
+        'services-trade.css',
+        'products-ecommerce.js',
+        'products-ecommerce.css'
+      ];
       const outDir = resolve(import.meta.dirname, 'dist');
       for (const f of files) {
         const src = resolve(import.meta.dirname, f);

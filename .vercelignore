@@ -1,0 +1,5 @@
+scratch/
+.git/
+.gemini/
+*.log
+.DS_Store

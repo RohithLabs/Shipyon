@@ -28,7 +28,30 @@
 
   document.addEventListener('DOMContentLoaded', initEcommerceApp);
 
+  function saveCartToStorage() {
+    try {
+      localStorage.setItem('shipyon_cart', JSON.stringify(state.cart));
+    } catch (e) {
+      console.warn('Unable to persist cart to localStorage', e);
+    }
+  }
+
+  function loadCartFromStorage() {
+    try {
+      const raw = localStorage.getItem('shipyon_cart');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          state.cart = parsed;
+        }
+      }
+    } catch (e) {
+      console.warn('Unable to load cart from localStorage', e);
+    }
+  }
+
   function initEcommerceApp() {
+    loadCartFromStorage();
     indexProducts();
     initHeroControls();
     initCategoryNavigation();
@@ -37,32 +60,48 @@
     initCartDrawer();
     initWishlistDrawer();
     initQuickViewModal();
+    initProductQuoteModal();
     initCarouselNavs();
+    updateCartBadges();
+    syncCartButtonsState();
   }
 
   // 1. Index commodities from DOM
   function indexProducts() {
     const cards = document.querySelectorAll('.ecom-product-card');
-    productsCache = Array.from(cards).map(card => ({
-      element: card,
-      id: card.dataset.id || card.querySelector('.product-title')?.textContent.trim().toLowerCase().replace(/\s+/g, '-'),
-      title: card.querySelector('.product-title')?.textContent.trim() || '',
-      category: card.dataset.category || '',
-      brand: card.dataset.brand || '',
-      origin: card.dataset.origin || '',
-      hsCode: card.dataset.hsCode || card.querySelector('.product-badge-float')?.textContent.replace('HS ', '').trim() || '',
-      moq: card.dataset.moq || '1 Metric Ton',
-      packaging: card.dataset.packaging || 'Export Standard',
-      unit: card.dataset.unit || 'MT',
-      price: parseFloat(card.dataset.price || '0'),
-      originalPrice: parseFloat(card.dataset.originalPrice || '0'),
-      rating: parseFloat(card.dataset.rating || '4.8'),
-      reviews: card.dataset.reviews || '150',
-      discount: parseInt(card.dataset.discount || '0', 10),
-      image: card.querySelector('.product-card-img')?.src || '',
-      desc: card.querySelector('.product-desc')?.textContent.trim() || '',
-      inStock: card.dataset.inStock !== 'false'
-    }));
+    productsCache = Array.from(cards).map(card => {
+      const title = card.querySelector('.product-title')?.textContent.trim() || '';
+      const category = card.dataset.category || '';
+      const keywords = card.dataset.keywords || '';
+      const desc = card.querySelector('.product-desc')?.textContent.trim() || '';
+      const brand = card.dataset.brand || '';
+      const origin = card.dataset.origin || '';
+      const hsCode = card.dataset.hsCode || '';
+      const isFeatured = card.dataset.featured === 'true';
+
+      return {
+        element: card,
+        id: card.dataset.id || title.toLowerCase().replace(/\s+/g, '-'),
+        title,
+        category,
+        brand,
+        origin,
+        keywords,
+        hsCode,
+        isFeatured,
+        moq: card.dataset.moq || '1 Metric Ton',
+        packaging: card.dataset.packaging || 'Export Standard',
+        unit: card.dataset.unit || 'MT',
+        price: parseFloat(card.dataset.price || '0'),
+        originalPrice: parseFloat(card.dataset.originalPrice || '0'),
+        rating: parseFloat(card.dataset.rating || '4.8'),
+        reviews: card.dataset.reviews || '150',
+        discount: parseInt(card.dataset.discount || '0', 10),
+        image: card.querySelector('.product-card-img')?.src || '',
+        desc,
+        inStock: card.dataset.inStock !== 'false'
+      };
+    });
   }
 
   // 2. Hero Search & Sort Controls
@@ -155,7 +194,6 @@
       const headerOffset = 110;
       const elementPosition = targetEl.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -172,15 +210,21 @@
     });
   }
 
-  // 4. Product Card Actions (Manifest & Saved Wishlist)
+  // 4. Product Card Actions (Cart & Saved Wishlist)
   function initProductCardActions() {
     document.addEventListener('click', (e) => {
-      // Add / Inquire button
+      // Add to Cart button
       const addBtn = e.target.closest('.btn-add-to-cart');
       if (addBtn && !addBtn.closest('#quick-view-overlay') && !addBtn.closest('.side-drawer-items-list')) {
+        if (addBtn.classList.contains('is-in-cart') || addBtn.hasAttribute('disabled')) {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
         const card = addBtn.closest('.ecom-product-card');
         const productId = card ? card.dataset.id : addBtn.dataset.productId;
         if (productId) {
+          if (isInCart(productId)) return;
           addToCart(productId, 1, addBtn);
         }
       }
@@ -207,6 +251,10 @@
     });
   }
 
+  function isInCart(productId) {
+    return state.cart.some(item => item.id === productId);
+  }
+
   // 5. Wishlist Management
   function toggleWishlist(productId, btnElement) {
     const product = productsCache.find(p => p.id === productId);
@@ -223,7 +271,7 @@
         btnElement.classList.add('pulse-pop');
         setTimeout(() => btnElement.classList.remove('pulse-pop'), 400);
       }
-      showToast(`✓ Saved "${product.title}" for RFQ`);
+      showToast(`✓ Saved "${product.title}" to Saved List`);
     }
 
     updateWishlistBadges();
@@ -241,47 +289,100 @@
     });
   }
 
-  // 6. Cart / Manifest Management
+  // 6. Cart Management
   function addToCart(productId, qty = 1, btnElement) {
     const product = productsCache.find(p => p.id === productId);
     if (!product) return;
 
-    const existingIndex = state.cart.findIndex(item => item.id === productId);
-    if (existingIndex > -1) {
-      state.cart[existingIndex].qty += qty;
-    } else {
-      state.cart.push({
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        unit: product.unit || 'MT',
-        image: product.image,
-        category: product.category,
-        origin: product.origin,
-        hsCode: product.hsCode,
-        qty: qty
-      });
+    // Block if already in cart
+    if (isInCart(productId)) {
+      showToast(`"${product.title}" is already in your cart`);
+      syncCartButtonsState();
+      return;
     }
 
-    // Button feedback
-    if (btnElement) {
-      const origText = btnElement.innerHTML;
-      btnElement.classList.add('added-success');
-      btnElement.innerHTML = `
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-          <polyline points="20 6 9 17 4 12"></polyline>
-        </svg>
-        <span>Added to RFQ</span>
-      `;
-      setTimeout(() => {
-        btnElement.classList.remove('added-success');
-        btnElement.innerHTML = origText;
-      }, 1600);
-    }
+    state.cart.push({
+      id: product.id,
+      title: product.title,
+      packaging: product.packaging,
+      unit: product.unit || 'MT',
+      image: product.image,
+      category: product.category,
+      origin: product.origin,
+      hsCode: product.hsCode,
+      qty: 1
+    });
 
     updateCartBadges();
     renderCartDrawer();
-    showToast(`✓ Added "${product.title}" to Sourcing Manifest`);
+    syncCartButtonsState();
+    saveCartToStorage();
+    showToast(`✓ Added "${product.title}" to Cart`);
+  }
+
+  // Sync button states: Products inside cart are blocked and stay as 'Added to Cart'
+  function syncCartButtonsState() {
+    const cartSet = new Set(state.cart.map(item => item.id));
+
+    // Update all product cards in DOM
+    document.querySelectorAll('.ecom-product-card').forEach(card => {
+      const productId = card.dataset.id;
+      const btn = card.querySelector('.btn-add-to-cart');
+      if (!btn) return;
+
+      if (cartSet.has(productId)) {
+        btn.classList.add('is-in-cart');
+        btn.setAttribute('disabled', 'true');
+        btn.setAttribute('aria-label', 'Added to Cart');
+        btn.innerHTML = `
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Added to Cart</span>
+        `;
+      } else {
+        btn.classList.remove('is-in-cart');
+        btn.removeAttribute('disabled');
+        btn.setAttribute('aria-label', 'Add to Cart');
+        btn.innerHTML = `
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span>Add to Cart</span>
+        `;
+      }
+    });
+
+    // Update Quick View modal button if open
+    const qvBtn = document.getElementById('qv-add-cart-btn');
+    if (qvBtn) {
+      const qvId = qvBtn.dataset.productId;
+      if (qvId && cartSet.has(qvId)) {
+        qvBtn.classList.add('is-in-cart');
+        qvBtn.setAttribute('disabled', 'true');
+        qvBtn.setAttribute('aria-label', 'Added to Cart');
+        qvBtn.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Added to Cart</span>
+        `;
+      } else if (qvId) {
+        qvBtn.classList.remove('is-in-cart');
+        qvBtn.removeAttribute('disabled');
+        qvBtn.setAttribute('aria-label', 'Add to Cart');
+        qvBtn.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span>Add to Cart</span>
+        `;
+      }
+    }
   }
 
   function updateCartBadges() {
@@ -311,27 +412,23 @@
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
           </svg>
-          <h4>Your sourcing manifest is empty</h4>
+          <h4>Your cart is empty</h4>
           <p>Add certified commodities to request commercial container rates (FOB/CIF).</p>
           <button class="btn-category-view-all" onclick="closeAllDrawers()">Explore Commodities</button>
         </div>
       `;
-      if (subtotalEl) subtotalEl.textContent = '$0.00';
+      if (subtotalEl) subtotalEl.textContent = 'Ready for Quote';
       return;
     }
 
-    let subtotal = 0;
     listContainer.innerHTML = state.cart.map((item, idx) => {
-      const itemTotal = item.price * item.qty;
-      subtotal += itemTotal;
       return `
         <div class="drawer-product-row">
           <img src="${item.image}" alt="${item.title}" class="drawer-product-thumb" loading="lazy">
           <div class="drawer-product-info">
             <div>
-              <div style="font-size: 10px; font-weight: 700; color: #10B981; text-transform: uppercase;">HS ${item.hsCode || 'TAR'}</div>
               <h5 class="drawer-item-title">${item.title}</h5>
-              <span class="drawer-item-price">$${item.price.toLocaleString('en-US', { minimumFractionDigits: 2 })} / ${item.unit}</span>
+              <span class="drawer-item-price" style="font-size: 11.5px; color: #64748B; font-weight: 600;">${item.packaging || 'Export Standard'}</span>
             </div>
             <div class="drawer-item-qty-row">
               <div class="qty-pill-controls">
@@ -351,7 +448,7 @@
       `;
     }).join('');
 
-    if (subtotalEl) subtotalEl.textContent = `$${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+    if (subtotalEl) subtotalEl.textContent = `${totalCount} item${totalCount > 1 ? 's' : ''} listed`;
   }
 
   function changeQty(index, delta) {
@@ -362,6 +459,8 @@
     }
     updateCartBadges();
     renderCartDrawer();
+    syncCartButtonsState();
+    saveCartToStorage();
   }
 
   function removeCartItem(index) {
@@ -370,7 +469,9 @@
     state.cart.splice(index, 1);
     updateCartBadges();
     renderCartDrawer();
-    showToast(`Removed "${item.title}" from Manifest`);
+    syncCartButtonsState();
+    saveCartToStorage();
+    showToast(`Removed "${item.title}" from Cart`);
   }
 
   // 7. Wishlist Drawer Logic
@@ -401,13 +502,12 @@
         <img src="${item.image}" alt="${item.title}" class="drawer-product-thumb" loading="lazy">
         <div class="drawer-product-info">
           <div>
-            <div style="font-size: 10px; font-weight: 700; color: #10B981; text-transform: uppercase;">HS ${item.hsCode || 'TAR'}</div>
             <h5 class="drawer-item-title">${item.title}</h5>
-            <span class="drawer-item-price">$${item.price.toLocaleString('en-US', { minimumFractionDigits: 2 })} / ${item.unit}</span>
+            <span class="drawer-item-price" style="font-size: 11.5px; color: #64748B; font-weight: 600;">${item.packaging || 'Export Standard'}</span>
           </div>
           <div class="drawer-item-qty-row">
-            <button type="button" class="btn-add-to-cart" style="height: 30px; font-size: 11px; padding: 0 10px;" onclick="window.ecomEngine.moveWishlistToCart('${item.id}')">
-              Add to Manifest
+            <button type="button" class="btn-add-to-cart ${isInCart(item.id) ? 'is-in-cart' : ''}" ${isInCart(item.id) ? 'disabled' : ''} style="height: 30px; font-size: 11px; padding: 0 10px;" onclick="window.ecomEngine.moveWishlistToCart('${item.id}')">
+              ${isInCart(item.id) ? 'Added to Cart' : 'Add to Cart'}
             </button>
             <button type="button" class="drawer-item-remove" onclick="window.ecomEngine.removeFromWishlist('${item.id}')" title="Remove">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -428,6 +528,7 @@
     if (cardBtn) cardBtn.classList.remove('active');
     updateWishlistBadges();
     renderWishlistDrawer();
+    syncCartButtonsState();
   }
 
   function removeFromWishlist(productId) {
@@ -588,27 +689,27 @@
     const title = document.getElementById('qv-title');
     const ratingVal = document.getElementById('qv-rating-val');
     const reviewsVal = document.getElementById('qv-reviews-val');
-    const priceCur = document.getElementById('qv-price-cur');
-    const priceOrig = document.getElementById('qv-price-orig');
-    const discountPill = document.getElementById('qv-discount-pill');
+    const originVal = document.getElementById('qv-origin-val');
     const desc = document.getElementById('qv-desc');
     const addCartBtn = document.getElementById('qv-add-cart-btn');
 
     if (mainImg) mainImg.src = product.image;
-    if (catPill) catPill.textContent = (product.hsCode ? `HS ${product.hsCode} • ` : '') + product.category;
+    if (catPill) catPill.textContent = product.category;
     if (title) title.textContent = product.title;
     if (ratingVal) ratingVal.textContent = product.rating;
-    if (reviewsVal) reviewsVal.textContent = `(${product.reviews} verified shipments)`;
-    if (priceCur) priceCur.textContent = `$${product.price.toLocaleString('en-US', { minimumFractionDigits: 2 })} / ${product.unit}`;
-    if (priceOrig) priceOrig.textContent = `$${product.originalPrice.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
-    if (discountPill) discountPill.textContent = product.origin || 'FOB Available';
+    if (reviewsVal) reviewsVal.textContent = `(Export Grade Verified)`;
+    if (originVal) originVal.textContent = product.origin || 'India';
     if (desc) desc.textContent = product.desc;
 
     if (addCartBtn) {
+      addCartBtn.dataset.productId = product.id;
       addCartBtn.onclick = () => {
+        if (isInCart(product.id)) return;
         addToCart(product.id, 1, addCartBtn);
       };
     }
+
+    syncCartButtonsState();
 
     if (overlay) overlay.classList.add('active');
   }
@@ -626,6 +727,22 @@
         }
       });
     });
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m]);
+  }
+
+  function clearSearch() {
+    const searchInput = document.getElementById('ecom-search-input');
+    const searchClear = document.getElementById('ecom-search-clear');
+    if (searchInput) {
+      searchInput.value = '';
+      searchInput.focus();
+    }
+    state.searchQuery = '';
+    if (searchClear) searchClear.classList.remove('visible');
+    applyFiltersAndSearch();
   }
 
   // 11. Filtering and Searching Engine
@@ -646,16 +763,30 @@
     productsCache.forEach(item => {
       let isVisible = true;
 
-      // 1. Search Query
+      // 1. Search Query: Real-time word prefix & substring multi-token matching
       if (state.searchQuery) {
-        const matchTitle = item.title.toLowerCase().includes(state.searchQuery);
-        const matchDesc = item.desc.toLowerCase().includes(state.searchQuery);
-        const matchCat = item.category.toLowerCase().includes(state.searchQuery);
-        const matchBrand = item.brand.toLowerCase().includes(state.searchQuery);
-        const matchHs = (item.hsCode || '').toLowerCase().includes(state.searchQuery);
-        const matchOrigin = (item.origin || '').toLowerCase().includes(state.searchQuery);
+        const tokens = state.searchQuery.toLowerCase().split(/\s+/).filter(Boolean);
+        const corpus = [
+          item.title,
+          item.desc,
+          item.category,
+          item.brand,
+          item.origin,
+          item.hsCode,
+          item.keywords
+        ].join(' ').toLowerCase();
 
-        if (!matchTitle && !matchDesc && !matchCat && !matchBrand && !matchHs && !matchOrigin) {
+        const words = corpus.split(/[\s,./\-_()&;]+/).filter(Boolean);
+
+        // Every token typed by user must match a word prefix (e.g. "oni" -> "onion", "shri" -> "shrimp")
+        // or a substring within the corpus/HS code if >= 3 characters
+        const matchesAll = tokens.every(token => {
+          if (words.some(w => w.startsWith(token))) return true;
+          if (token.length >= 3 && corpus.includes(token)) return true;
+          return false;
+        });
+
+        if (!matchesAll) {
           isVisible = false;
         }
       }
@@ -684,6 +815,30 @@
       if (isVisible) visibleCount++;
     });
 
+    // Update Search Feedback notification bar
+    const feedbackWrap = document.getElementById('ecom-search-feedback-wrap');
+    const feedbackText = document.getElementById('ecom-search-feedback-text');
+    if (feedbackWrap && feedbackText) {
+      if (state.searchQuery) {
+        feedbackWrap.classList.add('visible');
+        feedbackText.innerHTML = `Found <strong>${visibleCount}</strong> export commodit${visibleCount === 1 ? 'y' : 'ies'} matching "<strong>${escapeHtml(state.searchQuery)}</strong>"`;
+      } else {
+        feedbackWrap.classList.remove('visible');
+      }
+    }
+
+    // Empty search state container
+    const emptyState = document.getElementById('ecom-search-empty-state');
+    const emptyQuerySpan = document.getElementById('ecom-search-empty-query');
+    if (emptyState) {
+      if (visibleCount === 0 && state.searchQuery) {
+        emptyState.classList.add('visible');
+        if (emptyQuerySpan) emptyQuerySpan.textContent = state.searchQuery;
+      } else {
+        emptyState.classList.remove('visible');
+      }
+    }
+
     // Check each section: hide sections with 0 visible commodities
     document.querySelectorAll('.ecom-category-product-section').forEach(sec => {
       const visibleInSection = sec.querySelectorAll('.ecom-product-card[style*="display: flex"], .ecom-product-card:not([style*="display: none"])');
@@ -698,18 +853,22 @@
     document.querySelectorAll('.ecom-products-grid').forEach(grid => {
       const cards = Array.from(grid.children);
       cards.sort((a, b) => {
-        const priceA = parseFloat(a.dataset.price || '0');
-        const priceB = parseFloat(b.dataset.price || '0');
+        const titleA = (a.querySelector('.product-title')?.textContent || '').trim().toLowerCase();
+        const titleB = (b.querySelector('.product-title')?.textContent || '').trim().toLowerCase();
         const ratingA = parseFloat(a.dataset.rating || '0');
         const ratingB = parseFloat(b.dataset.rating || '0');
-        const discountA = parseInt(a.dataset.discount || '0', 10);
-        const discountB = parseInt(b.dataset.discount || '0', 10);
+        const featuredA = a.dataset.featured === 'true' ? 1 : 0;
+        const featuredB = b.dataset.featured === 'true' ? 1 : 0;
 
-        if (sortType === 'price-low') return priceA - priceB;
-        if (sortType === 'price-high') return priceB - priceA;
+        if (sortType === 'featured') {
+          // Prioritize featured commodities at the front
+          if (featuredB !== featuredA) return featuredB - featuredA;
+          return ratingB - ratingA;
+        }
+        if (sortType === 'name-asc') return titleA.localeCompare(titleB);
+        if (sortType === 'name-desc') return titleB.localeCompare(titleA);
         if (sortType === 'rating') return ratingB - ratingA;
-        if (sortType === 'discount') return discountB - discountA;
-        return 0; // featured/default
+        return 0; // default
       });
 
       cards.forEach(card => grid.appendChild(card));
@@ -748,6 +907,154 @@
     }, 2800);
   }
 
+  // 14. Product Quotation Modal with Selected Products & WhatsApp Dispatch
+  function initProductQuoteModal() {
+    const modalOverlay = document.getElementById('product-quote-overlay');
+    const closeBtn = document.getElementById('product-quote-close');
+    const form = document.getElementById('product-quote-form');
+    const proceedBtn = document.getElementById('btn-proceed-quote');
+
+    if (proceedBtn) {
+      proceedBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openProductQuoteModal();
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeProductQuoteModal);
+    }
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) closeProductQuoteModal();
+      });
+    }
+
+    if (form) {
+      form.addEventListener('submit', handleProductQuoteSubmit);
+    }
+  }
+
+  function openProductQuoteModal() {
+    if (state.cart.length === 0) {
+      showToast('Please add at least one commodity to your cart first.');
+      return;
+    }
+
+    closeAllDrawers();
+
+    const overlay = document.getElementById('product-quote-overlay');
+    const listEl = document.getElementById('product-quote-items-list');
+    const countEl = document.getElementById('product-quote-count-badge');
+
+    if (listEl) {
+      listEl.innerHTML = state.cart.map((item) => `
+        <div class="quote-product-row">
+          <img src="${item.image}" alt="${item.title}" class="quote-product-thumb" loading="lazy">
+          <div class="quote-product-meta">
+            <h5 class="quote-product-title">${item.title}</h5>
+            <span class="quote-product-sub">${item.packaging || 'Export Standard'} &bull; Origin: ${item.origin || 'India'}</span>
+          </div>
+          <div class="quote-product-qty">
+            <span>Qty: <strong>${item.qty} ${item.unit || 'MT'}</strong></span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    if (countEl) {
+      const totalCount = state.cart.reduce((sum, item) => sum + item.qty, 0);
+      countEl.textContent = `${totalCount} Commodity Line${totalCount > 1 ? 's' : ''}`;
+    }
+
+    if (overlay) {
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeProductQuoteModal() {
+    const overlay = document.getElementById('product-quote-overlay');
+    if (overlay) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function handleProductQuoteSubmit(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('prod-quote-name')?.value.trim() || 'Procurement Representative';
+    const company = document.getElementById('prod-quote-company')?.value.trim() || 'Enterprise Trader';
+    const email = document.getElementById('prod-quote-email')?.value.trim() || '';
+    const phone = document.getElementById('prod-quote-phone')?.value.trim() || '';
+    const port = document.getElementById('prod-quote-port')?.value.trim() || 'Global Gateway';
+    const volume = document.getElementById('prod-quote-volume')?.value || '1 FCL Container';
+    const incoterms = document.getElementById('prod-quote-incoterms')?.value || 'CIF';
+    const notes = document.getElementById('prod-quote-notes')?.value.trim() || 'Standard export packaging and phyto inspection requested.';
+
+    const ticketId = 'SHP-' + Math.floor(100000 + Math.random() * 900000);
+
+    // Build the formatted WhatsApp message with ALL details and selected products
+    let itemsText = '';
+    state.cart.forEach((item, idx) => {
+      itemsText += `  ${idx + 1}. *${item.title}* (${item.qty} ${item.unit || 'MT'}) - ${item.packaging || 'Export Standard'}\n`;
+    });
+
+    const msgLines = [
+      `📋 *SHIPYON GLOBAL TRADE QUOTATION INQUIRY*`,
+      `*Reference:* ${ticketId}`,
+      `*Source:* Products Sourcing Catalog`,
+      ``,
+      `👤 *Procurement Representative:*`,
+      `• *Name:* ${name}`,
+      `• *Company:* ${company}`,
+      `• *Business Email:* ${email}`,
+      `• *Direct Phone / WA:* ${phone}`,
+      ``,
+      `📦 *Selected Commodities (${state.cart.length} Lines):*`,
+      itemsText.trimEnd(),
+      ``,
+      `🚢 *Trade & Logistics Terms:*`,
+      `• *Destination Seaport:* ${port}`,
+      `• *Estimated Volume:* ${volume}`,
+      `• *Preferred Incoterms:* ${incoterms}`,
+      ``,
+      `📝 *Trade Notes / Specifications:*`,
+      `• ${notes}`
+    ];
+
+    const fullMessage = msgLines.join('\n');
+
+    // Open WhatsApp with all entered details
+    const waUrl = `https://wa.me/919500690740?text=${encodeURIComponent(fullMessage)}`;
+    window.open(waUrl, '_blank');
+
+    // Show Confirmation Screen inside Modal
+    const body = document.getElementById('product-quote-body');
+    if (body) {
+      body.innerHTML = `
+        <div class="quote-modal-success">
+          <div class="quote-success-icon">✓</div>
+          <span class="quote-badge-pill">TRANSMISSION DISPATCHED</span>
+          <h3 class="quote-success-heading">Specification Dispatched to Trade Desk</h3>
+          <p class="quote-success-desc">
+            Thank you, <strong>${name}</strong> (${company}). Your trade quotation inquiry for <strong>${state.cart.length} commodities</strong> toward <strong>${port}</strong> has been transferred to our WhatsApp 24/7 Desk.
+          </p>
+          <div class="quote-ticket-pill">
+            DISPATCH REF: <strong>${ticketId}</strong> &bull; STATUS: ACTIVE IN AUDIT QUEUE
+          </div>
+          <div>
+            <button type="button" class="btn-pill-cobalt" onclick="window.ecomEngine.closeProductQuoteModal();" style="margin: 0 auto; display: inline-flex;">
+              <span>Continue Exploring Catalog</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+  }
+
   // Global Engine Object for inline handlers
   window.ecomEngine = {
     addToCart,
@@ -756,7 +1063,10 @@
     moveWishlistToCart,
     removeFromWishlist,
     openQuickViewModal,
-    closeAllDrawers
+    openProductQuoteModal,
+    closeProductQuoteModal,
+    closeAllDrawers,
+    clearSearch
   };
 
 })();

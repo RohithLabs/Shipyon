@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="assets/shipyon-logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -34,9 +34,9 @@
       <!-- Center Navigation -->
       <nav class="nav-links-serene" id="primary-nav">
         <a href="index.html" class="nav-link-serene active">Home</a>
-        <a href="about.html" class="nav-link-serene">About</a>
-        <a href="services.html" class="nav-link-serene">Services</a>
         <a href="products.html" class="nav-link-serene">Products</a>
+        <a href="services.html" class="nav-link-serene">Services</a>
+        <a href="about.html" class="nav-link-serene">About</a>
         <a href="contact.html" class="nav-link-serene">Contact</a>
       </nav>
 
@@ -205,15 +205,24 @@
   <section class="about-editorial-section" id="about-section">
     <div class="container">
       <div class="about-editorial-grid">
-        <!-- Left: Story Narrative -->
         <div class="about-col-story">
-          <div class="editorial-eyebrow">ABOUT US</div>
+          <div class="editorial-eyebrow-lux gold-theme">
+            <span class="eyebrow-radar-dot" aria-hidden="true"></span>
+            <span>ABOUT US</span>
+          </div>
+          
           <h2 class="about-editorial-heading">
-            Turning South Indian Terroirs<br>Into Global Reality
+            Turning South Indian Terroirs<br>
+            <span class="shimmer-beam-wrap">
+              <span class="shimmer-lux-text about-gold-glow">Into Global Reality</span>
+              <span class="gold-glimmer-star" aria-hidden="true">✦</span>
+            </span>
           </h2>
+          
           <p class="about-editorial-p">
             We’re a passionate team of agricultural sourcing agronomists, quality auditors, and maritime trade coordinators dedicated to building transparent, sustainable export bridges that connect regional producers with high-demand international markets.
           </p>
+
           <div class="about-btn-wrap">
             <a href="about.html" class="btn-pill-outlined">
               <span>Learn More</span>
@@ -225,7 +234,7 @@
         <!-- Center: Clean Workspace Desk Image -->
         <div class="about-col-visual">
           <div class="workspace-showcase-frame">
-            <img src="assets/shipyon-workspace-desk.jpg" alt="Shipyon Trade Management Desk and Work Environment" class="workspace-desk-img">
+            <img src="assets/shipyon-workspace-desk.jpg" alt="Shipyon Trade Management Desk and Work Environment" class="workspace-desk-img" loading="lazy" decoding="async">
           </div>
         </div>
 
@@ -286,7 +295,7 @@
             <span class="folio-spine-coord">10.72° N, 77.52° E</span>
           </div>
 
-          <!-- Expanded Content View (Reduced & Clean) -->
+          <!-- Expanded Content View -->
           <div class="folio-expanded-content">
             <h3 class="folio-specimen-heading">Freshness, Rooted in Origin.</h3>
             <p class="folio-specimen-summary">
@@ -297,49 +306,53 @@
               <span class="folio-tag-pill">Red Onions</span>
               <span class="folio-tag-pill">G4 Green Chillies</span>
               <span class="folio-tag-pill">Fresh Drumstick</span>
+              <span class="folio-tag-pill">Cold-Chain Reefer</span>
             </div>
 
             <div class="folio-action-row">
-              <a href="products.html?category=fresh-produce" class="folio-btn-action">
+              <a href="products.html#category-agro-spices" class="folio-btn-action">
                 <span>View Products</span>
                 <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
+          <div class="folio-progress-timer" aria-hidden="true"><div class="folio-progress-timer-bar"></div></div>
         </div>
 
-        <!-- 02 — TEXTILES & GARMENTS (Replaces Fruits) -->
-        <div class="curious-folio-panel" data-specimen="textiles" tabindex="0" role="button" aria-expanded="false">
+        <!-- 02 — FRUITS -->
+        <div class="curious-folio-panel" data-specimen="fruits" tabindex="0" role="button" aria-expanded="false">
           <div class="folio-bg-media">
-            <img src="assets/product-textiles.jpg" alt="Premium Combed Cotton Textiles and Apparel" loading="lazy">
+            <img src="assets/product-fruits.jpg" alt="Selected Quality Fresh Fruits" loading="lazy">
             <div class="folio-media-overlay"></div>
           </div>
           
           <div class="folio-spine-view">
             <span class="folio-spine-number">02</span>
-            <span class="folio-spine-title">Textiles &amp; Garments</span>
-            <span class="folio-spine-coord">11.10° N, 77.34° E</span>
+            <span class="folio-spine-title">Fruits</span>
+            <span class="folio-spine-coord">10.65° N, 77.00° E</span>
           </div>
 
           <div class="folio-expanded-content">
-            <h3 class="folio-specimen-heading">Woven with Precision.</h3>
+            <h3 class="folio-specimen-heading">Nature, At Its Finest.</h3>
             <p class="folio-specimen-summary">
-              Tirupur combed cotton knitwear, organic cotton textiles, and precision export-grade apparel.
+              Quality fruits selected for freshness, sweetness, and international market demand.
             </p>
             
             <div class="folio-clean-tags">
-              <span class="folio-tag-pill">Cotton Apparel</span>
-              <span class="folio-tag-pill">Knitted Fabrics</span>
-              <span class="folio-tag-pill">Organic Yarns</span>
+              <span class="folio-tag-pill">Alphonso Mangoes</span>
+              <span class="folio-tag-pill">Seedless Grapes</span>
+              <span class="folio-tag-pill">Pomegranates</span>
+              <span class="folio-tag-pill">APEDA Packhouse</span>
             </div>
 
             <div class="folio-action-row">
-              <a href="products.html?category=textiles" class="folio-btn-action">
+              <a href="products.html#category-processed-food" class="folio-btn-action">
                 <span>View Products</span>
                 <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
+          <div class="folio-progress-timer" aria-hidden="true"><div class="folio-progress-timer-bar"></div></div>
         </div>
 
         <!-- 03 — SPICES & PLANTATION -->
@@ -365,15 +378,17 @@
               <span class="folio-tag-pill">Alleppey Cardamom</span>
               <span class="folio-tag-pill">Salem Turmeric</span>
               <span class="folio-tag-pill">Dry Red Chillies</span>
+              <span class="folio-tag-pill">Black Pepper</span>
             </div>
 
             <div class="folio-action-row">
-              <a href="products.html?category=spices" class="folio-btn-action">
+              <a href="products.html#category-agro-spices" class="folio-btn-action">
                 <span>View Products</span>
                 <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
+          <div class="folio-progress-timer" aria-hidden="true"><div class="folio-progress-timer-bar"></div></div>
         </div>
 
         <!-- 04 — PROCESSED & VALUE-ADDED -->
@@ -392,22 +407,24 @@
           <div class="folio-expanded-content">
             <h3 class="folio-specimen-heading">Refined for Modern Trade.</h3>
             <p class="folio-specimen-summary">
-              Optical Sortex-cleaned premium grains, organic moringa, and export-grade agro products.
+              Optical Sortex-cleaned premium grains, organic moringa, fruit purees, and export-grade agro products.
             </p>
             
             <div class="folio-clean-tags">
               <span class="folio-tag-pill">Aged Basmati Rice</span>
               <span class="folio-tag-pill">Organic Moringa</span>
+              <span class="folio-tag-pill">Mango Pulp</span>
               <span class="folio-tag-pill">Dehydrated Agro</span>
             </div>
 
             <div class="folio-action-row">
-              <a href="products.html?category=processed" class="folio-btn-action">
+              <a href="products.html#category-processed-food" class="folio-btn-action">
                 <span>View Products</span>
                 <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
+          <div class="folio-progress-timer" aria-hidden="true"><div class="folio-progress-timer-bar"></div></div>
         </div>
 
         <!-- 05 — INDUSTRIAL & COMMERCIAL -->
@@ -420,28 +437,30 @@
           <div class="folio-spine-view">
             <span class="folio-spine-number">05</span>
             <span class="folio-spine-title">Industrial &amp; Commercial</span>
-            <span class="folio-spine-coord">11.66° N, 78.14° E</span>
+            <span class="folio-spine-coord">11.10° N, 77.34° E</span>
           </div>
 
           <div class="folio-expanded-content">
             <h3 class="folio-specimen-heading">Built for Business.</h3>
             <p class="folio-specimen-summary">
-              Architectural black granite slabs, vitrified porcelain tiles, and heavy commercial materials.
+              Tirupur export-grade cotton textiles, architectural black granite, and precision commercial supplies.
             </p>
             
             <div class="folio-clean-tags">
-              <span class="folio-tag-pill">Black Granite Slabs</span>
+              <span class="folio-tag-pill">Cotton Apparel</span>
+              <span class="folio-tag-pill">Knitted Fabrics</span>
+              <span class="folio-tag-pill">Black Granite</span>
               <span class="folio-tag-pill">Vitrified Tiles</span>
-              <span class="folio-tag-pill">Industrial Goods</span>
             </div>
 
             <div class="folio-action-row">
-              <a href="products.html?category=industrial" class="folio-btn-action">
+              <a href="products.html#category-textiles-fabrics" class="folio-btn-action">
                 <span>View Products</span>
                 <svg class="btn-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
+          <div class="folio-progress-timer" aria-hidden="true"><div class="folio-progress-timer-bar"></div></div>
         </div>
 
       </div>
@@ -465,145 +484,98 @@
        Combination of Global Trade Network, Futuristic Logistics, Interactive World Map,
        Premium International Business, and Digital Global Connectivity.
        ========================================================================== -->
-  <section class="global-trade-network-section" id="global-trade-map" aria-label="Global Trade Network">
+  <section class="global-trade-network-section gtn-revealed" id="global-trade-map" aria-label="Global Trade Network">
     
-    <!-- Sophisticated Layered Animated Background (Forest Green, Emerald, Mint, Cream & Subtle Gold) -->
+    <!-- Clean, Serene Ambient Background (No wireframes, no grids, no floating dots) -->
     <div class="gtn-bg-layer" aria-hidden="true">
       <div class="gtn-bg-gradient"></div>
-      <div class="gtn-bg-grid" id="gtn-parallax-grid"></div>
-      
-      <!-- Faint World Map Vector Silhouette Outline with Parallax Drift -->
-      <svg class="gtn-bg-world-outline" id="gtn-parallax-map" viewBox="0 0 1000 500" fill="none" preserveAspectRatio="xMidYMid slice">
-        <!-- Coordinate latitude / longitude curves -->
-        <path d="M0,125 Q500,100 1000,125 M0,250 Q500,230 1000,250 M0,375 Q500,360 1000,375" stroke="rgba(20, 53, 27, 0.035)" stroke-width="1" stroke-dasharray="4 4"/>
-        <path d="M250,0 Q230,250 250,500 M500,0 Q500,250 500,500 M750,0 Q770,250 750,500" stroke="rgba(20, 53, 27, 0.035)" stroke-width="1" stroke-dasharray="4 4"/>
-        <!-- Continents Outline -->
-        <path d="M120,80 Q140,50 180,45 Q220,40 240,70 Q250,110 230,140 Q190,160 150,140 Z M160,180 Q200,200 190,270 Q170,320 140,280 Q130,220 160,180 Z M440,60 Q500,50 540,70 Q560,110 520,130 Q460,120 440,60 Z M450,140 Q500,150 520,220 Q500,300 460,290 Q430,210 450,140 Z M600,70 Q700,60 740,110 Q720,170 660,150 Q610,120 600,70 Z M630,220 Q690,210 710,260 Q690,310 640,290 Z" stroke="rgba(16, 185, 129, 0.07)" stroke-width="1.8" stroke-dasharray="4 3"/>
-      </svg>
-      
-      <!-- Soft Radial Light Glow Blobs with Parallax Response -->
-      <div class="gtn-light-effect gtn-light-left" id="gtn-light-left"></div>
-      <div class="gtn-light-effect gtn-light-right" id="gtn-light-right"></div>
-      <div class="gtn-light-effect gtn-light-center" id="gtn-light-center"></div>
-
-      <!-- Subtle Floating Ambient Particles -->
-      <div class="gtn-particles-wrap" aria-hidden="true">
-        <span class="gtn-dot gtn-dot-1"></span>
-        <span class="gtn-dot gtn-dot-2"></span>
-        <span class="gtn-dot gtn-dot-3"></span>
-        <span class="gtn-dot gtn-dot-4"></span>
-        <span class="gtn-dot gtn-dot-5"></span>
-        <span class="gtn-dot gtn-dot-6"></span>
-      </div>
     </div>
 
     <div class="container">
       <div class="gtn-showcase-grid">
 
-        <!-- LEFT SIDE: Content, Visual Hierarchy & Interactive Controls -->
+        <!-- LEFT SIDE: Clean, Elegant Content & Interactive Controls -->
         <div class="gtn-content-col" id="gtn-content-col">
-          <!-- Small Uppercase Eyebrow Text with Live Radar Pulse -->
+          <!-- Small Uppercase Eyebrow Pill Badge -->
           <div class="gtn-eyebrow-badge">
             <span class="gtn-beacon-pulse"></span>
-            <span class="gtn-eyebrow-text">GLOBAL TRADE NETWORK</span>
+            <span class="gtn-eyebrow-text">OUR GLOBAL REACH</span>
           </div>
 
-          <!-- Large Bold Headline with Shimmering Interactive Hover Effect -->
+          <!-- Professional Editorial Headline -->
           <h2 class="gtn-headline" id="gtn-interactive-headline">
-            <span class="gtn-headline-word" data-word="Connect">Connect</span>
-            <span class="gtn-headline-word" data-word="to">to</span>
-            <span class="gtn-headline-word" data-word="the">the</span>
-            <span class="gtn-headline-word gtn-headline-accent" data-word="World">World</span>
+            Connecting Markets.<br><span class="gtn-headline-gold">Moving the World.</span>
           </h2>
 
           <!-- Supporting Description -->
           <p class="gtn-desc">
-            Direct multimodal export bridges connecting South Indian agricultural and commercial origins to 50+ global markets.
+            From trusted suppliers to global markets, we connect businesses across continents through reliable international trade and sourcing.
           </p>
 
-          <!-- Futuristic Floating Data Cards (Glassmorphism + Subtle Depth) -->
-          <div class="gtn-glass-data-grid">
-            <div class="gtn-data-card" data-tilt>
-              <div class="data-card-glow"></div>
-              <div class="data-card-header">
-                <span class="data-card-beacon"></span>
-                <span class="data-card-label">COVERAGE</span>
-              </div>
-              <div class="data-card-metric">50+</div>
-              <div class="data-card-caption">Global Sovereign Markets</div>
+          <!-- Minimalist 3-Stat Metric Strip -->
+          <div class="gtn-clean-metrics-row">
+            <div class="gtn-clean-metric-item">
+              <span class="metric-num">9+</span>
+              <span class="metric-label">Key Markets</span>
             </div>
-
-            <div class="gtn-data-card" data-tilt>
-              <div class="data-card-glow"></div>
-              <div class="data-card-header">
-                <span class="data-card-beacon beacon-gold"></span>
-                <span class="data-card-label">LIVE STATUS</span>
-              </div>
-              <div class="data-card-metric">Active Routes</div>
-              <div class="data-card-caption">Real-Time IoT Corridors</div>
+            <div class="gtn-metric-divider"></div>
+            <div class="gtn-clean-metric-item">
+              <span class="metric-num">50+</span>
+              <span class="metric-label">Global Ports</span>
             </div>
-
-            <div class="gtn-data-card" data-tilt>
-              <div class="data-card-glow"></div>
-              <div class="data-card-header">
-                <span class="data-card-beacon beacon-mint"></span>
-                <span class="data-card-label">PROVENANCE</span>
-              </div>
-              <div class="data-card-metric">South India</div>
-              <div class="data-card-caption">Tuticorin • Chennai • Cochin</div>
-            </div>
-
-            <div class="gtn-data-card" data-tilt>
-              <div class="data-card-glow"></div>
-              <div class="data-card-header">
-                <span class="data-card-beacon"></span>
-                <span class="data-card-label">LOGISTICS</span>
-              </div>
-              <div class="data-card-metric">Export Ready</div>
-              <div class="data-card-caption">Global Multimodal Network</div>
+            <div class="gtn-metric-divider"></div>
+            <div class="gtn-clean-metric-item">
+              <span class="metric-num">100%</span>
+              <span class="metric-label">Traceability</span>
             </div>
           </div>
 
-          <!-- Interactive Destination Corridors Ribbon -->
+          <!-- Interactive Destination Corridors Ribbon: Exactly 9 Destinations -->
           <div class="gtn-destinations-block">
-            <span class="gtn-destinations-heading">Select Sovereign Trade Corridor:</span>
+            <span class="gtn-destinations-heading">Key Global Trade Destinations:</span>
             <div class="globe-country-ribbon gtn-corridor-chips-list" id="globe-country-ribbon" role="tablist" aria-label="Trade Destination Selector">
-              <button type="button" class="country-ribbon-btn active" data-dest="USA" role="tab" aria-selected="true" data-cursor="DESTINATION" data-dest-name="North America (USA)">
+              <button type="button" class="country-ribbon-btn active" data-dest="USA" role="tab" aria-selected="true" data-cursor="DESTINATION" data-dest-name="USA">
                 <span class="ribbon-flag">🇺🇸</span>
-                <span class="ribbon-name">North America</span>
+                <span class="ribbon-name">USA</span>
               </button>
-              <button type="button" class="country-ribbon-btn" data-dest="GERMANY" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Europe (Germany)">
+              <button type="button" class="country-ribbon-btn" data-dest="GERMANY" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Germany">
                 <span class="ribbon-flag">🇩🇪</span>
-                <span class="ribbon-name">Europe</span>
+                <span class="ribbon-name">Germany</span>
               </button>
-              <button type="button" class="country-ribbon-btn" data-dest="DUBAI" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Middle East (Dubai)">
+              <button type="button" class="country-ribbon-btn" data-dest="DUBAI" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Dubai (UAE)">
                 <span class="ribbon-flag">🇦🇪</span>
-                <span class="ribbon-name">Middle East</span>
+                <span class="ribbon-name">Dubai (UAE)</span>
               </button>
-              <button type="button" class="country-ribbon-btn" data-dest="SINGAPORE" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Southeast Asia (Singapore)">
+              <button type="button" class="country-ribbon-btn" data-dest="INDIA" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="India">
+                <span class="ribbon-flag">🇮🇳</span>
+                <span class="ribbon-name">India</span>
+              </button>
+              <button type="button" class="country-ribbon-btn" data-dest="SRILANKA" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Sri Lanka">
+                <span class="ribbon-flag">🇱🇰</span>
+                <span class="ribbon-name">Sri Lanka</span>
+              </button>
+              <button type="button" class="country-ribbon-btn" data-dest="MALAYSIA" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Malaysia">
+                <span class="ribbon-flag">🇲🇾</span>
+                <span class="ribbon-name">Malaysia</span>
+              </button>
+              <button type="button" class="country-ribbon-btn" data-dest="SINGAPORE" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Singapore">
                 <span class="ribbon-flag">🇸🇬</span>
-                <span class="ribbon-name">Southeast Asia</span>
+                <span class="ribbon-name">Singapore</span>
               </button>
-              <button type="button" class="country-ribbon-btn" data-dest="AFRICA" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Africa (Durban/Mombasa)">
-                <span class="ribbon-flag">🌍</span>
-                <span class="ribbon-name">Africa</span>
+              <button type="button" class="country-ribbon-btn" data-dest="VIETNAM" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Vietnam">
+                <span class="ribbon-flag">🇻🇳</span>
+                <span class="ribbon-name">Vietnam</span>
               </button>
-              <button type="button" class="country-ribbon-btn" data-dest="AUSTRALIA" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Australia (Sydney)">
+              <button type="button" class="country-ribbon-btn" data-dest="AUSTRALIA" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="Australia">
                 <span class="ribbon-flag">🇦🇺</span>
                 <span class="ribbon-name">Australia</span>
               </button>
-              <button type="button" class="country-ribbon-btn" data-dest="INDIA" role="tab" aria-selected="false" data-cursor="DESTINATION" data-dest-name="India (HQ Origin)">
-                <span class="ribbon-flag">🇮🇳</span>
-                <span class="ribbon-name">India (Origin)</span>
-              </button>
             </div>
           </div>
 
-          <!-- Premium Magnetic Interactive CTA Button -->
+          <!-- Clean CTA Button -->
           <div class="gtn-cta-action-row">
             <a href="contact.html" class="gtn-interactive-cta-btn" id="gtn-explore-corridors-btn" data-cursor="BUTTON">
-              <span class="cta-magnetic-glow" aria-hidden="true"></span>
-              <span class="cta-sheen-effect" aria-hidden="true"></span>
               <span class="cta-text">Explore Trade Corridors</span>
               <span class="cta-arrow-box" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -611,112 +583,139 @@
                 </svg>
               </span>
             </a>
-            <span class="gtn-origin-footnote">Direct Multimodal Port Staging &amp; Fast Freight Clearance</span>
           </div>
         </div>
 
-        <!-- RIGHT SIDE: 3D-Style Animated Interactive Globe Showcase -->
+        <!-- RIGHT SIDE: Clean 3D Globe Showcase (No floating badges, no clutter) -->
         <div class="gtn-visual-col" id="gtn-visual-col">
           <div class="gtn-globe-display-card" id="gtn-globe-display-card" data-cursor="GLOBE">
             
-            <!-- Top HUD Bar with Origin Beacon & Real-Time Security Badge -->
-            <div class="gtn-hud-bar">
-              <div class="gtn-hud-origin-pill">
-                <span class="gtn-origin-dot"></span>
-                <span class="gtn-origin-text">ORIGIN: <strong>South India Hub</strong> (Tuticorin / Chennai)</span>
-              </div>
-              <div class="gtn-hud-markets-pill">
-                <span class="gtn-pulse-ring-sm"></span>
-                <span>50+ SOVEREIGN MARKETS</span>
-              </div>
-            </div>
-
-            <!-- Floating Data Indicators Layer (Glassmorphism Cards around Globe) -->
-            <div class="gtn-globe-floating-badges" aria-hidden="true">
-              <div class="gtn-float-badge float-top-left">
-                <span class="badge-mini-dot dot-origin"></span>
-                <div class="badge-content">
-                  <span class="badge-micro-title">SOUTH INDIA ORIGIN</span>
-                  <span class="badge-micro-val">Tuticorin &amp; Cochin Gateways</span>
-                </div>
-              </div>
-
-              <div class="gtn-float-badge float-top-right">
-                <span class="badge-mini-dot dot-market"></span>
-                <div class="badge-content">
-                  <span class="badge-micro-title">50+ GLOBAL MARKETS</span>
-                  <span class="badge-micro-val">APEDA &amp; FDA Certified</span>
-                </div>
-              </div>
-
-              <div class="gtn-float-badge float-bottom-left">
-                <span class="badge-mini-dot dot-route"></span>
-                <div class="badge-content">
-                  <span class="badge-micro-title">ACTIVE TRADE ROUTES</span>
-                  <span class="badge-micro-val">Continuous Multimodal Flow</span>
-                </div>
-              </div>
-
-              <div class="gtn-float-badge float-bottom-right">
-                <span class="badge-mini-dot dot-network"></span>
-                <div class="badge-content">
-                  <span class="badge-micro-title">GLOBAL EXPORT NETWORK</span>
-                  <span class="badge-micro-val">Liner Priority Berthing</span>
-                </div>
-              </div>
-            </div>
-
             <!-- 3D Canvas Stage with Leader Lines and Interactive Callouts -->
             <div class="globe-canvas-wrapper gtn-canvas-wrapper" id="globe-canvas-wrapper">
-              <div id="shipyon-3d-globe-container" class="globe-webgl-canvas" aria-label="Interactive 3D Earth Globe Model showing trade routes originating from South India to global markets"></div>
+              <div id="shipyon-3d-globe-container" class="globe-webgl-canvas" aria-label="Interactive 3D Earth Globe Model showing international trade network"></div>
               <svg class="globe-svg-leader-lines" id="globe-svg-lines" aria-hidden="true"></svg>
               <div id="globe-labels-overlay" class="globe-labels-overlay"></div>
+              
+              <!-- Hover Information Card -->
+              <div id="globe-hover-card" class="globe-hover-card" aria-hidden="true">
+                <div class="hover-card-header">
+                  <span class="hover-card-flag" id="hover-card-flag">🇺🇸</span>
+                  <div class="hover-card-title-box">
+                    <span class="hover-card-country" id="hover-card-country">USA</span>
+                    <span class="hover-card-corridor" id="hover-card-corridor">North America Gateway</span>
+                  </div>
+                </div>
+                <div class="hover-card-body">
+                  <div class="hover-card-row">
+                    <span class="hover-card-key">Hub Port:</span>
+                    <span class="hover-card-val" id="hover-card-port">Port of New York &amp; Newark</span>
+                  </div>
+                  <div class="hover-card-row">
+                    <span class="hover-card-key">Ocean Transit:</span>
+                    <span class="hover-card-val" id="hover-card-transit">22 Days Transatlantic</span>
+                  </div>
+                  <div class="hover-card-row">
+                    <span class="hover-card-key">Key Commodities:</span>
+                    <span class="hover-card-val" id="hover-card-goods">Spices, Rice, Textiles, Granite</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <!-- Ambient Interactive Destination Pills on Hover/Tap -->
-            <div class="gtn-ambient-dest-labels" aria-hidden="true">
-              <div class="gtn-floating-dest dest-north-america" data-dest="USA" data-cursor="DESTINATION" data-dest-name="North America">
-                <span class="dest-dot"></span>
-                <span class="dest-label">NORTH AMERICA</span>
-              </div>
-              <div class="gtn-floating-dest dest-europe" data-dest="GERMANY" data-cursor="DESTINATION" data-dest-name="Europe">
-                <span class="dest-dot"></span>
-                <span class="dest-label">EUROPE</span>
-              </div>
-              <div class="gtn-floating-dest dest-middle-east" data-dest="DUBAI" data-cursor="DESTINATION" data-dest-name="Middle East">
-                <span class="dest-dot"></span>
-                <span class="dest-label">MIDDLE EAST</span>
-              </div>
-              <div class="gtn-floating-dest dest-southeast-asia" data-dest="SINGAPORE" data-cursor="DESTINATION" data-dest-name="Southeast Asia">
-                <span class="dest-dot"></span>
-                <span class="dest-label">SOUTHEAST ASIA</span>
-              </div>
-              <div class="gtn-floating-dest dest-africa" data-dest="AFRICA" data-cursor="DESTINATION" data-dest-name="Africa">
-                <span class="dest-dot"></span>
-                <span class="dest-label">AFRICA</span>
-              </div>
-            </div>
-
-            <!-- Bottom Active Corridor Telemetry Status Bar -->
-            <div class="globe-bottom-bar gtn-bottom-telemetry" id="globe-bottom-bar">
-              <div class="corridor-status-pill">
-                <span class="status-origin-tag">
-                  <span class="flag">🇮🇳</span>
-                  <span class="name">South India Origin</span>
-                </span>
-                <span class="status-connector-arrow">&rarr;</span>
-                <span class="status-active-dest" id="status-active-dest">
-                  <span class="flag" id="bar-dest-flag">🇺🇸</span>
-                  <span class="name" id="bar-dest-name">USA — North America Gateway</span>
-                  <span class="transit-tag" id="bar-dest-transit">22 Days Transatlantic • New York</span>
-                </span>
-              </div>
+            <!-- Clean Single-Line Bottom Corridor Status -->
+            <div class="gtn-clean-status-bar" id="globe-bottom-bar">
+              <span class="status-live-dot"></span>
+              <span class="status-dest-name" id="bar-dest-name">USA — North America Gateway</span>
+              <span class="status-dest-transit" id="bar-dest-transit">22 Days Transatlantic</span>
+              <span id="bar-dest-flag" style="display:none;">🇺🇸</span>
             </div>
 
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SHIPYON VISION & SEAMLESS TRADE JOURNEY SECTION
+       Bright botanical luxury suite matching the platform theme:
+       - Eyebrow: OUR VISION
+       - Tagline: A World Where Quality Knows No Borders.
+       - Narrative: We envision a connected global trade network where the right products
+         reach the right markets through trusted relationships and seamless movement.
+       - Action Quote Card: “Let’s turn your next requirement into a seamless trade journey.”
+       ========================================================================== -->
+  <section class="shipyon-vision-section" id="shipyon-vision" aria-label="Shipyon Vision and Trade Journey">
+    <div class="vision-ambient-glow" aria-hidden="true"></div>
+
+    <div class="container vision-container">
+      
+      <!-- Eyebrow Pill -->
+      <div class="vision-eyebrow-wrapper">
+        <div class="vision-pill-badge">
+          <span class="vision-beacon-dot" aria-hidden="true"></span>
+          <span class="vision-pill-title">OUR VISION</span>
+          <span class="vision-pill-divider" aria-hidden="true">•</span>
+          <span class="vision-pill-sub">GLOBAL HORIZONS</span>
+        </div>
+      </div>
+
+      <!-- Main Tagline -->
+      <h2 class="vision-main-tagline">
+        A World Where Quality <span class="vision-tagline-highlight">Knows No Borders</span>.
+      </h2>
+
+      <!-- Narrative Description -->
+      <p class="vision-narrative-text">
+        We envision a connected global trade network where the right products reach the right markets through trusted relationships and seamless movement.
+      </p>
+
+      <!-- Signature Journey Action Card -->
+      <div class="vision-journey-card">
+        <div class="vision-quote-symbol" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 7 1 8 8 8z"/>
+            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 7 1 8 8 8z"/>
+          </svg>
+        </div>
+
+        <blockquote class="vision-journey-quote">
+          “Let’s turn your next requirement into a seamless trade journey.”
+        </blockquote>
+
+        <div class="vision-cta-group">
+          <button type="button" class="btn-vision-primary open-quote-modal-btn" id="vision-rfq-btn">
+            <span>Start Your Trade Journey</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+          <a href="contact.html" class="btn-vision-secondary">
+            <span>Connect with Trade Desk</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trust Triad -->
+        <div class="vision-trust-triad">
+          <div class="vision-triad-item">
+            <span class="triad-bullet" aria-hidden="true">✓</span>
+            <span>Direct Origin Integrity</span>
+          </div>
+          <div class="vision-triad-item">
+            <span class="triad-bullet" aria-hidden="true">✓</span>
+            <span>Trusted Multi-Nation Alliances</span>
+          </div>
+          <div class="vision-triad-item">
+            <span class="triad-bullet" aria-hidden="true">✓</span>
+            <span>End-to-End Maritime Flow</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -743,101 +742,164 @@
        Closing statement: The Principles Behind Every Move
        Positioned before WHY CHOOSE US with interactive spotlight & motion
        ========================================================================== -->
-  <section class="modern-values-section" id="values-section">
-    <div class="container">
-      <div class="section-header-editorial text-center" style="max-width: 720px; margin: 0 auto 52px auto;">
-        <span class="section-pill-tag">
-          <span class="live-dot-beacon"></span>
-          <span>CORE PHILOSOPHY</span>
-        </span>
-        <h2 class="section-title-editorial">The Principles Behind Every Move.</h2>
-        <p class="section-subtitle-editorial">
-          Four enduring commitments defining how we operate, build partnerships, and deliver excellence across continents.
+  <!-- ==========================================================================
+       CORE PHILOSOPHY / THE PRINCIPLES BEHIND EVERY MOVE
+       An Interactive Global Trade Journey: QUALITY → TRUST → PRECISION → PROGRESS
+       Featuring dynamic node expansion, animated trade-route pulse, world map contours,
+       and seamless physical system transitions.
+       ========================================================================== -->
+  <section class="modern-values-section charter-values-section" id="values-section" aria-label="The Shipyon Charter - Four Pillars. One Sacred Covenant.">
+    <div class="charter-ambient-clean-bg" aria-hidden="true"></div>
+
+    <div class="container charter-container">
+      <!-- Section Header -->
+      <div class="charter-header-wrapper text-center">
+        <div class="charter-pill-badge" id="charter-pill-badge">
+          <span class="charter-dot-beacon"></span>
+          <span>THE SHIPYON CHARTER</span>
+        </div>
+        <h2 class="charter-main-title" id="charter-title">
+          Four Pillars. <span class="charter-gold-glow">One Sacred Covenant.</span>
+        </h2>
+        <p class="charter-subtitle" id="charter-subtitle">
+          The foundational principles that define our agrarian provenance, master maritime voyages, and sovereign standards across every shipment departing Indian shores.
         </p>
       </div>
 
-      <!-- 4 Editorial Value Cards Grid -->
-      <div class="values-editorial-grid">
-        <!-- 01 — QUALITY -->
-        <div class="value-editorial-card">
-          <div class="value-card-top">
-            <span class="value-card-num">01</span>
-            <div class="value-card-icon-box">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="value-pillar-label">PILLAR 01 &bull; STANDARD</div>
-          <h3 class="value-card-name">QUALITY</h3>
-          <p class="value-card-statement">What we deliver matters.</p>
-          <p class="value-card-desc">
-            Direct harvest aggregation, optical laser Sortex grading, and complete zero-chemical residue screening on every harvest.
-          </p>
-        </div>
+      <!-- Four Pillars Kinetic Showcase Wrapper holding Interconnecting SVG Artery & Pillars -->
+      <div class="charter-showcase-wrapper">
+        
+        <!-- Continuous SVG Interconnecting Arteries Behind the 4 Pillars -->
+        <svg class="charter-artery-svg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="charterArteryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#059669" stop-opacity="0.15"/>
+              <stop offset="25%" stop-color="#10B981" stop-opacity="0.9"/>
+              <stop offset="50%" stop-color="#34D399" stop-opacity="1"/>
+              <stop offset="75%" stop-color="#10B981" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#059669" stop-opacity="0.15"/>
+            </linearGradient>
+          </defs>
+          <line x1="60" y1="40" x2="1140" y2="40" class="charter-artery-track" />
+          <line x1="60" y1="40" x2="1140" y2="40" class="charter-artery-beam" />
+          <circle cx="150" cy="40" r="5" class="charter-artery-node node-0 is-active" />
+          <circle cx="450" cy="40" r="5" class="charter-artery-node node-1" />
+          <circle cx="750" cy="40" r="5" class="charter-artery-node node-2" />
+          <circle cx="1050" cy="40" r="5" class="charter-artery-node node-3" />
+        </svg>
 
-        <!-- 02 — TRUST -->
-        <div class="value-editorial-card">
-          <div class="value-card-top">
-            <span class="value-card-num">02</span>
-            <div class="value-card-icon-box">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <path d="M9 12l2 2 4-4"/>
-              </svg>
+        <!-- Four Pillars Horizontal Grid -->
+        <div class="charter-pillars-grid" id="charter-pillars-grid" role="region" aria-label="The Shipyon Charter Four Pillars">
+          
+          <!-- Pillar I: Quality Assured -->
+          <article class="charter-pillar-card is-active" data-index="0" data-pillar="1" tabindex="0" role="button" aria-pressed="true">
+            <div class="pillar-card-glare" aria-hidden="true"></div>
+            <div class="card-border-beam" aria-hidden="true"></div>
+            <div class="pillar-card-top-row">
+              <div class="pillar-card-header">
+                <span class="pillar-tag-dot"></span>
+                <span class="pillar-tag-text">Pillar I</span>
+              </div>
+              <div class="pillar-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="pillar-svg-icon">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+              </div>
             </div>
-          </div>
-          <div class="value-pillar-label">PILLAR 02 &bull; INTEGRITY</div>
-          <h3 class="value-card-name">TRUST</h3>
-          <p class="value-card-statement">How we build matters.</p>
-          <p class="value-card-desc">
-            Transparent institutional trade contracts, verified provenance documents, and zero-compromise Escrow &amp; LC settlement frameworks.
-          </p>
-        </div>
+            <h3 class="pillar-card-title">Quality <span class="highlight-emerald">Assured</span></h3>
+            <p class="pillar-card-desc">
+              Hand-inspected at farm-gate, verified in cleanrooms, and certified at deep-water seaports. Uncompromised prestige delivered to every continent.
+            </p>
+            <div class="pillar-progress-track" aria-hidden="true">
+              <div class="pillar-progress-fill"></div>
+            </div>
+          </article>
 
-        <!-- 03 — PRECISION -->
-        <div class="value-editorial-card">
-          <div class="value-card-top">
-            <span class="value-card-num">03</span>
-            <div class="value-card-icon-box">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="6" x2="12" y2="12"/>
-                <line x1="12" y1="12" x2="16" y2="14"/>
-              </svg>
+          <!-- Pillar II: Farm Direct -->
+          <article class="charter-pillar-card" data-index="1" data-pillar="2" tabindex="0" role="button" aria-pressed="false">
+            <div class="pillar-card-glare" aria-hidden="true"></div>
+            <div class="card-border-beam" aria-hidden="true"></div>
+            <div class="pillar-card-top-row">
+              <div class="pillar-card-header">
+                <span class="pillar-tag-dot"></span>
+                <span class="pillar-tag-text">Pillar II</span>
+              </div>
+              <div class="pillar-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="pillar-svg-icon">
+                  <path d="M12 10a6 6 0 0 0-6-6H3v3a6 6 0 0 0 6 6h3"/>
+                  <path d="M12 14a6 6 0 0 1 6-6h3v3a6 6 0 0 1-6 6h-3"/>
+                  <path d="M12 22V10"/>
+                </svg>
+              </div>
             </div>
-          </div>
-          <div class="value-pillar-label">PILLAR 03 &bull; METRICS</div>
-          <h3 class="value-card-name">PRECISION</h3>
-          <p class="value-card-statement">Every detail matters.</p>
-          <p class="value-card-desc">
-            Continuous IoT GPS telematics, precision 2°C – 4°C active Reefer cold-chain stewardship, and zero-delay phytosanitary clearance.
-          </p>
-        </div>
+            <h3 class="pillar-card-title">Farm <span class="highlight-emerald">Direct</span></h3>
+            <p class="pillar-card-desc">
+              Direct alliances with 500+ agrarian cooperatives. Sourced from the richest fertile soils, pure by nature, untainted by speculative middlemen.
+            </p>
+            <div class="pillar-progress-track" aria-hidden="true">
+              <div class="pillar-progress-fill"></div>
+            </div>
+          </article>
 
-        <!-- 04 — PROGRESS -->
-        <div class="value-editorial-card">
-          <div class="value-card-top">
-            <span class="value-card-num">04</span>
-            <div class="value-card-icon-box">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                <polyline points="17 6 23 6 23 12"/>
-              </svg>
+          <!-- Pillar III: Reliable Logistics -->
+          <article class="charter-pillar-card" data-index="2" data-pillar="3" tabindex="0" role="button" aria-pressed="false">
+            <div class="pillar-card-glare" aria-hidden="true"></div>
+            <div class="card-border-beam" aria-hidden="true"></div>
+            <div class="pillar-card-top-row">
+              <div class="pillar-card-header">
+                <span class="pillar-tag-dot"></span>
+                <span class="pillar-tag-text">Pillar III</span>
+              </div>
+              <div class="pillar-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="pillar-svg-icon">
+                  <path d="M2 20a4 4 0 0 0 4-4h12a4 4 0 0 0 4 4"/>
+                  <path d="M4 16 7 4h10l3 12"/>
+                  <line x1="12" y1="4" x2="12" y2="12"/>
+                  <path d="M9 8h6"/>
+                </svg>
+              </div>
             </div>
-          </div>
-          <div class="value-pillar-label">PILLAR 04 &bull; VELOCITY</div>
-          <h3 class="value-card-name">PROGRESS</h3>
-          <p class="value-card-statement">What comes next matters.</p>
-          <p class="value-card-desc">
-            Direct priority vessel berthing across Tuticorin, Chennai, and Cochin connecting South Indian origins to 50+ global sovereign ports.
-          </p>
+            <h3 class="pillar-card-title">Reliable <span class="highlight-emerald">Logistics</span></h3>
+            <p class="pillar-card-desc">
+              Flawless cold-chain stewardship and dedicated deep-sea liner sailings, safeguarding cargo integrity across every nautical mile.
+            </p>
+            <div class="pillar-progress-track" aria-hidden="true">
+              <div class="pillar-progress-fill"></div>
+            </div>
+          </article>
+
+          <!-- Pillar IV: Global Delivery -->
+          <article class="charter-pillar-card" data-index="3" data-pillar="4" tabindex="0" role="button" aria-pressed="false">
+            <div class="pillar-card-glare" aria-hidden="true"></div>
+            <div class="card-border-beam" aria-hidden="true"></div>
+            <div class="pillar-card-top-row">
+              <div class="pillar-card-header">
+                <span class="pillar-tag-dot"></span>
+                <span class="pillar-tag-text">Pillar IV</span>
+              </div>
+              <div class="pillar-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="pillar-svg-icon">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="pillar-card-title">Global <span class="highlight-emerald">Delivery</span></h3>
+            <p class="pillar-card-desc">
+              Expedited diplomatic clearance, customs mastery, and direct port gateways linking South India to 50+ sovereign markets.
+            </p>
+            <div class="pillar-progress-track" aria-hidden="true">
+              <div class="pillar-progress-fill"></div>
+            </div>
+          </article>
+
         </div>
       </div>
     </div>
   </section>
 
-  <div id="how-we-deliver-section"></div>
 
   <!-- ==========================================================================
        OUR GLOBAL TRADE PROCESS (FROM SOURCING TO SHIPMENT - 4 STEPS)
@@ -941,382 +1003,791 @@
                   <path id="road-clip-path" d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120" fill="none" stroke="#FFFFFF" stroke-width="70" stroke-linecap="round" />
                 </clipPath>
 
-                <!-- Environmental Scenery Gradients (Countryside Farmland & Coastal Sea) -->
-                <linearGradient id="farmMeadowGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#F0FDF4" />
-                  <stop offset="50%" stop-color="#DCFCE7" />
-                  <stop offset="100%" stop-color="#BBF7D0" />
+                <!-- Environmental Scenery Gradients (Forest, Agrarian Valleys & Coastal Ocean) -->
+                <!-- 1. Panoramic Sky Biome Gradient (Forest Morning Emerald to Coastal Oceanic Blue) -->
+                <linearGradient id="envSkyBiomeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#0D3520" />
+                  <stop offset="20%" stop-color="#1A5333" />
+                  <stop offset="42%" stop-color="#236B4E" />
+                  <stop offset="64%" stop-color="#185B7C" />
+                  <stop offset="82%" stop-color="#0E4878" />
+                  <stop offset="100%" stop-color="#093158" />
                 </linearGradient>
 
-                <linearGradient id="farmMeadowGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#DCFCE7" />
-                  <stop offset="100%" stop-color="#86EFAC" />
+                <!-- Soft Golden Morning Sun & Sky Sheen Overlay -->
+                <linearGradient id="envSkyAtmosphereGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)" />
+                  <stop offset="60%" stop-color="rgba(254, 240, 138, 0.16)" />
+                  <stop offset="100%" stop-color="rgba(0, 0, 0, 0)" />
                 </linearGradient>
 
-                <linearGradient id="inlandHillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#F0FDF4" />
-                  <stop offset="100%" stop-color="#BBF7D0" />
+                <!-- 2. Distant Forest Mountain Gradients -->
+                <linearGradient id="mistMountainGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#114227" />
+                  <stop offset="50%" stop-color="#175031" />
+                  <stop offset="100%" stop-color="#0C341F" />
+                </linearGradient>
+                <linearGradient id="mistMountainGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#1A5E39" />
+                  <stop offset="60%" stop-color="#1F6D43" />
+                  <stop offset="100%" stop-color="#13472C" />
                 </linearGradient>
 
-                <linearGradient id="cottageRoofGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#EA580C" />
-                  <stop offset="100%" stop-color="#C2410C" />
+                <!-- 3. Forest Canopy Foliage Gradients -->
+                <linearGradient id="forestCanopyBackGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#175A33" />
+                  <stop offset="100%" stop-color="#0E3820" />
+                </linearGradient>
+                <linearGradient id="forestCanopyFrontGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#22C55E" />
+                  <stop offset="45%" stop-color="#16A34A" />
+                  <stop offset="100%" stop-color="#14532D" />
                 </linearGradient>
 
-                <!-- Coastal Sea Ocean Gradients -->
-                <linearGradient id="coastalSeaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#E0F2FE" stop-opacity="0.9" />
-                  <stop offset="35%" stop-color="#38BDF8" stop-opacity="0.92" />
-                  <stop offset="70%" stop-color="#0284C7" stop-opacity="0.95" />
+                <!-- 4. Forest Loam & Farm Soil Gradients -->
+                <linearGradient id="forestGroundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#15803D" />
+                  <stop offset="40%" stop-color="#166534" />
+                  <stop offset="80%" stop-color="#14532D" />
+                  <stop offset="100%" stop-color="#0F3E22" />
+                </linearGradient>
+
+                <!-- 5. Agrarian Rolling Hills & Terraces Gradients -->
+                <linearGradient id="agroHillGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#16A34A" />
+                  <stop offset="45%" stop-color="#15803D" />
+                  <stop offset="85%" stop-color="#166534" />
+                  <stop offset="100%" stop-color="#14532D" />
+                </linearGradient>
+                <linearGradient id="agroHillGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#22C55E" />
+                  <stop offset="35%" stop-color="#16A34A" />
+                  <stop offset="75%" stop-color="#15803D" />
+                  <stop offset="100%" stop-color="#166534" />
+                </linearGradient>
+                <linearGradient id="agroTerraceGoldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#FCD34D" />
+                  <stop offset="50%" stop-color="#F59E0B" />
+                  <stop offset="100%" stop-color="#D97706" />
+                </linearGradient>
+
+                <!-- 6. Winding Mountain-to-Sea River Gradient -->
+                <linearGradient id="riverWaterGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#67E8F9" stop-opacity="0.95" />
+                  <stop offset="35%" stop-color="#38BDF8" stop-opacity="0.95" />
+                  <stop offset="75%" stop-color="#0284C7" stop-opacity="0.98" />
                   <stop offset="100%" stop-color="#0369A1" stop-opacity="0.98" />
                 </linearGradient>
 
-                <!-- Lighthouse Sweeping Beam Gradient -->
+                <!-- 7. Coastal Sandy Shoreline Dunes Gradient -->
+                <linearGradient id="coastalShoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#B45309" />
+                  <stop offset="25%" stop-color="#D97706" />
+                  <stop offset="60%" stop-color="#F59E0B" />
+                  <stop offset="85%" stop-color="#FCD34D" />
+                  <stop offset="100%" stop-color="#FEF08A" />
+                </linearGradient>
+
+                <!-- 8. Expansive Deep Ocean Water Gradient (Vast Water Body) -->
+                <linearGradient id="deepOceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#38BDF8" />
+                  <stop offset="15%" stop-color="#0EA5E9" />
+                  <stop offset="35%" stop-color="#0284C7" />
+                  <stop offset="60%" stop-color="#0369A1" />
+                  <stop offset="82%" stop-color="#075985" />
+                  <stop offset="93%" stop-color="#0C4A6E" />
+                  <stop offset="100%" stop-color="#082F49" />
+                </linearGradient>
+
+                <!-- 9. Ocean Surface Sun/Sky Shimmer Sheen -->
+                <linearGradient id="oceanSurfaceShimmerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="rgba(254, 240, 138, 0)" />
+                  <stop offset="35%" stop-color="rgba(254, 240, 138, 0.7)" />
+                  <stop offset="65%" stop-color="rgba(56, 189, 248, 0.6)" />
+                  <stop offset="100%" stop-color="rgba(255, 255, 255, 0)" />
+                </linearGradient>
+
+                <!-- 10. Mountain Mist Atmospheric Ribbon Gradient -->
+                <linearGradient id="forestMistGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stop-color="rgba(187, 247, 208, 0.45)" />
+                  <stop offset="100%" stop-color="rgba(187, 247, 208, 0)" />
+                </linearGradient>
+
+                <!-- 11. Mountain Dawn Sun Radial Glow -->
+                <radialGradient id="mountainSunGlowGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#FEF08A" stop-opacity="0.95" />
+                  <stop offset="35%" stop-color="#FDE047" stop-opacity="0.8" />
+                  <stop offset="70%" stop-color="#F59E0B" stop-opacity="0.35" />
+                  <stop offset="100%" stop-color="#EA580C" stop-opacity="0" />
+                </radialGradient>
+
+                <!-- 12. Cottage Terracotta Roof Gradient -->
+                <linearGradient id="cottageRoofGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#EA580C" />
+                  <stop offset="100%" stop-color="#9A3412" />
+                </linearGradient>
+
+                <!-- 13. Lighthouse Sweeping Searchlight Beam -->
                 <linearGradient id="lighthouseBeamGrad" x1="0%" y1="50%" x2="100%" y2="50%">
-                  <stop offset="0%" stop-color="rgba(254, 240, 138, 0.9)" />
+                  <stop offset="0%" stop-color="rgba(254, 240, 138, 0.95)" />
                   <stop offset="45%" stop-color="rgba(254, 240, 138, 0.45)" />
                   <stop offset="100%" stop-color="rgba(254, 240, 138, 0)" />
+                </linearGradient>
+
+                <!-- 14. Celestial Crescent Moon & Radiant Halo Gradients -->
+                <radialGradient id="oceanMoonAuraGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#FEF08A" stop-opacity="0.5" />
+                  <stop offset="35%" stop-color="#FDE047" stop-opacity="0.22" />
+                  <stop offset="70%" stop-color="#F59E0B" stop-opacity="0.06" />
+                  <stop offset="100%" stop-color="#0E4878" stop-opacity="0" />
+                </radialGradient>
+                <linearGradient id="oceanMoonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFFFFF" />
+                  <stop offset="35%" stop-color="#FEF9C3" />
+                  <stop offset="75%" stop-color="#FEF08A" />
+                  <stop offset="100%" stop-color="#F59E0B" />
+                </linearGradient>
+
+                <!-- 15. Coastal Headland Sea Cliff & Turf Gradients -->
+                <linearGradient id="headlandCliffGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#475569" />
+                  <stop offset="35%" stop-color="#334155" />
+                  <stop offset="70%" stop-color="#1E293B" />
+                  <stop offset="100%" stop-color="#0F172A" />
+                </linearGradient>
+                <linearGradient id="cliffTopGrassGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#10B981" />
+                  <stop offset="45%" stop-color="#059669" />
+                  <stop offset="100%" stop-color="#047857" />
+                </linearGradient>
+
+                <!-- 16. Soft Maritime Cumulus Clouds -->
+                <linearGradient id="maritimeCloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(255, 255, 255, 0.72)" />
+                  <stop offset="45%" stop-color="rgba(224, 242, 254, 0.48)" />
+                  <stop offset="100%" stop-color="rgba(186, 230, 253, 0.12)" />
                 </linearGradient>
               </defs>
 
               <!-- ==========================================================
-                   ENVIRONMENTAL LANDSCAPE SCENERY (ANIMATED WORLD-BUILDING)
-                   Left: Countryside, Farms, Animated Houses, Swaying Trees, Windmills
-                   Center: Rolling Hills, Eco Solar Array, Terraces
-                   Right: Animated Coastal Sea, Ocean Waves, Cargo Ship, Lighthouse & Seagulls
+                   FULL-CANVAS ENVIRONMENTAL PANORAMA (FOREST TO OCEAN JOURNEY)
+                   Entire background spans 1200 x 500 without empty voids:
+                   - Left (0 - 360): Deep misty forest, mountains, waterfall, Pollachi palms & sourcing terroir
+                   - Center (320 - 820): Rolling agrarian hills, stepped terraces, winding river, wind farm & Sortex hub
+                   - Right (780 - 1200): Golden beach dunes, vast deep blue ocean, waves, harbor port, cargo ship & lighthouse
                    ========================================================== -->
               <g id="road-environment-scenery" class="road-environment-scenery">
                 
-                <!-- Atmosphere Sky Overlays (Dusk Sun, Twinkling Stars, Harbor Radar) -->
+                <!-- 0. BASE PANORAMIC BIOME SKY CANVAS (Full 1200 x 500) -->
+                <rect x="0" y="0" width="1200" height="500" rx="24" fill="url(#envSkyBiomeGrad)" />
+                <rect x="0" y="0" width="1200" height="500" rx="24" fill="url(#envSkyAtmosphereGlow)" />
+
+                <!-- A. SKY ATMOSPHERE & CELESTIAL ELEMENTS -->
                 <g id="scenery-sky-atmosphere" class="scenery-sky-atmosphere">
-                  <!-- 1. Dusk Sunset Sun over the coastal sea (Visible in Dusk mode) -->
-                  <g id="scenery-dusk-sun" class="scenery-dusk-sun" transform="translate(1085, 175)">
-                    <circle cx="0" cy="0" r="32" fill="url(#duskSunGrad)" opacity="0.9" />
-                    <circle cx="0" cy="0" r="14" fill="#FEF9C3" />
-                    <!-- Ocean Sun Glimmer on water -->
-                    <ellipse cx="0" cy="48" rx="36" ry="6" fill="url(#duskOceanSheenGrad)" />
-                    <ellipse cx="0" cy="65" rx="22" ry="4" fill="url(#duskOceanSheenGrad)" />
+                  <!-- Mountain Dawn Sun (Left-Center Saddle over the Forest Mountains) -->
+                  <g class="scenery-forest-sun" transform="translate(230, 75)">
+                    <circle cx="0" cy="0" r="42" fill="url(#mountainSunGlowGrad)" />
+                    <circle cx="0" cy="0" r="16" fill="#FEF9C3" opacity="0.95" />
+                    <!-- Slanted soft morning god rays into the valley -->
+                    <polygon points="0,0 80,180 150,180" fill="rgba(254, 240, 138, 0.09)" />
+                    <polygon points="0,0 -40,160 15,160" fill="rgba(254, 240, 138, 0.07)" />
                   </g>
 
-                  <!-- 2. Starlit Night Constellations (Visible in Night mode) -->
-                  <g id="scenery-night-stars" class="scenery-night-stars">
-                    <circle cx="45" cy="55" r="1.5" class="night-star star-twinkle-1" fill="#FFFFFF" />
-                    <circle cx="95" cy="35" r="1.8" class="night-star star-twinkle-2" fill="#FEF08A" />
-                    <circle cx="160" cy="70" r="1.2" class="night-star star-twinkle-3" fill="#FFFFFF" />
-                    <circle cx="210" cy="40" r="1.6" class="night-star star-twinkle-1" fill="#E2E8F0" />
-                    <circle cx="280" cy="85" r="2.0" class="night-star star-twinkle-2" fill="#FEF08A" />
-                    <circle cx="340" cy="50" r="1.4" class="night-star star-twinkle-3" fill="#FFFFFF" />
-                    <circle cx="410" cy="30" r="1.7" class="night-star star-twinkle-1" fill="#FFFFFF" />
-                    <circle cx="475" cy="65" r="1.3" class="night-star star-twinkle-2" fill="#E2E8F0" />
-                    <circle cx="530" cy="45" r="1.9" class="night-star star-twinkle-3" fill="#FEF08A" />
-                    <circle cx="610" cy="75" r="1.5" class="night-star star-twinkle-1" fill="#FFFFFF" />
-                    <circle cx="680" cy="35" r="1.7" class="night-star star-twinkle-2" fill="#FFFFFF" />
-                    <circle cx="730" cy="60" r="1.3" class="night-star star-twinkle-3" fill="#FEF08A" />
-                    <circle cx="820" cy="40" r="1.8" class="night-star star-twinkle-1" fill="#E2E8F0" />
-                    <circle cx="890" cy="70" r="1.4" class="night-star star-twinkle-2" fill="#FFFFFF" />
-                    <circle cx="960" cy="30" r="2.2" class="night-star star-twinkle-3" fill="#FEF08A" />
-                    <circle cx="1020" cy="55" r="1.5" class="night-star star-twinkle-1" fill="#FFFFFF" />
-                    <circle cx="1110" cy="45" r="1.8" class="night-star star-twinkle-2" fill="#FEF08A" />
-                    <circle cx="1170" cy="75" r="1.3" class="night-star star-twinkle-3" fill="#FFFFFF" />
+                  <!-- Mountain Fog / Mist Ribbons Drifting between forest ridges -->
+                  <path class="scenery-mountain-mist"
+                    d="M 0 130 Q 75 110 160 132 Q 245 150 330 125 Q 390 110 460 135 L 460 170 L 0 170 Z"
+                    fill="url(#forestMistGrad)" />
+                  <path class="scenery-mountain-mist" style="animation-delay: 3s; animation-duration: 15s;"
+                    d="M 60 165 Q 145 148 230 166 Q 315 182 395 158 L 395 195 L 60 195 Z"
+                    fill="url(#forestMistGrad)" opacity="0.65" />
+
+                  <!-- Distant Migrating Birds over Valley (x: 340, y: 55) -->
+                  <g class="scenery-sky-birds" opacity="0.75">
+                    <path d="M 330 52 Q 333 49 336 51 Q 339 49 342 52" fill="none" stroke="#D1FAE5" stroke-width="1.3" stroke-linecap="round" />
+                    <path d="M 345 45 Q 348 42 351 44 Q 354 42 357 45" fill="none" stroke="#D1FAE5" stroke-width="1.3" stroke-linecap="round" />
+                    <path d="M 362 50 Q 365 47 368 49 Q 371 47 374 50" fill="none" stroke="#D1FAE5" stroke-width="1.3" stroke-linecap="round" />
                   </g>
 
-                  <!-- 3. Coastal Maritime Sonar Radar Waves (Pulsing from harbor) -->
-                  <g id="scenery-harbor-radar" class="scenery-harbor-radar" transform="translate(1135, 175)">
-                    <circle cx="0" cy="0" r="30" class="radar-ping-ring radar-ring-1" fill="none" stroke="rgba(16, 185, 129, 0.45)" stroke-width="1.2" />
-                    <circle cx="0" cy="0" r="60" class="radar-ping-ring radar-ring-2" fill="none" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1.2" stroke-dasharray="4 4" />
-                    <circle cx="0" cy="0" r="95" class="radar-ping-ring radar-ring-3" fill="none" stroke="rgba(16, 185, 129, 0.18)" stroke-width="1" />
-                  </g>
-                </g>
-
-                <!-- 1. LEFT COUNTRYSIDE & FARMLAND (Origin / Sourcing Zone) -->
-                <g class="scenery-zone-farmland" id="scenery-zone-farmland">
-                  <!-- Rolling Meadow Base Gradients -->
-                  <path d="M 0 420 Q 70 395 150 415 Q 220 435 280 410 L 280 500 L 0 500 Z" fill="url(#farmMeadowGrad1)" />
-                  <path d="M 0 455 Q 90 440 180 460 Q 250 475 320 450 L 320 500 L 0 500 Z" fill="url(#farmMeadowGrad2)" />
-
-                  <!-- Agricultural Furrows / Crop Rows -->
-                  <path d="M 20 470 Q 80 458 140 468" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" fill="none" stroke-dasharray="4 4" />
-                  <path d="M 30 482 Q 90 470 150 480" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" fill="none" stroke-dasharray="4 4" />
-                  <path d="M 40 494 Q 100 482 160 492" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" fill="none" stroke-dasharray="4 4" />
-
-                  <!-- Wooden Farm Fence -->
-                  <g class="scenery-fence" opacity="0.85">
-                    <line x1="25" y1="452" x2="25" y2="466" stroke="#92400E" stroke-width="2.2" stroke-linecap="round" />
-                    <line x1="45" y1="450" x2="45" y2="464" stroke="#92400E" stroke-width="2.2" stroke-linecap="round" />
-                    <line x1="65" y1="449" x2="65" y2="463" stroke="#92400E" stroke-width="2.2" stroke-linecap="round" />
-                    <line x1="22" y1="456" x2="68" y2="453" stroke="#B45309" stroke-width="1.6" />
-                    <line x1="22" y1="462" x2="68" y2="459" stroke="#B45309" stroke-width="1.6" />
+                  <!-- Twinkling Navigational Constellation & Maritime Stars (Ocean Night Sky) -->
+                  <g class="scenery-ocean-stars">
+                    <!-- Polaris (North Star) with Golden Radiant Flare at x: 1030, y: 15 -->
+                    <g class="scenery-star" transform="translate(1030, 15)">
+                      <circle cx="0" cy="0" r="2.2" fill="#FEF08A" />
+                      <line x1="-5.5" y1="0" x2="5.5" y2="0" stroke="#FEF08A" stroke-width="0.8" opacity="0.9" />
+                      <line x1="0" y1="-5.5" x2="0" y2="5.5" stroke="#FEF08A" stroke-width="0.8" opacity="0.9" />
+                    </g>
+                    <!-- Navigational Guide Stars -->
+                    <circle class="scenery-star star-delay-1" cx="855" cy="20" r="1.4" fill="#E2E8F0" />
+                    <circle class="scenery-star star-delay-2" cx="880" cy="12" r="1.8" fill="#FEF9C3" />
+                    <circle class="scenery-star star-delay-3" cx="915" cy="24" r="1.3" fill="#BAE6FD" />
+                    <circle class="scenery-star star-delay-1" cx="990" cy="12" r="1.6" fill="#FEF08A" />
+                    <circle class="scenery-star star-delay-2" cx="1065" cy="18" r="1.5" fill="#E2E8F0" />
+                    <circle class="scenery-star star-delay-3" cx="1090" cy="10" r="1.7" fill="#FEF9C3" />
+                    <circle class="scenery-star star-delay-1" cx="1160" cy="16" r="1.5" fill="#BAE6FD" />
+                    <circle class="scenery-star star-delay-2" cx="1185" cy="28" r="1.4" fill="#E2E8F0" />
+                    <circle class="scenery-star star-delay-3" cx="1145" cy="65" r="1.2" fill="#FEF9C3" />
                   </g>
 
-                  <!-- Animated Farm Windmill / Eco Turbine -->
-                  <g class="scenery-windmill" transform="translate(68, 415)">
-                    <!-- Windmill Tower -->
-                    <polygon points="-4,28 4,28 2,0 -2,0" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8" />
-                    <circle cx="0" cy="0" r="3" fill="#0F172A" />
-                    <!-- Spinning Rotor Blades -->
-                    <g class="scenery-spinning-blades">
-                      <line x1="0" y1="0" x2="0" y2="-22" stroke="#64748B" stroke-width="2.2" stroke-linecap="round" />
-                      <line x1="0" y1="0" x2="19" y2="11" stroke="#64748B" stroke-width="2.2" stroke-linecap="round" />
-                      <line x1="0" y1="0" x2="-19" y2="11" stroke="#64748B" stroke-width="2.2" stroke-linecap="round" />
-                      <circle cx="0" cy="0" r="1.5" fill="#10B981" />
+                  <!-- Celestial Radiant Crescent Moon (Over the Ocean, x: 1115, y: 28) -->
+                  <g class="scenery-crescent-moon" transform="translate(1115, 28)">
+                    <!-- Radiant Moon Halo Auras -->
+                    <circle cx="0" cy="0" r="30" fill="url(#oceanMoonAuraGrad)" />
+                    <circle cx="0" cy="0" r="16" fill="rgba(254, 240, 138, 0.18)" />
+                    <!-- Crescent Moon Shape -->
+                    <path d="M 0 -13 A 13 13 0 0 1 12 5 A 11 11 0 1 0 0 -13 Z" fill="url(#oceanMoonGrad)" />
+                    <!-- Delicate Moon Craters & Rim Glow -->
+                    <circle cx="2" cy="-4" r="1.2" fill="#F59E0B" opacity="0.35" />
+                    <circle cx="5" cy="1" r="1.4" fill="#F59E0B" opacity="0.3" />
+                  </g>
+
+                  <!-- Volumetric Maritime Cumulus Clouds (Layered with Silver Backlit Rims) -->
+                  <g class="scenery-sea-clouds scenery-cumulus-cloud">
+                    <!-- Cloud Bank 1 (Left of Lighthouse over the Bay, x: 830 to 920, y: 35) -->
+                    <g transform="translate(830, 36)" opacity="0.65">
+                      <path d="M 10 18 Q 0 18 0 10 Q 0 0 14 2 Q 22 -10 38 -4 Q 52 -12 66 -2 Q 80 -4 88 6 Q 96 6 96 18 Z" fill="url(#maritimeCloudGrad)" />
+                      <!-- Silver Highlight Rim -->
+                      <path d="M 12 2 Q 22 -8 38 -3 Q 52 -10 66 0 Q 78 -2 86 6" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1.2" stroke-linecap="round" />
+                    </g>
+
+                    <!-- Cloud Bank 2 (Behind & Right of Lighthouse, x: 975 to 1060, y: 24) -->
+                    <g transform="translate(975, 26)" opacity="0.55">
+                      <path d="M 8 16 Q 0 16 0 8 Q 0 -2 12 0 Q 20 -8 34 -4 Q 46 -10 58 -2 Q 70 -4 76 6 Q 82 8 82 16 Z" fill="url(#maritimeCloudGrad)" />
+                      <path d="M 10 0 Q 20 -6 34 -2 Q 46 -8 58 0 Q 68 -2 74 6" fill="none" stroke="rgba(255, 255, 255, 0.75)" stroke-width="1.1" stroke-linecap="round" />
+                    </g>
+
+                    <!-- Cloud Bank 3 (Far Twilight Cloud Bank near Moon, x: 1065 to 1180, y: 38) -->
+                    <g transform="translate(1065, 40)" opacity="0.45">
+                      <path d="M 12 18 Q 0 18 0 8 Q 0 -4 16 -2 Q 30 -14 50 -6 Q 72 -14 92 -4 Q 108 -8 118 6 Q 124 10 124 18 Z" fill="url(#maritimeCloudGrad)" />
+                      <path d="M 16 -2 Q 30 -12 50 -4 Q 72 -12 92 -2 Q 106 -6 116 6" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="1.2" stroke-linecap="round" />
                     </g>
                   </g>
 
-                  <!-- Cute Animated Farm Cottage 1 (with Smoking Chimney & Glowing Window) -->
-                  <g class="scenery-cottage scenery-cottage-1" transform="translate(95, 432)">
-                    <!-- Shadow -->
-                    <ellipse cx="14" cy="28" rx="18" ry="4" fill="rgba(15, 23, 42, 0.15)" />
-                    <!-- Cottage Walls -->
-                    <rect x="0" y="8" width="28" height="20" rx="2" fill="#FFFDF8" stroke="#E2E8F0" stroke-width="1" />
-                    <!-- Arched Wooden Door -->
-                    <path d="M 10 28 L 10 18 A 4 4 0 0 1 18 18 L 18 28 Z" fill="#92400E" />
-                    <!-- Warm Glowing Window -->
-                    <rect class="cottage-window-glow" x="3" y="13" width="5" height="5" rx="1" fill="#FDE047" stroke="#CA8A04" stroke-width="0.6" />
+                  <!-- Flock of Gliding Coastal Seagulls (Gracefully Soaring in the Sea Breeze) -->
+                  <g class="scenery-seagulls-flock">
+                    <!-- Seagull 1 (Leading the flock near the Lighthouse Beam) -->
+                    <g class="scenery-seagull scenery-seagull-1" transform="translate(905, 34)">
+                      <path d="M -7 0 Q -3 -5 0 0 Q 3 -5 7 0" fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" />
+                    </g>
+                    <!-- Seagull 2 -->
+                    <g class="scenery-seagull scenery-seagull-2" transform="translate(965, 42)">
+                      <path d="M -6 0 Q -2.5 -4.5 0 0 Q 2.5 -4.5 6 0" fill="none" stroke="rgba(255, 255, 255, 0.95)" stroke-width="1.3" stroke-linecap="round" />
+                    </g>
+                    <!-- Seagull 3 (Higher glide catching the light) -->
+                    <g class="scenery-seagull scenery-seagull-3" transform="translate(1015, 28)">
+                      <path d="M -8 0 Q -3.5 -6 0 0 Q 3.5 -6 8 0" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
+                    </g>
+                    <!-- Seagull 4 (Trailing towards the Moon) -->
+                    <g class="scenery-seagull scenery-seagull-1" transform="translate(1065, 45)">
+                      <path d="M -5 0 Q -2 -3.8 0 0 Q 2 -3.8 5 0" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1.2" stroke-linecap="round" />
+                    </g>
+                  </g>
+
+                  <!-- Distant Cargo Ship Silhouettes on the Ocean Horizon (x: 820 & 1160) -->
+                  <g class="distant-horizon-vessels" opacity="0.65">
+                    <rect x="820" y="99" width="18" height="4" fill="#38BDF8" rx="0.5" />
+                    <rect x="828" y="96" width="6" height="3" fill="#38BDF8" />
+                    <!-- Tiny Navigation Mast Light -->
+                    <circle cx="831" cy="94" r="0.9" fill="#FEF08A" />
+
+                    <rect x="1145" y="100" width="24" height="4" fill="#38BDF8" rx="0.5" />
+                    <rect x="1160" y="96" width="7" height="4" fill="#38BDF8" />
+                    <circle cx="1163" cy="94" r="0.9" fill="#FEF08A" />
+                  </g>
+                </g>
+
+                <!-- B. CONTINUOUS SEAMLESS TERRAIN HIERARCHY (NO GAPS, ALL EXTEND TO Y=500) -->
+                <!-- Layer 1: Distant Mist Mountain Range (Western Ghats) -->
+                <path d="M 0 145 Q 65 85 135 110 Q 205 135 265 70 Q 325 60 395 105 Q 465 145 535 120 Q 605 100 685 155 Q 745 185 805 215 L 805 500 L 0 500 Z"
+                  fill="url(#mistMountainGrad1)" />
+
+                <!-- Layer 2: Mid Forest Mountain Foothills -->
+                <path d="M 0 180 Q 80 140 160 165 Q 240 190 320 145 Q 400 125 480 175 Q 560 210 640 185 Q 715 175 795 230 L 795 500 L 0 500 Z"
+                  fill="url(#mistMountainGrad2)" />
+
+                <!-- Layer 3: North Agrarian Slope & Stepped Terraces -->
+                <path d="M 170 235 Q 275 155 385 170 Q 495 185 595 215 Q 705 240 805 285 L 805 500 L 170 500 Z"
+                  fill="url(#agroHillGrad1)" />
+
+                <!-- Stepped Plantation Contour Terraces (Tea & Spice Terraces) -->
+                <g class="plantation-contour-terraces">
+                  <path d="M 230 220 Q 320 180 420 198 Q 510 212 590 232 T 760 275" fill="none" stroke="rgba(187, 247, 208, 0.55)" stroke-width="2.5" stroke-dasharray="8 5" />
+                  <path d="M 250 240 Q 340 200 440 218 Q 530 232 610 250 T 780 295" fill="none" stroke="rgba(187, 247, 208, 0.55)" stroke-width="2.5" stroke-dasharray="8 5" />
+                  <path d="M 270 260 Q 360 220 460 238 Q 550 250 630 268 T 800 315" fill="none" stroke="rgba(187, 247, 208, 0.45)" stroke-width="2.5" stroke-dasharray="8 5" />
+                </g>
+
+                <!-- Layer 4: South Agrarian Slope & Valley Fields -->
+                <path d="M 240 275 Q 365 200 485 215 Q 605 230 715 255 Q 775 275 825 325 L 825 500 L 240 500 Z"
+                  fill="url(#agroHillGrad2)" />
+
+                <!-- Golden Turmeric & Spice Mosaic Crop Fields on the Ridge -->
+                <polygon points="520,255 565,235 615,250 570,272" fill="url(#agroTerraceGoldGrad)" opacity="0.9" />
+                <polygon points="580,240 625,225 670,238 625,256" fill="#84CC16" opacity="0.9" />
+                <polygon points="635,232 680,218 725,232 680,248" fill="url(#agroTerraceGoldGrad)" opacity="0.85" />
+
+                <!-- Layer 5: Left Forest Biome Ground Base -->
+                <path d="M 0 235 Q 90 215 185 240 Q 280 265 370 280 L 370 500 L 0 500 Z"
+                  fill="url(#forestGroundGrad)" />
+
+                <!-- C. ZONE 1: DEEP LUSH FOREST DETAILS & ORIGIN SOURCING TERROIR (x: 0 to 360) -->
+                <g class="scenery-zone-forest" id="scenery-zone-forest">
+                  <!-- Forest Canopy Silhouette Layer 1 (Tall Teak & Rainforest Canopy Clusters) -->
+                  <g class="forest-canopy-back">
+                    <circle cx="20" cy="175" r="34" fill="url(#forestCanopyBackGrad)" />
+                    <circle cx="65" cy="158" r="40" fill="url(#forestCanopyBackGrad)" />
+                    <circle cx="115" cy="168" r="44" fill="url(#forestCanopyBackGrad)" />
+                    <circle cx="165" cy="158" r="38" fill="url(#forestCanopyBackGrad)" />
+                    <circle cx="215" cy="178" r="34" fill="url(#forestCanopyBackGrad)" />
+                  </g>
+
+                  <!-- Forest Canopy Silhouette Layer 2 (Rich Emerald Midground Canopies & Foliage) -->
+                  <g class="forest-canopy-mid">
+                    <circle cx="15" cy="218" r="30" fill="url(#forestCanopyFrontGrad)" />
+                    <circle cx="55" cy="202" r="36" fill="url(#forestCanopyFrontGrad)" />
+                    <circle cx="102" cy="218" r="38" fill="url(#forestCanopyFrontGrad)" />
+                    <circle cx="148" cy="208" r="34" fill="url(#forestCanopyFrontGrad)" />
+                    <circle cx="192" cy="228" r="28" fill="url(#forestCanopyFrontGrad)" />
+                    <!-- Crown Highlights -->
+                    <circle cx="50" cy="192" r="20" fill="#4ADE80" opacity="0.4" />
+                    <circle cx="98" cy="208" r="22" fill="#4ADE80" opacity="0.35" />
+                    <circle cx="142" cy="198" r="18" fill="#4ADE80" opacity="0.35" />
+                  </g>
+
+                  <!-- Forest Mountain Waterfall & Cascade (x: 82 to 108, y: 170 to 255) -->
+                  <g class="scenery-forest-waterfall" transform="translate(85, 170)">
+                    <polygon points="0,0 26,0 30,85 -4,85" fill="#0A2D1B" />
+                    <!-- Flowing water streams with pulse animation -->
+                    <path class="scenery-waterfall-flow" d="M 6 0 L 8 30 L 5 58 L 8 85" stroke="#E0F2FE" stroke-width="2.6" fill="none" stroke-linecap="round" />
+                    <path class="scenery-waterfall-flow" d="M 13 0 L 15 28 L 13 56 L 16 85" stroke="#BAE6FD" stroke-width="3.8" fill="none" stroke-linecap="round" style="animation-delay: 0.6s;" />
+                    <path class="scenery-waterfall-flow" d="M 19 0 L 20 32 L 18 60 L 21 85" stroke="#67E8F9" stroke-width="2.4" fill="none" stroke-linecap="round" style="animation-delay: 1.1s;" />
+                    <!-- White frothing pool at waterfall base with ripples -->
+                    <ellipse cx="13" cy="85" rx="20" ry="5" fill="#E0F2FE" opacity="0.9" />
+                    <ellipse cx="13" cy="85" rx="28" ry="7" fill="none" stroke="#BAE6FD" stroke-width="1.3" opacity="0.8" />
+                  </g>
+
+                  <!-- Swaying Tropical Coconut Palm Trees (Iconic Pollachi Terroir) -->
+                  <!-- Palm Tree 1 (Left Tall Palm: x: 38, y: 310) -->
+                  <g class="scenery-tree scenery-palm-tree" transform="translate(38, 310)">
+                    <path d="M 0 55 Q 12 25 -3 0" fill="none" stroke="#78350F" stroke-width="3.8" stroke-linecap="round" />
+                    <g class="scenery-palm-canopy">
+                      <path d="M -3 0 Q -24 -14 -32 4" fill="none" stroke="#047857" stroke-width="3.2" stroke-linecap="round" />
+                      <path d="M -3 0 Q -18 -26 -8 -34" fill="none" stroke="#10B981" stroke-width="3.2" stroke-linecap="round" />
+                      <path d="M -3 0 Q 8 -28 22 -24" fill="none" stroke="#10B981" stroke-width="3.2" stroke-linecap="round" />
+                      <path d="M -3 0 Q 26 -16 32 4" fill="none" stroke="#047857" stroke-width="3.2" stroke-linecap="round" />
+                      <path d="M -3 0 Q 6 -4 12 12" fill="none" stroke="#065F46" stroke-width="2.6" stroke-linecap="round" />
+                      <!-- Coconuts cluster -->
+                      <circle cx="-2" cy="2" r="2.4" fill="#78350F" />
+                      <circle cx="2" cy="3" r="2.4" fill="#78350F" />
+                      <circle cx="0" cy="5" r="2.4" fill="#92400E" />
+                    </g>
+                  </g>
+
+                  <!-- Palm Tree 2 (Center Palm: x: 108, y: 330) -->
+                  <g class="scenery-tree scenery-palm-tree" transform="translate(108, 330)">
+                    <path d="M 0 65 Q 16 30 -4 0" fill="none" stroke="#78350F" stroke-width="4.2" stroke-linecap="round" />
+                    <g class="scenery-palm-canopy" style="animation-duration: 5.5s; animation-delay: 1s;">
+                      <path d="M -4 0 Q -28 -16 -36 5" fill="none" stroke="#059669" stroke-width="3.4" stroke-linecap="round" />
+                      <path d="M -4 0 Q -20 -30 -10 -40" fill="none" stroke="#10B981" stroke-width="3.4" stroke-linecap="round" />
+                      <path d="M -4 0 Q 10 -32 26 -28" fill="none" stroke="#10B981" stroke-width="3.4" stroke-linecap="round" />
+                      <path d="M -4 0 Q 30 -18 38 5" fill="none" stroke="#059669" stroke-width="3.4" stroke-linecap="round" />
+                      <circle cx="-3" cy="2" r="2.6" fill="#78350F" />
+                      <circle cx="2" cy="3" r="2.6" fill="#78350F" />
+                    </g>
+                  </g>
+
+                  <!-- Palm Tree 3 (Right Sourcing Grove: x: 185, y: 355) -->
+                  <g class="scenery-tree scenery-palm-tree" transform="translate(185, 355)">
+                    <path d="M 0 50 Q -10 24 2 0" fill="none" stroke="#78350F" stroke-width="3.4" stroke-linecap="round" />
+                    <g class="scenery-palm-canopy" style="animation-duration: 4.5s; animation-delay: 2s;">
+                      <path d="M 2 0 Q -20 -12 -28 3" fill="none" stroke="#047857" stroke-width="2.8" stroke-linecap="round" />
+                      <path d="M 2 0 Q -14 -24 -6 -30" fill="none" stroke="#10B981" stroke-width="2.8" stroke-linecap="round" />
+                      <path d="M 2 0 Q 6 -26 18 -22" fill="none" stroke="#10B981" stroke-width="2.8" stroke-linecap="round" />
+                      <path d="M 2 0 Q 22 -14 28 3" fill="none" stroke="#047857" stroke-width="2.8" stroke-linecap="round" />
+                    </g>
+                  </g>
+
+                  <!-- Sourcing Farmgate Estate (x: 10 to 280, y: 380 to 500) -->
+                  <!-- Organic spice furrows / plantation contour rows -->
+                  <path d="M 15 425 Q 65 415 125 425 Q 185 435 245 420" stroke="rgba(187, 247, 208, 0.45)" stroke-width="2" fill="none" stroke-dasharray="6 5" />
+                  <path d="M 20 445 Q 75 435 135 445 Q 195 455 255 440" stroke="rgba(187, 247, 208, 0.45)" stroke-width="2" fill="none" stroke-dasharray="6 5" />
+                  <path d="M 25 465 Q 85 455 145 465 Q 205 475 265 460" stroke="rgba(187, 247, 208, 0.45)" stroke-width="2" fill="none" stroke-dasharray="6 5" />
+                  <path d="M 30 485 Q 95 475 155 485 Q 215 495 275 480" stroke="rgba(187, 247, 208, 0.45)" stroke-width="2" fill="none" stroke-dasharray="6 5" />
+
+                  <!-- Wooden Farmstead Fence & Sourcing Farm Gate (x: 20 to 110, y: 440 to 470) -->
+                  <g class="scenery-farmgate-fence" opacity="0.95">
+                    <line x1="22" y1="446" x2="22" y2="466" stroke="#92400E" stroke-width="2.6" stroke-linecap="round" />
+                    <line x1="42" y1="444" x2="42" y2="464" stroke="#92400E" stroke-width="2.6" stroke-linecap="round" />
+                    <line x1="62" y1="443" x2="62" y2="463" stroke="#92400E" stroke-width="2.6" stroke-linecap="round" />
+                    <line x1="82" y1="442" x2="82" y2="462" stroke="#92400E" stroke-width="2.6" stroke-linecap="round" />
+                    <line x1="18" y1="450" x2="86" y2="446" stroke="#B45309" stroke-width="2" />
+                    <line x1="18" y1="458" x2="86" y2="454" stroke="#B45309" stroke-width="2" />
+                    <!-- Warm Sourcing Gate Lantern -->
+                    <circle cx="82" cy="440" r="3" fill="#FEF08A" filter="drop-shadow(0 0 6px #F59E0B)" />
+                  </g>
+
+                  <!-- Origin Sourcing Farm Cottage (Terracotta Roof, Glowing Window & Smoke) -->
+                  <g class="scenery-cottage scenery-cottage-1" transform="translate(85, 428)">
+                    <ellipse cx="16" cy="30" rx="20" ry="5" fill="rgba(10, 35, 20, 0.35)" />
+                    <!-- Cottage walls (Cream lime wash with timber trim) -->
+                    <rect x="0" y="8" width="32" height="22" rx="2" fill="#FFFDF8" stroke="#E2E8F0" stroke-width="1" />
+                    <!-- Wooden Door -->
+                    <path d="M 12 30 L 12 18 A 4 4 0 0 1 20 18 L 20 30 Z" fill="#78350F" />
+                    <!-- Warm Glowing Farmhouse Window -->
+                    <rect class="cottage-window-glow" x="3" y="13" width="6" height="6" rx="1" fill="#FDE047" stroke="#CA8A04" stroke-width="0.8" />
                     <!-- Brick Chimney -->
-                    <rect x="20" y="-1" width="5" height="10" fill="#B91C1C" rx="0.5" />
-                    <!-- Cottage Gabled Roof (Terracotta) -->
-                    <polygon points="-3,9 14,-2 31,9" fill="url(#cottageRoofGrad)" />
-                    <!-- Animated Chimney Smoke Puffs -->
-                    <g class="scenery-chimney-smoke" transform="translate(22, -3)">
+                    <rect x="23" y="-2" width="6" height="11" fill="#B91C1C" rx="0.5" />
+                    <!-- Terracotta Gabled Roof -->
+                    <polygon points="-4,9 16,-4 36,9" fill="url(#cottageRoofGrad)" />
+                    <!-- Chimney Smoke Puffs -->
+                    <g class="scenery-chimney-smoke" transform="translate(26, -4)">
                       <circle class="smoke-puff smoke-puff-1" cx="0" cy="0" r="2.2" fill="rgba(203, 213, 225, 0.75)" />
                       <circle class="smoke-puff smoke-puff-2" cx="1" cy="-4" r="3.2" fill="rgba(203, 213, 225, 0.6)" />
                       <circle class="smoke-puff smoke-puff-3" cx="3" cy="-9" r="4.2" fill="rgba(203, 213, 225, 0.45)" />
                     </g>
                   </g>
 
-                  <!-- Small Village Barn / Storage Shed -->
-                  <g class="scenery-barn" transform="translate(182, 452)">
-                    <rect x="0" y="6" width="22" height="16" rx="1.5" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8" />
-                    <polygon points="-2,7 11,0 24,7" fill="#DC2626" />
-                    <rect x="7" y="11" width="8" height="11" fill="#7F1D1D" />
-                    <rect class="cottage-window-glow" x="2" y="10" width="3.5" height="3.5" rx="0.5" fill="#FEF08A" />
-                  </g>
-
-                  <!-- Swaying Tropical Coconut Palm Tree (Pollachi Terroir) -->
-                  <g class="scenery-tree scenery-palm-tree" transform="translate(142, 412)">
-                    <!-- Slender curved trunk -->
-                    <path d="M 0 38 Q 6 18 -2 0" fill="none" stroke="#78350F" stroke-width="2.8" stroke-linecap="round" />
-                    <!-- Swaying Palm Fronds -->
-                    <g class="scenery-palm-canopy">
-                      <path d="M -2 0 Q -16 -10 -22 2" fill="none" stroke="#059669" stroke-width="2.4" stroke-linecap="round" />
-                      <path d="M -2 0 Q -12 -18 -6 -24" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" />
-                      <path d="M -2 0 Q 6 -20 16 -18" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" />
-                      <path d="M -2 0 Q 18 -12 24 2" fill="none" stroke="#059669" stroke-width="2.4" stroke-linecap="round" />
-                      <path d="M -2 0 Q 4 -4 8 8" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" />
-                      <!-- Coconuts cluster -->
-                      <circle cx="-1" cy="1" r="1.6" fill="#78350F" />
-                      <circle cx="1" cy="2" r="1.6" fill="#78350F" />
-                    </g>
-                  </g>
-
-                  <!-- Swaying Round Canopy Trees -->
-                  <g class="scenery-tree scenery-canopy-tree" transform="translate(28, 436)">
-                    <rect x="-1.5" y="0" width="3" height="12" fill="#78350F" rx="1" />
-                    <circle class="tree-crown" cx="0" cy="-6" r="9" fill="#10B981" />
-                    <circle class="tree-crown-highlight" cx="-2.5" cy="-8.5" r="5" fill="#34D399" opacity="0.75" />
-                  </g>
-                  <g class="scenery-tree scenery-canopy-tree scenery-tree-delay" transform="translate(225, 438)">
-                    <rect x="-1.5" y="0" width="3" height="11" fill="#78350F" rx="1" />
-                    <circle class="tree-crown" cx="0" cy="-5" r="8" fill="#059669" />
-                    <circle class="tree-crown-highlight" cx="-2" cy="-7" r="4.5" fill="#10B981" opacity="0.8" />
+                  <!-- Sourcing Cargo Storage Barn (x: 185, y: 442) -->
+                  <g class="scenery-barn" transform="translate(185, 442)">
+                    <rect x="0" y="6" width="26" height="18" rx="1.5" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="0.8" />
+                    <polygon points="-2,7 13,0 28,7" fill="#DC2626" />
+                    <rect x="9" y="11" width="9" height="13" fill="#7F1D1D" />
+                    <rect class="cottage-window-glow" x="2" y="10" width="4" height="4" rx="0.5" fill="#FEF08A" />
                   </g>
                 </g>
 
-                <!-- 2. CENTRAL INLAND MEADOWS & HILLS (Between Node 1 & Node 3) -->
+                <!-- D. CONTINUOUS WINDING RIVER (From Forest Waterfall to Open Ocean) -->
+                <!-- River channel flowing seamlessly across the landscape -->
+                <g class="scenery-winding-river" id="scenery-winding-river">
+                  <path d="M 97 255 Q 170 270 240 260 Q 330 248 420 268 Q 500 285 580 275 Q 660 265 730 290 Q 770 305 810 330 L 815 352 Q 765 328 720 310 Q 650 288 580 295 Q 500 305 420 288 Q 330 268 240 280 Q 170 290 97 275 Z"
+                    fill="url(#riverWaterGrad)" />
+                  <!-- River animated flow ripple reflections -->
+                  <path class="scenery-river-shimmer"
+                    d="M 120 265 Q 235 270 350 262 Q 470 278 580 278 Q 690 278 790 320"
+                    fill="none" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2" stroke-dasharray="10 8" stroke-linecap="round" />
+                  <path class="scenery-river-shimmer" style="animation-delay: 1.5s;"
+                    d="M 140 274 Q 250 276 370 274 Q 490 294 600 290 Q 700 290 805 332"
+                    fill="none" stroke="rgba(186, 230, 253, 0.8)" stroke-width="1.6" stroke-dasharray="12 10" stroke-linecap="round" />
+                </g>
+
+                <!-- E. ZONE 2: ROLLING AGRARIAN VALLEYS & SORTEX REEFER HUB (Center, x: 320 to 820) -->
                 <g class="scenery-zone-hills" id="scenery-zone-hills">
-                  <!-- Rolling Meadow Silhouette -->
-                  <path d="M 240 270 Q 300 230 380 250 Q 430 265 470 250 L 470 330 L 240 330 Z" fill="url(#inlandHillGrad)" opacity="0.75" />
-
-                  <!-- Tiny Hilltop Farmstead (x: 310, y: 226) -->
-                  <g class="scenery-cottage" transform="translate(310, 226)">
-                    <rect x="0" y="5" width="16" height="12" rx="1" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.6" />
-                    <polygon points="-1,5 8,0 17,5" fill="#0D2413" />
-                    <rect class="cottage-window-glow" x="2" y="8" width="3" height="3" fill="#FDE047" />
-                    <!-- Chimney & smoke -->
-                    <rect x="12" y="1" width="2.5" height="5" fill="#92400E" />
-                    <circle class="smoke-puff smoke-puff-1" cx="13" cy="-1" r="1.5" fill="rgba(203, 213, 225, 0.7)" />
-                  </g>
-
-                  <!-- Hilltop Canopy Trees -->
-                  <g class="scenery-tree scenery-canopy-tree" transform="translate(275, 248)">
-                    <rect x="-1" y="0" width="2" height="8" fill="#78350F" />
-                    <circle class="tree-crown" cx="0" cy="-4" r="6" fill="#15803D" />
-                  </g>
-                  <g class="scenery-tree scenery-canopy-tree" transform="translate(345, 235)">
-                    <rect x="-1" y="0" width="2" height="7" fill="#78350F" />
-                    <circle class="tree-crown" cx="0" cy="-4" r="5" fill="#10B981" />
-                  </g>
-
-                  <!-- Eco Solar Array on Mid-ridge (x: 540, y: 275) -->
-                  <g class="scenery-solar-array" transform="translate(540, 275)">
-                    <polygon points="0,10 16,4 36,8 20,14" fill="#1E3A8A" stroke="#60A5FA" stroke-width="0.8" />
-                    <line x1="8" y1="7" x2="28" y2="11" stroke="#93C5FD" stroke-width="0.6" />
-                    <line x1="10" y1="5.5" x2="6" y2="12" stroke="#93C5FD" stroke-width="0.6" />
-                    <line x1="18" y1="4.5" x2="14" y2="11" stroke="#93C5FD" stroke-width="0.6" />
-                    <line x1="26" y1="6" x2="22" y2="12.5" stroke="#93C5FD" stroke-width="0.6" />
-                  </g>
-
-                  <!-- Second Wind Turbine on Ridge (x: 615, y: 245) -->
-                  <g class="scenery-windmill" transform="translate(615, 245)">
-                    <polygon points="-3,24 3,24 1.5,0 -1.5,0" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.6" />
-                    <circle cx="0" cy="0" r="2.5" fill="#0F172A" />
-                    <g class="scenery-spinning-blades" style="animation-duration: 7s;">
-                      <line x1="0" y1="0" x2="0" y2="-18" stroke="#64748B" stroke-width="1.8" stroke-linecap="round" />
-                      <line x1="0" y1="0" x2="15" y2="9" stroke="#64748B" stroke-width="1.8" stroke-linecap="round" />
-                      <line x1="0" y1="0" x2="-15" y2="9" stroke="#64748B" stroke-width="1.8" stroke-linecap="round" />
+                  <!-- Renewable Energy Wind Turbine 1 (Upper Ridge: x: 375, y: 125) -->
+                  <g class="scenery-windmill" transform="translate(375, 125)">
+                    <polygon points="-3.5,36 3.5,36 1.8,0 -1.8,0" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8" />
+                    <circle cx="0" cy="0" r="3" fill="#0F172A" />
+                    <!-- Smooth Spinning Blades -->
+                    <g class="scenery-spinning-blades" style="animation-duration: 5s;">
+                      <line x1="0" y1="0" x2="0" y2="-26" stroke="#64748B" stroke-width="2.4" stroke-linecap="round" />
+                      <line x1="0" y1="0" x2="22.5" y2="13" stroke="#64748B" stroke-width="2.4" stroke-linecap="round" />
+                      <line x1="0" y1="0" x2="-22.5" y2="13" stroke="#64748B" stroke-width="2.4" stroke-linecap="round" />
+                      <circle cx="0" cy="0" r="1.6" fill="#10B981" />
                     </g>
                   </g>
 
-                  <!-- Pine / Cypress Trees along Cold Chain route -->
-                  <g class="scenery-tree scenery-pine-tree" transform="translate(660, 290)">
-                    <rect x="-1" y="0" width="2" height="6" fill="#78350F" />
-                    <polygon points="0,-16 -5,0 5,0" fill="#065F46" />
-                    <polygon points="0,-12 -4,-2 4,-2" fill="#047857" />
+                  <!-- Renewable Energy Wind Turbine 2 (Mid Ridge: x: 645, y: 175) -->
+                  <g class="scenery-windmill" transform="translate(645, 175)">
+                    <polygon points="-3,30 3,30 1.5,0 -1.5,0" fill="#E2E8F0" stroke="#94A3B8" stroke-width="0.6" />
+                    <circle cx="0" cy="0" r="2.5" fill="#0F172A" />
+                    <g class="scenery-spinning-blades" style="animation-duration: 6.8s; animation-delay: 1.2s;">
+                      <line x1="0" y1="0" x2="0" y2="-22" stroke="#64748B" stroke-width="2" stroke-linecap="round" />
+                      <line x1="0" y1="0" x2="19" y2="11" stroke="#64748B" stroke-width="2" stroke-linecap="round" />
+                      <line x1="0" y1="0" x2="-19" y2="11" stroke="#64748B" stroke-width="2" stroke-linecap="round" />
+                      <circle cx="0" cy="0" r="1.4" fill="#10B981" />
+                    </g>
                   </g>
-                  <g class="scenery-tree scenery-pine-tree" transform="translate(675, 296)">
-                    <rect x="-1" y="0" width="2" height="5" fill="#78350F" />
-                    <polygon points="0,-13 -4,0 4,0" fill="#047857" />
+
+                  <!-- Modern Sortex AI Quality Grading & Cold-Chain Hub Facility (x: 520 to 630, y: 240 to 305) -->
+                  <g class="scenery-sortex-hub" transform="translate(520, 240)">
+                    <rect x="0" y="24" width="95" height="8" rx="4" fill="rgba(15, 23, 42, 0.25)" />
+                    <!-- Main Facility Building (Modern Glass & Steel White Facade) -->
+                    <rect x="4" y="6" width="86" height="22" rx="2" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+                    <!-- Green Living Eco-Roof -->
+                    <rect x="2" y="2" width="90" height="5" rx="1.5" fill="#15803D" />
+                    <rect x="2" y="0" width="90" height="2" rx="1" fill="#4ADE80" />
+                    <!-- Photovoltaic Solar Array Roof Panels -->
+                    <g transform="translate(8, 7)">
+                      <rect x="0" y="0" width="18" height="6" fill="#1E3A8A" stroke="#60A5FA" stroke-width="0.6" rx="0.5" />
+                      <rect x="22" y="0" width="18" height="6" fill="#1E3A8A" stroke="#60A5FA" stroke-width="0.6" rx="0.5" />
+                    </g>
+                    <!-- Sortex Optical Inspection Tower with IoT Telemetry Beacon -->
+                    <rect x="68" y="-6" width="16" height="12" rx="1" fill="#0F172A" />
+                    <circle cx="76" cy="-8" r="2.2" fill="#10B981" filter="drop-shadow(0 0 5px #10B981)" />
+                    <!-- Loading Bay Doors (Reefer Staging) -->
+                    <rect x="12" y="16" width="14" height="12" fill="#334155" />
+                    <rect x="32" y="16" width="14" height="12" fill="#334155" />
+                    <!-- Cold-Chain Temperature Sensor LED -->
+                    <circle cx="19" cy="14" r="1.4" fill="#38BDF8" />
+                    <circle cx="39" cy="14" r="1.4" fill="#38BDF8" />
+                  </g>
+
+                  <!-- Stone Arch River Bridge (x: 485 to 535, y: 285) -->
+                  <g class="scenery-river-bridge" transform="translate(485, 275)">
+                    <rect x="0" y="0" width="50" height="7" rx="1.5" fill="#CBD5E1" stroke="#64748B" stroke-width="0.8" />
+                    <rect x="2" y="-4" width="46" height="4" fill="#94A3B8" />
+                    <!-- Arches over the water -->
+                    <path d="M 6 7 A 9 9 0 0 1 24 7 Z" fill="#1E293B" />
+                    <path d="M 28 7 A 9 9 0 0 1 46 7 Z" fill="#1E293B" />
+                  </g>
+
+                  <!-- Manicured Cypress / Pine Windbreak Rows framing the Fields -->
+                  <g class="scenery-tree scenery-pine-tree" transform="translate(445, 225)">
+                    <rect x="-1" y="0" width="2" height="7" fill="#78350F" />
+                    <polygon points="0,-18 -6,0 6,0" fill="#065F46" />
+                    <polygon points="0,-13 -5,-2 5,-2" fill="#047857" />
+                  </g>
+                  <g class="scenery-tree scenery-pine-tree" transform="translate(460, 230)">
+                    <rect x="-1" y="0" width="2" height="6" fill="#78350F" />
+                    <polygon points="0,-16 -5,0 5,0" fill="#047857" />
+                  </g>
+                  <g class="scenery-tree scenery-pine-tree" transform="translate(735, 275)">
+                    <rect x="-1" y="0" width="2" height="7" fill="#78350F" />
+                    <polygon points="0,-18 -6,0 6,0" fill="#065F46" />
+                  </g>
+                  <g class="scenery-tree scenery-pine-tree" transform="translate(750, 282)">
+                    <rect x="-1" y="0" width="2" height="6" fill="#78350F" />
+                    <polygon points="0,-15 -5,0 5,0" fill="#047857" />
                   </g>
                 </g>
 
-                <!-- 3. THE SEA & MARITIME PORT (Top-Right Zone: Node 4 / Global Export) -->
-                <g class="scenery-zone-sea" id="scenery-zone-sea">
-                  <!-- Ocean Waters Bay (Deep Blue & Teal Gradient) -->
+                <!-- F. ZONE 3: COASTLINE, HARBOR PORT & EXPANSIVE OCEAN (Right, x: 760 to 1200) -->
+                <g class="scenery-zone-ocean" id="scenery-zone-ocean">
+                  
+                  <!-- 1. VAST EXPANSIVE OCEAN BODY (Spans x: 770 to 1200, y: 105 to 500 - Full Canvas Depth!) -->
                   <path class="scenery-ocean-base"
-                    d="M 870 0 Q 940 35 1010 30 Q 1070 25 1200 45 L 1200 210 L 920 210 Q 880 140 870 0 Z"
-                    fill="url(#coastalSeaGrad)" />
+                    d="M 770 105 L 1200 105 L 1200 500 L 830 500 Q 780 420 790 330 Q 820 220 770 105 Z"
+                    fill="url(#deepOceanGrad)" />
 
-                  <!-- Coastal Shoreline / Harbor Quay Wall -->
-                  <path d="M 870 0 Q 940 35 1010 30 Q 1070 25 1200 45" 
-                    fill="none" stroke="#F1F5F9" stroke-width="6" stroke-linecap="round" opacity="0.9" />
-                  <path d="M 870 0 Q 940 35 1010 30 Q 1070 25 1200 45" 
-                    fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" />
+                  <!-- 2. Golden Sandy Shoreline Dunes (Natural Sweep from Hills to Beach) -->
+                  <path d="M 750 105 Q 800 220 770 330 Q 760 420 810 500 L 840 500 Q 790 420 800 330 Q 830 220 780 105 Z"
+                    fill="url(#coastalShoreGrad)" />
 
-                  <!-- Animated Undulating Ocean Waves & Water Shimmers -->
+                  <!-- Coastal White Surf Wash Foam along the sand edge -->
+                  <path class="scenery-surf-foam"
+                    d="M 775 105 Q 825 220 795 330 Q 785 420 835 500"
+                    fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="3.5" stroke-linecap="round" />
+
+                  <!-- Ocean Surface Sun/Sky Sheen Highlights -->
+                  <ellipse cx="1020" cy="135" rx="140" ry="20" fill="url(#oceanSurfaceShimmerGrad)" opacity="0.8" />
+                  <ellipse cx="1060" cy="215" rx="110" ry="16" fill="url(#oceanSurfaceShimmerGrad)" opacity="0.5" />
+
+                  <!-- 3. Layered Undulating Ocean Waves with Animated CSS -->
                   <g class="scenery-ocean-waves">
-                    <!-- Wave Layer 1 (Slow Deep Swell) -->
+                    <!-- Wave Layer 1 (Surface Coastal Swell at y: 135) -->
                     <path class="ocean-wave-path wave-path-1"
-                      d="M 920 50 Q 960 42 1000 50 T 1080 50 T 1160 50 T 1200 50"
-                      fill="none" stroke="rgba(255, 255, 255, 0.6)" stroke-width="2.2" stroke-linecap="round" />
-                    <!-- Wave Layer 2 (Mid Surface Ripple) -->
+                      d="M 830 135 Q 890 127 950 135 T 1070 135 T 1190 135"
+                      fill="none" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+                    <!-- Wave Layer 2 (Harbor Ripples at y: 175) -->
                     <path class="ocean-wave-path wave-path-2"
-                      d="M 940 85 Q 980 78 1020 85 T 1100 85 T 1180 85"
-                      fill="none" stroke="rgba(186, 230, 253, 0.7)" stroke-width="2.5" stroke-linecap="round" />
-                    <!-- Wave Layer 3 (Harbor Water Ripple) -->
+                      d="M 845 175 Q 905 167 965 175 T 1085 175 T 1200 175"
+                      fill="none" stroke="rgba(186, 230, 253, 0.8)" stroke-width="2.6" stroke-linecap="round" />
+                    <!-- Wave Layer 3 (Mid-Ocean Swell at y: 230) -->
                     <path class="ocean-wave-path wave-path-3"
-                      d="M 960 120 Q 1000 114 1040 120 T 1120 120 T 1200 120"
-                      fill="none" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2" stroke-linecap="round" />
-                    <!-- Wave Layer 4 (Lower Swell) -->
+                      d="M 835 230 Q 905 220 975 230 T 1115 230 T 1200 230"
+                      fill="none" stroke="rgba(255, 255, 255, 0.6)" stroke-width="2.2" stroke-linecap="round" />
+                    <!-- Wave Layer 4 (Lower Ocean Swell at y: 295) -->
                     <path class="ocean-wave-path wave-path-4"
-                      d="M 980 160 Q 1030 152 1080 160 T 1180 160"
-                      fill="none" stroke="rgba(125, 211, 252, 0.55)" stroke-width="2" stroke-linecap="round" />
+                      d="M 825 295 Q 895 285 965 295 T 1105 295 T 1200 295"
+                      fill="none" stroke="rgba(125, 211, 252, 0.65)" stroke-width="2.4" stroke-linecap="round" />
+                    <!-- Wave Layer 5 (Deep Oceanic Swell at y: 370) -->
+                    <path class="ocean-wave-path wave-path-1"
+                      d="M 835 370 Q 915 360 995 370 T 1155 370 T 1200 370"
+                      fill="none" stroke="rgba(56, 189, 248, 0.6)" stroke-width="2.2" stroke-linecap="round" />
+                    <!-- Wave Layer 6 (Abyssal Floor Wave at y: 445) -->
+                    <path class="ocean-wave-path wave-path-2"
+                      d="M 845 445 Q 925 435 1005 445 T 1165 445 T 1200 445"
+                      fill="none" stroke="rgba(186, 230, 253, 0.5)" stroke-width="2" stroke-linecap="round" />
                   </g>
 
-                  <!-- Animated Coastal Harbor Lighthouse (x: 965, y: 30) -->
-                  <g class="scenery-lighthouse" transform="translate(965, 30)">
-                    <!-- Rocky Island Base -->
-                    <path d="M -12 28 Q 0 22 14 26 Q 22 30 18 36 L -14 36 Z" fill="#475569" stroke="#334155" stroke-width="1" />
-                    <!-- Lighthouse Tower with Red Stripes -->
-                    <polygon points="-5,26 5,26 3,2 -3,2" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8" />
-                    <!-- Red Warning Band 1 -->
-                    <polygon points="-4.5,20 4.5,20 4,14 -4,14" fill="#EF4444" />
-                    <!-- Red Warning Band 2 -->
-                    <polygon points="-3.6,8 3.6,8 3.2,3 -3.2,3" fill="#EF4444" />
-                    <!-- Lantern Room / Glass Dome -->
-                    <rect x="-3" y="-3" width="6" height="5" fill="#FEF08A" stroke="#CA8A04" stroke-width="0.8" rx="0.5" />
-                    <path d="M -4 -3 Q 0 -7 4 -3 Z" fill="#0F172A" />
-                    <!-- Sweeping Lighthouse Light Beam Cone -->
-                    <g class="lighthouse-beam-rotator">
-                      <polygon points="0,-1 115,-45 115,40" fill="url(#lighthouseBeamGrad)" opacity="0.65" />
+                  <!-- 4. Majestic Coastal Headland Bluff & Historic Seaport Lighthouse (x: 945) -->
+                  <g class="scenery-headland-promontory" id="scenery-headland-promontory">
+                    
+                    <!-- Towering Granite Sea Cliff Bluff (Anchors the Lighthouse firmly from y: 44 down into Ocean at y: 114) -->
+                    <g class="cliff-monolith" transform="translate(945, 0)">
+                      <!-- Main Basalt & Granite Sea Bluff Face -->
+                      <path d="M -28 46 Q -4 42 28 45 Q 40 52 34 76 Q 38 92 26 108 Q 14 114 -2 112 Q -22 112 -36 102 Q -44 86 -34 68 Q -42 54 -28 46 Z" 
+                            fill="url(#headlandCliffGrad)" stroke="#0F172A" stroke-width="1.2" />
+                      
+                      <!-- Layered Geological Rock Strata Facets & Ledges -->
+                      <path d="M -32 66 Q -10 58 20 62 Q 30 70 24 82 L -26 80 Z" fill="#475569" opacity="0.65" />
+                      <path d="M -24 82 Q 2 74 24 78 Q 28 92 16 102 L -22 100 Z" fill="#1E293B" />
+                      <path d="M -16 53 Q 8 46 26 50" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1.2" fill="none" />
+                      <path d="M -28 74 Q -4 66 20 70" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1" fill="none" />
+                      <path d="M -18 94 Q 4 88 18 92" stroke="rgba(255, 255, 255, 0.25)" stroke-width="0.9" fill="none" />
+                      
+                      <!-- Coastal Cliff-Top Green Sea-Turf Plateau -->
+                      <path d="M -30 46 Q -4 40 28 43 Q 26 49 18 51 Q -4 48 -22 52 Q -30 50 -30 46 Z" 
+                            fill="url(#cliffTopGrassGrad)" />
+                      
+                      <!-- Crashing Ocean Surf Wash & Sea Foam Splash at Base of Cliff -->
+                      <path class="cliff-surf-foam" 
+                            d="M -40 106 Q -22 98 -2 108 Q 18 100 36 108" 
+                            fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="2.6" stroke-linecap="round" />
+                      <path class="cliff-surf-spray" 
+                            d="M -36 111 Q -18 106 6 113 Q 24 108 38 112" 
+                            fill="none" stroke="rgba(186, 230, 253, 0.75)" stroke-width="1.8" stroke-linecap="round" />
+
+                      <!-- Traditional Stone Lightkeeper's Watch Station with Warm Amber Window -->
+                      <g class="lightkeeper-cottage" transform="translate(-26, 44)">
+                        <polygon points="0,0 14,-5 14,8 0,8" fill="#64748B" stroke="#334155" stroke-width="0.8" />
+                        <polygon points="0,0 7,-7 14,-5" fill="#EA580C" />
+                        <rect x="3" y="1" width="4" height="4" fill="#FEF08A" stroke="#CA8A04" stroke-width="0.5" />
+                        <rect x="8" y="2" width="3" height="6" fill="#1E293B" />
+                      </g>
                     </g>
+
+                    <!-- Seaport Lighthouse Tower (Sitting securely atop the grassy cliff plateau at x: 945, y: 20) -->
+                    <g class="scenery-lighthouse" transform="translate(945, 20)">
+                      <!-- Granite Pedestal Base -->
+                      <rect x="-8" y="24" width="16" height="5" fill="#334155" stroke="#1E293B" stroke-width="0.8" rx="0.5" />
+                      <!-- White Tower with Red Warning Bands -->
+                      <polygon points="-6,24 6,24 3.5,0 -3.5,0" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.8" />
+                      <!-- Red Warning Bands -->
+                      <polygon points="-5.5,19 5.5,19 4.8,13 -4.8,13" fill="#EF4444" />
+                      <polygon points="-4.2,8 4.2,8 3.6,3 -3.6,3" fill="#EF4444" />
+                      <!-- Service Balcony Railing -->
+                      <line x1="-5.5" y1="0" x2="5.5" y2="0" stroke="#0F172A" stroke-width="1.2" />
+                      <line x1="-5.5" y1="-2" x2="5.5" y2="-2" stroke="#0F172A" stroke-width="0.8" />
+                      <!-- Lantern Room / Glass Dome -->
+                      <rect x="-3.5" y="-6" width="7" height="6" fill="#FEF08A" stroke="#CA8A04" stroke-width="0.8" rx="0.5" />
+                      <path d="M -4.5 -6 Q 0 -11 4.5 -6 Z" fill="#0F172A" />
+                      <circle cx="0" cy="-3" r="1.5" fill="#FFFFFF" />
+                      <!-- Radial Beacon Halo -->
+                      <circle cx="0" cy="-3" r="14" fill="url(#mountainSunGlowGrad)" opacity="0.45" />
+                      <!-- Sweeping Lighthouse Searchlight Beam Cone -->
+                      <g class="lighthouse-beam-rotator">
+                        <polygon points="0,-3 145,-55 145,50" fill="url(#lighthouseBeamGrad)" opacity="0.85" />
+                      </g>
+                    </g>
+
+                    <!-- Channel Navigation Buoy with Flashing Nautical Strobe (x: 1008, y: 118) -->
+                    <g class="scenery-nav-buoy" transform="translate(1008, 118)">
+                      <!-- Water Ripple Ring -->
+                      <ellipse cx="0" cy="4" rx="9" ry="2.8" fill="none" stroke="rgba(255, 255, 255, 0.65)" stroke-width="0.8" />
+                      <!-- Buoy Conical Hull -->
+                      <polygon points="-5,4 5,4 3,-5 -3,-5" fill="#10B981" stroke="#047857" stroke-width="0.8" />
+                      <line x1="0" y1="-5" x2="0" y2="-12" stroke="#334155" stroke-width="1" />
+                      <!-- Flashing Beacon Light -->
+                      <circle class="buoy-strobe" cx="0" cy="-12" r="2.4" fill="#FDE047" />
+                    </g>
+
+                    <!-- Container Pier Wharf Stacks near the Crane (x: 840, y: 94) -->
+                    <g class="harbor-quay-stacks" transform="translate(840, 94)">
+                      <!-- Concrete Quay Edge -->
+                      <rect x="-8" y="8" width="56" height="5" fill="#475569" stroke="#1E293B" stroke-width="0.6" rx="0.5" />
+                      <!-- Stacked Export Containers -->
+                      <rect x="-4" y="2" width="14" height="6" fill="#1D4ED8" stroke="#1E40AF" stroke-width="0.5" rx="0.5" />
+                      <rect x="-4" y="-4" width="14" height="6" fill="#10B981" stroke="#059669" stroke-width="0.5" rx="0.5" />
+                      <rect x="12" y="2" width="14" height="6" fill="#F59E0B" stroke="#D97706" stroke-width="0.5" rx="0.5" />
+                      <rect x="12" y="-4" width="14" height="6" fill="#0284C7" stroke="#0369A1" stroke-width="0.5" rx="0.5" />
+                      <rect x="28" y="2" width="14" height="6" fill="#EF4444" stroke="#DC2626" stroke-width="0.5" rx="0.5" />
+                    </g>
+
                   </g>
 
-                  <!-- Floating Maritime Navigation Buoy with Blinking Strobe -->
-                  <g class="scenery-buoy" transform="translate(1030, 80)">
-                    <!-- Water Ripple -->
-                    <ellipse cx="0" cy="5" rx="7" ry="2.2" fill="none" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1" />
-                    <!-- Buoy Float Body -->
-                    <path d="M -4 5 L 4 5 L 2.5 -2 L -2.5 -2 Z" fill="#DC2626" />
-                    <rect x="-1" y="-6" width="2" height="4" fill="#0F172A" />
-                    <!-- Blinking Beacon Light -->
-                    <circle class="buoy-strobe" cx="0" cy="-7" r="2" fill="#FDE047" />
+                  <!-- 5. Modern Container Harbor Gantry Crane (x: 865, y: 70) -->
+                  <g class="scenery-port-crane" transform="translate(865, 70)">
+                    <rect x="-8" y="28" width="45" height="6" fill="#64748B" rx="1" />
+                    <!-- Crane Tower Legs -->
+                    <line x1="0" y1="28" x2="6" y2="4" stroke="#F59E0B" stroke-width="2" />
+                    <line x1="16" y1="28" x2="10" y2="4" stroke="#F59E0B" stroke-width="2" />
+                    <line x1="0" y1="18" x2="16" y2="18" stroke="#D97706" stroke-width="1.2" />
+                    <!-- Horizontal Boom Jib -->
+                    <rect x="-4" y="0" width="36" height="4" fill="#0284C7" rx="0.5" />
+                    <!-- Hoisted Container (Emerald Green) -->
+                    <line x1="20" y1="4" x2="20" y2="15" stroke="#94A3B8" stroke-width="0.8" />
+                    <rect x="14" y="15" width="12" height="6" fill="#10B981" stroke="#059669" stroke-width="0.6" rx="0.5" />
                   </g>
 
-                  <!-- Animated Cargo Container Vessel / Ocean Liner (Bobbing on the Sea!) -->
-                  <g class="scenery-cargo-ship" transform="translate(1085, 58)">
-                    <!-- Ship Shadow / Water Reflection -->
-                    <ellipse cx="26" cy="18" rx="34" ry="5" fill="rgba(3, 105, 161, 0.35)" />
-                    <!-- Main Hull (Navy with Red Waterline) -->
-                    <path d="M -6 14 L 56 14 Q 68 14 74 6 L -10 6 Q -8 11 -6 14 Z" fill="#DC2626" />
-                    <path d="M -10 6 L 74 6 L 68 0 L -12 0 Z" fill="#0F172A" stroke="#1E293B" stroke-width="0.8" />
-                    <!-- White Navigation Bridge / Superstructure -->
-                    <rect x="42" y="-14" width="16" height="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="0.8" rx="1" />
-                    <rect x="44" y="-12" width="12" height="4" fill="#38BDF8" rx="0.5" />
-                    <rect x="48" y="-18" width="4" height="4" fill="#FFFFFF" />
-                    <line x1="50" y1="-18" x2="50" y2="-23" stroke="#94A3B8" stroke-width="1" />
-                    <circle cx="50" cy="-23" r="1.5" fill="#F59E0B" />
+                  <!-- 6. Grand Ocean Container Liner (Shipyon Global Export Vessel Bobbing at Sea!) -->
+                  <g class="scenery-cargo-ship" transform="translate(1075, 55)">
+                    <!-- Water Reflection -->
+                    <ellipse cx="30" cy="20" rx="38" ry="6" fill="rgba(3, 105, 161, 0.4)" />
+                    <!-- Red Underwater Hull -->
+                    <path d="M -8 16 L 62 16 Q 74 16 82 7 L -12 7 Q -10 13 -8 16 Z" fill="#DC2626" />
+                    <!-- Navy Main Hull Deck -->
+                    <path d="M -12 7 L 82 7 L 76 0 L -14 0 Z" fill="#0F172A" stroke="#1E293B" stroke-width="0.8" />
+                    <!-- Navigation Superstructure & Bridge (White) -->
+                    <rect x="46" y="-16" width="18" height="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="0.8" rx="1" />
+                    <rect x="48" y="-14" width="14" height="5" fill="#38BDF8" rx="0.5" />
+                    <rect x="52" y="-21" width="5" height="5" fill="#FFFFFF" />
+                    <line x1="55" y1="-21" x2="55" y2="-27" stroke="#94A3B8" stroke-width="1.2" />
+                    <circle cx="55" cy="-27" r="1.6" fill="#F59E0B" />
                     <!-- Exhaust Funnel with Shipyon Green Stripe -->
-                    <rect x="36" y="-12" width="5" height="12" fill="#0F172A" />
-                    <rect x="36" y="-9" width="5" height="3" fill="#10B981" />
-
-                    <!-- Multicolored Export Container Stacks on Deck -->
-                    <!-- Stack 1 (Emerald Green - Agro/Spices) -->
-                    <rect x="-6" y="-7" width="13" height="7" rx="0.8" fill="#059669" stroke="#047857" stroke-width="0.6" />
-                    <rect x="-6" y="-14" width="13" height="7" rx="0.8" fill="#10B981" stroke="#059669" stroke-width="0.6" />
-                    <!-- Stack 2 (Marine Blue - Cold Chain) -->
-                    <rect x="9" y="-7" width="13" height="7" rx="0.8" fill="#1D4ED8" stroke="#1E40AF" stroke-width="0.6" />
-                    <rect x="9" y="-14" width="13" height="7" rx="0.8" fill="#2563EB" stroke="#1D4ED8" stroke-width="0.6" />
-                    <!-- Stack 3 (Gold / Ochre - Commercial Freight) -->
-                    <rect x="24" y="-7" width="13" height="7" rx="0.8" fill="#D97706" stroke="#B45309" stroke-width="0.6" />
-                    <rect x="24" y="-14" width="13" height="7" rx="0.8" fill="#F59E0B" stroke="#D97706" stroke-width="0.6" />
-
-                    <!-- Ship Bow Wake Foam (Animated) -->
-                    <path class="ship-wake-foam" d="M 74 6 Q 84 9 92 12" fill="none" stroke="rgba(255, 255, 255, 0.75)" stroke-width="1.6" stroke-linecap="round" />
+                    <rect x="40" y="-14" width="5" height="14" fill="#0F172A" />
+                    <rect x="40" y="-11" width="5" height="3" fill="#10B981" />
+                    <!-- Colorful Export Container Stacks on Cargo Deck -->
+                    <rect x="-8" y="-8" width="14" height="8" rx="0.8" fill="#059669" stroke="#047857" stroke-width="0.6" />
+                    <rect x="-8" y="-16" width="14" height="8" rx="0.8" fill="#10B981" stroke="#059669" stroke-width="0.6" />
+                    <rect x="9" y="-8" width="14" height="8" rx="0.8" fill="#1D4ED8" stroke="#1E40AF" stroke-width="0.6" />
+                    <rect x="9" y="-16" width="14" height="8" rx="0.8" fill="#2563EB" stroke="#1D4ED8" stroke-width="0.6" />
+                    <rect x="26" y="-8" width="14" height="8" rx="0.8" fill="#D97706" stroke="#B45309" stroke-width="0.6" />
+                    <rect x="26" y="-16" width="14" height="8" rx="0.8" fill="#F59E0B" stroke="#D97706" stroke-width="0.6" />
+                    <!-- Ship Animated Bow Wake Foam -->
+                    <path class="ship-wake-foam" d="M 82 7 Q 94 11 104 14" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1.8" stroke-linecap="round" />
                   </g>
 
-                  <!-- Small Tilting Sailboat near the Coast (x: 1148, y: 118) -->
-                  <g class="scenery-sailboat" transform="translate(1148, 118)">
-                    <!-- White Hull -->
-                    <path d="M -6 5 L 8 5 L 12 1 L -8 1 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.6" />
-                    <!-- Mast & Triangular Sails -->
-                    <line x1="1" y1="1" x2="1" y2="-16" stroke="#475569" stroke-width="1" />
-                    <polygon points="1,-15 1,-2 8,-2" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="0.6" />
-                    <polygon points="0,-13 0,-2 -6,-2" fill="#E0F2FE" opacity="0.9" />
+                  <!-- 7. Second Cargo Vessel Sailing in Lower Waters (x: 1040, y: 390) -->
+                  <g class="scenery-cargo-ship" transform="translate(1040, 390)" style="animation-delay: 1.8s; transform: scale(0.85);">
+                    <path d="M -6 12 L 48 12 Q 58 12 64 5 L -10 5 Q -8 10 -6 12 Z" fill="#DC2626" />
+                    <path d="M -10 5 L 64 5 L 59 0 L -12 0 Z" fill="#0F172A" />
+                    <rect x="36" y="-12" width="14" height="12" fill="#FFFFFF" rx="0.8" />
+                    <rect x="-6" y="-6" width="12" height="6" fill="#10B981" />
+                    <rect x="8" y="-6" width="12" height="6" fill="#2563EB" />
+                    <rect x="22" y="-6" width="12" height="6" fill="#F59E0B" />
+                    <path class="ship-wake-foam" d="M 64 5 Q 74 8 82 10" fill="none" stroke="rgba(255, 255, 255, 0.7)" stroke-width="1.5" stroke-linecap="round" />
                   </g>
 
-                  <!-- Graceful Gliding Coastal Seagulls in Sea Breeze -->
-                  <g class="scenery-seagull scenery-seagull-1" transform="translate(1015, 18)">
+                  <!-- 8. Tilting Sailboat near Coast (x: 955, y: 285) -->
+                  <g class="scenery-sailboat" transform="translate(955, 285)">
+                    <path d="M -7 6 L 9 6 L 14 1 L -9 1 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.6" />
+                    <line x1="2" y1="1" x2="2" y2="-18" stroke="#475569" stroke-width="1.2" />
+                    <polygon points="2,-17 2,-2 10,-2" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="0.6" />
+                    <polygon points="1,-15 1,-2 -7,-2" fill="#E0F2FE" opacity="0.9" />
+                  </g>
+
+                  <!-- 9. Floating Maritime Navigation Buoys with Blinking Strobes -->
+                  <g class="scenery-buoy" transform="translate(985, 195)">
+                    <ellipse cx="0" cy="5" rx="8" ry="2.5" fill="none" stroke="rgba(255, 255, 255, 0.65)" stroke-width="1.2" />
+                    <path d="M -4 5 L 4 5 L 2.5 -3 L -2.5 -3 Z" fill="#DC2626" />
+                    <circle class="buoy-strobe" cx="0" cy="-7" r="2.2" fill="#FDE047" />
+                  </g>
+                  <g class="scenery-buoy" transform="translate(1150, 420)">
+                    <ellipse cx="0" cy="5" rx="8" ry="2.5" fill="none" stroke="rgba(255, 255, 255, 0.65)" stroke-width="1.2" />
+                    <path d="M -4 5 L 4 5 L 2.5 -3 L -2.5 -3 Z" fill="#10B981" />
+                    <circle class="buoy-strobe" cx="0" cy="-7" r="2.2" fill="#34D399" style="animation-delay: 0.8s;" />
+                  </g>
+
+                  <!-- 10. Gliding Seagulls in Ocean Breeze -->
+                  <g class="scenery-seagull scenery-seagull-1" transform="translate(1015, 25)">
                     <path d="M -5 2 Q -2 -2 0 0 Q 2 -2 5 2" fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" />
                   </g>
-                  <g class="scenery-seagull scenery-seagull-2" transform="translate(1048, 12)">
+                  <g class="scenery-seagull scenery-seagull-2" transform="translate(1055, 16)">
                     <path d="M -4 1.5 Q -1.5 -1.5 0 0 Q 1.5 -1.5 4 1.5" fill="none" stroke="#F1F5F9" stroke-width="1.2" stroke-linecap="round" />
                   </g>
-                  <g class="scenery-seagull scenery-seagull-3" transform="translate(1115, 22)">
+                  <g class="scenery-seagull scenery-seagull-3" transform="translate(1125, 28)">
                     <path d="M -4 1.5 Q -1.5 -1.5 0 0 Q 1.5 -1.5 4 1.5" fill="none" stroke="#E2E8F0" stroke-width="1.2" stroke-linecap="round" />
                   </g>
-
                 </g>
 
               </g>
 
-              <!-- Inactive Background Guideline (Subtle dashed path showing full zigzag ahead) -->
+              <!-- Inactive Background Guideline (Subtle highway route guide ahead) -->
               <path class="road-path-blueprint"
                 d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120"
-                fill="none" stroke="rgba(35, 115, 244, 0.12)" stroke-width="32" stroke-linecap="round" />
+                fill="none" stroke="rgba(255, 255, 255, 0.18)" stroke-width="32" stroke-linecap="round" />
 
               <path class="road-path-blueprint-line"
                 d="M 145 380 C 265 380, 325 120, 445 120 C 565 120, 625 380, 745 380 C 865 380, 925 120, 1045 120"
-                fill="none" stroke="rgba(35, 115, 244, 0.35)" stroke-width="2" stroke-dasharray="8 8" />
+                fill="none" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2" stroke-dasharray="8 8" />
 
               <!-- Vertical Connector Lines connecting Nodes to their respective Boxes -->
               <!-- Node 1 (145, 380) up to Box 1 (145, 238) -->
-              <line id="connector-line-01" class="road-connector-line active" x1="145" y1="238" x2="145" y2="380" stroke="#14351B" stroke-width="2.5" stroke-dasharray="5 4" />
+              <line id="connector-line-01" class="road-connector-line active" x1="145" y1="238" x2="145" y2="380" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="5 4" />
               <!-- Node 2 (445, 120) down to Box 2 (445, 262) - Appears ONLY when truck reaches Node 2 -->
-              <line id="connector-line-02" class="road-connector-line" x1="445" y1="120" x2="445" y2="262" stroke="#15803D" stroke-width="2.5" stroke-dasharray="5 4" />
+              <line id="connector-line-02" class="road-connector-line" x1="445" y1="120" x2="445" y2="262" stroke="#10B981" stroke-width="2.5" stroke-dasharray="5 4" />
               <!-- Node 3 (745, 380) up to Box 3 (745, 238) - Appears ONLY when truck reaches Node 3 -->
-              <line id="connector-line-03" class="road-connector-line" x1="745" y1="238" x2="745" y2="380" stroke="#15803D" stroke-width="2.5" stroke-dasharray="5 4" />
+              <line id="connector-line-03" class="road-connector-line" x1="745" y1="238" x2="745" y2="380" stroke="#38BDF8" stroke-width="2.5" stroke-dasharray="5 4" />
               <!-- Node 4 (1045, 120) down to Box 4 (1045, 262) - Appears ONLY when truck reaches Node 4 -->
-              <line id="connector-line-04" class="road-connector-line" x1="1045" y1="120" x2="1045" y2="262" stroke="#15803D" stroke-width="2.5" stroke-dasharray="5 4" />
+              <line id="connector-line-04" class="road-connector-line" x1="1045" y1="120" x2="1045" y2="262" stroke="#34D399" stroke-width="2.5" stroke-dasharray="5 4" />
 
               <!-- Base Elevation Shadow Layer -->
               <path id="road-path-shadow" class="road-path-shadow" 
@@ -1438,11 +1909,7 @@
                   <h3 class="zbox-headline">Farm Direct Sourcing</h3>
 
                   <div class="zbox-media-preview">
-                    <img src="assets/shipyon-coconut.png" alt="Farm Sourcing" class="zbox-img" loading="lazy">
-                    <div class="zbox-img-tag">
-                      <span class="tag-live-dot"></span>
-                      <span>Pollachi &amp; Salem Core</span>
-                    </div>
+                    <img src="assets/stage-farm-sourcing.jpg" alt="Farm Sourcing" class="zbox-img" loading="lazy" decoding="async">
                   </div>
 
                   <p class="zbox-description">
@@ -1470,11 +1937,7 @@
                   <h3 class="zbox-headline">Sortex Grading &amp; Assays</h3>
 
                   <div class="zbox-media-preview">
-                    <img src="assets/shipyon-reefer-terminal.jpg" alt="Sortex Optical Grading" class="zbox-img" loading="lazy">
-                    <div class="zbox-img-tag">
-                      <span class="tag-live-dot"></span>
-                      <span>APEDA &amp; FDA Certified</span>
-                    </div>
+                    <img src="assets/stage-sortex-grading.jpg" alt="Sortex Optical Grading" class="zbox-img" loading="lazy" decoding="async">
                   </div>
 
                   <p class="zbox-description">
@@ -1502,11 +1965,7 @@
                   <h3 class="zbox-headline">Precision IoT Cold Chain</h3>
 
                   <div class="zbox-media-preview">
-                    <img src="assets/shipyon-dock-cranes.jpg" alt="Reefer Cold Chain" class="zbox-img" loading="lazy">
-                    <div class="zbox-img-tag">
-                      <span class="tag-live-dot"></span>
-                      <span>-20°C to +14°C Active</span>
-                    </div>
+                    <img src="assets/stage-cold-chain.jpg" alt="Reefer Cold Chain" class="zbox-img" loading="lazy" decoding="async">
                   </div>
 
                   <p class="zbox-description">
@@ -1534,11 +1993,7 @@
                   <h3 class="zbox-headline">Port Berths &amp; Liners</h3>
 
                   <div class="zbox-media-preview">
-                    <img src="assets/shipyon-sunset-containership.jpg" alt="Ocean Vessels" class="zbox-img" loading="lazy">
-                    <div class="zbox-img-tag">
-                      <span class="tag-live-dot"></span>
-                      <span>VOCPT &amp; ICTT Terminals</span>
-                    </div>
+                    <img src="assets/stage-port-liners.jpg" alt="Ocean Vessels" class="zbox-img" loading="lazy" decoding="async">
                   </div>
 
                   <p class="zbox-description">
@@ -1566,106 +2021,7 @@
       </div>
     </div>
   </section>
-  <!-- ==========================================================================
-       WHY CHOOSE US - SMALL EXECUTIVE SECTION
-       Compact, small footprint with golden "Connect to the World" accent
-       ========================================================================== -->
-  <section class="why-choose-compact-section" id="why-choose-us-section">
-    <div class="container">
-      
-      <!-- Compact Header -->
-      <div class="why-compact-header">
-        <div class="why-compact-badge">
-          <span class="why-gold-dot"></span>
-          <span>WHY CHOOSE US</span>
-        </div>
-        <h2 class="why-compact-title">
-          <span class="why-title-white">Why Choose Us &bull; </span><span class="why-title-gold">Connect to the World</span>
-        </h2>
-        <p class="why-compact-subtitle">
-          Direct farmgate origins, active reefer fleets, and priority seaport corridors delivering precision trade to 50+ sovereign markets.
-        </p>
-      </div>
 
-      <!-- 4 Compact Cards Row -->
-      <div class="why-compact-grid">
-        
-        <!-- 01 Origin Control -->
-        <div class="why-compact-card">
-          <div class="why-card-top">
-            <span class="why-card-index">01</span>
-            <span class="why-card-tag">SOURCING</span>
-          </div>
-          <h3 class="why-card-title">Origin Control</h3>
-          <p class="why-card-desc">
-            Direct contracts with 500+ verified growers &amp; Sortex laser optical cleaning.
-          </p>
-          <div class="why-card-pill">
-            <span class="why-pill-dot"></span>
-            <span>0 Intermediaries</span>
-          </div>
-        </div>
-
-        <!-- 02 Cold Chain -->
-        <div class="why-compact-card">
-          <div class="why-card-top">
-            <span class="why-card-index">02</span>
-            <span class="why-card-tag">COLD CHAIN</span>
-          </div>
-          <h3 class="why-card-title">Active Reefer Fleet</h3>
-          <p class="why-card-desc">
-            Continuous 2&deg;C&ndash;4&deg;C IoT GPS telematics from farm packhouse to vessel berth.
-          </p>
-          <div class="why-card-pill">
-            <span class="why-pill-dot"></span>
-            <span>&lt;24h Farm to Berth</span>
-          </div>
-        </div>
-
-        <!-- 03 Seaport Access -->
-        <div class="why-compact-card">
-          <div class="why-card-top">
-            <span class="why-card-index">03</span>
-            <span class="why-card-tag">PORTS</span>
-          </div>
-          <h3 class="why-card-title">Seaport Gateways</h3>
-          <p class="why-card-desc">
-            Priority berthing and automated customs at Cochin, Tuticorin &amp; Chennai.
-          </p>
-          <div class="why-card-pill">
-            <span class="why-pill-dot"></span>
-            <span>3 Direct Seaports</span>
-          </div>
-        </div>
-
-        <!-- 04 Global Compliance -->
-        <div class="why-compact-card">
-          <div class="why-card-top">
-            <span class="why-card-index">04</span>
-            <span class="why-card-tag">COMPLIANCE</span>
-          </div>
-          <h3 class="why-card-title">Institutional Trust</h3>
-          <p class="why-card-desc">
-            APEDA, US FDA, Global GAP, Halal &amp; 100% batch residue laboratory testing.
-          </p>
-          <div class="why-card-pill">
-            <span class="why-pill-dot"></span>
-            <span>50+ Global Gateways</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Compact CTA Row -->
-      <div class="why-compact-action-row">
-        <a href="contact.html" class="why-compact-cta-btn">
-          <span>Explore Trade Corridors</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-    </div>
-  </section>
 
   <!-- ==========================================================================
        WHAT WE DO BEST (OUR EXPERTISE)
@@ -1725,7 +2081,7 @@
           </div>
           <div class="footer-contact-item">
             <span class="icon"><svg class="svg-ico" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-            <span>trade@shipyon.com</span>
+            <a href="mailto:aicentre.nitt@gmail.com">aicentre.nitt@gmail.com</a>
           </div>
         </div>
 
@@ -1766,9 +2122,9 @@
           <div class="footer-social-wrap">
             <div class="social-title">Connect With Us</div>
             <div class="social-icons-row">
-              <a href="#" class="social-btn" aria-label="Facebook"><svg class="svg-ico" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C20.112 23.027 24 18.062 24 12.073z"/></svg></a>
-              <a href="#" class="social-btn" aria-label="Instagram"><svg class="svg-ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-              <a href="https://wa.me/919500690740" target="_blank" class="social-btn" aria-label="Whatsapp"><svg class="svg-ico" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg></a>
+              <a href="#" class="social-btn facebook" aria-label="Facebook" title="Shipyon on Facebook"><svg class="svg-ico" viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.52-.14-2.71-.14-2.77 0-4.79 1.69-4.79 4.88V9.5H7v4h3V22h4v-8.5z"/></svg></a>
+              <a href="#" class="social-btn instagram" aria-label="Instagram" title="Shipyon on Instagram"><svg class="svg-ico" viewBox="0 0 24 24" width="24" height="24" fill="#FFFFFF"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+              <a href="https://wa.me/919500690740" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp" aria-label="Whatsapp" title="Shipyon on WhatsApp"><svg class="svg-ico" viewBox="0 0 32 32" width="28" height="28"><path fill="#FFFFFF" d="M16 3C8.82 3 3 8.82 3 16c0 2.45.68 4.75 1.86 6.72L3 29l6.45-1.69c1.9 1.07 4.1 1.69 6.55 1.69 7.18 0 13-5.82 13-13S23.18 3 16 3z"/><path fill="#25D366" d="M22.05 19.34c-.33-.16-1.95-.96-2.25-1.07-.3-.11-.52-.16-.74.16-.22.33-.85 1.07-1.04 1.29-.19.22-.38.25-.71.08-.33-.16-1.39-.51-2.65-1.63-.98-.87-1.64-1.95-1.83-2.28-.19-.33-.02-.51.14-.67.15-.15.33-.38.49-.58.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.58-.08-.16-.74-1.79-1.02-2.45-.27-.64-.54-.55-.74-.56-.19-.01-.41-.01-.63-.01-.22 0-.58.08-.88.41-.3.33-1.15 1.12-1.15 2.74 0 1.62 1.18 3.18 1.34 3.4.16.22 2.32 3.54 5.62 4.97.79.34 1.4.54 1.88.69.79.25 1.51.22 2.07.13.63-.09 1.95-.8 2.22-1.56.27-.77.27-1.43.19-1.56-.08-.14-.3-.22-.63-.38z"/></svg></a>
             </div>
           </div>
         </div>
@@ -1803,11 +2159,11 @@
         <div class="form-group">
           <label class="form-label" for="quote-category">Trade Category</label>
           <select id="quote-category" class="form-select">
-            <option>Fresh Produce (Onions, Vegetables)</option>
-            <option>Spices & Plantation Crops (Cardamom, Chilly, Turmeric)</option>
-            <option>Fruits (Mangoes, Grapes, Pomegranates)</option>
-            <option>Processed & Value-Added Products (Moringa, Extracts)</option>
-            <option>Industrial & Commercial (Granite, Tiles, Textiles)</option>
+            <option>Agro Commodities &amp; Spices (Basmati Rice, Cardamom, Turmeric)</option>
+            <option>Processed Food (Aseptic Mango Pulp, Tomato Paste, IQF)</option>
+            <option>Seafood (Vannamei Shrimp, Squid, Yellowfin Tuna)</option>
+            <option>Textile &amp; Commercial Fabrics (Cotton, Denim, Knits)</option>
+            <option>Engineering &amp; Industrial Castings (Ductile Iron, Valves, Steel)</option>
           </select>
         </div>
         <div class="form-group">
@@ -1821,9 +2177,34 @@
 
 
 
+  <!-- Persistent Floating WhatsApp Action Widget -->
+  <aside class="shipyon-whatsapp-floating" id="shipyon-whatsapp-fab" aria-label="WhatsApp Trade Assistance">
+    <a href="https://wa.me/919500690740?text=Hello%20Shipyon%2C%20I%20would%20like%20to%20inquire%20about%20international%20trade%20and%20commodities." 
+       class="wa-float-btn" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Chat with Shipyon on WhatsApp (+91 95006 90740)"
+       title="Chat with Shipyon on WhatsApp">
+      <span class="wa-pulse-aura" aria-hidden="true"></span>
+      <span class="wa-pulse-aura secondary" aria-hidden="true"></span>
+      <span class="wa-tooltip-pill" aria-hidden="true">
+        <span class="wa-tooltip-title">Chat with us</span>
+        <span class="wa-tooltip-sub">24/7 Trade Desk</span>
+      </span>
+      <span class="wa-icon-sphere">
+        <svg class="wa-svg-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M16 2.667C8.636 2.667 2.667 8.636 2.667 16c0 2.485.681 4.887 1.973 6.985L2.8 28.533a1.067 1.067 0 0 0 1.306 1.307l5.694-1.802A13.275 13.275 0 0 0 16 29.333c7.364 0 13.333-5.969 13.333-13.333S23.364 2.667 16 2.667zm7.534 18.066c-.314.883-1.558 1.62-2.158 1.722-.572.096-1.314.137-2.12-.12a14.77 14.77 0 0 1-5.46-3.486 15.65 15.65 0 0 1-3.626-5.36c-.4-.9-.044-1.385.204-1.8.225-.375.498-.44.743-.44.246 0 .493.003.71.013.23.01.537-.087.84.64.315.753 1.077 2.628 1.173 2.822.095.195.158.423.03.676-.126.253-.19.41-.378.63-.19.223-.4.498-.57.668-.19.19-.388.397-.167.776.222.38 1.025 1.69 2.215 2.748 1.533 1.363 2.828 1.786 3.23 1.986.402.2.639.167.876-.104.237-.272 1.016-1.186 1.288-1.593.272-.407.544-.339.914-.203.37.136 2.348 1.108 2.75 1.31.402.203.67.305.768.474.098.17.098.983-.216 1.867z" fill="white"/>
+        </svg>
+        <span class="wa-status-badge" aria-hidden="true"></span>
+      </span>
+    </a>
+  </aside>
+
   <!-- 3D Realistic Globe Dependencies -->
   <script src="three.min.js"></script>
   <script src="OrbitControls.js"></script>
+  <script src="world_land_geojson.js"></script>
+  <script src="trade_countries_geojson.js"></script>
   <script src="globe3d.js"></script>
   <script src="script.js"></script>
   <!-- Interactive WebGL Trade Flow Shader Engine -->
@@ -1921,27 +2302,63 @@
     const uMouse = gl.getUniformLocation(prog, 'u_mouse');
 
     let mouse = { x: canvas.width * 0.65, y: canvas.height * 0.45 };
-    const heroEl = document.getElementById('hero-section') || window;
+    const heroEl = document.getElementById('hero-section') || canvas.parentElement || window;
     
+    let canvasRect = null;
+    function updateCanvasRect() {
+      canvasRect = canvas.getBoundingClientRect();
+    }
+    window.addEventListener('resize', updateCanvasRect, { passive: true });
+    updateCanvasRect();
+
+    let isHeroVisible = true;
+    let shaderRafId = null;
+
     heroEl.addEventListener('mousemove', (event) => {
-      const rect = canvas.getBoundingClientRect();
-      if (rect.width && rect.height) {
-        const nx = (event.clientX - rect.left) / rect.width;
-        const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      if (!canvasRect || !isHeroVisible) return;
+      if (canvasRect.width && canvasRect.height) {
+        const nx = (event.clientX - canvasRect.left) / canvasRect.width;
+        const ny = 1.0 - (event.clientY - canvasRect.top) / canvasRect.height;
         mouse.x = nx * canvas.width;
         mouse.y = ny * canvas.height;
       }
-    });
+    }, { passive: true });
 
     function render(t) {
+      if (!isHeroVisible) {
+        shaderRafId = null;
+        return;
+      }
       gl.viewport(0, 0, canvas.width, canvas.height);
       if (uTime) gl.uniform1f(uTime, t * 0.001);
       if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
       if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      requestAnimationFrame(render);
+      shaderRafId = requestAnimationFrame(render);
     }
-    requestAnimationFrame(render);
+
+    if ('IntersectionObserver' in window) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const wasVisible = isHeroVisible;
+          isHeroVisible = entry.isIntersecting;
+          if (isHeroVisible && !wasVisible) {
+            updateCanvasRect();
+            if (!shaderRafId) {
+              shaderRafId = requestAnimationFrame(render);
+            }
+          } else if (!isHeroVisible && wasVisible) {
+            if (shaderRafId) {
+              cancelAnimationFrame(shaderRafId);
+              shaderRafId = null;
+            }
+          }
+        });
+      }, { rootMargin: '100px 0px 100px 0px', threshold: 0.01 });
+      heroObserver.observe(heroEl);
+    } else {
+      shaderRafId = requestAnimationFrame(render);
+    }
   })();
   </script>
 </body>
