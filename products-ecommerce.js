@@ -184,7 +184,7 @@
 
   function scrollToSection(targetId) {
     if (!targetId || targetId === 'all') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'auto' });
       updateActiveNavPill('all');
       return;
     }
@@ -196,7 +196,7 @@
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: 'auto'
       });
       updateActiveNavPill(targetId);
     }
@@ -723,7 +723,7 @@
         const grid = section.querySelector('.ecom-products-grid');
         if (grid) {
           const scrollAmount = direction === 'next' ? 340 : -340;
-          grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          grid.scrollBy({ left: scrollAmount, behavior: 'auto' });
         }
       });
     });

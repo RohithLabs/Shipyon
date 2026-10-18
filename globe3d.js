@@ -483,45 +483,59 @@
     earthGroup.add(globeMesh);
 
     // Asynchronously upgrade with 4K NASA Blue Marble Earth Texture
-    const textureLoader = new THREE.TextureLoader();
-    textureLoader.load('assets/earth-blue-marble.jpg', (tex) => {
-      if (tex && globeMesh) {
-        if (THREE.sRGBEncoding) tex.encoding = THREE.sRGBEncoding;
-        tex.anisotropy = 8;
-        globeMesh.material.map = tex;
-        globeMesh.material.needsUpdate = true;
-        if (renderer) renderer.render(scene, camera);
-      }
-    });
+    try {
+      const textureLoader = new THREE.TextureLoader();
+      textureLoader.crossOrigin = 'anonymous';
 
-    // Asynchronously add ocean specular reflection map (water reflects sunlight, continents stay matte)
-    textureLoader.load('assets/earth_specular_2048.jpg', (specTex) => {
-      if (specTex && globeMesh) {
-        globeMesh.material.specularMap = specTex;
-        globeMesh.material.specular = new THREE.Color(0x1E40AF);
-        globeMesh.material.shininess = 16;
-        globeMesh.material.needsUpdate = true;
-        if (renderer) renderer.render(scene, camera);
-      }
-    });
+      textureLoader.load('assets/earth-blue-marble.jpg', (tex) => {
+        try {
+          if (tex && globeMesh) {
+            if (THREE.sRGBEncoding) tex.encoding = THREE.sRGBEncoding;
+            tex.anisotropy = 8;
+            globeMesh.material.map = tex;
+            globeMesh.material.needsUpdate = true;
+            if (renderer && scene && camera) renderer.render(scene, camera);
+          }
+        } catch (e) {}
+      }, undefined, () => {
+        // Procedural Earth texture remains active
+      });
 
-    // Add delicate translucent rotating cloud layer
-    textureLoader.load('assets/earth_clouds_1024.png', (cloudsTex) => {
-      if (cloudsTex && earthGroup) {
-        if (THREE.sRGBEncoding) cloudsTex.encoding = THREE.sRGBEncoding;
-        const cloudsGeo = new THREE.SphereGeometry(GLOBE_RADIUS * 1.005, 64, 64);
-        const cloudsMat = new THREE.MeshPhongMaterial({
-          map: cloudsTex,
-          transparent: true,
-          opacity: 0.22,
-          blending: THREE.AdditiveBlending,
-          depthWrite: false
-        });
-        cloudsMesh = new THREE.Mesh(cloudsGeo, cloudsMat);
-        earthGroup.add(cloudsMesh);
-        if (renderer) renderer.render(scene, camera);
-      }
-    });
+      // Asynchronously add ocean specular reflection map
+      textureLoader.load('assets/earth_specular_2048.jpg', (specTex) => {
+        try {
+          if (specTex && globeMesh) {
+            globeMesh.material.specularMap = specTex;
+            globeMesh.material.specular = new THREE.Color(0x1E40AF);
+            globeMesh.material.shininess = 16;
+            globeMesh.material.needsUpdate = true;
+            if (renderer && scene && camera) renderer.render(scene, camera);
+          }
+        } catch (e) {}
+      }, undefined, () => {});
+
+      // Add delicate translucent rotating cloud layer
+      textureLoader.load('assets/earth_clouds_1024.png', (cloudsTex) => {
+        try {
+          if (cloudsTex && earthGroup) {
+            if (THREE.sRGBEncoding) cloudsTex.encoding = THREE.sRGBEncoding;
+            const cloudsGeo = new THREE.SphereGeometry(GLOBE_RADIUS * 1.005, 64, 64);
+            const cloudsMat = new THREE.MeshPhongMaterial({
+              map: cloudsTex,
+              transparent: true,
+              opacity: 0.22,
+              blending: THREE.AdditiveBlending,
+              depthWrite: false
+            });
+            cloudsMesh = new THREE.Mesh(cloudsGeo, cloudsMat);
+            earthGroup.add(cloudsMesh);
+            if (renderer && scene && camera) renderer.render(scene, camera);
+          }
+        } catch (e) {}
+      }, undefined, () => {});
+    } catch (e) {
+      console.warn('Three.js texture loader fallback:', e);
+    }
 
     // Atmospheric Rim Glow (Authentic Earth Blue Rayleigh Scattering)
     const atmosGeo = new THREE.SphereGeometry(GLOBE_RADIUS * 1.022, 64, 64);
@@ -570,20 +584,26 @@
     // Initial USA selection
     selectDestination('USA', false);
 
+    // Render initial static frame immediately so canvas is never blank
+    if (renderer && scene && camera) {
+      try { renderer.render(scene, camera); } catch (e) {}
+    }
+
     // Start Animation Loop
     lastSwitchTime = performance.now();
+    isGlobeVisible = true;
     animateWebGL();
     setupGlobeVisibilityObserver(container);
   }
 
   function setupGlobeVisibilityObserver(containerTarget) {
-    if ('IntersectionObserver' in window && containerTarget) {
+    const target = document.getElementById('global-trade-map') || containerTarget;
+    if ('IntersectionObserver' in window && target) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          const wasVisible = isGlobeVisible;
-          isGlobeVisible = entry.isIntersecting;
-          if (isGlobeVisible && !wasVisible) {
-            lastSwitchTime = performance.now();
+          if (entry.isIntersecting) {
+            isGlobeVisible = true;
+            onWindowResize();
             if (!animFrameId) {
               if (activeEngineMode === 'webgl') {
                 animFrameId = requestAnimationFrame(animateWebGL);
@@ -591,15 +611,10 @@
                 animFrameId = requestAnimationFrame(animateCanvas2D);
               }
             }
-          } else if (!isGlobeVisible && wasVisible) {
-            if (animFrameId) {
-              cancelAnimationFrame(animFrameId);
-              animFrameId = null;
-            }
           }
         });
-      }, { rootMargin: '120px 0px 120px 0px', threshold: 0.01 });
-      observer.observe(containerTarget);
+      }, { rootMargin: '600px 0px 600px 0px', threshold: 0.001 });
+      observer.observe(target);
     }
   }
 
@@ -1048,7 +1063,11 @@
     updateOverlayPositions();
 
     if (renderer && scene && camera) {
-      renderer.render(scene, camera);
+      try {
+        renderer.render(scene, camera);
+      } catch (err) {
+        console.warn('WebGL render error caught:', err);
+      }
     }
   }
 

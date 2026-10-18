@@ -3,3 +3,5 @@ scratch/
 .gemini/
 *.log
 .DS_Store
+assets/temp_check_*
+assets/*.mp4
